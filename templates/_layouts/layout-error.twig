@@ -1,0 +1,41 @@
+{% extends "_boilerplate/_layouts/layout-base.twig" %}
+
+{# >>> Render favicons #}
+{% block blockHeadFavicons %}
+  {{ include('_layouts/_partials/favicons/favicons-default.twig', {}, withContext = true) }}
+{% endblock blockHeadFavicons %}
+
+{# >>> Render block head fonts #}
+{% block blockHeadFonts %}
+  {{ include('_layouts/_partials/fonts/fonts-default-preloading.twig', {}, withContext = true) }}
+{% endblock blockHeadFonts %}
+
+{# >>> Render block app body #}
+{% block blockAppBody %}
+  <div id="appWrapper" class="">
+
+    {# >>> Render app header #}
+    {{ include('_components/header/header.twig', {}, withContext = false) }}
+
+    <main id="appContent">
+      {# >>> Render block app content #}
+      {% block blockAppContent %}
+        <section>
+          <div class="container mx-auto py-8">
+            <div class="text-center p-8 mb-8">
+              <h1 class="font-mono italic font-bold text-5xl pt-4">
+                {{ entry.errorHeadline ?? 'Error' }}
+              </h1>
+              <p class="font-sans font-light text-xl pt-4">
+                {{ (entry.errorText ?? 'An error has occurred.') |nl2br }}
+              </p>
+            </div>
+          </div>
+        </section>
+      {% endblock %}
+    </main>
+
+    {# >>> Render app fooeter #}
+    {{ include('_components/footer/footer.twig', {}, withContext = false) }}
+  </div>
+{% endblock blockAppBody %}

@@ -1,0 +1,91 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-cardNews',
+    variantDirection: 'col',
+    image: null,
+    aspectRatio: 'aspect-landscape',
+    title: null,
+    text: null,
+    linkUrl: null,
+    linkText: null,
+    lazy: true,
+  },
+  classes: {
+    root: 'rounded-lg overflow-hidden border group',
+    custom: '',
+  },
+  variants: {
+    direction: {
+      col: {
+        root: 'flex flex-col',
+        image: '',
+        body: 'px-4 md:px-8 py-4 md:py-8',
+        button: 'mt-4 md:mt-8',
+      },
+      row: {
+        root: 'flex flex-col md:grid md:grid-cols-3',
+        image: 'md:h-full md:col-span-1',
+        body: 'px-4 md:px-8 py-4 md:py-8 md:col-span-2',
+        button: 'mt-4 md:mt-8',
+      }
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# Modul #}
+{% if props.data.image and props.data.title and props.data.linkUrl %}
+  <a href="{{ props.data.linkUrl }}"
+     class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.direction[props.data.variantDirection].root }} {{ props.classes.custom }}">
+    <div class="{{ props.variants.direction[props.data.variantDirection].image }}">
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: props.data.image ??? null,
+          aspectRatio: props.data.aspectRatio ??? null,
+          objectFit: 'cover',
+          renderPlainImage: true,
+          lazy: props.data.lazy,
+        }
+      }, withContext = false) }}
+    </div>
+    <div class="{{ props.variants.direction[props.data.variantDirection].body }}">
+      {# >>> Render headline #}
+      {{ include('_components/text/headline.twig', {
+        data: {
+          text: props.data.title ??? null,
+        }
+      }, withContext = false) }}
+
+      {# >>> Render text #}
+      {% if props.data.text ??? null %}
+        <p>
+          {{ include('_components/text/text.twig', {
+            data: {
+              richText: false,
+              text: props.data.text ??? null,
+            }
+          }, withContext = false) }}
+        </p>
+        {# >>> Render button #}
+        {{ include('_components/button/button.twig', {
+          data: {
+            variantStyle: 'primary',
+            variantSize: 'md',
+            iconSize: 'sm',
+            text: 'Read more',
+          },
+          classes: {
+            custom: props.variants.direction[props.data.variantDirection].button
+          }
+        }, withContext = false) }}
+      {% endif %}
+    </div>
+  </a>
+{% endif %}

@@ -1,0 +1,78 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-tabs',
+    variantPosition: 'top',
+    activeTab: 1,
+    numberOfTabs: null,
+  },
+  classes: {
+    root: 'grid grid-cols-6',
+    custom: '',
+  },
+  variants: {
+    position: {
+      top: {
+        nav: 'col-span-6',
+        ul: 'flex flex-col sm:inline-flex sm:flex-row p-0.5 rounded-t-md bg-gray-100',
+        li: 'col-span-1 sm:col-auto',
+        button: 'text-xs font-bold px-4 py-2 w-full text-left sm:w-auto rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
+        buttonActive: 'bg-white  shadow-sm',
+        contentHolder: 'col-span-6 p-4 bg-gray-100',
+        content: '',
+      },
+      left: {
+        nav: 'col-span-6 sm:col-span-2 xl:col-span-1',
+        ul: 'flex flex-col p-0.5 rounded-t-md sm:rounded-r-none sm:rounded-l-md bg-gray-100',
+        li: '',
+        button: 'text-xs font-bold px-4 py-2 w-full text-left rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 transition-all',
+        buttonActive: 'bg-white shadow-sm',
+        contentHolder: 'col-span-6 sm:col-span-4 xl:col-span-5 p-4 bg-gray-100',
+        content: '',
+      },
+    }
+  }
+} %}
+
+
+  {# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: variants is defined and variants is iterable ? compDefaults.variants | merge(variants) : compDefaults.variants,
+} %}
+
+{# Component #}
+<div alpinejs x-cloak
+     x-data="{
+        activeTab: {{ props.data.activeTab ??? 1 }},
+      }"
+     class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+
+  <nav class="{{ props.variants.position[props.data.variantPosition].nav }}">
+    <ul class="{{ props.variants.position[props.data.variantPosition].ul }}">
+      {% for i in 1..props.data.numberOfTabs %}
+        {% if block('tab' ~ i) is defined %}
+          <li class="{{ props.variants.position[props.data.variantPosition].li }}">
+            <button @click="activeTab = {{ i }};"
+                    :class="[activeTab === {{ i }} ? '{{ props.variants.position[props.data.variantPosition].buttonActive }}' : '']"
+            class="{{ props.variants.position[props.data.variantPosition].button }}">
+              {{ block('tab' ~ i) }}
+            </button>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <div class="{{ props.variants.position[props.data.variantPosition].contentHolder }}">
+    {% for i in 1..props.data.numberOfTabs %}
+      {% if block('content' ~ i) is defined %}
+        <div :class="[activeTab === {{ i }} ? 'block is-active' : 'hidden']" class="{{ props.variants.position[props.data.variantPosition].content }}">
+          {{ block('content' ~ i) }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+

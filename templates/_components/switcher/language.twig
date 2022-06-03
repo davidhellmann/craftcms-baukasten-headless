@@ -1,0 +1,100 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-switcherLanguage',
+    variantPosition: 'bottom'
+  },
+  classes: {
+    root: 'relative text-sm',
+    custom: '',
+    button: 'flex items-center uppercase border border-gray-200 font-bold px-4 py-1 bg-gray-100 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600',
+    menu: 'flex flex-col absolute bg-gray-100 rounded-md left-0 w-48 shadow-sm border border-gray-200',
+    link: 'px-4 py-1 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600'
+  },
+  variants: {
+    position: {
+      top: {
+        icon: 'chevron-up-circle',
+        menu: 'bottom-10',
+      },
+      bottom: {
+        icon: 'chevron-down-circle',
+        menu: 'top-10',
+      }
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+  {# http://craftsnippets.com/articles/universal-language-switcher-for-craft-cms #}
+
+  {# logic #}
+  {% set currentElement = craft.app.urlManager.matchedElement %}
+  {% set sites = craft.app.getSites().getGroupById(currentSite.groupId).getSites() %}
+  {% set switcherLinks = [] %}
+
+
+  {% for site in sites |filter(site => site.baseUrl is not empty) %}
+
+    {% set title = craft.app.i18n.getLocaleById(site.language).displayName %}
+    {% set url = site.getBaseUrl() %}
+    {% if currentElement %}
+      {% set otherLocaleElement = craft.app.getElements().getElementById(currentElement.id, currentElement.className(), site.id) %}
+      {% if otherLocaleElement and otherLocaleElement.enabledForSite %}
+        {% set url = otherLocaleElement.url %}
+      {% endif %}
+    {% endif %}
+
+    {% set switcherLinks = switcherLinks|merge([{
+      url: url,
+      title: title,
+      countryCode: site.language|split('-')|last,
+      current: site.id == currentSite.id ? true : false,
+      language: site.language,
+    }]) %}
+
+  {% endfor %}
+
+
+  {% if switcherLinks|length > 1 %}
+    <div alpinejs  x-data="{
+        label: '{{ switcherLinks | filter(x => x.current)[0].countryCode }}',
+        selectOpen: false
+      }"
+         class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+      <button
+        aria-haspopup="true"
+        @click="selectOpen = !selectOpen;"
+        @click.away="selectOpen = false"
+        @keydown.escape="selectOpen = false"
+      class="{{ props.classes.button }}">
+        <span x-text="label"></span>
+        {{ include('_components/icon/icon.twig', {
+          data: {
+            icon: 'icons/filled/' ~ props.variants.position[props.data.variantPosition].icon,
+            variantSize: 'sm',
+          },
+          classes: {
+            custom: 'ml-2'
+          }
+        }, withContext = false) }}
+      </button>
+
+      <div x-cloak x-show="selectOpen" :aria-expanded="selectOpen"
+      class="{{ props.classes.menu }} {{ props.variants.position[props.data.variantPosition].menu }}">
+        {% for switcherLink in switcherLinks | filter (x => not x.current) %}
+          <a class="{{ props.classes.link }}" href="{{ switcherLink.url }}"
+             hreflang="{{ switcherLink.title }}" lang="{{ switcherLink.language }}" @click="label = '{{ switcherLink.countryCode }}'">
+            <span>{{ switcherLink.countryCode }}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+

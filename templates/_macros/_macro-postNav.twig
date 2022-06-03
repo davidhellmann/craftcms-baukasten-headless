@@ -1,0 +1,85 @@
+{#
+{% import '_macros/_macro-postNav.html' as macroPostNav  %}
+{{ macroPostNav.postNav(entry, {}) }}
+#}
+
+{% macro postNav(entry, props) %}
+
+  {# Defaults #}
+  {% set defaults = {
+    name: 'm-postNav',
+    section: null,
+    order: 'postDate',
+    prevLabel: false,
+    nextLabel: false,
+    prevIcon: 'arrow-back',
+    nextIcon: 'arrow-forward'
+  } %}
+
+  {# Merge Default with Options #}
+  {% set props = props is defined ? defaults|merge(props) : defaults %}
+
+  {% if props.section %}
+    {# Set parameters for prev/next elements list #}
+    {% set entries = craft.entries.section(props.section).orderBy(props.order).limit(null) %}
+
+    {# Get the prev/next elements #}
+    {% set prevEntry = entry.getPrev(entries) %}
+    {% set nextEntry = entry.getNext(entries) %}
+  {% else %}
+    {% set prevEntry = false %}
+    {% set nextEntry = false %}
+  {% endif %}
+
+  {# And make sure to only output the links if the element exists #}
+  {% if prevEntry or nextEntry %}
+    <nav class="o-row  {{ props.cn }}">
+      {% if prevEntry %}
+        <div class="o-col-6  o-col-s-12  {{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--prev' }}">
+          <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--prev' }}" href="{{ prevEntry.url }}">
+            {% if props.prevIcon %}
+              <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--prev' }}">
+                {# Icon #}
+                {{ include('_components/icon/icon.twig', {
+                  props: {
+                    modifiers: ['24'],
+                    icon: props.prevIcon,
+                  }
+                }, withContext = false) }}
+              </span>
+            {% endif %}
+
+            {% if props.prevLabel %}
+              <span class="{{ props.cn ~ '__label' }}">{{ props.prevLabel }}</span>
+            {% endif %}
+
+            <span class="{{ props.cn ~ '__title' }}">{{ prevEntry.title }}</span>
+          </a>
+        </div>
+      {% endif %}
+      {% if nextEntry %}
+        <div class="o-col-6  o-col-s-12  {{ props.cn ~ '__item' }}  {{ props.cn ~ '__item--next' }}">
+          <a class="{{ props.cn ~ '__link' }}  {{ props.cn ~ '__link--next' }}" href="{{ nextEntry.url }}">
+            {% if props.nextLabel %}
+              <span class="{{ props.cn ~ '__label' }}">{{ props.nextLabel }}</span>
+            {% endif %}
+
+            <span class="{{ props.cn ~ '__title' }}">{{ nextEntry.title }}</span>
+
+            {% if props.nextIcon %}
+              <span class="{{ props.cn ~ '__icon' }}  {{ props.cn ~ '__icon--next' }}">
+                {# Icon #}
+                {{ include('_components/icon/icon.twig', {
+                  props: {
+                    modifiers: ['24'],
+                    icon: props.nextIcon,
+                  }
+                }, withContext = false) }}
+              </span>
+            {% endif %}
+          </a>
+        </div>
+      {% endif %}
+    </nav>
+  {% endif %}
+{% endmacro %}

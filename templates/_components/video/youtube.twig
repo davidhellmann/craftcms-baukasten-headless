@@ -1,0 +1,30 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: "c-videoYoutube",
+    videoId: null,
+    autoplay: 0,
+    loop: 0,
+    showinfo: 0
+  },
+  classes: {
+    root: "aspect-video",
+    custom: ""
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes
+} %}
+
+{% if props.data.videoId %}
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    <iframe class="lazyload w-full h-full"
+      loading="lazy"
+      data-src="https://www.youtube-nocookie.com/embed/{{ props.data.videoId }}?rel=0&loop={{
+      props.data.loop
+      }}&showinfo={{ props.data.showinfo }}&autoplay={{ props.data.autoplay }}"></iframe>
+  </div>
+{% endif %}

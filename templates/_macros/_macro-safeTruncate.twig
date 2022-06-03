@@ -1,0 +1,13 @@
+{#
+{% import "_macros/_macro-safeTruncate.twig" as safeTruncate %}
+{{ safeTruncate.safeTruncate(string, chars, ending) }}
+#}
+
+{%- macro safeTruncate(string, chars = 100, ending = '…') -%}
+  {%- set stringy = create(
+    "Stringy\\Stringy",
+    [string]
+  ) -%}
+  {{- stringy.safeTruncate(chars, ending) -}}
+{%- endmacro -%}
+

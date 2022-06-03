@@ -1,0 +1,21 @@
+{% extends "_layouts/layout-default.twig" %}
+{% set templatePath = _self ??? '' %}
+
+
+{% block blockAppContent %}
+  {% cache %}
+    {% minify %}
+      {{
+        include(
+          "_builders/_builderContent.twig",
+          {
+            props: {
+              blocks: entry.contentBuilder ??? null
+            }
+          },
+          withContext = false
+        )
+      }}
+    {% endminify %}
+  {% endcache %}
+{% endblock %}

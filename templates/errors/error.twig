@@ -1,0 +1,4 @@
+{% set entry = craft.entries.section("errorPages").slug("error").one() %}
+
+{% extends "_layouts/layout-error.twig" %}
+{% set templatePath = _self ??? '' %}

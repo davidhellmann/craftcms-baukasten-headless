@@ -1,0 +1,81 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {# Images #}
+  {% set images = craft.assets().volume('templateImages') %}
+
+  {% cache using key craft.app.request.pathInfo %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 2 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/images.twig', {
+          data: {
+            images: images.limit(2).all() ??? null,
+            variantColumns: 2
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images 3 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/images.twig', {
+          data: {
+            images: images.limit(3).all() ??? null,
+            aspectRatio: 'aspect-portrait',
+            variantColumns: 3
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images Calculated 2 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/imagesCalculated.twig', {
+          data: {
+            images: images.limit(2).all() ??? null,
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images Calculated 3 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/imagesCalculated.twig', {
+          data: {
+            images: images.limit(3).all() ??? null,
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images Calculated 4 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/imagesCalculated.twig', {
+          data: {
+            images: images.limit(4).all() ??? null,
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+    {% embed 'hidden/patternlib/_partials/_embedComp.twig' %}
+      {% block label %}Grid: Images Calculated 5 Cols{% endblock %}
+      {% block content %}
+        {{ include('_components/grid/imagesCalculated.twig', {
+          data: {
+            images: images.limit(5).all() ??? null,
+          }
+        }, withContext = false) }}
+      {% endblock %}
+    {% endembed %}
+
+  {% endcache %}
+{% endblock %}
+
+

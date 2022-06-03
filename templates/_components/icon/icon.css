@@ -1,0 +1,6 @@
+@layer components {
+  /* SVG Icon */
+  .c-icon path {
+    @apply fill-current;
+  }
+}

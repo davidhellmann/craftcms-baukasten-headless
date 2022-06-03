@@ -1,0 +1,36 @@
+{# Set Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-header',
+    url: siteUrl,
+    logoSize: 'sm',
+    name: getenv('SITE_NAME'),
+  },
+  classes: {
+    root: 'bg-gray-100',
+    custom: '',
+    container: 'container py-8 flex items-center',
+    homeLink: 'flex items-center',
+    h1: 'text-base font-bold ml-4'
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+<header class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+  <div class=" {{ props.classes.container }}">
+    <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
+      {{ include('_components/logo/logo.twig', {
+        data: {
+          variantSize: props.data.logoSize ??? 'md'
+        },
+      }, withContext = false) }}
+      <h1 class="{{ props.classes.h1 }}">{{ props.data.name }}</h1>
+    </a>
+  </div>
+</header>
+

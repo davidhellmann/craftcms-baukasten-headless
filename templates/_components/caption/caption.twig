@@ -1,0 +1,44 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-caption',
+    element: 'figcaption',
+    title: null,
+    text: null,
+    source: null,
+    sourceUrl: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+    link: 'underline hover:no-underline'
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.title or props.data.text %}
+  <{{ props.data.element }} class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+  {# Headline --#}
+  {% if props.data.title ?? null %}
+    <strong>{{- props.data.title ~ ' ' -}}</strong>
+  {% endif %}
+
+  {# Caption #}
+  <p>
+    {{ props.data.text | nl2br }}
+
+    {% if props.data.source and props.data.sourceUrl %}
+      &mdash;&nbsp;<a class="{{ props.classes.link }}" href="{{ props.data.sourceUrl }}">{{ props.data.source }}</a>
+    {% elseif props.data.source ?? null %}
+      &mdash;&nbsp;{{ props.data.source }}
+    {% endif %}
+  </p>
+  </{{ props.data.element }}>
+{% endif %}
+
+

@@ -1,0 +1,49 @@
+{% extends "_layouts/layout-default.twig" %}
+
+{% block blockAppContent %}
+  {# Redirect to home if on a live env #}
+  {% if craft.app.config.custom.craftEnv == 'production' %}
+    {% redirect siteUrl %}
+  {% endif %}
+
+  <pre class="mt-4 mb-2" id="image/imageRaw">_components/image/imageRaw</pre>
+
+  {% cache %}
+    {% for i in 0..50 %}
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: craft.assets.title('Cat 01').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: craft.assets.title('Cat 02').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: craft.assets.title('Cat 03').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: craft.assets.title('Cat 04').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      }, withContext = false) }}
+
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: craft.assets.title('Placeholder').volume('templateImages').one() ??? null,
+          transform: 'landscape',
+        }
+      }, withContext = false) }}
+    {% endfor %}
+  {% endcache %}
+{% endblock %}

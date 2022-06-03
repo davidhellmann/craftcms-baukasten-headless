@@ -1,0 +1,68 @@
+{#
+Image Helper
+------------------------------------------------------------
+
+{% import '_macros/_macro-imageHelper.twig' as image  %}
+#}
+
+{# >>> Render image #}
+{%- macro renderImage(imageData = null, lazy = true, objectFit = null, customClasses = '') -%}
+  {# If Image exists render it #}
+  {%- if imageData ??? null -%}
+    <img data-type="{{- imageData.filetype -}}"
+         decoding="async"
+         width="{{- imageData.width -}}"
+         height="{{- imageData.height -}}"
+         alt="{{- imageData.alt -}}"
+         title="{{- imageData.title -}}"
+         sizes="100vw"
+
+      {# >>> check if objectFit #}
+      {%- if objectFit -%}
+        style="object-fit: {{ objectFit }}; object-position: {{ imageData.focalpoint }}; height: 100%; width: 100%;"
+      {%- endif -%}
+
+      {# >>> check if lazy #}
+      {% if lazy %}
+        class="lazyload {{ customClasses }}"
+        loading="lazy"
+        src="{{- imageData.placeholder -}}"
+        {%- if imageData.transformable -%}
+          data-srcset="{{- imageData.srcset -}}"
+        {%- else -%}
+          data-src="{{- imageData.url -}}"
+        {%- endif -%}
+        data-sizes="auto"
+      {%- else -%}
+        src="{{- imageData.url -}}"
+        {%- if imageData.transformable -%}
+          srcset="{{- imageData.srcset -}}"
+        {% endif %}
+      {% endif %}
+    />
+  {%- endif -%}
+{%- endmacro -%}
+
+
+{# >>> Render source #}
+{%- macro renderSource(filetype = null, srcset = null, lazy = true, mediaQuery = null, type = 'image/webp') -%}
+  {# Handle Image #}
+  {%- if srcset and filetype -%}
+    <source  data-type="{{- filetype -}}"
+             type="{{- type -}}"
+
+             {# >>> check if lazy #}
+             {% if lazy %}
+               data-sizes="auto"
+               data-srcset="{{- srcset -}}"
+             {% else %}
+               sizes="100vw"
+               srcset="{{- srcset -}}"
+             {% endif %}
+
+             {# >>> check if media query #}
+             {% if mediaQuery %}
+               media="{{- mediaQuery -}}"
+             {% endif %}/>
+  {%- endif -%}
+{%- endmacro -%}

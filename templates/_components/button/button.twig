@@ -1,0 +1,66 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-button',
+    variantStyle: 'primary',
+    variantSize: 'md',
+    icon: null,
+    iconSize: 'sm',
+    text: null,
+    url: null,
+    buttonType: 'button',
+    reverse: false,
+    target: null,
+  },
+  classes: {
+    root: 'items-center font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-600 transition-all',
+    custom: '',
+    display: 'inline-flex',
+    rounded: 'rounded-md'
+  },
+  variants: {
+    style: {
+      primary: 'text-white border border-transparent bg-primary-700 hover:bg-primary-800 group-hover:bg-primary-800',
+      secondary: 'text-secondary-900 border border-transparent bg-secondary-300 hover:bg-secondary-400 group-hover:bg-secondary-400',
+      outlined: 'text-gray-900 border border-transparent border-gray-200 bg-white hover:bg-gray-50 group-hover:bg-gray-50',
+      overflowNav: 'text-gray-900 border-b-2 border-b-transparent hover:border-b-gray-900 !rounded-none'
+    },
+    size: {
+      sm: 'px-2.5 py-1.5 gap-2 text-xs',
+      md: 'px-4 py-2 gap-3 text-base',
+      lg: 'px-6 py-3 gap-4 text-base',
+      overflowNav: 'py-1 gap-3 text-xs',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.text or props.data.icon %}
+  {% set tag = props.data.url ? 'a' : 'button' %}
+  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=' ~ props.data.buttonType %}
+
+  <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
+  class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.data.variantStyle] }}  {{ props.variants.size[props.data.variantSize] }} {{ props.classes.custom }}">
+
+  {# >>> If icon exists #}
+  {% if props.data.icon %}
+    {# >>> Render icon  #}
+    {{ include('_components/icon/icon.twig', {
+      data: {
+        icon: props.data.icon ??? null,
+        variantSize: props.data.iconSize
+      },
+      classes: {
+        custom: (props.data.reverse ? 'order-2' : '')
+      }
+    }, withContext = false) }}
+  {% endif %}
+    {{ props.data.text ??? null }}
+  </{{ tag }}>
+{% endif %}

@@ -1,0 +1,14 @@
+{#
+{% import "_macros/_macro-slugify.twig" as macroSlugify %}
+{{ macroSlugify.slugify(string, lang, ending) }}
+#}
+
+{%- macro slugify(string, lang = 'de') -%}
+  {%- set stringy = create(
+    "Stringy\\Stringy",
+    [string]
+    ) -%}
+  {{- stringy.toAscii(lang).slugify() -}}
+{%- endmacro -%}
+
+

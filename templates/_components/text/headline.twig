@@ -1,0 +1,37 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-headline',
+    text: null,
+    variantSize: 'h2',
+    tag: 'h2',
+  },
+  classes: {
+    root: 'font-bold',
+    custom: '',
+  },
+  variants: {
+    size: {
+      mega: 'text-9xl',
+      h1: 'text-4xl',
+      h2: 'text-3xl',
+      h3: 'text-2xl',
+      h4: 'text-xl',
+      h5: 'text-lg',
+      h6: 'text-base',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.text %}
+  <{{ props.data.tag }} class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.size[props.data.variantSize] }}  {{ props.classes.custom }}">
+  {{ props.data.text | nl2br | raw }}
+  </{{ props.data.tag }}>
+{% endif %}

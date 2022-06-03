@@ -1,0 +1,22 @@
+{#
+{% import '_macros/_macro-bytesToSize.twig' as macroBytesToSize %}
+{{ macroBytesToSize.bytesToSize(bytes) }}
+#}
+{%- macro bytesToSize(bytes) -%}
+  {%- set kilobyte = 1024 -%}
+  {%- set megabyte = kilobyte * 1024 -%}
+  {%- set gigabyte = megabyte * 1024 -%}
+  {%- set terabyte = gigabyte * 1024 -%}
+
+  {%- if bytes < kilobyte -%}
+    {{- bytes ~ ' b' -}}
+  {%- elseif bytes < megabyte -%}
+    {{- (bytes / kilobyte)|number_format(0, '.') ~ ' kb' -}}
+  {%- elseif bytes < gigabyte -%}
+    {{- (bytes / megabyte)|number_format(2, '.') ~ ' mb' -}}
+  {%- elseif bytes < terabyte -%}
+    {{- (bytes / gigabyte)|number_format(2, '.') ~ ' gb' -}}
+  {%- else -%}
+    {{- (bytes / terabyte)|number_format(2, '.') ~ ' tb' -}}
+  {%- endif -%}
+{%- endmacro -%}

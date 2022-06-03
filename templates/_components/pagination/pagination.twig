@@ -1,0 +1,133 @@
+{# Set Defaults #}
+{% set compDefaults = {
+  data: {
+    name: "c-pagination",
+    prevIcon: "swiper-left",
+    nextIcon: "swiper-right"
+  },
+  classes: {
+    root: "mt-4 lg:mt-14",
+    custom: ""
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data|merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes|merge(classes) : compDefaults.classes
+} %}
+
+{% if pageInfo and entries and page and pageInfo.totalPages > 1 %}
+  <nav class="{{ props.data.name }} {{ props.classes.root }}" {{ props.classes.custom }}>
+    <div class="flex justify-center items-center">
+      {% if entries %}
+        {% if page > 1 %}
+          {# Decrements `page` by 1 and pushes the new value into the URL on click #}
+          <button class="flex bg-primary text-white px-2 py-2 rounded-full"
+            aria-label="prev"
+            sprig
+            s-val:page="{{ page - 1 }}"
+            s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ page - 1 }}">
+            {{
+              include(
+                "_components/icon/icon.twig",
+                {
+                  data: {
+                    icon: props.data.prevIcon,
+                    size: "w-8 h-8"
+                  }
+                },
+                withContext = false
+              )
+            }}
+          </button>
+        {% endif %}
+
+        <div>
+          {% if pageInfo.totalPages <= 6 %}
+            {% for i in 1..pageInfo.totalPages %}
+              {% if i == page %}
+                <span class="inline-block bg-white border-2 border-primary w-9 h-9 text-primary font-sans-medium text-center rounded-full">
+                  {{ i }}
+                </span>
+              {% else %}
+                {# Refreshes the component and pushes the new value into the URL #}
+                <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+                  sprig
+                  s-val:page="{{ i }}"
+                  s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ i }}">
+                  {{ i }}
+                </a>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {% set range = pageInfo.getRange(pageInfo.currentPage - 2, pageInfo.currentPage + 2) %}
+            {% if (range|first) != 1 %}
+              <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+                sprig
+                s-val:page="1"
+                s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}1">
+                1
+              </a>
+              {% if (range|first) > 2 %}
+                ...
+              {% endif %}
+            {% endif %}
+            {% for i in (range|first)..(range|last) %}
+              {% if i == page %}
+                <span class="inline-block bg-white border-2 border-primary w-9 h-9 text-primary font-sans-medium text-center rounded-full">
+                  {{ i }}
+                </span>
+              {% else %}
+                {# Refreshes the component and pushes the new value into the URL #}
+                <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+                  sprig
+                  s-val:page="{{ i }}"
+                  s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ i }}">
+                  {{ i }}
+                </a>
+              {% endif %}
+            {% endfor %}
+            {% if (range|last) < pageInfo.totalPages - 2 %}
+              ...
+              <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+                sprig
+                s-val:page="{{ pageInfo.totalPages }}"
+                s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ pageInfo.totalPages }}">
+                {{ pageInfo.totalPages }}
+              </a>
+            {% endif %}
+          {% endif %}
+        </div>
+
+        {% if page < pageInfo.totalPages %}
+          {# Increments `page` by 1 and pushes the new value into the URL on click #}
+          <button class="flex bg-primary text-white px-2 py-2 rounded-full"
+            aria-label="next"
+            sprig
+            s-val:page="{{ page + 1 }}"
+            s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ page + 1 }}">
+            {{
+              include(
+                "_components/icon/icon.twig",
+                {
+                  data: {
+                    icon: props.data.nextIcon,
+                    size: "w-8 h-8"
+                  }
+                },
+                withContext = false
+              )
+            }}
+          </button>
+        {% endif %}
+      {% endif %}
+    </div>
+  </nav>
+
+  {% if sprig.isRequest %}
+    <script>
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth', });
+    </script>
+  {% endif %}
+{% endif %}

@@ -1,0 +1,114 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        SM
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/divider/divider.twig",
+          {
+            data: {
+            variantSize: "sm"
+          }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        MD
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/divider/divider.twig",
+          {
+            data: {
+            variantSize: "md"
+          }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        LG
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/divider/divider.twig",
+          {
+            data: {
+            variantSize: "lg"
+          }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        XL
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/divider/divider.twig",
+          {
+            data: {
+            variantSize: "xl"
+          }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        2XL
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/divider/divider.twig",
+          {
+            data: {
+            variantSize: "2xl"
+          }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        MD with label
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/divider/divider.twig",
+          {
+            data: {
+            label: "Label text",
+            variantSize: "md"
+          }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+  {% endcache %}
+{% endblock %}

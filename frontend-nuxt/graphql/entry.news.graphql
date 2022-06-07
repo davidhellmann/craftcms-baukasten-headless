@@ -1,0 +1,27 @@
+#import "./fragments/asset/fragment.entry.dates.graphql"
+#import "./fragments/entry/fragment.entry.metaData.gql"
+#import "./fragments/asset/fragment.asset.metaData.gql"
+#import "./fragments/asset/fragment.asset.imager.auto.graphql"
+#import "./fragments/asset/fragment.asset.focalpoint.graphql"
+
+query entryNews(
+  $section: [String] = "news",
+  $id: [QueryArgument] = null,
+  $slug: [String] = "",
+  $queryEntryImage: Boolean = true,
+  $formatTimezone: String = "Europe/Berlin",
+  $formatLocale: String = "de",
+) {
+  entryNews: entry(section: $section, id: $id, slug: $slug) {
+    ...entryMetaData
+    ...entryDates
+    ... on pages_contentBuilder_Entry {
+      entryImage(limit: 1) @include(if: $queryEntryImage) {
+        ...assetMetaData
+        ...assetImagerAuto
+        ...assetFocalpoint
+      }
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+fragment assetMetaData on AssetInterface {
+  id
+  url
+  title
+  height
+  width
+}

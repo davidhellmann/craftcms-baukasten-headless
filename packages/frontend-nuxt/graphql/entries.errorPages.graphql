@@ -1,0 +1,14 @@
+#import "./fragments/entry/fragment.entry.metaData.graphql"
+#import "./fragments/asset/fragment.asset.metaData.graphql"
+#import "./fragments/asset/fragment.asset.dates.graphql"
+
+query entriesErrorPages(
+  $section: [String] = "pages",
+  $formatTimezone: String = "Europe/Berlin",
+  $formatLocale: String = "de",
+) {
+  entriesErrorPages: entries(section: $section) {
+    ...entryMetaData
+    ...entryDates
+  }
+}

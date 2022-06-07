@@ -1,0 +1,31 @@
+{
+  "buttons": [
+    "undo",
+    "redo",
+    "format",
+    "bold",
+    "italic",
+    "lists",
+    "link",
+    "file",
+    "line"
+  ],
+  "plugins": ["baukasten"],
+  "formatting": ["h2", "h3", "h4", "h5", "h6", "p"],
+  "pasteImages": false,
+  "pasteLinks": true,
+  "linkNewTab": true,
+  "toolbar": true,
+  "toolbarFixed": true,
+  "formattingAdd": {
+    "bigger-text": {
+      "title": "Bigger Text",
+      "api": "module.block.format",
+      "args": {
+        "tag": "p",
+        "class": "text-large",
+        "type": "toggle"
+      }
+    }
+  }
+}

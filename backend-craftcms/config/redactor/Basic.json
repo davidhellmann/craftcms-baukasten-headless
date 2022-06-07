@@ -1,0 +1,14 @@
+{
+  "buttons": [
+    "bold",
+    "italic",
+    "deleted",
+    "link",
+    "file"
+  ],
+  "pasteImages": false,
+  "pasteLinks": true,
+  "linkNewTab": true,
+  "toolbar": true,
+  "toolbarFixed": true
+}

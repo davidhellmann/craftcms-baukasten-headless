@@ -18,18 +18,18 @@
 !.env.nitro.example
 
 # COMPOSER
-/vendor
+/backend-craftcms/vendor
 
 # CRAFT STORAGE
-/storage/*
-!/storage/rebrand/
-!/storage/.gitkeep
+/backend-craftcms/storage/*
+!/backend-craftcms/storage/rebrand/
+!/backend-craftcms/storage/.gitkeep
 
 # ASSETS
-/web/assets/*
-/web/cpresources/*
-/web/dist/*
-/web/cache/*
+/backend-craftcms/web/assets/*
+/backend-craftcms/web/cpresources/*
+/backend-craftcms/web/dist/*
+/backend-craftcms/web/cache/*
 
 # TAILWIND
 /_tailwind/*
@@ -42,7 +42,7 @@
 /npm-debug.log
 
 # TRANSCODER
-/web/transcoder/*
+/backend-craftcms/web/transcoder/*
 
 # MISC FILES
 .cache
@@ -64,4 +64,4 @@ config.codekit3
 prepros-6.config
 
 # Craft Related
-/config/license.key
+/backend-craftcms/config/license.key

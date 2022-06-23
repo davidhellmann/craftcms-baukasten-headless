@@ -18,12 +18,12 @@
 !.env.nitro.example
 
 # COMPOSER
-/packages/backend-craftcms/vendor
+/backend-craftcms/vendor
 
 # CRAFT STORAGE
-/packages/backend-craftcms/storage/*
-!/packages/backend-craftcms/storage/rebrand/
-!/packages/backend-craftcms/storage/.gitkeep
+/backend-craftcms/storage/*
+!/backend-craftcms/storage/rebrand/
+!/backend-craftcms/storage/.gitkeep
 
 # ASSETS
 /backend-craftcms/web/assets/*

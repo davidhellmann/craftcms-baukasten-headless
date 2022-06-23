@@ -7,15 +7,17 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "upgrade-interactive": "npm-check --update",
     "graphql-schema": "./../backend-craftcms/craft graphql/print-schema > schema.graphqls",
     "schemas": "npm run tailwind-schema && npm run graphql-schema"
   },
   "devDependencies": {
-    "@nuxtjs/color-mode": "^3.1.3",
+    "@nuxtjs/color-mode": "^3.1.4",
     "@nuxtjs/tailwindcss": "^5.1.2",
     "@pinia/nuxt": "^0.1.9",
     "@vueuse/nuxt": "^8.6.0",
-    "nuxt": "3.0.0-rc.3",
+    "npm-check": "^5.9.2",
+    "nuxt": "^3.0.0-rc.4",
     "pinia": "^2.0.14",
     "tailwindcss-debug-screens": "^2.2.1"
   },

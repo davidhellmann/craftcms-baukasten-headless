@@ -1,4 +1,4 @@
-dateModified: 1654643971
+dateModified: 1654894726
 elementSources:
   craft\elements\Asset:
     -
@@ -15,7 +15,8 @@ elementSources:
         - link
         - imageSize
       type: native
-    - disabled: false
+    -
+      disabled: false
       key: 'volume:77c74b5c-6bbb-41a7-b166-c6b158a3cc7f' # Template Images
       tableAttributes:
         - filename
@@ -25,20 +26,27 @@ elementSources:
         - link
         - imageSize
       type: native
-    - key: 'volume:8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6' # Users
+    -
+      key: 'volume:8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6' # Users
       type: native
-    - key: 'folder:c8e15363-b103-4fd2-b6e4-097752fa2cef'
+    -
+      key: 'folder:c8e15363-b103-4fd2-b6e4-097752fa2cef'
       type: native
   craft\elements\Entry:
-    - key: '*'
+    -
+      key: '*'
       type: native
-    - key: singles
+    -
+      key: singles
       type: native
-    - heading: Channels
+    -
+      heading: Channels
       type: heading
-    - key: 'section:e5172a18-ed16-4229-89ca-fc0dc776597a' # Error Pages
+    -
+      key: 'section:e5172a18-ed16-4229-89ca-fc0dc776597a' # Error Pages
       type: native
-    - disabled: false
+    -
+      disabled: false
       key: 'section:3547e7b4-f3fb-4cf4-9d29-9f12dfa94594' # News
       tableAttributes:
         - postDate
@@ -48,9 +56,11 @@ elementSources:
         - slug
         - uri
       type: native
-    - heading: Structures
+    -
+      heading: Structures
       type: heading
-    - key: 'section:b0207f48-be48-49ab-a759-1ff51f232df3' # Pages
+    -
+      key: 'section:b0207f48-be48-49ab-a759-1ff51f232df3' # Pages
       type: native
 email:
   fromEmail: $SYSTEM_MAIL
@@ -219,7 +229,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_FORMIE
-    schemaVersion: 2.0.1
+    schemaVersion: 2.0.2
     settings:
       ajaxTimeout: 10
       captchas:

@@ -21,7 +21,10 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     // The private keys which are only available within server-side
-    // apiToken: process.env.GRAPHQL_TOKEN || '',
+
+    // Craft CMS live preview
+    API_URL: process.env.API_BASE_URL + '/api' || '',
+    API_TOKEN: process.env.GRAPHQL_TOKEN || '',
     // Keys within public, will be also exposed to the client-side
     public: {
       // apiBaseUrl: process.env.API_BASE_URL + '/api' || '',
@@ -29,6 +32,12 @@ export default defineNuxtConfig({
       // apiToken: process.env.GRAPHQL_TOKEN || '',
       assetBaseUrl: process.env.ASSET_BASE_URL || 'http://localhost:3000',
       appName: process.env.npm_package_name || '',
+
+      // Craft CMS live preview
+
+      LIVE_PREVIEW: process.env.LIVE_PREVIEW === 'true',
+      API_URL: process.env.LIVE_PREVIEW === 'true' ?process.env.API_BASE_URL + '/api' : '',
+      API_TOKEN: process.env.LIVE_PREVIEW === 'true' ? process.env.GRAPHQL_TOKEN : '',
       'graphql-client': {
         clients: {
           default: {
@@ -38,6 +47,7 @@ export default defineNuxtConfig({
           },
         }
       }
+
     }
   }
 })

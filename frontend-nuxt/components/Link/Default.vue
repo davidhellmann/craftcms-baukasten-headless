@@ -19,8 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-import {useComponentClasses} from "~/composables/useComponentClasses";
-
 const slots = useSlots()
 
 const props = defineProps({
@@ -73,15 +71,7 @@ const variants = ref({
   }
 })
 
-// const componentClasses = computed(() : string[] => {
-//   return [
-//     variants.value.defaultStyles,
-//     variants.value.style[props.style],
-//     variants.value.color[props.color],
-//     variants.value.size[props.size],
-//     props.tw,
-//   ]
-// })
+const componentClasses = useComponentClasses({props, variants});
 
 const componentClasses = computed(() => {
   return useComponentClasses({props, variants})

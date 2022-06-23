@@ -16,16 +16,13 @@ const {
 
 <template>
   <div>
-    <NuxtLink to="/">Home</NuxtLink>
-    <template v-if="entriesNews">
-      <section class="grid grid-cols-2 gap-12">
-        <template v-for="(entry, i) in entriesNews">
-          <div class="border bg-gray-100 text-sm">
-            <h2>{{ entry.title }}</h2>
-            <LinkDefault :to="entry.uri" color="primary">{{ entry.title }}</LinkDefault>
-          </div>
-        </template>
-      </section>
-    </template>
+    <NuxtLink to="/">Back to home</NuxtLink>
+    <StacksNews v-if="entriesNews">
+      <template v-for="(entry, i) in entriesNews" :key="i">
+        <CardNews :title="entry?.title"
+                  :uri="entry?.uri"
+                  :image="entry?.entryImage[0]"/>
+      </template>
+    </StacksNews>
   </div>
 </template>

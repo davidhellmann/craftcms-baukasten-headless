@@ -73,8 +73,8 @@ const variants = ref({
 
 const componentClasses = useComponentClasses({props, variants});
 
-const componentClasses = computed(() => {
-  return useComponentClasses({props, variants})
-})
+// const componentClasses = computed(() => {
+//   return useComponentClasses({props, variants})
+// })
 
 </script>

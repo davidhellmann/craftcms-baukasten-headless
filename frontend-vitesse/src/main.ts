@@ -1,4 +1,5 @@
 import { ViteSSG } from 'vite-ssg'
+import { createPinia } from 'pinia'
 import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
 import generatedRoutes from '~pages'
@@ -14,9 +15,20 @@ const routes = setupLayouts(generatedRoutes)
 export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
-  (ctx) => {
+  async (ctx) => {
     // install all modules under `modules/`
     Object.values(import.meta.globEager('./modules/*.ts')).forEach(i => i.install?.(ctx))
+
+    const { app, url, router, isClient, initialState, initialRoute } = ctx
+
+    const pinia = createPinia()
+    app.use(pinia)
+
+    if (import.meta.env.SSR)
+      initialState.pinia = pinia.state.value
+
+    else
+      pinia.state.value = initialState.pinia || {}
   },
 )
 

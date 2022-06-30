@@ -5,6 +5,8 @@ const { result, loading, error } = useExampleQuery()
 const user = useUserStore()
 const name = $ref(user.savedName)
 
+console.log(import.meta.env)
+
 const router = useRouter()
 const go = () => {
   if (name)

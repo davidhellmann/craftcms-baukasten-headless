@@ -1,9 +1,11 @@
 import {defineNuxtConfig} from 'nuxt'
+import {dynamicRoutes} from "~/scripts/createDynamicRoutes";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  target: 'server',
+  target: 'static',
   generate: {
+    routes: dynamicRoutes
   },
   modules: [
     'nuxt-graphql-client',

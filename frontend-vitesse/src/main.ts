@@ -1,6 +1,7 @@
 import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
 import { setupLayouts } from 'virtual:generated-layouts'
+import { useRootStore } from './store/root'
 import App from './App.vue'
 import generatedRoutes from '~pages'
 
@@ -29,6 +30,14 @@ export const createApp = ViteSSG(
 
     else
       pinia.state.value = initialState.pinia || {}
+
+    router.beforeEach((to, from, next) => {
+      const store = useRootStore(pinia)
+      if (!store.ready)
+        // perform the (user-implemented) store action to fill the store's state
+        store.initialize()
+      next()
+    })
   },
 )
 

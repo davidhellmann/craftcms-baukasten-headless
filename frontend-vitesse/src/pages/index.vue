@@ -1,11 +1,23 @@
 <script setup lang="ts">
 import { useExampleQuery } from '~/graphql/example.query'
+import { useRootStore } from '~/store/root'
 const { result, loading, error } = useExampleQuery()
 
-const user = useUserStore()
-const name = $ref(user.savedName)
+// const foo = ref({})
+//
+// console.log(foo.value)
+//
+// const { SSR } = import.meta.env
+//
+// if (SSR) {
+//   foo.value = await result
+//   console.log(foo.value)
+// }
 
-console.log(import.meta.env)
+const user = useUserStore()
+const root = useRootStore()
+
+const name = $ref(user.savedName)
 
 const router = useRouter()
 const go = () => {
@@ -18,6 +30,7 @@ const { t } = useI18n()
 
 <template>
   <div>
+    {{ foo }}
     <div v-if="loading">
       Loading. . .
     </div>

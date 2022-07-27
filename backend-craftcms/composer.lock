@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f22799d155f799d94ff1a32cc0e506aa",
+    "content-hash": "8966b7a32584059e6e8a82114a2f9774",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -541,11 +541,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.1.4.1",
+            "version": "4.2.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/51bce4cad7d95e25727fb0943cbdc62e2c5bdd52",
-                "reference": "51bce4cad7d95e25727fb0943cbdc62e2c5bdd52",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/cf3f39924bddd1a69295b5af03dae2c1b03815ea",
+                "reference": "cf3f39924bddd1a69295b5af03dae2c1b03815ea",
                 "shasum": ""
             },
             "require": {
@@ -636,7 +636,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-07-13T17:41:28+00:00"
+            "time": "2022-07-27T19:39:59+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2021,7 +2021,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.21.6",
+            "version": "v9.22.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/collections/zipball/9b862a8e7c0da5b00af75b1422d3a29080ef7adb",
@@ -2066,7 +2066,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.21.6",
+            "version": "v9.22.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/conditionable/zipball/46b7beed47948bd2e67f523d0a76daa62775031e",
@@ -2102,11 +2102,11 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.21.6",
+            "version": "v9.22.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/e014cf88ef46065b8b1f078893c01189b95ffb11",
-                "reference": "e014cf88ef46065b8b1f078893c01189b95ffb11",
+                "url": "https://api.github.com/repos/illuminate/contracts/zipball/ac7f63520e18721f214e80fa7e8f0a5c77ed2719",
+                "reference": "ac7f63520e18721f214e80fa7e8f0a5c77ed2719",
                 "shasum": ""
             },
             "require": {
@@ -2136,11 +2136,11 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "time": "2022-06-07T19:28:00+00:00"
+            "time": "2022-07-26T14:41:38+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.21.6",
+            "version": "v9.22.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/macroable/zipball/25a2c6dac2b7541ecbadef952702e84ae15f5354",
@@ -6678,17 +6678,17 @@
         },
         {
             "name": "verbb/super-table",
-            "version": "3.0.0-beta.6",
+            "version": "3.0.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/6f41edf3c626074287e5284cb8147e7c7223c5bb",
-                "reference": "6f41edf3c626074287e5284cb8147e7c7223c5bb",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/4c9397e5d22cec0e5fdca919533a838d54dc7bd2",
+                "reference": "4c9397e5d22cec0e5fdca919533a838d54dc7bd2",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^4.0.0-beta.1",
+                "craftcms/cms": "^4.0.0",
                 "php": "^8.0.2",
-                "verbb/base": "^2.0.0-beta"
+                "verbb/base": "^2.0.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -6728,7 +6728,7 @@
                 "docs": "https://github.com/verbb/super-table",
                 "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "time": "2022-06-16T22:28:59+00:00"
+            "time": "2022-07-27T03:00:20+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

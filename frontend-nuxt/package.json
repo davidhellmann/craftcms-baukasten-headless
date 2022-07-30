@@ -8,6 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "upgrade-interactive": "npm-check --update",
+    "ui": "npm run upgrade-interactive",
     "graphql-schema": "./../backend-craftcms/craft graphql/print-schema > schema.graphqls",
     "schemas": "npm run tailwind-schema && npm run graphql-schema"
   },

@@ -1,19 +1,19 @@
 #import "./fragments/entry/fragment.entry.metaData.graphql"
-#import "./fragments/entry/fragment.entry.dates.graphql"
 #import "./fragments/asset/fragment.asset.metaData.graphql"
+#import "./fragments/asset/fragment.entry.dates.graphql"
 #import "./fragments/asset/fragment.asset.imager.auto.graphql"
 #import "./fragments/asset/fragment.asset.focalpoint.graphql"
 
-query entriesNews(
-  $section: [String] = "news",
+query entriesPages(
+  $section: [String] = "pages",
   $queryEntryImage: Boolean = true,
   $formatTimezone: String = "Europe/Berlin",
   $formatLocale: String = "de",
 ) {
-  entriesNews: entries(section: $section) {
+  entriesPages: entries(section: $section) {
     ...entryMetaData
     ...entryDates
-    ... on news_contentBuilder_Entry {
+    ... on pages_contentBuilder_Entry {
       entryImage(limit: 1) @include(if: $queryEntryImage) {
         ...assetMetaData
         ...assetImagerAuto
@@ -22,3 +22,5 @@ query entriesNews(
     }
   }
 }
+
+

@@ -1,4 +1,4 @@
-dateModified: 1656509359
+dateModified: 1659186184
 elementSources:
   craft\elements\Asset:
     -
@@ -60,7 +60,14 @@ elementSources:
       heading: Structures
       type: heading
     -
+      disabled: false
       key: 'section:b0207f48-be48-49ab-a759-1ff51f232df3' # Pages
+      tableAttributes:
+        - postDate
+        - expiryDate
+        - author
+        - link
+        - uri
       type: native
 email:
   fromEmail: $SYSTEM_MAIL

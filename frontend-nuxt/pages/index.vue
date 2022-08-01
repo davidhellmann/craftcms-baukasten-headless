@@ -67,9 +67,70 @@
 
 <script lang="ts" setup>
 
+// import ping from '~/graphql/ping.gql'
+// import { print } from 'graphql/language/printer'
+
+// const query = print(entriesPages)
+
+// console.log(entriesPages)
+
+// import ping = '~/graphql/ping.gql'
+//
+// console.log(ping)
+
+// import { homepage } from '~/graphql/entry.homepage.gql'
+
 definePageMeta({
   layout: "default",
 });
+
+// const route = useRoute()
+// const { slug, xCraftLivePreview, token } = route.query
+//
+//
+// console.log('Output Query Params Stuff')
+// console.log(route)
+// console.log({slug, xCraftLivePreview, token})
+//
+// const data = useFetch(`http://content.baukasten.test/api?token=${token}`, {
+//   method: 'POST',
+//   body: {
+//     query: `query homepage($slug: [String] = "") {
+//               entry(slug: $slug) {
+//                 id
+//                 title
+//                 ... on home_home_Entry {
+//                   entryCustomTitle
+//                 }
+//               }
+//             }`,
+//     variables: {
+//       slug: 'home'
+//     }
+//   },
+//   headers: {
+//     'Content-Type': 'application/json',
+//     // 'x-craft-live-preview': xCraftLivePreview
+//   },
+//   // transform: preview => preview.data
+// })
+//
+// console.log(data)
+
+// const { data: preview } = useFetch(`https://mysite.com/api?token=${token}`, {
+//   method: 'POST',
+//   body: {
+//     query: `query {ping}`,
+//     variables: {
+//       slug: slug
+//     }
+//   },
+//   headers: {
+//     'Content-Type': 'application/json',
+//     'x-craft-live-preview': xCraftLivePreview
+//   },
+//   transform: preview => preview.data.entry
+// })
 
 
 // Fetch Pages Data
@@ -81,12 +142,14 @@ const {
   queryEntryImage: true,
 }));
 
+console.log(entriesPages)
+
 
 // Fetch Error Pages Data
-const {
-  data: {value: {entriesErrorPages}},
-  refresh: refreshErrorPages
-} = await useAsyncData('entriesErrorPages', () => GqlEntriesErrorPages({
-  section: ["errorPages"],
-}));
+// const {
+//   data: {value: {entriesErrorPages}},
+//   refresh: refreshErrorPages
+// } = await useAsyncData('entriesErrorPages', () => GqlEntriesErrorPages({
+//   section: ["errorPages"],
+// }));
 </script>

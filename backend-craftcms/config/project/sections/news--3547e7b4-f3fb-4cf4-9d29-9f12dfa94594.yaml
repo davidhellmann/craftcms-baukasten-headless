@@ -32,4 +32,9 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: 'news/{slug}'
+  b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten Headless EN
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: 'news/{slug}'
 type: channel

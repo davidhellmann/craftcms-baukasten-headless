@@ -7,6 +7,15 @@ export default defineNuxtConfig({
   generate: {
     // routes: [dynamicRoutes]
   },
+  components: {
+    "dirs": [
+      {
+        "path": "~/components/global",
+        "global": true
+      },
+      "~/components"
+    ]
+  },
   modules: [
     'nuxt-graphql-client',
     '@vueuse/nuxt',

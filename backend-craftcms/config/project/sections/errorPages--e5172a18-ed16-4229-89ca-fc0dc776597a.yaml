@@ -19,6 +19,11 @@ siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # $SITE_NAME
     enabledByDefault: true
     hasUrls: true
-    template: _routerErrors
+    template: null
+    uriFormat: 'error/{slug}'
+  b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten Headless EN
+    enabledByDefault: true
+    hasUrls: true
+    template: null
     uriFormat: 'error/{slug}'
 type: channel

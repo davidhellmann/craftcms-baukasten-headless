@@ -8,25 +8,22 @@
 </template>
 
 <script lang="ts" setup>
-import homepageQueryFile from '~/graphql/entry.homepage.graphql'
-import { useGraphqlQuery } from "~/composables/useGraphqlQuery";
-import {print} from "graphql/language/printer";
 const route = useRoute()
-const {API_URL, API_TOKEN} = useRuntimeConfig()
 
-const entry = ref()
-const {data: response } = await useGraphqlQuery({
-  apiUrl: API_URL,
-  apiToken: API_TOKEN,
-  routeQuery: route.query,
-  responseParameter: 'entry',
-  query: print(homepageQueryFile),
-  variables: {
-    uri: route.path.slice(1)
-  }
-})
+interface IGQLQueryResponse {
+  data: any,
+  refresh: any
+}
 
-entry.value = response.value
+
+// Fetch Pages Data
+const {
+  data: {value: { entry }}
+}: IGQLQueryResponse = await useAsyncData('xxx', () => GqlBuilder({
+  uri: route.path.slice(1)
+}));
+
+console.log(entry)
 </script>
 
 

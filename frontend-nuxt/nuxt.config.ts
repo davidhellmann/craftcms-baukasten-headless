@@ -1,11 +1,11 @@
 import {defineNuxtConfig} from 'nuxt'
-import {dynamicRoutes} from "~/scripts/createDynamicRoutes";
+// import {dynamicRoutes} from "~/scripts/createDynamicRoutes";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   target: 'static',
   generate: {
-    routes: dynamicRoutes
+    // routes: [dynamicRoutes]
   },
   modules: [
     'nuxt-graphql-client',
@@ -28,21 +28,21 @@ export default defineNuxtConfig({
     // The private keys which are only available within server-side
 
     // Craft CMS live preview
-    API_URL: process.env.API_BASE_URL + '/api' || '',
-    API_TOKEN: process.env.GRAPHQL_TOKEN || '',
+    // API_URL: process.env.API_BASE_URL + '/api' || '',
+    // API_TOKEN: process.env.GRAPHQL_TOKEN || '',
     // Keys within public, will be also exposed to the client-side
     public: {
       // apiBaseUrl: process.env.API_BASE_URL + '/api' || '',
-      baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+      // baseUrl: process.env.BASE_URL || 'http://localhost:3000',
       // apiToken: process.env.GRAPHQL_TOKEN || '',
-      assetBaseUrl: process.env.ASSET_BASE_URL || 'http://localhost:3000',
-      appName: process.env.npm_package_name || '',
+      // assetBaseUrl: process.env.ASSET_BASE_URL || 'http://localhost:3000',
+      // appName: process.env.npm_package_name || '',
 
       // Craft CMS live preview
 
-      LIVE_PREVIEW: process.env.LIVE_PREVIEW === 'true',
-      API_URL: process.env.LIVE_PREVIEW === 'true' ?process.env.API_BASE_URL + '/api' : '',
-      API_TOKEN: process.env.LIVE_PREVIEW === 'true' ? process.env.GRAPHQL_TOKEN : '',
+      // LIVE_PREVIEW: process.env.LIVE_PREVIEW === 'true',
+      // API_URL: process.env.LIVE_PREVIEW === 'true' ?process.env.API_BASE_URL + '/api' : '',
+      // API_TOKEN: process.env.LIVE_PREVIEW === 'true' ? process.env.GRAPHQL_TOKEN : '',
       'graphql-client': {
         clients: {
           default: {

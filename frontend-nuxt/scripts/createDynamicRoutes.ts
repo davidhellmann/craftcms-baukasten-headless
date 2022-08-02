@@ -23,14 +23,22 @@ export const dynamicRoutes = async () => {
     },
   })
 
-  const routesForPages = entries.map((entry) => {
+  // TODO: if you need more different mappings
+  // const routesForPages = entries.map((entry) => {
+  //   return {
+  //     route: entry.slug,
+  //     payload: page
+  //   }
+  // })
+  //
+  // return routesForPages
+
+  return entries.map((entry) => {
     return {
       route: entry.slug,
-      payload: page
+      payload: entry
     }
   })
-
-  return routesForPages
 }
 
 

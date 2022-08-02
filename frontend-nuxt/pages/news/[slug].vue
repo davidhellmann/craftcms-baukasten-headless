@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-const route = useRoute();
-let livePreviewToken = '';
-let previewToken = '';
-let token = '';
-const entryNews = ref({});
+// const route = useRoute();
+// let livePreviewToken = '';
+// let previewToken = '';
+// let token = '';
+// const entryNews = ref({});
 
 
 
@@ -57,10 +57,10 @@ const entryNews = ref({});
 </script>
 
 <template>
-  <div>
-    <NuxtLink to="/news">News</NuxtLink>
-    <h1>{{ entryNews?.title }}</h1>
-  </div>
+<!--  <div>-->
+<!--    <NuxtLink to="/news">News</NuxtLink>-->
+<!--    <h1>{{ entryNews?.title }}</h1>-->
+<!--  </div>-->
 </template>
 
 <style scoped></style>

@@ -2,7 +2,7 @@ isPublic: false
 name: 'Frontend Nuxt'
 scope:
   - 'sites.8153a2df-373f-4aac-9a92-d52292c9f1aa:read' # $SITE_NAME
-  - 'sites.b205e203-99d0-4ee4-b75c-90a868606c4b:read' # Baukasten Headless EN
+  - 'sites.b205e203-99d0-4ee4-b75c-90a868606c4b:read' # Baukasten Headless DE
   - 'elements.drafts:read'
   - 'elements.revisions:read'
   - 'elements.inactive:read'

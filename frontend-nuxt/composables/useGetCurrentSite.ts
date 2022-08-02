@@ -3,12 +3,17 @@ interface IGetCurrentSite {
 }
 
 export const useGetCurrentSite = (params: IGetCurrentSite) => {
-  let currentSite = "default"
+  let handle = "default"
+  let language = "en"
 
   // Check for EN Page
-  if (params.path.startsWith('/en/')) {
-    currentSite = 'defaultEn'
+  if (params.path.startsWith('/de/')) {
+    handle = 'defaultDe'
+    language = 'de'
   }
 
-  return currentSite
+  return {
+    handle,
+    language
+  }
 }

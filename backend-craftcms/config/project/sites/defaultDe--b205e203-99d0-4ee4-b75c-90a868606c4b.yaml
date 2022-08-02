@@ -1,9 +1,9 @@
-baseUrl: $SITE_URL_EN
+baseUrl: $SITE_URL_DE
 enabled: '1'
-handle: defaultEn
+handle: defaultDe
 hasUrls: true
-language: en
-name: 'Baukasten Headless EN'
+language: de
+name: 'Baukasten Headless DE'
 primary: false
 siteGroup: 2bc1feee-cfc8-48ee-bace-f101e7f41ac9 # Default
 sortOrder: 2

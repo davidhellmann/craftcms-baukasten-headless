@@ -6,13 +6,15 @@
     <p>Entry Type Handle: {{ entry.typeHandle }}</p>
     <p>Entry Section Handle {{ entry.sectionHandle }}</p>
     <p>CurrentSiteHandle {{ currentSiteHandle }}</p>
+    <p>CurrentSiteLanguage {{ currentSiteLanguage }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 interface Props {
   entry: object,
-  currentSiteHandle: string
+  currentSiteHandle: string,
+  currentSiteLanguage: string,
 }
 
 const props = defineProps<Props>()

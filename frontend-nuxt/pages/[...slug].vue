@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <template v-if="entry">
-      <Component :is="renderView" :entry="entry" :current-site-handle="currentSiteHandle"/>
-    </template>
-  </div>
+  <Component :is="renderView" v-if="entry"
+             :entry="entry"
+             :current-site-handle="currentSiteHandle"
+             :current-site-language="currentSiteLanguage"/>
 </template>
 
 <script lang="ts" setup>
@@ -14,37 +13,43 @@ interface IGQLQueryResponse {
 }
 
 // Imports
-import {getCurrentInstance} from "vue";
-import {useFirstLetterUppercase} from "~/composables/useFirstLetterUppercase";
 import {useGetCurrentSite} from "~/composables/useGetCurrentSite";
+import {useResolveEntryComponent} from "~/composables/useResolveEntryComponent";
+import {useSiteStore} from "~/stores/useSiteStore";
 
 // Data
 const route = useRoute()
-const { path, params: { slug } } = route;
-const currentSiteHandle = useGetCurrentSite({path})
+const {path, params: {slug}} = route;
+const {
+  handle: currentSiteHandle,
+  language: currentSiteLanguage
+} = useGetCurrentSite({path})
 
-// Fetch Pages Data
+
+// View Resolver
 const {
   data: {value: {entry}}
 }: IGQLQueryResponse = await useAsyncData('entry', () => GqlEntry({
-  slug: slug.slice(-1)[0],
+  slug: path.endsWith('/') ? slug.slice(-2)[0] : slug.slice(-1)[0],
   section: "pages",
   site: currentSiteHandle
 }));
 
+const renderView = await resolveComponent(useResolveEntryComponent({entry}))
 
 
-const resolveDynamicComp = () => {
-  const instance = getCurrentInstance();
-  const sectionHandle = useFirstLetterUppercase({text: entry.sectionHandle})
-  const typeHandle = useFirstLetterUppercase({text: entry.typeHandle})
-  const compToResolve = `Views${sectionHandle}${typeHandle}`
+// Static Translations
+const siteStore = useSiteStore()
 
-  return typeof instance?.appContext.components === "object" &&
-  compToResolve in instance.appContext.components ? compToResolve : 'ViewsDefault'
-}
+const {
+  data: {value: {translations}}
+}: IGQLQueryResponse = await useAsyncData('translations', () => GqlTranslations({
+  language: currentSiteLanguage
+}));
 
-const renderView = resolveComponent(resolveDynamicComp())
+siteStore.$patch({
+  translations: translations.filter(item => item.message !== null)
+})
 </script>
 
 

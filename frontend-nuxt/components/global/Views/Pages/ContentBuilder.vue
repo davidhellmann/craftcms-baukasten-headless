@@ -12,10 +12,28 @@
 
 <script setup lang="ts">
 interface Props {
-  entry: object,
+  entry: {
+    [key: string]: string
+  },
   currentSiteHandle: string,
   currentSiteLanguage: string,
 }
 
+interface IGQLQueryResponse {
+  data: any,
+  refresh: any
+}
+
 const props = defineProps<Props>()
+
+if (props.entry?.id) {
+  const {
+    data: {value: {pageBuilderContent}}
+  }: IGQLQueryResponse = await useAsyncData('entryPageBuilderContent', () => GqlPageBuilderContent({
+    id: props.entry?.id,
+    site: props.currentSiteHandle
+  }));
+
+  // console.log(pageBuilderContent)
+}
 </script>

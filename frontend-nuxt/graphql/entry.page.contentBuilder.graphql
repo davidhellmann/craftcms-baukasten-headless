@@ -1,8 +1,0 @@
-query builder($uri: [String] = "") {
-  entry(uri: $uri) {
-    id
-    title
-    typeHandle
-    sectionHandle
-  }
-}

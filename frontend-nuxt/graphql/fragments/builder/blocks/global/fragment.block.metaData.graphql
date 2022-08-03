@@ -1,0 +1,6 @@
+fragment blockMetaData on MatrixBlockInterface {
+  ... on builderContent_blockCode_BlockType {
+    id
+    typeHandle
+  }
+}

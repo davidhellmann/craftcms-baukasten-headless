@@ -1,0 +1,20 @@
+
+fragment builderContent on EntryInterface {
+  ... on pages_contentBuilder_Entry {
+    builderContent {
+      ... blockSection
+      ... blockCode
+      ... blockSpacer
+      ... blockDivider
+      ... blockVideoYoutube
+      ... blockImageSlider
+      ... blockImageGallery
+      ... blockImageGridCalculated
+      ... blockImageGrid
+      ... blockImage
+      ... blockQuote
+      ... blockTextFloatingImage
+      ... blockText
+    }
+  }
+}

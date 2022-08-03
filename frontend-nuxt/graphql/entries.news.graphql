@@ -1,9 +1,3 @@
-#import "./fragments/entry/fragment.entry.metaData.graphql"
-#import "./fragments/entry/fragment.entry.dates.graphql"
-#import "./fragments/asset/fragment.asset.metaData.graphql"
-#import "./fragments/asset/fragment.asset.imager.auto.graphql"
-#import "./fragments/asset/fragment.asset.focalpoint.graphql"
-
 query entriesNews(
   $section: [String] = "news",
   $queryEntryImage: Boolean = true,

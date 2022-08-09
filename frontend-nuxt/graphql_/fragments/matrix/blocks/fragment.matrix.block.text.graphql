@@ -1,0 +1,6 @@
+fragment blockText on MatrixBlockInterface {
+  ... on builderContent_blockText_BlockType {
+    ... blockMetaData
+    text
+  }
+}

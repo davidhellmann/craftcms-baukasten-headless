@@ -1,0 +1,25 @@
+{
+  "name": "@example/basics",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "upgrade-interactive": "npm-check --update",
+    "ui": "npm run upgrade-interactive",
+    "graphql-schema": "./../backend-craftcms/craft graphql/print-schema > schema.graphqls",
+    "schemas": "npm run tailwind-schema && npm run graphql-schema"
+  },
+  "devDependencies": {
+    "astro": "^1.0.0-rc.7",
+    "npm-check": "^6.0.1",
+    "@rollup/plugin-graphql": "^1.1.0"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^0.2.5",
+    "graphql": "^16.5.0"
+  }
+}

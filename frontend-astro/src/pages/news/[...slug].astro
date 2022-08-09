@@ -1,0 +1,43 @@
+---
+export async function getStaticPaths() {
+    const response = await fetch('http://content.baukasten.test/api', {
+        method: 'POST',
+        body: JSON.stringify({
+            query: `
+        query getNews($section:[String]!) {
+            news: entries(section: $section){
+              id
+              title
+              uri
+              slug
+              typeHandle
+              sectionHandle
+            }
+          }
+        `,
+            variables: {
+                section: ['news']
+            }
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer KOTwKkTfXNRzI_u2gQPBO7OfyxXoCihi`,
+        },
+    }).then(response => response.json());
+
+
+    const { data: { news } } = await response
+
+    return news.map((item: any) => {
+        return {
+            params: { slug: item.slug },
+            props: { item },
+        };
+    });
+}
+
+const { slug } = Astro.params;
+const { item } = Astro.props;
+---
+
+<h1>{slug}: {item.title}</h1>

@@ -1,0 +1,11 @@
+fragment blockImageSlider on MatrixBlockInterface {
+  ... on builderContent_blockImageSlider_BlockType {
+    ... blockMetaData
+    imageTransform
+    images {
+      ...assetMetaData
+      ...assetImagerAuto
+      ...assetFocalpoint
+    }
+  }
+}

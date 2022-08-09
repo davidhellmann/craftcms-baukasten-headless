@@ -1,0 +1,14 @@
+fragment blockImageGrid on MatrixBlockInterface {
+  ... on builderContent_blockImageGrid_BlockType {
+    ... blockMetaData
+    imageColumns
+    imageTransform
+    showImageCaption
+    imageTransform
+    images {
+      ...assetMetaData
+      ...assetImagerAuto
+      ...assetFocalpoint
+    }
+  }
+}

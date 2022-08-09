@@ -1,4 +1,4 @@
-dateModified: 1659467648
+dateModified: 1660080310
 elementSources:
   craft\elements\Asset:
     -
@@ -37,7 +37,11 @@ elementSources:
       key: '*'
       type: native
     -
+      disabled: false
       key: singles
+      tableAttributes:
+        - link
+        - uri
       type: native
     -
       heading: Channels

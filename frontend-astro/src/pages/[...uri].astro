@@ -1,43 +1,34 @@
 ---
-export async function getStaticPaths() {
-    const response = await fetch('http://content.baukasten.test/api', {
-        method: 'POST',
-        body: JSON.stringify({
-            query: `
-        query getPages($section:[String]!) {
-            pages: entries(section: $section){
-              id
-              title
-              uri
-              slug
-              typeHandle
-              sectionHandle
-            }
-          }
-        `,
-            variables: {
-                section: ['pages']
-            }
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer KOTwKkTfXNRzI_u2gQPBO7OfyxXoCihi`,
-        },
-    }).then(response => response.json());
+import pageQuery from '../graphql/entry.page.graphql'
+import { useGraphqlQuery } from "../composables/useGraphqlQuery";
+import { useGetCurrentSite } from "../composables/useGetCurrentSite";
+import { print } from "graphql/language/printer";
+
+const uri = Astro.params.uri === undefined ? '__home__' : String(Astro.params.uri);
+const { searchParams } = Astro.url
+
+const {
+    handle: currentSiteHandle,
+    language: currentSiteLanguage,
+    uri: currentUri
+} = useGetCurrentSite({ uri })
+
+const { data: { page } } = await useGraphqlQuery({
+    query: print(pageQuery),
+    routeQuery: Object.fromEntries(searchParams),
+    variables: {
+        uri: currentUri,
+        site: currentSiteHandle
+    }
+})
 
 
-    const { data: { pages } } = await response
-
-    return pages.map((item: any) => {
-        return {
-            params: { uri: item.uri },
-            props: { item },
-        };
+if (!page) {
+    return new Response(null, {
+        status: 404,
+        statusText: 'Not found'
     });
 }
-
-const { uri } = Astro.params;
-const { item } = Astro.props;
 ---
 
-<h1>{uri}: {item.title}</h1>
+<h1>{uri}: {page.title}</h1>

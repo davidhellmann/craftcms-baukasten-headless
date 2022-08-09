@@ -1,10 +1,7 @@
 interface IGraphqlQuery {
-  apiUrl: string;
-  apiToken: string;
   query: string;
-  responseParameter: string;
   routeQuery?: {
-    [key: string]: string | string[];
+    [key: string]: string | string[] | number;
   };
   variables?: {
     [key: string]: string | string[] | number;
@@ -13,12 +10,6 @@ interface IGraphqlQuery {
 
 interface ICustomHeaders {
   [key: string]: string | string[];
-}
-
-interface ITransform {
-  data: {
-    [key: string]: any;
-  };
 }
 
 export const useGraphqlQuery = (params: IGraphqlQuery) => {
@@ -30,7 +21,9 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
   } = params.routeQuery;
 
   const apiUrl =
-    preview && token ? `${params.apiUrl}?token=${token}` : params.apiUrl;
+    preview && token
+      ? `${import.meta.env.API_URL}?token=${token}`
+      : import.meta.env.API_URL;
   const customHeaders: ICustomHeaders = {};
 
   // If Live Preview
@@ -43,21 +36,16 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
     customHeaders["x-craft-preview"] = xCraftPreview;
   }
 
-  // Custom transformer
-  const transformData = (response): ITransform => {
-    return response.data[params.responseParameter];
-  };
-
   return fetch(apiUrl, {
     method: "POST",
-    body: {
+    body: JSON.stringify({
       query: params.query,
       variables: params.variables || null,
-    },
+    }),
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${params.apiToken}`,
+      Authorization: import.meta.env.API_TOKEN,
       ...customHeaders,
     },
-  });
+  }).then((response) => response.json());
 };

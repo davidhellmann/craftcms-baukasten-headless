@@ -1,0 +1,5 @@
+fragment fragmentPagesContentBuilder on EntryInterface {
+  ... on pages_contentBuilder_Entry {
+    ... builderContent
+  }
+}

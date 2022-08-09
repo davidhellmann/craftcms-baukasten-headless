@@ -1,7 +1,0 @@
-query pageBuilderContent($id: [QueryArgument]!, $site: [String]!) {
-  pageBuilderContent: entry(id: $id, site: $site) {
-    ... on pages_contentBuilder_Entry {
-      ...builderContent
-    }
-  }
-}

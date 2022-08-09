@@ -28,12 +28,12 @@ const props = defineProps<Props>()
 
 if (props.entry?.id) {
   const {
-    data: {value: {pageBuilderContent}}
-  }: IGQLQueryResponse = await useAsyncData('entryPageBuilderContent', () => GqlPageBuilderContent({
+    data: {value: {pagesContentBuilder}}
+  }: IGQLQueryResponse = await useAsyncData('entryPageBuilderContent', () => GqlPagesContentBuilder({
     id: props.entry?.id,
     site: props.currentSiteHandle
   }));
 
-  // console.log(pageBuilderContent)
+  console.log(pagesContentBuilder)
 }
 </script>

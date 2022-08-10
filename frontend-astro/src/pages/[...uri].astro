@@ -30,14 +30,14 @@ export async function getStaticPaths() {
 
     return pages.map((item: any) => {
         return {
-            params: { slug: item.slug },
+            params: { uri: item.slug },
             props: { item },
         };
     });
 }
 
-const { slug } = Astro.params;
+const { uri } = Astro.params;
 const { item } = Astro.props;
 ---
 
-<h1>{slug}: {item.title}</h1>
+<h1>{uri}: {item.title}</h1>

@@ -1,7 +1,7 @@
 ---
-import pageQuery from '../graphql/entry.page.graphql'
-import { useGraphqlQuery } from "../composables/useGraphqlQuery";
-import { useGetCurrentSite } from "../composables/useGetCurrentSite";
+import pageQuery from '../../graphql/entry.page.graphql'
+import { useGraphqlQuery } from "../../composables/useGraphqlQuery";
+import { useGetCurrentSite } from "../../composables/useGetCurrentSite";
 import { print } from "graphql/language/printer";
 
 const uri = Astro.params.uri === undefined ? '__home__' : String(Astro.params.uri);

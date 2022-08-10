@@ -1,34 +1,43 @@
 ---
-import pageQuery from '../graphql/entry.page.graphql'
-import { useGraphqlQuery } from '../composables/useGraphqlQuery';
-import { useGetCurrentSite } from '../composables/useGetCurrentSite';
-import { print } from 'graphql/language/printer';
+export async function getStaticPaths() {
+    const response = await fetch(import.meta.env.API_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+            query: `
+        query getPages($section:[String]!) {
+            pages: entries(section: $section){
+              id
+              title
+              uri
+              slug
+              typeHandle
+              sectionHandle
+            }
+          }
+        `,
+            variables: {
+                section: ['pages']
+            }
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': import.meta.env.API_TOKEN,
+        },
+    }).then(response => response.json());
 
-const uri = Astro.params.uri === undefined ? '__home__' : String(Astro.params.uri);
-const { searchParams } = Astro.url
 
-const {
-    handle: currentSiteHandle,
-    language: currentSiteLanguage,
-    uri: currentUri
-} = useGetCurrentSite({ uri })
+    const { data: { pages } } = await response
 
-const { data: { page } } = await useGraphqlQuery({
-    query: print(pageQuery),
-    routeQuery: Object.fromEntries(searchParams),
-    variables: {
-        uri: currentUri,
-        site: currentSiteHandle
-    }
-})
-
-
-if (!page) {
-    return new Response(null, {
-        status: 404,
-        statusText: 'Not found'
+    return pages.map((item: any) => {
+        return {
+            params: { slug: item.slug },
+            props: { item },
+        };
     });
 }
+
+const { slug } = Astro.params;
+const { item } = Astro.props;
 ---
 
-<h1>{uri}: {page.title}</h1>
+<h1>{slug}: {item.title}</h1>

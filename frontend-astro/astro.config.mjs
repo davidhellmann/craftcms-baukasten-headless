@@ -8,7 +8,7 @@ export default defineConfig({
   integrations: [tailwind()],
   output: "server",
   adapter: cloudflare(),
-  site: import.meta.env.SITE,
+  site: "https://astro.live.baukaten.io",
   vite: {
     plugins: [graphql()],
   },

@@ -13,7 +13,7 @@ interface ICustomHeaders {
 }
 
 export const useGraphqlQuery = (params: IGraphqlQuery) => {
-  const { API_TOKEN, API_URL } = import.meta.env;
+  const { API_TOKEN, PUBLIC_API_URL } = import.meta.env;
 
   
   const {
@@ -25,8 +25,8 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
 
   const apiUrl =
     preview && token
-      ? `${API_URL}?token=${token}`
-      : API_URL;
+      ? `${PUBLIC_API_URL}?token=${token}`
+      : PUBLIC_API_URL;
   const customHeaders: ICustomHeaders = {};
 
   // If Live Preview

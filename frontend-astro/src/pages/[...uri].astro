@@ -3,16 +3,14 @@ import pageQuery from '../graphql/entry.page.graphql'
 import { useGraphqlQuery } from '../composables/useGraphqlQuery';
 import { useGetCurrentSite } from '../composables/useGetCurrentSite';
 import { print } from 'graphql/language/printer';
-
 const uri = Astro.params.uri === undefined ? '__home__' : String(Astro.params.uri);
 const { searchParams } = Astro.url
-
+const { PUBLIC_LIVE_PREVIEW } = import.meta.env;
 const {
     handle: currentSiteHandle,
     language: currentSiteLanguage,
     uri: currentUri
 } = useGetCurrentSite({ uri })
-
 const { data: { page } } = await useGraphqlQuery({
     query: print(pageQuery),
     routeQuery: Object.fromEntries(searchParams),
@@ -21,16 +19,14 @@ const { data: { page } } = await useGraphqlQuery({
         site: currentSiteHandle
     }
 })
-
-
 if (!page) {
     return new Response(null, {
         status: 404,
         statusText: 'Not found'
     });
 }
-
 console.log(page)
 ---
 
 <h1>{uri}: {page.title}</h1>
+<h2>Live preview: {PUBLIC_LIVE_PREVIEW}<h2>

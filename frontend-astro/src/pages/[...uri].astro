@@ -22,7 +22,7 @@ export async function getStaticPaths() {
                     `,
             variables: {
                 section: ['pages', 'news', 'home', 'errorPages'],
-                site: ['defaultDe']
+                site: ['default']
             }
         }),
         headers: {
@@ -38,18 +38,17 @@ export async function getStaticPaths() {
         return {
             params: {
                 uri: page.uri === '__home__' ? 'index' : page.uri,
-                site: page.siteId === 1 ? 'en' : 'de'
             },
             props: { page },
         };
     });
 }
 
-const { uri, site } = Astro.params;
+const { uri } = Astro.params;
 const { page } = Astro.props;
 
 ---
 
 <h1>{uri}: {page.title}</h1>
 <h2>Live preview: {PUBLIC_LIVE_PREVIEW}</h2>
-<h3>Site: {site}</h3>
+<h3>Site: en</h3>

@@ -13,7 +13,7 @@ interface ICustomHeaders {
 }
 
 export const useGraphqlQuery = (params: IGraphqlQuery) => {
-  const { API_TOKEN, PUBLIC_API_URL } = import.meta.env;
+  const { PUBLIC_API_TOKEN, PUBLIC_API_URL } = import.meta.env;
 
   
   const {
@@ -47,7 +47,7 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
     }),
     headers: {
       "Content-Type": "application/json",
-      Authorization: API_TOKEN,
+      Authorization: PUBLIC_API_TOKEN,
       ...customHeaders,
     },
   }).then((response) => response.json());

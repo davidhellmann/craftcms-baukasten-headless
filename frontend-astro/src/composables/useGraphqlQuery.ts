@@ -13,7 +13,6 @@ interface ICustomHeaders {
 }
 
 export const useGraphqlQuery = (params: IGraphqlQuery) => {
-  console.log(import.meta.env.API_URL)
   const {
     preview,
     token,

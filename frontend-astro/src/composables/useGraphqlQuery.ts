@@ -22,8 +22,8 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
 
   const apiUrl =
     preview && token
-      ? `${import.meta.env.API_URL}?token=${token}`
-      : import.meta.env.API_URL;
+      ? `https://headless.baukasten.io/api?token=${token}`
+      : `https://headless.baukasten.io/api`;
   const customHeaders: ICustomHeaders = {};
 
   // If Live Preview
@@ -44,7 +44,7 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
     }),
     headers: {
       "Content-Type": "application/json",
-      Authorization: import.meta.env.API_TOKEN,
+      Authorization: `Bearer KOTwKkTfXNRzI_u2gQPBO7OfyxXoCihi`,
       ...customHeaders,
     },
   }).then((response) => response.json());

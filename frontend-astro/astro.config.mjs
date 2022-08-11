@@ -6,14 +6,13 @@ import { loadEnv } from "vite";
 
 // https://astro.build/config
 export default defineConfig((mode) => {
-  const { SITE } = loadEnv(mode, process.cwd(), "");
-  console.log(SITE);
+  const { PUBLIC_SITE } = loadEnv(mode, process.cwd(), "");
   return {
     integrations: [tailwind()],
     output: "server",
     // output: "static",
     adapter: cloudflare(),
-    site: SITE,
+    site: PUBLIC_SITE,
     vite: {
       plugins: [graphql()],
     },

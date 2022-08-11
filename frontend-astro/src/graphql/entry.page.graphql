@@ -10,5 +10,6 @@ query page(
     slug
     typeHandle
     sectionHandle
+    siteId
   }
 }

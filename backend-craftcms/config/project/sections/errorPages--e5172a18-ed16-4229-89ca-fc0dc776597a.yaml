@@ -20,10 +20,10 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'error/{slug}'
+    uriFormat: '{slug}'
   b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten Headless DE
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: 'error/{slug}'
+    uriFormat: '{slug}'
 type: channel

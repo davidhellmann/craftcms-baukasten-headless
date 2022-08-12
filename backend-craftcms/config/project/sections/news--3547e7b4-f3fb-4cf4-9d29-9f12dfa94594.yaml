@@ -3,25 +3,25 @@ enableVersioning: true
 handle: news
 name: News
 previewTargets:
-  -
+  1:
     __assoc__:
       -
         - label
-        - 'Primary entry page'
+        - Local
       -
         - urlFormat
-        - '{url}'
+        - 'http://localhost:3000/live-preview/?id={id}&site={siteId}&preview=true'
       -
         - refresh
         - '1'
-  -
+  2:
     __assoc__:
       -
         - label
-        - 'Nuxt Local'
+        - Live
       -
         - urlFormat
-        - 'http://localhost:3000/{uri}?CraftPreviewSlug={slug}'
+        - 'https://main.craftcms-baukasten-headless.pages.dev/live-preview/?id={id}&site={siteId}&preview=true'
       -
         - refresh
         - '1'

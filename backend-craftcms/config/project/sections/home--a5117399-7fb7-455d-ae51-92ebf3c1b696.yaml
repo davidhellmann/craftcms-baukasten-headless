@@ -1,27 +1,16 @@
 defaultPlacement: end
 enableVersioning: true
-handle: news
-name: News
+handle: home
+name: Home
 previewTargets:
-  1:
+  -
     __assoc__:
       -
         - label
-        - Local
+        - 'Primary entry page'
       -
         - urlFormat
-        - 'http://localhost:3000/live-preview/?id={id}&site={siteId}&preview=true'
-      -
-        - refresh
-        - '1'
-  2:
-    __assoc__:
-      -
-        - label
-        - Live
-      -
-        - urlFormat
-        - 'https://main.craftcms-baukasten-headless.pages.dev/live-preview/?id={id}&site={siteId}&preview=true'
+        - '{url}'
       -
         - refresh
         - '1'
@@ -31,10 +20,10 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: '{slug}'
+    uriFormat: __home__
   b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten Headless DE
     enabledByDefault: true
     hasUrls: true
     template: null
-    uriFormat: '{slug}'
-type: channel
+    uriFormat: __home__
+type: single

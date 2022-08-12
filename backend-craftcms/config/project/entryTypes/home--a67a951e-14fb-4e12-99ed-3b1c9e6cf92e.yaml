@@ -1,5 +1,5 @@
 fieldLayouts:
-  f1786ec7-1b90-4868-a08b-741f47188086:
+  84ca6595-b38c-49db-9336-61498602e05e:
     tabs:
       -
         elementCondition: null
@@ -26,7 +26,7 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 344a74d4-c24e-42a5-ab7b-66ffb611985d
+            uid: 3c78059c-d41e-49be-a8a3-234261a80a46
             userCondition: null
             warning: null
             width: 100
@@ -38,7 +38,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 4444ad83-3cbd-473c-bfa2-1759ba24f0ee
+            uid: 8aaeb203-57fe-4611-949e-ed6d2396fb9c
             userCondition: null
             warning: null
             width: 100
@@ -50,7 +50,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c50735a6-5709-4a6c-977e-29934303ed7d
+            uid: 1c341100-8e75-4b1f-9e46-57546484daf4
             userCondition: null
             warning: null
             width: 100
@@ -62,12 +62,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 667dcb79-5d46-42f6-a2ea-32b544e8e2af
+            uid: 27ca5125-0ea7-4a5a-ada3-7f8199874bab
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: f32236c6-ea46-4204-8d9c-ff6b2480aaea
+        uid: 043491b2-ea1a-4d95-b041-8b77b9af83d9
         userCondition: null
       -
         elementCondition: null
@@ -80,12 +80,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 5880c090-a0ec-4388-b8a4-6ee9c2cb5463
+            uid: 348ad386-1cc6-4572-819c-1ad1c162f2cf
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 36037f15-6875-4f69-8754-f594c04b7b12
+        uid: c61fb191-b0d7-4762-876b-cc058f1f0cba
         userCondition: null
       -
         elementCondition: null
@@ -98,18 +98,18 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 8d4f7e81-e4a2-4545-9966-56e652c2293d
+            uid: 39f44d71-31f2-4f21-b0b9-0eeebdb5833d
             userCondition: null
             warning: null
             width: 100
         name: SEO
-        uid: f3b543c4-ff5c-4bad-ae8d-7a276859ad24
+        uid: 9d69f80c-a517-48b2-b5a4-a06eede2198b
         userCondition: null
 handle: home
-hasTitleField: true
+hasTitleField: false
 name: Home
-section: b0207f48-be48-49ab-a759-1ff51f232df3 # Pages
-sortOrder: 3
-titleFormat: null
+section: a5117399-7fb7-455d-ae51-92ebf3c1b696 # Home
+sortOrder: 1
+titleFormat: '{section.name|raw}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

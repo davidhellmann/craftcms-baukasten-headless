@@ -10,7 +10,7 @@ previewTargets:
         - Local
       -
         - urlFormat
-        - 'http://localhost:3000/live-preview/?id={id}&site={siteId}&preview=true'
+        - 'http://localhost:3000/live-preview?siteId={siteId}&id={id}&preview=true'
       -
         - refresh
         - '1'

@@ -1,0 +1,28 @@
+---
+const { PUBLIC_LIVE_PREVIEW } = import.meta.env;
+import pageQuery from '../graphql/live-preview.graphql'
+import { useGraphqlQuery } from '../composables/useGraphqlQuery';
+import { useGetCurrentSite } from '../composables/useGetCurrentSite';
+import { print } from 'graphql/language/printer';
+const id = Number(Astro.params.id);
+const siteId = Number(Astro.params.siteId);
+const { searchParams } = Astro.url
+console.log(searchParams)
+const { data: { page } } = await useGraphqlQuery({
+	query: print(pageQuery),
+	routeQuery: Object.fromEntries(searchParams),
+	variables: {
+		id,
+		siteId
+	}
+})
+if (!page) {
+	return new Response(null, {
+		status: 404,
+		statusText: 'Not found'
+	});
+}
+---
+
+<h1>{id} {siteId}: {page.title}</h1>
+<h2>Live preview: {PUBLIC_LIVE_PREVIEW}</h2>

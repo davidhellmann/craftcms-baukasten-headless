@@ -1,0 +1,11 @@
+query page($id: [QueryArgument], $siteId: [QueryArgument]!) {
+  page: entry(id: $id, siteId: $siteId) {
+    id
+    title
+    uri
+    slug
+    typeHandle
+    sectionHandle
+    siteId
+  }
+}

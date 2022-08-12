@@ -1,5 +1,5 @@
 query page(
-  $section: [String]! = ["pages", "home"]
+  $section: [String]! = ["pages", "news"]
   $uri: [String]!
   $site: [String]!
 ) {

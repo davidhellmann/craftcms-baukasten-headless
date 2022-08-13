@@ -37,7 +37,7 @@ export async function getStaticPaths() {
                 uri: entry.uri === '__home__' ? 'index' : entry.uri,
                 site: entry.siteId === 1 ? 'en' : 'de'
             },
-            props: { entry, siteId: entry.siteId },
+            props: { entry, siteId: entry.siteId, sectionHandle: entry.sectionHandle, entryType: entry.typeHandle },
         };
     });
 }

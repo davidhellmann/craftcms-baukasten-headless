@@ -1,4 +1,4 @@
-dateModified: 1660337685
+dateModified: 1660408565
 elementSources:
   craft\elements\Asset:
     -
@@ -34,7 +34,16 @@ elementSources:
       type: native
   craft\elements\Entry:
     -
+      disabled: false
       key: '*'
+      tableAttributes:
+        - section
+        - postDate
+        - expiryDate
+        - author
+        - link
+        - slug
+        - uri
       type: native
     -
       disabled: false

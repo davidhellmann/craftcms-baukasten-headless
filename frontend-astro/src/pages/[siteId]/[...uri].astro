@@ -8,12 +8,12 @@ export async function getStaticPaths() {
         method: 'POST',
         body: JSON.stringify({
             query: `
-                    query getHome($section: [String]!, $site: [String]!) {
-                        home: entry(section: $section, site: $site){
+                    query getPages($section: [String]!, $site: [String]!) {
+                        pages: entries(section: $section, site: $site){
                             id
                             title
                             uri
-                            slug
+                            uri
                             typeHandle
                             sectionHandle
                             siteId
@@ -21,8 +21,8 @@ export async function getStaticPaths() {
                         }
                     `,
             variables: {
-                section: ['home'],
-                site: ['default']
+                section: ['pages', 'news', 'home'],
+                site: ['defaultDe']
             }
         }),
         headers: {
@@ -32,21 +32,24 @@ export async function getStaticPaths() {
     }).then(response => response.json());
 
 
-    const { data: { home } } = await response
+    const { data: { pages } } = await response
 
-    return {
-        params: {
-            uri: 'index',
-        },
-        props: { home },
-    };
+    return pages.map((page: any) => {
+        return {
+            params: {
+                uri: page.uri === '__home__' ? 'index' : page.uri,
+                siteId: page.siteId === 1 ? 'en' : 'de'
+            },
+            props: { page, siteId: page.siteId },
+        };
+    });
 }
 
-const { uri, site } = Astro.params;
-const { home } = Astro.props;
+const { uri } = Astro.params;
+const { page, siteId } = Astro.props;
 
 ---
 
-<h1>{uri}: {home}</h1>
+<h1>{uri}: {page.title}</h1>
 <h2>Live preview: {PUBLIC_LIVE_PREVIEW}</h2>
-<h3>Site: {site}</h3>
+<h3>Site: {siteId}</h3>

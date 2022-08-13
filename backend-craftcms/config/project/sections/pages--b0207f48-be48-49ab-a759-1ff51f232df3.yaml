@@ -10,7 +10,7 @@ previewTargets:
         - Local
       -
         - urlFormat
-        - 'http://localhost:3000/live-preview?siteId={siteId}&id={id}&preview=true'
+        - 'http://localhost:3000/live-preview?siteId={siteId}&uri={uri}&preview=true'
       -
         - refresh
         - '1'
@@ -21,7 +21,7 @@ previewTargets:
         - Live
       -
         - urlFormat
-        - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview/?id={id}&site={siteId}&preview=true'
+        - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview?siteId={siteId}&uri={uri}&preview=true'
       -
         - refresh
         - '1'

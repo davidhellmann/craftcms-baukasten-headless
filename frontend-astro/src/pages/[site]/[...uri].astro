@@ -43,9 +43,11 @@ export async function getStaticPaths() {
 }
 
 // Variables
-const { entry } = Astro.props;
+const { entry, sectionHandle, entryType } = Astro.props;
 ---
 
-<DefaultLayout title={entry.title} lang="de" {entry}>
-    <h1>{entry.title}</h1>
-</DefaultLayout>
+<DefaultLayout 
+title={entry.title} 
+sectionHandle={sectionHandle} 
+entryType={entryType} 
+lang="en" {entry} />

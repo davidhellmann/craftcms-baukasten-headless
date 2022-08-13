@@ -21,7 +21,7 @@ previewTargets:
         - Live
       -
         - urlFormat
-        - 'https://main.craftcms-baukasten-headless.pages.dev/live-preview/?id={id}&site={siteId}&preview=true'
+        - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview/?id={id}&site={siteId}&preview=true'
       -
         - refresh
         - '1'

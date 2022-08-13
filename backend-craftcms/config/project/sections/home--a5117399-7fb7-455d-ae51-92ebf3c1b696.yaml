@@ -7,10 +7,21 @@ previewTargets:
     __assoc__:
       -
         - label
-        - 'Primary entry page'
+        - Local
       -
         - urlFormat
-        - '{url}'
+        - 'http://localhost:3000/live-preview/?id={id}&site={siteId}&preview=true'
+      -
+        - refresh
+        - '1'
+  -
+    __assoc__:
+      -
+        - label
+        - Live
+      -
+        - urlFormat
+        - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview/?id={id}&site={siteId}&preview=true'
       -
         - refresh
         - '1'

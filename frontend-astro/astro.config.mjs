@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
+import svelte from '@astrojs/svelte';
 import graphql from "@rollup/plugin-graphql";
 import cloudflare from "@astrojs/cloudflare";
 import { loadEnv } from "vite";
@@ -8,7 +9,7 @@ import { loadEnv } from "vite";
 export default defineConfig((mode) => {
   const { PUBLIC_SITE, PUBLIC_LIVE_PREVIEW } = loadEnv(mode, process.cwd(), "");
   const settings = {
-    integrations: [tailwind()],
+    integrations: [tailwind(), svelte()],
     site: PUBLIC_SITE,
     vite: {
       plugins: [graphql()],

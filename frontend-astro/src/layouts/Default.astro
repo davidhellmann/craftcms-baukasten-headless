@@ -1,0 +1,25 @@
+---
+import RouterEntries from '@components/Views/RouterEntries.svelte'
+
+export interface Props {
+	title: string;
+	lang: string;
+	sectionHandle: string;
+	entryType: string;
+	entry: object
+}
+
+const { title, lang, sectionHandle, entryType, entry } = Astro.props as Props;
+---
+<!DOCTYPE html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} client:load /> 
+	</body>
+</html>

@@ -1,4 +1,4 @@
-dateModified: 1660409659
+dateModified: 1660422075
 elementSources:
   craft\elements\Asset:
     -
@@ -81,6 +81,7 @@ elementSources:
         - author
         - link
         - uri
+        - type
       type: native
 email:
   fromEmail: $SYSTEM_MAIL

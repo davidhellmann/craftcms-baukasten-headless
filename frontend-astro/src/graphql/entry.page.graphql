@@ -1,9 +1,5 @@
-query page(
-  $section: [String]! = ["pages", "news"]
-  $uri: [String]!
-  $site: [String]!
-) {
-  page: entry(section: $section, uri: $uri, site: $site) {
+query entryQuery($section: [String]!, $uri: [String]!, $site: [String]!) {
+  entry(section: $section, uri: $uri, site: $site) {
     id
     title
     uri

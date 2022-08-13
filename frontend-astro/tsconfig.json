@@ -14,6 +14,30 @@
     // Enable strict type checking.
     "strict": true,
     // Error when a value import is only used as a type.
-    "importsNotUsedAsValues": "error"
+    "types": [
+      "svelte"
+    ],
+    "importsNotUsedAsValues": "error",
+    "baseUrl": ".",
+        "paths": {
+          "@components/*": [
+            "src/components/*"
+          ],
+          "@assets/*": [
+            "src/assets/*"
+          ],
+          "@composables/*": [
+            "src/composables/*"
+          ],
+          "@layouts/*": [
+            "src/layouts/*"
+          ],
+          "@views/*": [
+            "src/views/*"
+          ],
+          "@graphql/*": [
+            "src/graphql/*"
+          ]
+        }
   }
 }

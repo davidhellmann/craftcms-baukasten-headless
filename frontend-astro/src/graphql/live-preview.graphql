@@ -1,5 +1,5 @@
-query page($id: [QueryArgument], $siteId: [QueryArgument]!) {
-  page: entry(id: $id, siteId: $siteId) {
+query entry($uri: [String]!, $siteId: [QueryArgument]!) {
+  entry(uri: $uri, siteId: $siteId) {
     id
     title
     uri
@@ -7,5 +7,9 @@ query page($id: [QueryArgument], $siteId: [QueryArgument]!) {
     typeHandle
     sectionHandle
     siteId
+  }
+  translations: staticMessages(language: $language, category: $category) {
+    key
+    message
   }
 }

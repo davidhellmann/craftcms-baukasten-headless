@@ -18,17 +18,17 @@
   "devDependencies": {
     "@astrojs/cloudflare": "^1.0.1",
     "@rollup/plugin-graphql": "^1.1.0",
-    "astro": "^1.0.5",
+    "astro": "^1.0.6",
     "npm-check": "^6.0.1",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.0",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "svelte-check": "^2.8.0",
-    "wrangler": "^2.0.25"
+    "svelte-check": "^2.8.1",
+    "wrangler": "^2.0.26"
   },
   "dependencies": {
     "@astrojs/svelte": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
-    "graphql": "^16.5.0"
+    "graphql": "^16.6.0"
   }
 }

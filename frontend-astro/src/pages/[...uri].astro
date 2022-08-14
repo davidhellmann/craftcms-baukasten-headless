@@ -28,14 +28,17 @@ export async function getStaticPaths() {
                 siteId: Number(entry.siteId), 
                 sectionHandle: entry.sectionHandle, 
                 entryType: entry.typeHandle,
-                translations
+                translations,
+                seo: {
+                    ...entry.seomatic
+                }
             },
         };
     });
 }
 
 // Variables
-const { title, id, siteId, sectionHandle, entryType, translations } = Astro.props;
+const { title, id, siteId, sectionHandle, entryType, translations, seo } = Astro.props;
 ---
 
-<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} {translations} lang="en" />
+<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} {translations} {seo} lang="en" />

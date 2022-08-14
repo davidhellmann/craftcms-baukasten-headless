@@ -35,6 +35,7 @@ return [
     'testToEmailAddress' => App::env('TEST_MAIL') ?: null,
     'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     'headlessMode' => (bool)App::env('HEADLESS_MODE'),
+    'baseCpUrl' => App::env('BASE_CP_URL'),
     // Craft config settings from constants
     'maxRevisions' => 5,
     'cacheDuration' => false,

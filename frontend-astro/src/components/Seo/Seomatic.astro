@@ -1,0 +1,8 @@
+---
+const { seo } = Astro.props
+---
+
+<Fragment set:html={seo.metaTitleContainer}></Fragment>
+<Fragment set:html={seo.metaTagContainer}></Fragment>
+<Fragment set:html={seo.metaLinkContainer}></Fragment>
+<Fragment set:html={seo.metaJsonLdContainer}></Fragment>

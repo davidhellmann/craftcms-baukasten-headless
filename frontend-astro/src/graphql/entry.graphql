@@ -12,6 +12,16 @@ query entryQuery(
     typeHandle
     sectionHandle
     siteId
+    seomatic(asArray: false) {
+      ... on SeomaticType {
+        metaTagContainer
+        metaTitleContainer
+        metaSiteVarsContainer
+        metaScriptContainer
+        metaLinkContainer
+        metaJsonLdContainer
+      }
+    }
   }
   translations: staticMessages(language: $language, category: $category) {
     key

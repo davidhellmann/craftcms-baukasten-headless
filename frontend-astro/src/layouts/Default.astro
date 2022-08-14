@@ -1,5 +1,6 @@
 ---
 import RouterEntries from '@components/Views/RouterEntries.astro'
+import Seomatic from '@components/Seo/Seomatic.astro'
 
 export interface Props {
 	title: string;
@@ -14,9 +15,12 @@ export interface Props {
             message: string
         }
     ]
+	seo: {
+		[key: string]: string
+	}
 }
 
-const { title, id, siteId, sectionHandle, entryType, lang, translations } = Astro.props as Props;
+const { title, id, siteId, sectionHandle, entryType, lang, translations, seo } = Astro.props as Props;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -24,7 +28,7 @@ const { title, id, siteId, sectionHandle, entryType, lang, translations } = Astr
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<title>{title}</title>
+		<Seomatic {seo} />
 	</head>
 	<body>
 		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} id={id} siteId={siteId} translations={translations} /> 

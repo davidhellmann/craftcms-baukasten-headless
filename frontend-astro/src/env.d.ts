@@ -1,5 +1,4 @@
 /// <reference types="astro/client" />
-/// <reference types="vite/types/importmeta" />
 
 interface ImportMetaEnv {
   readonly PUBLIC_API_URL: string;

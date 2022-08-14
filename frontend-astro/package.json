@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && svelte-check && tsc --noEmit && astro build",
+    "build": "astro build",
+    "build-old": "astro check && svelte-check && tsc --noEmit && astro build",
     "preview-old": "astro preview",
     "preview": "wrangler pages dev ./dist",
     "astro": "astro",

@@ -15,29 +15,30 @@
     "strict": true,
     // Error when a value import is only used as a type.
     "types": [
-      "svelte"
+      "svelte",
+      "astro/client"
     ],
     "importsNotUsedAsValues": "error",
     "baseUrl": ".",
-        "paths": {
-          "@components/*": [
-            "src/components/*"
-          ],
-          "@assets/*": [
-            "src/assets/*"
-          ],
-          "@composables/*": [
-            "src/composables/*"
-          ],
-          "@layouts/*": [
-            "src/layouts/*"
-          ],
-          "@views/*": [
-            "src/views/*"
-          ],
-          "@graphql/*": [
-            "src/graphql/*"
-          ]
-        }
+    "paths": {
+      "@components/*": [
+        "src/components/*"
+      ],
+      "@assets/*": [
+        "src/assets/*"
+      ],
+      "@composables/*": [
+        "src/composables/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*"
+      ],
+      "@views/*": [
+        "src/views/*"
+      ],
+      "@graphql/*": [
+        "src/graphql/*"
+      ]
+    }
   }
 }

@@ -15,7 +15,8 @@
     "strict": true,
     // Error when a value import is only used as a type.
     "types": [
-      "svelte"
+      "svelte",
+      "vite/client"
     ],
     "importsNotUsedAsValues": "error",
     "baseUrl": ".",

@@ -2,15 +2,9 @@
 export interface Props {
 	id: string,
     siteId: number
-    translations: [
-        {
-            key: string
-            message: string
-        }
-    ]
 }
 
-const { id, siteId, translations } = Astro.props as Props;
+const { id, siteId } = Astro.props as Props;
 
 const response = await fetch(import.meta.env.PUBLIC_API_URL, {
         method: 'POST',

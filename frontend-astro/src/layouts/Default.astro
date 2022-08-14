@@ -3,7 +3,6 @@ import RouterEntries from '@components/Views/RouterEntries.astro'
 import Seomatic from '@components/Seo/Seomatic.astro'
 
 export interface Props {
-	title: string;
 	id: string;
 	siteId: number;
 	sectionHandle: string;
@@ -20,7 +19,7 @@ export interface Props {
 	}
 }
 
-const { title, id, siteId, sectionHandle, entryType, lang, translations, seo } = Astro.props as Props;
+const { id, siteId, sectionHandle, entryType, lang, translations, seo } = Astro.props as Props;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -31,6 +30,12 @@ const { title, id, siteId, sectionHandle, entryType, lang, translations, seo } =
 		<Seomatic {seo} />
 	</head>
 	<body>
-		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} id={id} siteId={siteId} translations={translations} /> 
+		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} id={id} siteId={siteId} /> 
+		<h2>Translations</h2>
+		<ul>
+			{translations.map((item) => (
+				<li>{item?.key}: {item?.message}</li>
+			))}
+		</ul>
 	</body>
 </html>

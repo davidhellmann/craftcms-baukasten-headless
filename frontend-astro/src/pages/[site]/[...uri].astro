@@ -24,7 +24,6 @@ export async function getStaticPaths() {
                 site: entry.siteId === 1 ? 'en' : 'de'
             },
             props: { 
-                title: entry.title,
                 id: entry.id,
                 siteId: Number(entry.siteId), 
                 sectionHandle: entry.sectionHandle, 
@@ -39,7 +38,7 @@ export async function getStaticPaths() {
 }
 
 // Variables
-const { title, id, siteId, sectionHandle, entryType, translations, seo } = Astro.props;
+const { id, siteId, sectionHandle, entryType, translations, seo } = Astro.props;
 ---
 
-<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} {translations} {seo} lang="de" />
+<DefaultLayout {id} {siteId} {sectionHandle} {entryType} {translations} {seo} lang="de" />

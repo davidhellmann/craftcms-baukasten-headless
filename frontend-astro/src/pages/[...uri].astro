@@ -1,36 +1,21 @@
 ---
 // Imports
 import DefaultLayout from '@layouts/Default.astro';
+import entryQuery from '@graphql/entry.graphql'
+import { useGraphqlQuery } from '@composables/useGraphqlQuery';
+import { print } from 'graphql/language/printer';
 
 // Create Static Routes
 export async function getStaticPaths() {
-    const response = await fetch(import.meta.env.PUBLIC_API_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-            query: `
-                    query entryQuery($section: [String]!, $site: [String]!) {
-                        entries(section: $section, site: $site){
-                            id
-                            title
-                            uri
-                            uri
-                            typeHandle
-                            sectionHandle
-                            siteId
-                            }
-                        }
-                    `,
-            variables: {
-                section: ['pages', 'news', 'home'],
-                site: ['default']
-            }
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': import.meta.env.PUBLIC_API_TOKEN,
-        },
-    }).then(response => response.json());
-    const { data: { entries } } = await response
+    const { data: { entries } } = await useGraphqlQuery({
+        query: print(entryQuery),
+        routeQuery: {},
+        variables: {
+            section: ['pages', 'news', 'home'],
+            site: ['default']
+        }
+    })
+
     return entries.map((entry: any) => {
         return {
             params: {

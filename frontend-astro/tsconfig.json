@@ -15,8 +15,7 @@
     "strict": true,
     // Error when a value import is only used as a type.
     "types": [
-      "svelte",
-      "astro/client"
+      "svelte"
     ],
     "importsNotUsedAsValues": "error",
     "baseUrl": ".",

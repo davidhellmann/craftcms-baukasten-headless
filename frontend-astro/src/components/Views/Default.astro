@@ -1,0 +1,45 @@
+---
+export interface Props {
+	id: string,
+    siteId: number
+}
+
+const { id, siteId } = Astro.props as Props;
+
+const response = await fetch(import.meta.env.PUBLIC_API_URL, {
+        method: 'POST',
+        body: JSON.stringify({
+            query: `
+                    query queryHome($id: [QueryArgument]!, $siteId: [QueryArgument]!) {
+                        entry(id: $id, siteId: $siteId){
+                            id
+                            title
+                            uri
+                            uri
+                            typeHandle
+                            sectionHandle
+                            siteId
+                            }
+                        }
+                    `,
+            variables: {
+                id: id,
+                siteId: siteId
+            }
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': import.meta.env.PUBLIC_API_TOKEN,
+        },
+}).then((response) => response.json());
+const {data: {entry}} = await response
+
+---
+<h1>View / Default</h1>
+<h2>
+    Title: {entry.title}<br>
+    Section: {entry.sectionHandle}<br>
+    Id: {entry.id}<br>
+    SiteId: {entry.siteId}<br>
+    Uri: {entry.uri}
+</h2>

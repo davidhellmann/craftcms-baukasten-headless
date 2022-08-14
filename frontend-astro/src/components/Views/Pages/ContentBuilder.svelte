@@ -1,3 +1,0 @@
-<div>
-    PAGES/CONTENTBUILDER
-</div>

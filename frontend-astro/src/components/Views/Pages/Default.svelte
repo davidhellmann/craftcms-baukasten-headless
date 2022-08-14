@@ -1,3 +1,0 @@
-<div>
-    PAGES/DEFAULT
-</div>

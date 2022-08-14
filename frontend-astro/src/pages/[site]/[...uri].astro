@@ -37,17 +37,19 @@ export async function getStaticPaths() {
                 uri: entry.uri === '__home__' ? 'index' : entry.uri,
                 site: entry.siteId === 1 ? 'en' : 'de'
             },
-            props: { entry, siteId: entry.siteId, sectionHandle: entry.sectionHandle, entryType: entry.typeHandle },
+            props: { 
+                title: entry.title,
+                id: entry.id,
+                siteId: Number(entry.siteId), 
+                sectionHandle: entry.sectionHandle, 
+                entryType: entry.typeHandle 
+             },
         };
     });
 }
 
 // Variables
-const { entry, sectionHandle, entryType } = Astro.props;
+const { title, id, siteId, sectionHandle, entryType } = Astro.props;
 ---
 
-<DefaultLayout 
-title={entry.title} 
-sectionHandle={sectionHandle} 
-entryType={entryType} 
-lang="de" {entry} />
+<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} lang="de" />

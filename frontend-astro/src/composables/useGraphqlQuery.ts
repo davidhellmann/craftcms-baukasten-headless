@@ -1,10 +1,13 @@
 interface IGraphqlQuery {
   query: string;
-  routeQuery?: {
-    [key: string]: string | string[] | number;
-  };
+  routeQuery: {
+    preview?: string
+    token?: string
+    "x-craft-preview"?: string
+    "x-craft-live-preview"?: string
+  }
   variables?: {
-    [key: string]: string | string[] | number;
+    [key: string]: string | string[] | number
   };
 }
 
@@ -16,11 +19,11 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
   const { PUBLIC_API_TOKEN, PUBLIC_API_URL } = import.meta.env;
 
   const {
-    preview,
-    token,
-    "x-craft-preview": xCraftPreview,
-    "x-craft-live-preview": xCraftLivePreview,
-  } = params.routeQuery;
+    preview, 
+    token, 
+    "x-craft-preview": xCraftPreview, 
+    "x-craft-live-preview": xCraftLivePreview
+  } = params?.routeQuery
 
   const apiUrl =
     preview && token ? `${PUBLIC_API_URL}?token=${token}` : PUBLIC_API_URL;

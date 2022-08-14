@@ -7,33 +7,35 @@ import { print } from 'graphql/language/printer';
 
 // Create Static Routes
 export async function getStaticPaths() {
-    const { data: { entries } } = await useGraphqlQuery({
+    const { data: { entries, translations } } = await useGraphqlQuery({
         query: print(entryQuery),
         routeQuery: {},
         variables: {
             section: ['pages', 'news', 'home'],
-            site: ['default']
+            site: ['default'],
+            language: ['en']
         }
     })
 
     return entries.map((entry: any) => {
         return {
             params: {
-                uri: entry.uri === '__home__' ? 'index' : entry.uri,
+                uri: entry.uri === '__home__' ? 'index' : entry.uri
             },
             props: { 
                 title: entry.title,
                 id: entry.id,
                 siteId: Number(entry.siteId), 
                 sectionHandle: entry.sectionHandle, 
-                entryType: entry.typeHandle 
+                entryType: entry.typeHandle,
+                translations
             },
         };
     });
 }
 
 // Variables
-const { title, id, siteId, sectionHandle, entryType } = Astro.props;
+const { title, id, siteId, sectionHandle, entryType, translations } = Astro.props;
 ---
 
-<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} lang="en" />
+<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} {translations} lang="en" />

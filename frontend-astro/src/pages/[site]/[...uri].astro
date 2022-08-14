@@ -7,12 +7,13 @@ import { print } from 'graphql/language/printer';
 
 // Create Static Routes
 export async function getStaticPaths() {
-    const { data: { entries } } = await useGraphqlQuery({
+    const { data: { entries, translations } } = await useGraphqlQuery({
         query: print(entryQuery),
         routeQuery: {},
         variables: {
             section: ['pages', 'news', 'home'],
-            site: ['defaultDe']
+            site: ['defaultDe'],
+            language: ['de']
         }
     })
     
@@ -27,14 +28,15 @@ export async function getStaticPaths() {
                 id: entry.id,
                 siteId: Number(entry.siteId), 
                 sectionHandle: entry.sectionHandle, 
-                entryType: entry.typeHandle 
+                entryType: entry.typeHandle,
+                translations
              },
         };
     });
 }
 
 // Variables
-const { title, id, siteId, sectionHandle, entryType } = Astro.props;
+const { title, id, siteId, sectionHandle, entryType, translations } = Astro.props;
 ---
 
-<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} lang="de" />
+<DefaultLayout {title} {id} {siteId} {sectionHandle} {entryType} {translations} lang="de" />

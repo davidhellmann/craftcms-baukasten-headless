@@ -1,4 +1,9 @@
-query entryQuery($section: [String]!, $site: [String]!) {
+query entryQuery(
+  $section: [String]!
+  $site: [String]!
+  $language: [String]! = "en"
+  $category: [String]! = ["site"]
+) {
   entries(section: $section, site: $site) {
     id
     title
@@ -7,5 +12,9 @@ query entryQuery($section: [String]!, $site: [String]!) {
     typeHandle
     sectionHandle
     siteId
+  }
+  translations: staticMessages(language: $language, category: $category) {
+    key
+    message
   }
 }

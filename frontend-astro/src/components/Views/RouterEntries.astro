@@ -13,9 +13,15 @@ export interface Props {
 	siteId: number;
 	sectionHandle: string;
 	entryType: string;
+    translations: [
+        {
+            key: string,
+            message: string
+        }
+    ]
 }
 
-const { id, siteId, sectionHandle, entryType } = Astro.props as Props;
+const { id, siteId, sectionHandle, entryType, translations } = Astro.props as Props;
 
 
 let EntryTypeElement = Default
@@ -34,4 +40,4 @@ switch (finalView) {
 
 ---
 
-<EntryTypeElement id={id} siteId={siteId} />
+<EntryTypeElement id={id} siteId={siteId} translations={translations} />

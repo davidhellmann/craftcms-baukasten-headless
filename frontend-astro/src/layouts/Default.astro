@@ -8,9 +8,15 @@ export interface Props {
 	sectionHandle: string;
 	entryType: string;
 	lang: string;
+    translations: [
+        {
+            key: string,
+            message: string
+        }
+    ]
 }
 
-const { title, id, siteId, sectionHandle, entryType, lang } = Astro.props as Props;
+const { title, id, siteId, sectionHandle, entryType, lang, translations } = Astro.props as Props;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -21,6 +27,6 @@ const { title, id, siteId, sectionHandle, entryType, lang } = Astro.props as Pro
 		<title>{title}</title>
 	</head>
 	<body>
-		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} id={id} siteId={siteId} /> 
+		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} id={id} siteId={siteId} translations={translations} /> 
 	</body>
 </html>

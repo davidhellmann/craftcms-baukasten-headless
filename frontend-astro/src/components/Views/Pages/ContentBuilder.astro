@@ -6,7 +6,7 @@ export interface Props {
 
 const { id, siteId } = Astro.props as Props;
 
-const response = await fetch(import.meta.env.PUBLIC_API_URL, {
+const response = await fetch(import.meta?.env?.PUBLIC_API_URL, {
         method: 'POST',
         body: JSON.stringify({
             query: `
@@ -29,7 +29,7 @@ const response = await fetch(import.meta.env.PUBLIC_API_URL, {
         }),
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': import.meta.env.PUBLIC_API_TOKEN,
+            'Authorization': import.meta?.env?.PUBLIC_API_TOKEN,
         },
 }).then((response) => response.json());
 const {data: {entry}} = await response

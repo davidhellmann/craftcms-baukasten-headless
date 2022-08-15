@@ -1,5 +1,5 @@
 <script lang="ts">
-    // Exports
+    // Export Props
     export let href: string|null = null
     export let text: string
     export let sRoot: string = ''

@@ -1,5 +1,5 @@
 <script lang="ts">
-    // Exports
+    // Export Props
     export let text: string
     export let tag = 'h2' 
     export let sRoot: string = ''

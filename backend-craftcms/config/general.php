@@ -17,7 +17,7 @@ return [
     // Craft config settings from .env variables
     'aliases' => [
         '@assetsUrl' => App::env('ASSETS_URL'),
-        '@web' => App::env('SITE_URL'),
+        '@web' => App::env('BASE_CP_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ],
     'disabledPlugins' => $isProd
@@ -36,7 +36,7 @@ return [
     'enableGraphqlCaching' => (bool)App::env('ENABLE_GQL_CACHING'),
     'headlessMode' => (bool)App::env('HEADLESS_MODE'),
     'baseCpUrl' => App::env('BASE_CP_URL'),
-    'cpTrigger' => null,
+//    'cpTrigger' => null,
     // Craft config settings from constants
     'maxRevisions' => 5,
     'cacheDuration' => false,

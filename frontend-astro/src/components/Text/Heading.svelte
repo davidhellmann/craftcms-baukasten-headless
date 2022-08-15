@@ -1,9 +1,3 @@
-{#if text}
-    <svelte:element this={tag} class="{twClasses}">
-        {text}
-    </svelte:element>
-{/if}
-
 <script lang="ts">
     // Exports
     export let text: string
@@ -28,3 +22,9 @@
 
     const twClasses = `${cc.root} ${cc.rootCustom} ${cc.size[vSize]}`
 </script>
+
+{#if text}
+    <svelte:element this={tag} class="{twClasses}">
+        {text}
+    </svelte:element>
+{/if}

@@ -1,12 +1,6 @@
-{#if text}
-    <svelte:element {href} this={tag} class="{twClasses}">
-        {text}
-    </svelte:element>
-{/if}
-
 <script lang="ts">
     // Exports
-    export let href: string
+    export let href: string|null = null
     export let text: string
     export let sRoot: string = ''
     export let vSize: string = 'md'
@@ -37,3 +31,9 @@
 
     const twClasses = `${cc.root} ${cc.rootCustom} ${cc.size[vSize]} ${cc.color[vColor]} ${cc.style[vStyle]}`
 </script>
+
+{#if text}
+    <svelte:element {href} this={tag} class="{twClasses}">
+        {text}
+    </svelte:element>
+{/if}

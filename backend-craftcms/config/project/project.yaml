@@ -1,4 +1,4 @@
-dateModified: 1660422075
+dateModified: 1660549285
 elementSources:
   craft\elements\Asset:
     -
@@ -234,6 +234,7 @@ plugins:
     schemaVersion: 2.0.0
     settings:
       additionalCss: ''
+      cacheBusting: true
       cssFile: /dist/css/controlPanelCss.css
   cp-field-inspect:
     edition: standard
@@ -467,6 +468,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
+  webhooks:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.4.0
 system:
   edition: pro
   live: true

@@ -37,6 +37,11 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: '{parent.uri}/{slug}'
+  f9ec1fe5-6806-433d-b5e2-6aef4d148b23: # Baukasten Headless FR
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: '{parent.uri}/{slug}'
 structure:
   maxLevels: 3
   uid: f690c366-ca7d-46e4-89ba-e332e9f3a92b

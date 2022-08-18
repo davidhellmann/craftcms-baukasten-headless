@@ -2,18 +2,6 @@ defaultPlacement: end
 enableVersioning: false
 handle: errorPages
 name: 'Error Pages'
-previewTargets:
-  -
-    __assoc__:
-      -
-        - label
-        - 'Primary entry page'
-      -
-        - urlFormat
-        - '{url}'
-      -
-        - refresh
-        - '1'
 propagationMethod: all
 siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # $SITE_NAME
@@ -22,6 +10,11 @@ siteSettings:
     template: null
     uriFormat: '{slug}'
   b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten Headless DE
+    enabledByDefault: true
+    hasUrls: true
+    template: null
+    uriFormat: '{slug}'
+  f9ec1fe5-6806-433d-b5e2-6aef4d148b23: # Baukasten Headless FR
     enabledByDefault: true
     hasUrls: true
     template: null

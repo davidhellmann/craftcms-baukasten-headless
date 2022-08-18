@@ -1,4 +1,4 @@
-dateModified: 1660553367
+dateModified: 1660855821
 elementSources:
   craft\elements\Asset:
     -
@@ -220,6 +220,7 @@ meta:
     f084e099-613d-4405-b600-f4be12d3509b: 'Divider Variant' # Divider Variant
     f1b38495-8096-48fa-9b78-0da345e3295c: Images # Images
     f3e1a215-a60f-4d6a-8897-e1a80a40c6cd: Code # Code
+    f9ec1fe5-6806-433d-b5e2-6aef4d148b23: 'Baukasten Headless FR' # Baukasten Headless FR
     f4959e03-fec0-4b1c-887e-5301a5f66742: 'Social Sharing Twitter' # Social Sharing Twitter
     fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
     fb701216-3e80-4e6d-99d4-2e5f70561e22: 'Content Builder' # Content Builder

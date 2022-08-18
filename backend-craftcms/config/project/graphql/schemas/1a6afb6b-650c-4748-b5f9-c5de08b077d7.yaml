@@ -3,6 +3,7 @@ name: 'Frontend Nuxt'
 scope:
   - 'sites.8153a2df-373f-4aac-9a92-d52292c9f1aa:read' # $SITE_NAME
   - 'sites.b205e203-99d0-4ee4-b75c-90a868606c4b:read' # Baukasten Headless DE
+  - 'sites.f9ec1fe5-6806-433d-b5e2-6aef4d148b23:read' # Baukasten Headless FR
   - 'elements.drafts:read'
   - 'elements.revisions:read'
   - 'elements.inactive:read'
@@ -15,7 +16,6 @@ scope:
   - 'sections.b0207f48-be48-49ab-a759-1ff51f232df3:read' # Pages
   - 'entrytypes.2f642060-4792-41cb-a427-083aabeba231:read' # Content Builder
   - 'entrytypes.6d94dcc4-6ec1-45b4-8c86-e53cee842b11:read' # Overview News
-  - 'entrytypes.f0dca28e-77af-48b8-9e45-6c7f113f3947:read'
   - 'volumes.6c5fc0dd-cf56-48d8-8af8-88abe763b970:read' # Files
   - 'volumes.f1b38495-8096-48fa-9b78-0da345e3295c:read' # Images
   - 'volumes.77c74b5c-6bbb-41a7-b166-c6b158a3cc7f:read' # Template Images

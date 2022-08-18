@@ -4,6 +4,7 @@ import DefaultLayout from '@layouts/Default.astro';
 import entryQuery from '@graphql/entry.graphql'
 import { useGraphqlQuery } from '@composables/useGraphqlQuery';
 import { print } from 'graphql/language/printer';
+import { useGetCurrentSiteData, findAllExpectPrimary } from '@composables/useGetCurrentSite';
 
 // Create Static Routes
 export async function getStaticPaths() {
@@ -12,16 +13,17 @@ export async function getStaticPaths() {
         routeQuery: {},
         variables: {
             section: ['pages', 'news', 'home'],
-            site: ['defaultDe'],
-            language: ['de']
+            site: findAllExpectPrimary('handle'),
+            language: findAllExpectPrimary('language')
         }
     })
-    
+
+
     return entries.map((entry: any) => {
         return {
             params: {
                 uri: entry.uri === '__home__' ? 'index' : entry.uri,
-                site: entry.siteId === 1 ? 'en' : 'de'
+                site: useGetCurrentSiteData({id: entry.siteId }).urlParameter
             },
             props: { 
                 id: entry.id,

@@ -3,28 +3,46 @@ enableVersioning: true
 handle: home
 name: Home
 previewTargets:
-  -
-    __assoc__:
+  __assoc__:
+    -
+      - 2
       -
-        - label
-        - Local
+        __assoc__:
+          -
+            - label
+            - 'NEXT JS'
+          -
+            - urlFormat
+            - '{{ getenv(''PREVIEW_URL'') }}/api/preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&entryUid={canonicalUid}&siteId={siteId}'
+          -
+            - refresh
+            - '1'
+    -
+      - 0
       -
-        - urlFormat
-        - 'http://localhost:3000/live-preview?siteId={siteId}&uri={uri}&preview=true'
+        __assoc__:
+          -
+            - label
+            - Local
+          -
+            - urlFormat
+            - 'http://localhost:3000/live-preview?siteId={siteId}&uri={uri}&preview=true'
+          -
+            - refresh
+            - '1'
+    -
+      - 1
       -
-        - refresh
-        - '1'
-  -
-    __assoc__:
-      -
-        - label
-        - Live
-      -
-        - urlFormat
-        - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview?siteId={siteId}&uri={uri}&preview=true'
-      -
-        - refresh
-        - '1'
+        __assoc__:
+          -
+            - label
+            - Live
+          -
+            - urlFormat
+            - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview?siteId={siteId}&uri={uri}&preview=true'
+          -
+            - refresh
+            - '1'
 propagationMethod: all
 siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # $SITE_NAME

@@ -27,6 +27,7 @@ export async function getStaticPaths() {
             },
             props: { 
                 uri: entry.uri,
+                lang: useGetCurrentSiteData({id: entry.siteId }).urlParameter,
                 siteId: Number(entry.siteId), 
                 sectionHandle: entry.sectionHandle, 
                 entryType: entry.typeHandle,
@@ -40,7 +41,7 @@ export async function getStaticPaths() {
 }
 
 // Variables
-const { uri, siteId, sectionHandle, entryType, translations, seo } = Astro.props;
+const { uri, siteId, sectionHandle, entryType, translations, seo, lang } = Astro.props;
 ---
 
-<DefaultLayout {uri} {siteId} {sectionHandle} {entryType} {translations} {seo} lang="de" />
+<DefaultLayout {uri} {siteId} {sectionHandle} {entryType} {translations} {seo} {lang} />

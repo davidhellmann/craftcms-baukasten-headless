@@ -1,17 +1,17 @@
 ---
 export interface Props {
-	id: string
+	uri: string
     siteId: number
 }
 
-const { id, siteId } = Astro.props as Props;
+const { uri, siteId } = Astro.props as Props;
 
 const response = await fetch(import.meta.env.PUBLIC_API_URL, {
         method: 'POST',
         body: JSON.stringify({
             query: `
-                    query queryHome($id: [QueryArgument]!, $siteId: [QueryArgument]!) {
-                        entry(id: $id, siteId: $siteId){
+                    query queryHome($uri: [String]!, $siteId: [QueryArgument]!) {
+                        entry(uri: $uri, siteId: $siteId){
                             id
                             title
                             uri
@@ -23,7 +23,7 @@ const response = await fetch(import.meta.env.PUBLIC_API_URL, {
                         }
                     `,
             variables: {
-                id: id,
+                uri: uri,
                 siteId: siteId
             }
         }),

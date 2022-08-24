@@ -26,7 +26,7 @@ previewTargets:
             - Local
           -
             - urlFormat
-            - 'http://localhost:3000/live-preview?siteId={siteId}&uri={uri}&preview=true'
+            - 'http://localhost:3000/live-preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&uri={uri}&siteId={siteId}'
           -
             - refresh
             - '1'
@@ -39,7 +39,7 @@ previewTargets:
             - Live
           -
             - urlFormat
-            - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview?siteId={siteId}&uri={uri}&preview=true'
+            - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&uri={uri}&siteId={siteId}'
           -
             - refresh
             - '1'

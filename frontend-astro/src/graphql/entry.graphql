@@ -3,7 +3,8 @@ query entryQuery($section: [String]!, $site: [String]!, $language: [String]!) {
     id
     title
     uri
-    uri
+    slug
+    canonicalUid
     typeHandle
     sectionHandle
     siteId

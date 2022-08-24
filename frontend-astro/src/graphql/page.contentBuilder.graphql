@@ -1,13 +1,14 @@
-query entry($uri: [String]!, $siteId: [QueryArgument]!, $language: [String]!) {
+query queryContentBuilder($uri: [String]!, $siteId: [QueryArgument]!) {
   entry(uri: $uri, siteId: $siteId) {
     id
     title
     uri
     slug
+    canonicalUid
     typeHandle
     sectionHandle
     siteId
-    seo: seomatic(asArray: false, environment: live) {
+    seomatic(asArray: false) {
       ... on SeomaticType {
         metaTagContainer
         metaTitleContainer
@@ -17,10 +18,5 @@ query entry($uri: [String]!, $siteId: [QueryArgument]!, $language: [String]!) {
         metaJsonLdContainer
       }
     }
-  }
-  translations: staticMessages(language: $language) {
-    key
-    message
-    language
   }
 }

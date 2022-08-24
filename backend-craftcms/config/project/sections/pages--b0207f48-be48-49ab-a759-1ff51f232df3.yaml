@@ -26,7 +26,7 @@ previewTargets:
             - Local
           -
             - urlFormat
-            - 'http://localhost:3000/live-preview?siteId={siteId}&uri={uri}&preview=true'
+            - 'http://localhost:3000/live-preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&uri={uri}&siteId={siteId}'
           -
             - refresh
             - '1'

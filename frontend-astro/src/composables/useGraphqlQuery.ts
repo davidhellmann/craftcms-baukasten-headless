@@ -1,7 +1,7 @@
 interface IGraphqlQuery {
   query: string;
   routeQuery: {
-    preview?: string
+    secret?: string
     token?: string
     "x-craft-preview"?: string
     "x-craft-live-preview"?: string
@@ -19,23 +19,23 @@ export const useGraphqlQuery = (params: IGraphqlQuery) => {
   const { PUBLIC_API_TOKEN, PUBLIC_API_URL } = import.meta.env;
 
   const {
-    preview, 
+    secret, 
     token, 
     "x-craft-preview": xCraftPreview, 
     "x-craft-live-preview": xCraftLivePreview
   } = params?.routeQuery
 
   const apiUrl =
-    preview && token ? `${PUBLIC_API_URL}?token=${token}` : PUBLIC_API_URL;
+    secret && token ? `${PUBLIC_API_URL}?token=${token}` : PUBLIC_API_URL;
   const customHeaders: ICustomHeaders = {};
 
   // If Live Preview
-  if (preview && xCraftLivePreview) {
+  if (secret && xCraftLivePreview) {
     customHeaders["x-craft-live-preview"] = xCraftLivePreview;
   }
 
   // If Preview
-  if (preview && xCraftPreview) {
+  if (secret && xCraftPreview) {
     customHeaders["x-craft-preview"] = xCraftPreview;
   }
 

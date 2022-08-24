@@ -5,7 +5,7 @@ import Heading from '@components/Text/Heading.svelte'
 import Link from '@components/Text/Link.svelte'
 
 export interface Props {
-	id: string;
+	uri: string;
 	siteId: number;
 	sectionHandle: string;
 	entryType: string;
@@ -21,7 +21,7 @@ export interface Props {
 	}
 }
 
-const { id, siteId, sectionHandle, entryType, lang, translations, seo } = Astro.props as Props;
+const { uri, siteId, sectionHandle, entryType, lang, translations, seo } = Astro.props as Props;
 ---
 <!DOCTYPE html>
 <html lang={lang}>
@@ -29,13 +29,13 @@ const { id, siteId, sectionHandle, entryType, lang, translations, seo } = Astro.
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<Seomatic {seo} />
+		<!-- <Seomatic {seo} /> -->
 	</head>
 	<body>
 		<Heading text="Default Layout" vSize="mega" sRoot="p-8" />
 		<Link href="https://davidhellmann.com" text="Click me" />
 		<Link text="Click me" vColor="secondary" />
-		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} id={id} siteId={siteId} /> 
+		<RouterEntries sectionHandle={sectionHandle} entryType={entryType} uri={uri} siteId={siteId} /> 
 		<h2>Translations</h2>
 		<ul>
 			{translations.map((item) => (

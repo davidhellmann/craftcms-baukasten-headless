@@ -1,38 +1,26 @@
 ---
+import defaultQuery from '@graphql/default.graphql'
+import { useGraphqlQuery } from '@composables/useGraphqlQuery';
+import { print } from 'graphql/language/printer';
+
 export interface Props {
-	uri: string
+	uri: string,
     siteId: number
 }
 
 const { uri, siteId } = Astro.props as Props;
+const { searchParams } = Astro.url
+const routeQuery = Object.fromEntries(searchParams);
 
-const response = await fetch(import.meta.env.PUBLIC_API_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-            query: `
-                    query queryDefault($uri: [String], $siteId: [QueryArgument]!) {
-                        entry(uri: $uri, siteId: $siteId){
-                            id
-                            title
-                            uri
-                            uri
-                            typeHandle
-                            sectionHandle
-                            siteId
-                            }
-                        }
-                    `,
-            variables: {
-                uri: uri,
-                siteId: siteId
-            }
-        }),
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': import.meta.env.PUBLIC_API_TOKEN,
-        },
-}).then((response) => response.json());
-const {data: {entry}} = await response
+const { data: { entry } } = await useGraphqlQuery({
+        query: print(defaultQuery),
+        routeQuery: routeQuery,
+        variables: {
+            uri: String(uri),
+            siteId: Number(siteId),
+            language: ['*']
+        } 
+})
 
 ---
 <h1>View / Default</h1>

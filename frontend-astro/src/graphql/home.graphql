@@ -1,0 +1,22 @@
+query queryHome($uri: [String]!, $siteId: [QueryArgument]!) {
+  entry(uri: $uri, siteId: $siteId) {
+    id
+    title
+    uri
+    slug
+    canonicalUid
+    typeHandle
+    sectionHandle
+    siteId
+    seomatic(asArray: false) {
+      ... on SeomaticType {
+        metaTagContainer
+        metaTitleContainer
+        metaSiteVarsContainer
+        metaScriptContainer
+        metaLinkContainer
+        metaJsonLdContainer
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
-    "types": ["cypress"],
+    "types": [],
     "paths": {
       "@components/*": ["src/components/*"],
       "@config/*": ["src/config/*"],

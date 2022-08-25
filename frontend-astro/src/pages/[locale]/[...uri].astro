@@ -23,7 +23,7 @@ export async function getStaticPaths() {
         return {
             params: {
                 uri: entry.uri === '__home__' ? 'index' : entry.uri,
-                site: useGetCurrentSiteData({id: entry.siteId }).urlParameter
+                locale: useGetCurrentSiteData({id: entry.siteId }).urlParameter
             },
             props: { 
                 uri: entry.uri,

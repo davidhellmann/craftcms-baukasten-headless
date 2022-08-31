@@ -20,7 +20,7 @@ export const useSetCompVariants = (params: ISetCompVariants) => {
   });
 
   for (let prop in finalProps) {
-    if (finalProps.hasOwnProperty(prop)) {
+    if (prop in finalProps) {
       const variant: Object = variants[prop];
       const setting = finalProps[prop];
 

@@ -1,4 +1,4 @@
-dateModified: 1661586216
+dateModified: 1661981541
 elementSources:
   craft\elements\Asset:
     -
@@ -396,7 +396,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_NAVIGATION
-    schemaVersion: 2.0.2
+    schemaVersion: 2.0.3
   redactor:
     edition: standard
     enabled: true

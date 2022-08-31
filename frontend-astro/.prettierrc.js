@@ -12,14 +12,19 @@ module.exports = {
         printWidth: 240,
       },
     },
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
   ],
-  plugins: [
-    './node_modules/prettier-plugin-tailwindcss',
-  ],
+  plugins: ['./node_modules/prettier-plugin-tailwindcss', './node_modules/prettier-plugin-astro'],
   tailwindConfig: './tailwind.config.js',
-  svelteSortOrder : "options-styles-scripts-markup",
+  astroAllowShorthand: false,
+  svelteSortOrder: 'options-styles-scripts-markup',
   svelteStrictMode: true,
   svelteBracketNewLine: false,
   svelteAllowShorthand: false,
-  svelteIndentScriptAndStyle: false
-};
+  svelteIndentScriptAndStyle: false,
+}

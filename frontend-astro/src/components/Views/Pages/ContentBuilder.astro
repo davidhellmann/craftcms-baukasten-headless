@@ -1,37 +1,38 @@
 ---
-import pageContentBuilderQuery from '@graphql/page.contentBuilder.graphql'
+import pageContentBuilderQuery from '@graphql/page.contentBuilder.graphql';
 import { useGraphqlQuery } from '@composables/useGraphqlQuery';
 import { print } from 'graphql/language/printer';
 import BuildersContent from '@components/Builders/Content.astro';
 
-
 export interface Props {
-	uri: string,
-    siteId: number
+  uri: string;
+  siteId: number;
 }
 
 const { uri, siteId } = Astro.props as Props;
-const { searchParams } = Astro.url
+const { searchParams } = Astro.url;
 const routeQuery = Object.fromEntries(searchParams);
 
-const { data: { entry } } = await useGraphqlQuery({
-        query: print(pageContentBuilderQuery),
-        routeQuery: routeQuery,
-        variables: {
-            uri: String(uri),
-            siteId: Number(siteId),
-            language: ['*']
-        } 
-})
-
+const {
+  data: { entry },
+} = await useGraphqlQuery({
+  query: print(pageContentBuilderQuery),
+  routeQuery: routeQuery,
+  variables: {
+    uri: String(uri),
+    siteId: Number(siteId),
+    language: ['*'],
+  },
+});
 ---
+
 <h1>Views / Pages / ContentBuilder</h1>
 <h2>
-    Title: {entry.title}<br>
-    Section: {entry.sectionHandle}<br>
-    Id: {entry.id}<br>
-    SiteId: {entry.siteId}<br>
-    Uri: {entry.uri}
+  Title: {entry.title}<br />
+  Section: {entry.sectionHandle}<br />
+  Id: {entry.id}<br />
+  SiteId: {entry.siteId}<br />
+  Uri: {entry.uri}
 </h2>
 
 <BuildersContent blocks={entry.builderContent} />

@@ -1,36 +1,35 @@
 ---
-import {useCapitalizeFirstLetter as uCFL} from '@composables/useCapitalizeFirstLetter'
+import { useCapitalizeFirstLetter as uCFL } from '@composables/useCapitalizeFirstLetter';
 
 // Entry Types
-import Default from '@components/Views/Default.astro'
-import Home from '@components/Views/Home.astro'
+import Default from '@components/Views/Default.astro';
+import Home from '@components/Views/Home.astro';
 
-import PagesContentBuilder from '@components/Views/Pages/ContentBuilder.astro'
-import PagesOverviewNews from '@components/Views/Pages/OverviewNews.astro'
+import PagesContentBuilder from '@components/Views/Pages/ContentBuilder.astro';
+import PagesOverviewNews from '@components/Views/Pages/OverviewNews.astro';
 
 export interface Props {
-	uri: string;
-	siteId: number;
-	sectionHandle: string;
-	entryType: string;
+  uri: string;
+  siteId: number;
+  sectionHandle: string;
+  entryType: string;
 }
 
 const { uri, siteId, sectionHandle, entryType } = Astro.props as Props;
 
-let EntryTypeElement = Default
-let finalView = `${uCFL({string: sectionHandle})}${uCFL({string: entryType})}`;
+let EntryTypeElement = Default;
+let finalView = `${uCFL({ string: sectionHandle })}${uCFL({ string: entryType })}`;
 switch (finalView) {
-        case 'HomeHome':
-            EntryTypeElement = Home
-            break;
-        case 'PagesContentBuilder':
-            EntryTypeElement = PagesContentBuilder
-            break;
-        case 'PagesOverviewNews':
-            EntryTypeElement = PagesOverviewNews
-            break;
-    }
-
+  case 'HomeHome':
+    EntryTypeElement = Home;
+    break;
+  case 'PagesContentBuilder':
+    EntryTypeElement = PagesContentBuilder;
+    break;
+  case 'PagesOverviewNews':
+    EntryTypeElement = PagesOverviewNews;
+    break;
+}
 ---
 
 <EntryTypeElement uri={uri} siteId={siteId} />

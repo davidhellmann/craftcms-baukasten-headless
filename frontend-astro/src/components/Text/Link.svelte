@@ -18,7 +18,7 @@ const cc: ICompClasses = {
     lg: 'px-6 py-3',
   },
   color: {
-    primary: 'bg-primary-700 text-white',
+    primary: 'bg-primary-500 text-white',
     secondary: 'bg-secondary-500 text-white',
     gray: 'bg-gray-500 text-white',
   },

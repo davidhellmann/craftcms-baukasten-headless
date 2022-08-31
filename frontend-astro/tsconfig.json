@@ -24,8 +24,8 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@assets/*": [
-        "src/assets/*"
+      "@css/*": [
+        "src/css/*"
       ],
       "@composables/*": [
         "src/composables/*"

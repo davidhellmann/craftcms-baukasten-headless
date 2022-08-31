@@ -1,0 +1,33 @@
+---
+import { useSetCompVariants } from '@composables/useSetCompVariants';
+
+export interface Props {
+  typeHandle?: string;
+  quote: string;
+  source?: string;
+  sourceUrl?: string;
+  sourceSubline?: string;
+}
+
+const { quote, source, sourceUrl, sourceSubline } = Astro.props as Props;
+---
+
+<blockquote>
+  <p>
+    {quote}
+  </p>
+  {source && !sourceUrl && <cite>{source}</cite>}
+  {
+    source && sourceUrl && (
+      <cite>
+        <a href={sourceUrl}>{source}</a>
+      </cite>
+    )
+  }
+</blockquote>
+
+<!--  typeHandle: 'blockQuote',
+    quote: 'An populo iriure interesset sit! Eum quas zril nostrum ei. Est no esse illum, falli doming vix no? No pri causae petentium! Id vocibus volutpat deterruisset usu, vocibus verterem sed ne, usu ne similique temporibus',
+    source: 'Max Mustermann',
+    sourceUrl: 'https://google.com',
+    sourceSubline: 'Subline' -->

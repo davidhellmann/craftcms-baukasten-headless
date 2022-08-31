@@ -1,0 +1,13 @@
+---
+import BuildersBlocks from '@components/Builders/Blocks.astro';
+
+export interface Props {
+	blocks: {
+        [k: string]: any
+    },
+}
+
+const { blocks } = Astro.props as Props;
+---
+
+<BuildersBlocks blocks={blocks} />

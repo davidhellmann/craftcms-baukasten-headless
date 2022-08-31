@@ -1,0 +1,10 @@
+---
+export interface Props {
+	typeHandle?: string,
+	text: string,
+}
+
+const { text } = Astro.props as Props;
+---
+
+<Fragment set:html={text} />

@@ -1,0 +1,75 @@
+---
+import { useSetCompVariants } from '@composables/useSetCompVariants';
+
+export interface Props {
+  sectionBackgroundColor: string;
+  sectionPaddingVertical: string;
+  spaceBetweenBlocks: string;
+  rootClasses?: string;
+}
+
+// Comp Settings
+const cs: ICompSettings = {
+  name: 'c-blockSection',
+  ...(Astro.props as Props),
+};
+
+// Comp Classes
+const cc: ICompClasses = {
+  root: 'w-screen max-w-full',
+  rootCustom: cs.rootClasses || '',
+  inner: 'container',
+  variants: {
+    sectionBackgroundColor: {
+      transparent: 'bg-transparent',
+      light: 'bg-gray-100',
+      dark: 'bg-gray-800 text-white',
+      default: 'transparent',
+    },
+    spaceBetweenBlocks: {
+      zero: '',
+      sm: 'space-y-2 md:space-y-4',
+      md: 'space-y-4 md:space-y-8',
+      lg: 'space-y-8 md:space-y-16',
+      xl: 'space-y-16 md:space-y-32',
+      '2xl': 'space-y-32 md:space-y-64',
+      default: 'md',
+    },
+    sectionPaddingVertical: {
+      zero: '',
+      sm: 'py-2 md:py-4',
+      md: 'py-4 md:py-8',
+      lg: 'py-8 md:py-16',
+      xl: 'py-16 md:py-32',
+      '2xl': 'py-32 md:py-64',
+      default: 'md',
+    },
+  },
+};
+
+const compClasses = [
+  cs.name,
+  cc.root,
+  cc.rootCustom,
+  ...useSetCompVariants({
+    variants: cc.variants,
+    props: cs,
+    useVariants: ['sectionPaddingVertical', 'sectionBackgroundColor'],
+  }),
+].join(' ');
+---
+
+<section class={compClasses}>
+  <div
+    class={[
+      cc.inner,
+      ...useSetCompVariants({
+        variants: cc.variants,
+        props: cs,
+        useVariants: ['spaceBetweenBlocks'],
+      }),
+    ].join(' ')}
+  >
+    <slot />
+  </div>
+</section>

@@ -4,10 +4,37 @@ query queryContentBuilder($uri: [String]!, $siteId: [QueryArgument]!) {
     title
     uri
     slug
-    canonicalUid
     typeHandle
     sectionHandle
     siteId
+    ... on pages_contentBuilder_Entry {
+      entryCustomTitle
+      entryShortDescription
+      entryImage {
+        url
+        title
+        filename
+      }
+      builderContent {
+        ... on builderContent_blockSection_BlockType {
+          typeHandle
+          sectionBackgroundColor
+          sectionPaddingVertical
+          spaceBetweenBlocks
+        }
+        ... on builderContent_blockText_BlockType {
+          typeHandle
+          text
+        }
+        ... on builderContent_blockQuote_BlockType {
+          typeHandle
+          quote
+          source
+          sourceUrl
+          sourceSubline
+        }
+      }
+    }
     seomatic(asArray: false) {
       ... on SeomaticType {
         metaTagContainer

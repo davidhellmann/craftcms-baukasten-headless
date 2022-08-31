@@ -1,0 +1,53 @@
+---
+import { useCreateBuilderData } from '@composables/useCreateBuilderData';
+import BlockText from '@components/Builders/Blocks/BlockText.astro';
+import BlockQuote from '@components/Builders/Blocks/BlockQuote.astro';
+import BlockSection from '@components/Builders/Blocks/BlockSection.astro';
+
+export interface Props {
+  blocks: {
+    [k: string]: any;
+  };
+}
+
+interface IBlock {
+  [k: string]: any;
+}
+
+const { blocks } = Astro.props as Props;
+const builderData = useCreateBuilderData({ blocks });
+---
+
+{
+  builderData &&
+    builderData.map((block: IBlock) => {
+      const { settings, blocks } = block;
+
+      return (
+        <BlockSection
+          sectionBackgroundColor={settings.sectionBackgroundColor}
+          sectionPaddingVertical={settings.sectionPaddingVertical}
+          spaceBetweenBlocks={settings.spaceBetweenBlocks}
+        >
+          {blocks &&
+            blocks.map((block: IBlock) => {
+              switch (block.typeHandle) {
+                case 'blockText':
+                  return <BlockText text={block.text} />;
+                  break;
+                case 'blockQuote':
+                  return (
+                    <BlockQuote
+                      quote={block.quote}
+                      source={block.source}
+                      sourceUrl={block.sourceUrl}
+                      sourceSubline={block.sourceSubline}
+                    />
+                  );
+                  break;
+              }
+            })}
+        </BlockSection>
+      );
+    })
+}

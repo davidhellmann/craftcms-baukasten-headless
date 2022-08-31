@@ -2,6 +2,8 @@
 import pageContentBuilderQuery from '@graphql/page.contentBuilder.graphql'
 import { useGraphqlQuery } from '@composables/useGraphqlQuery';
 import { print } from 'graphql/language/printer';
+import BuildersContent from '@components/Builders/Content.astro';
+
 
 export interface Props {
 	uri: string,
@@ -31,3 +33,5 @@ const { data: { entry } } = await useGraphqlQuery({
     SiteId: {entry.siteId}<br>
     Uri: {entry.uri}
 </h2>
+
+<BuildersContent blocks={entry.builderContent} />

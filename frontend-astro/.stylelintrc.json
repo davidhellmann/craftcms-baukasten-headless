@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-recommended", "stylelint-config-recommended-vue", "stylelint-config-prettier"],
+  "ignoreFiles": ["./public/**/*.css"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["apply", "extends", "layer", "screen", "responsive", "tailwind"]
+      }
+    ],
+    "function-no-unknown": null,
+    "block-no-empty": null,
+    "max-line-length": null
+  }
+}

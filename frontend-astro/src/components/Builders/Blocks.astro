@@ -34,17 +34,15 @@ const builderData = useCreateBuilderData({ blocks });
               switch (block.typeHandle) {
                 case 'blockText':
                   return <BlockText propText={block.text} />;
-                  break;
                 case 'blockQuote':
                   return (
                     <BlockQuote
-                      quote={block.quote}
-                      source={block.source}
-                      sourceUrl={block.sourceUrl}
-                      sourceSubline={block.sourceSubline}
+                      propQuote={block.quote}
+                      propSource={block.source}
+                      propSourceUrl={block.sourceUrl}
+                      propSourceSubline={block.sourceSubline}
                     />
                   );
-                  break;
               }
             })}
         </BlockSection>

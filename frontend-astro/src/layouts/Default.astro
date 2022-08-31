@@ -38,11 +38,15 @@ const { uri, siteId, sectionHandle, entryType, lang, translations, seo } = Astro
     <Link href="https://davidhellmann.com" text="Click me" />
     <Link text="Click me" vColor="secondary" />
     <RouterEntries sectionHandle={sectionHandle} entryType={entryType} uri={uri} siteId={siteId} />
-    <!-- <h2>Translations</h2>
-		<ul>
-			{translations.map((item) => (
-				<li>{item?.key}: {item?.message}</li>
-			))}
-		</ul> -->
+    <h2>Translations</h2>
+    <ul>
+      {
+        translations.map((item) => (
+          <li>
+            {item?.key}: {item?.message}
+          </li>
+        ))
+      }
+    </ul>
   </body>
 </html>

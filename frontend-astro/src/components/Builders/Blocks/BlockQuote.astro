@@ -1,28 +1,27 @@
 ---
-import { useSetCompVariants } from '@composables/useSetCompVariants'
+// import { useSetCompVariants } from '@composables/useSetCompVariants';
 
 export interface Props {
-  propTypeHandle?: string
-  propQuote: string
-  propSource?: string
-  propSourceUrl?: string
-  propSourceSubline?: string
+  propTypeHandle?: string;
+  propQuote: string;
+  propSource?: string;
+  propSourceUrl?: string;
+  propSourceSubline?: string;
 }
 
-const { propQuote, propSource, propSourceUrl, propSourceSubline } = Astro.props as Props
+const { propQuote, propSource, propSourceUrl, propSourceSubline } = Astro.props as Props;
 ---
 
 <blockquote>
   <p>
     {propQuote}
   </p>
-  {propSource && !propSourceUrl && <cite>{propSource}</cite>}
+  <!-- {propSource && !propSourceUrl && <cite>{propSource}</cite>}
   {
-    propSource &&
-    propSourceUrl && (
+    propSource && propSourceUrl && (
       <cite>
         <a href={propSourceUrl}>{propSource}</a>
       </cite>
     )
-  }
+  } -->
 </blockquote>

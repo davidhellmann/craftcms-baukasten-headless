@@ -1,4 +1,4 @@
-dateModified: 1661981541
+dateModified: 1662757448
 elementSources:
   craft\elements\Asset:
     -
@@ -254,7 +254,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_FORMIE
-    schemaVersion: 2.0.3
+    schemaVersion: 2.0.5
     settings:
       ajaxTimeout: 10
       captchas:

@@ -17,7 +17,7 @@
   "dependencies": {
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
-    "next": "12.2.5",
+    "next": "^12.3.0",
     "ramda": "^0.28.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -29,13 +29,13 @@
     "@graphql-codegen/typescript-graphql-request": "^4.5.4",
     "@graphql-codegen/typescript-operations": "^2.5.3",
     "@types/graphql": "^14.5.0",
-    "@types/node": "^18.7.14",
+    "@types/node": "^18.7.16",
     "@types/ramda": "^0.28.15",
     "@types/react": "^18.0.18",
     "@types/react-dom": "18.0.6",
     "eslint": "^8.23.0",
-    "eslint-config-next": "12.2.5",
+    "eslint-config-next": "^12.3.0",
     "npm-check": "^6.0.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.3"
   }
 }

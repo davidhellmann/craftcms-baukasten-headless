@@ -1,5 +1,5 @@
-query entry($slug: [String]!, $site: [String]!, $section: [String]!) {
-  entry(slug: $slug, site: $site, section: $section) {
+query entry($uri: [String]!, $site: [String]!, $section: [String]!) {
+  entry(uri: $uri, site: $site, section: $section) {
     id
     title
     typeHandle

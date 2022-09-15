@@ -1,17 +1,36 @@
 fragment builderContent on EntryInterface {
-  builderContent {
-    ... blockSection
-    ... blockCode
-    ... blockSpacer
-    ... blockDivider
-    ... blockVideoYoutube
-    ... blockImageSlider
-    ... blockImageGallery
-    ... blockImageGridCalculated
-    ... blockImageGrid
-    ... blockImage
-    ... blockQuote
-    ... blockTextFloatingImage
-    ... blockText
+  ... on pages_contentBuilder_Entry {
+    builderContent {
+      ... blockSection
+      ... blockCode
+      ... blockSpacer
+      ... blockDivider
+      ... blockVideoYoutube
+      ... blockImageSlider
+      ... blockImageGallery
+      ... blockImageGridCalculated
+      ... blockImageGrid
+      ... blockImage
+      ... blockQuote
+      ... blockTextFloatingImage
+      ... blockText
+    }
+  }
+  ... on news_contentBuilder_Entry {
+    builderContent {
+      ... blockSection
+      ... blockCode
+      ... blockSpacer
+      ... blockDivider
+      ... blockVideoYoutube
+      ... blockImageSlider
+      ... blockImageGallery
+      ... blockImageGridCalculated
+      ... blockImageGrid
+      ... blockImage
+      ... blockQuote
+      ... blockTextFloatingImage
+      ... blockText
+    }
   }
 }

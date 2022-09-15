@@ -1,6 +1,0 @@
-fragment fragmentEntryMeta on EntryInterface {
-  id
-  slug
-  uri
-  title
-}

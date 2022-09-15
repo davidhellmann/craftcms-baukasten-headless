@@ -1,6 +1,0 @@
-fragment fragmentMatrixBlockMeta on MatrixBlockInterface {
-  ... on builderContent_blockCode_BlockType {
-    id
-    typeHandle
-  }
-}

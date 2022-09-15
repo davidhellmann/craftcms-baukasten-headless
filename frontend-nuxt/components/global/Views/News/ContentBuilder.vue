@@ -1,7 +1,7 @@
 <template>
   <div>
     <NuxtLink to="/news">News</NuxtLink>
-    <h1>Content Builder View</h1>
+    <h1>Content Builder View News</h1>
     <h1>Title: {{ entry.title }}</h1>
     <p>Entry Type Handle: {{ entry.typeHandle }}</p>
     <p>Entry Section Handle {{ entry.sectionHandle }}</p>
@@ -28,13 +28,13 @@ const props = defineProps<Props>()
 
 if (props.entry?.id) {
   const {
-    data: {value: {pagesContentBuilder}}
-  }: IGQLQueryResponse = await useAsyncData('entryPageBuilderContent', () => GqlPagesContentBuilder({
+    data: {value: {newsContentBuilder}}
+  }: IGQLQueryResponse = await useAsyncData('entryNewsBuilderContent', () => GqlNewsContentBuilder({
     id: props.entry?.id,
     site: props.currentSiteHandle
   }));
 
-  console.log(pagesContentBuilder)
+  console.log(newsContentBuilder)
 
 }
 </script>

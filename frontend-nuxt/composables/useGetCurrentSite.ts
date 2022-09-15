@@ -1,19 +1,18 @@
-interface IGetCurrentSite {
-  path: string,
+interface IGetCurrentSiteData {
+  locale: string;
 }
 
-export const useGetCurrentSite = (params: IGetCurrentSite) => {
-  let handle = "default"
-  let language = "en"
+import { configSites } from "~/config/sites";
 
-  // Check for EN Page
-  if (params.path.startsWith('/de/')) {
-    handle = 'defaultDe'
-    language = 'de'
-  }
+export const useGetCurrentSiteData = (params: IGetCurrentSiteData) => {
+  const { locale } = params;
+  return configSites[locale];
+};
 
-  return {
-    handle,
-    language
-  }
+export const findAllExpectPrimary = (outputKeyAsArray: 'handle' | 'language') => {
+  const matchingSites = Object.values(configSites).filter(x => !x.primary)
+
+  const output: string[] = []
+  matchingSites.forEach(item => output.push(item[outputKeyAsArray]))
+  return output as string[]
 }

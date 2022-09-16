@@ -25,7 +25,10 @@ return [
         : [],
     'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'],
     'allowUpdates' => (bool)App::env('ALLOW_UPDATES'),
-    'allowedGraphqlOrigins' => null,
+    'allowedGraphqlOrigins' => [
+        'http://localhost:3000',
+        'https://craftcms-baukasten-headless-6vbkpyaok-davidhellmann.vercel.app/'
+    ],
     'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),
     'backupOnUpdate' => (bool)App::env('BACKUP_ON_UPDATE'),
     'devMode' => (bool)App::env('DEV_MODE'),

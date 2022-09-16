@@ -1,4 +1,13 @@
 <template>
+  <nav>
+    <ul class="flex flex-row flex-wrap gap-4 mb-8">
+      <li v-for="item in entriesAll" :key="item.id">
+        <nuxt-link :to="item.url" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
+          {{item.title}}
+        </nuxt-link>
+      </li>
+    </ul>
+  </nav>
   <Component :is="renderView" v-if="entry"
              :entry="entry"
              :current-site-handle="currentSite.handle"
@@ -55,6 +64,18 @@ if (!entry) {
 
 // View Resolver
 const renderView = await resolveComponent(useResolveEntryComponent({entry}))
+
+
+// Query All Entries
+const {
+  data: {value: {entriesAll}}
+}: IGQLQueryResponse = await useAsyncGql('entriesAll', {
+  section: "*",
+  site: currentSite.handle
+});
+
+console.log(entriesAll)
+
 
 // Static Translations
 const siteStore = useSiteStore()

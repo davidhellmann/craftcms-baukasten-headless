@@ -1,0 +1,11 @@
+query entriesAll($site: [String]!, $section: [String]!) {
+  entriesAll: entries(site: $site, section: $section) {
+    id
+    title
+    url
+    typeHandle
+    sectionHandle
+    siteId
+    slug
+  }
+}

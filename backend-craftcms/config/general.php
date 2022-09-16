@@ -28,7 +28,8 @@ return [
     'allowedGraphqlOrigins' => [
         'http://localhost:3000',
         'http://content.baukasten.test',
-        'https://headless.baukasten.io'
+        'https://headless.baukasten.io',
+        'https://*.vercel.app'
     ],
     'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),
     'backupOnUpdate' => (bool)App::env('BACKUP_ON_UPDATE'),

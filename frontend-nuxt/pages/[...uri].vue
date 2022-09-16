@@ -3,7 +3,7 @@
     <nav>
       <ul class="flex flex-row flex-wrap gap-4 mb-8">
         <li v-for="item in entriesAll" :key="item.id">
-          <nuxt-link :to="`/${currentSite.urlParameterTrailingSlash}${item.uri.replace({'__home__': ''})}`" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
+          <nuxt-link :to="`/${currentSite.urlParameterTrailingSlash}${item.uri === '__home__' ? '' : item.uri}`" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
             {{item.title}}
           </nuxt-link>
         </li>

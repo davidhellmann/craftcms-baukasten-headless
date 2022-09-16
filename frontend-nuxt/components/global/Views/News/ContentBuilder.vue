@@ -29,9 +29,9 @@ const props = defineProps<Props>()
 if (props.entry?.id) {
   const {
     data: {value: {newsContentBuilder}}
-  }: IGQLQueryResponse = await useAsyncData('entryNewsBuilderContent', () => GqlNewsContentBuilder({
+  }: IGQLQueryResponse = await useAsyncGql('newsContentBuilder', {
     id: props.entry?.id,
     site: props.currentSiteHandle
-  }));
+  });
 }
 </script>

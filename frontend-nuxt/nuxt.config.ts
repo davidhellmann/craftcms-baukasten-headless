@@ -2,17 +2,16 @@ import {dynamicRoutes} from "./scripts/createDynamicRoutes";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  target: 'static',
   // generate: {
   //   routes: ['/', 'content-builder']
   // },
-  nitro: {
-    prerender: {
-      routes: [
-        'content-builder'
-      ],
-    },
-  },
+  // nitro: {
+  //   prerender: {
+  //     routes: [
+  //       'content-builder'
+  //     ],
+  //   },
+  // },
   components: {
     "dirs": [
       {
@@ -59,6 +58,12 @@ export default defineNuxtConfig({
       // API_URL: process.env.LIVE_PREVIEW === 'true' ?process.env.API_BASE_URL + '/api' : '',
       // API_TOKEN: process.env.LIVE_PREVIEW === 'true' ? process.env.GRAPHQL_TOKEN : '',
       'graphql-client': {
+        watch: true,
+        silent: true,
+        autoImport: true,
+        functionPrefix: 'Gql',
+        onlyOperationTypes: true,
+        documentPaths: ['./graphql/'],
         clients: {
           default: {
             host: process.env.API_BASE_URL + '/api' || '',

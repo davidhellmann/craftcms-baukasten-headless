@@ -1,8 +1,8 @@
 <template>
-    <Component :is="renderView" v-if="entry"
-               :entry="entry"
-               :current-site-handle="currentSite.handle"
-               :current-site-language="currentSite.language"/>
+  <Component :is="renderView" v-if="entry"
+             :entry="entry"
+             :current-site-handle="currentSite.handle"
+             :current-site-language="currentSite.language"/>
 </template>
 
 <script lang="ts" setup>
@@ -28,15 +28,22 @@ finalUri = path.endsWith('/') ? finalUri.slice(0, -1) : finalUri
 finalUri = typeof finalUri === 'object' ? finalUri.join('/') : finalUri
 
 
+// Fetch Data
+// const {
+//   data: {value: {entry}}
+// }: IGQLQueryResponse = await useAsyncData('entry', () => GqlEntry({
+//   uri: finalUri || '__home__',
+//   section: "*",
+//   site: currentSite.handle
+// }));
 
-// View Resolver
 const {
   data: {value: {entry}}
-}: IGQLQueryResponse = await useAsyncData('entry', () => GqlEntry({
+}: IGQLQueryResponse = await useAsyncGql('entry', {
   uri: finalUri || '__home__',
   section: "*",
   site: currentSite.handle
-}));
+});
 
 // Render 404
 if (!entry) {
@@ -46,7 +53,7 @@ if (!entry) {
   })
 }
 
-
+// View Resolver
 const renderView = await resolveComponent(useResolveEntryComponent({entry}))
 
 // Static Translations
@@ -54,9 +61,9 @@ const siteStore = useSiteStore()
 
 const {
   data: {value: {translations}}
-}: IGQLQueryResponse = await useAsyncData('translations', () => GqlTranslations({
+}: IGQLQueryResponse = await useAsyncGql('translations', {
   language: currentSite.language
-}));
+});
 
 siteStore.$patch({
   translations: translations.filter(item => item.message !== null)

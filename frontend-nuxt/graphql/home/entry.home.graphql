@@ -1,0 +1,5 @@
+query home($id: [QueryArgument]!, $site: [String]!) {
+  home: entry(id: $id, site: $site) {
+    ...entryMetaData
+  }
+}

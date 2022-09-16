@@ -2,9 +2,9 @@
   <div>
     <nav>
       <ul class="flex flex-row flex-wrap gap-4 mb-8">
-        <li v-for="item in entriesAll" :key="item.id">
+        <li v-for="item in navigation" :key="item.id">
           <nuxt-link :to="`/${currentSite.urlParameterTrailingSlash}${item.uri === '__home__' ? '' : item.uri}`" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
-            {{item.title}}
+            {{ item.title }}
           </nuxt-link>
         </li>
       </ul>
@@ -30,21 +30,27 @@ import {useSiteStore} from "~/stores/useSiteStore";
 
 // Data
 const route = useRoute()
-const {path, params: {uri}} = route;
-const notDefaultSite = useGetCurrentSiteData({locale: uri[0]});
-const currentSite = notDefaultSite ? notDefaultSite : useGetCurrentSiteData({locale: 'en'})
+const {path, params: {locale, uri}} = route;
 
+let _uri: string
 
-let finalUri = notDefaultSite ? uri.slice(1) : uri;
-finalUri = path.endsWith('/') ? finalUri.slice(0, -1) : finalUri
-finalUri = typeof finalUri === 'object' ? finalUri.join('/') : finalUri
+const matchingSite = useGetCurrentSiteData({locale: locale as string})
+const currentSite = matchingSite || useGetCurrentSiteData({locale: 'en'})
+
+if (matchingSite && uri.length > 0) {
+  _uri = [...uri].join('/')
+} else if (!matchingSite && uri.length > 0) {
+  _uri = [locale as string, ...uri].join('/')
+} else {
+  _uri = matchingSite ? [''].join('/') : [locale as string].join('/')
+}
 
 
 // Fetch Data
 const {
   data: {value: {entry}}
 }: IGQLQueryResponse = await useAsyncGql('entry', {
-  uri: finalUri || '__home__',
+  uri: _uri || '__home__',
   section: "*",
   site: currentSite.handle
 });
@@ -63,8 +69,8 @@ const renderView = await resolveComponent(useResolveEntryComponent({entry}))
 
 // Query All Entries
 const {
-  data: {value: {entriesAll}}
-}: IGQLQueryResponse = await useAsyncGql('entriesAll', {
+  data: {value: {navigation}}
+}: IGQLQueryResponse = await useAsyncGql('navigation', {
   section: ['pages', 'news', 'home'],
   site: currentSite.handle
 });

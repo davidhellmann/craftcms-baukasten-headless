@@ -1,0 +1,12 @@
+query navigation($site: [String]!, $section: [String]!) {
+  navigation: entries(site: $site, section: $section) {
+    id
+    title
+    url
+    uri
+    typeHandle
+    sectionHandle
+    siteId
+    slug
+  }
+}

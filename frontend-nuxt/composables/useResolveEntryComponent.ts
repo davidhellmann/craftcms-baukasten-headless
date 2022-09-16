@@ -13,7 +13,10 @@ export const useResolveEntryComponent = (params: IResolveEntryComponent) => {
   const instance = getCurrentInstance();
   const sectionHandle = useFirstLetterUppercase({text: params?.entry?.sectionHandle})
   const typeHandle = useFirstLetterUppercase({text: params?.entry?.typeHandle})
-  const compToResolve = `Views${sectionHandle}${typeHandle}`
+
+  const compToResolve = sectionHandle === typeHandle
+    ? `Views${sectionHandle}`
+    : `Views${sectionHandle}${typeHandle}`
 
   return typeof instance?.appContext.components === "object" &&
   compToResolve in instance.appContext.components ? compToResolve : 'ViewsDefault'

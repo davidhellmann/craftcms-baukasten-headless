@@ -1,9 +1,0 @@
-query homepage($uri: [String] = "") {
-  entry(uri: $uri) {
-    id
-    title
-    ... on home_home_Entry {
-      entryCustomTitle
-    }
-  }
-}

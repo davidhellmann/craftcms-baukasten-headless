@@ -1,0 +1,12 @@
+query collectionNews($site: [String]!, $section: [String]!) {
+  collectionNews: entries(site: $site, section: $section) {
+    id
+    title
+    url
+    uri
+    typeHandle
+    sectionHandle
+    siteId
+    slug
+  }
+}

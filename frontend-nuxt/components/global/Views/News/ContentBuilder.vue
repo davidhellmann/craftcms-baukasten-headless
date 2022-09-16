@@ -33,8 +33,5 @@ if (props.entry?.id) {
     id: props.entry?.id,
     site: props.currentSiteHandle
   }));
-
-  console.log(newsContentBuilder)
-
 }
 </script>

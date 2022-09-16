@@ -1,10 +1,17 @@
-// import {dynamicRoutes} from "~/scripts/createDynamicRoutes";
+import {dynamicRoutes} from "./scripts/createDynamicRoutes";
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   target: 'static',
-  generate: {
-    // routes: [dynamicRoutes]
+  // generate: {
+  //   routes: ['/', 'content-builder']
+  // },
+  nitro: {
+    prerender: {
+      routes: [
+        'content-builder'
+      ],
+    },
   },
   components: {
     "dirs": [

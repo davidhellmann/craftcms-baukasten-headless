@@ -10,7 +10,7 @@ export const dynamicRoutes = async () => {
     data: {
       query: `
           {
-            entries(section: ["pages", "news"], site: ["default"]) {
+            entries(section: ["*"], site: ["default"]) {
               id
               slug
               uri
@@ -23,6 +23,8 @@ export const dynamicRoutes = async () => {
     },
   })
 
+  console.log(entries)
+
   // TODO: if you need more different mappings
   // const routesForPages = entries.map((entry) => {
   //   return {
@@ -33,12 +35,11 @@ export const dynamicRoutes = async () => {
   //
   // return routesForPages
 
-  return entries.map((entry) => {
-    return {
-      route: entry.slug,
-      payload: entry
-    }
-  })
+  return ['blog']
+
+  // return entries.map((entry) => {
+  //   return entry.uri
+  // })
 }
 
 

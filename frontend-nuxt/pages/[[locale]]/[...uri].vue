@@ -30,6 +30,7 @@ import {useSiteStore} from "~/stores/useSiteStore";
 
 // Data
 const route = useRoute()
+const router = useRouter()
 const {path, params: {locale, uri}} = route;
 
 let _uri: string
@@ -45,6 +46,12 @@ if (matchingSite && uri.length > 0) {
   _uri = matchingSite ? [''].join('/') : [locale as string].join('/')
 }
 
+_uri = path.endsWith('/') ? _uri.slice(0, -1) : _uri
+
+// Remove Trailing Slash siehe Dynatrace
+// if (path.endsWith('/')) {
+//   router.push()
+// }
 
 // Fetch Data
 const {

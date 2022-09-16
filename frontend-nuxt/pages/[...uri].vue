@@ -65,7 +65,7 @@ const renderView = await resolveComponent(useResolveEntryComponent({entry}))
 const {
   data: {value: {entriesAll}}
 }: IGQLQueryResponse = await useAsyncGql('entriesAll', {
-  section: "*",
+  section: ['pages', 'news', 'home'],
   site: currentSite.handle
 });
 

@@ -26,10 +26,7 @@ return [
     'allowedFileExtensions' => ['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'],
     'allowUpdates' => (bool)App::env('ALLOW_UPDATES'),
     'allowedGraphqlOrigins' => [
-        'http://localhost:3000',
-        'http://content.baukasten.test',
-        'https://headless.baukasten.io',
-        'https://*.vercel.app'
+        '*'
     ],
     'allowAdminChanges' => (bool)App::env('ALLOW_ADMIN_CHANGES'),
     'backupOnUpdate' => (bool)App::env('BACKUP_ON_UPDATE'),

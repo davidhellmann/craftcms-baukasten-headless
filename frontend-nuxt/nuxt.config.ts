@@ -5,13 +5,17 @@ export default defineNuxtConfig({
   // generate: {
   //   routes: ['/', 'content-builder']
   // },
-  // nitro: {
-  //   prerender: {
-  //     routes: [
-  //       'content-builder'
-  //     ],
-  //   },
-  // },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/', '/content-builder'],
+      // ignore: [
+      //   '/news/'
+      // ]
+    }
+  },
+  target: 'static',
+  ssr: false,
   components: {
     "dirs": [
       {

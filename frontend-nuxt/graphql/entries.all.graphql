@@ -3,6 +3,7 @@ query entriesAll($site: [String]!, $section: [String]!) {
     id
     title
     url
+    uri
     typeHandle
     sectionHandle
     siteId

@@ -2,7 +2,7 @@
   <nav>
     <ul class="flex flex-row flex-wrap gap-4 mb-8">
       <li v-for="item in entriesAll" :key="item.id">
-        <nuxt-link :to="item.url" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
+        <nuxt-link :to="`/${currentSite.urlParameterTrailingSlash}${item.uri.replace({'__home__': ''})}`" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
           {{item.title}}
         </nuxt-link>
       </li>
@@ -32,20 +32,14 @@ const {path, params: {uri}} = route;
 const notDefaultSite = useGetCurrentSiteData({locale: uri[0]});
 const currentSite = notDefaultSite ? notDefaultSite : useGetCurrentSiteData({locale: 'en'})
 
+console.log(currentSite)
+
 let finalUri = notDefaultSite ? uri.slice(1) : uri;
 finalUri = path.endsWith('/') ? finalUri.slice(0, -1) : finalUri
 finalUri = typeof finalUri === 'object' ? finalUri.join('/') : finalUri
 
 
 // Fetch Data
-// const {
-//   data: {value: {entry}}
-// }: IGQLQueryResponse = await useAsyncData('entry', () => GqlEntry({
-//   uri: finalUri || '__home__',
-//   section: "*",
-//   site: currentSite.handle
-// }));
-
 const {
   data: {value: {entry}}
 }: IGQLQueryResponse = await useAsyncGql('entry', {

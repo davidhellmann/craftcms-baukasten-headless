@@ -4,6 +4,7 @@ interface IConfigSites {
     siteId: number,
     language: string,
     urlParameter?: string,
+    urlParameterTrailingSlash?: string,
     primary: boolean
   }
 }
@@ -14,6 +15,7 @@ export const configSites:IConfigSites = {
     siteId: 1,
     language: 'en',
     urlParameter: '',
+    urlParameterTrailingSlash: '',
     primary: true,
   },
   'de': {
@@ -21,6 +23,7 @@ export const configSites:IConfigSites = {
     siteId: 4,
     language: 'de',
     urlParameter: 'de',
+    urlParameterTrailingSlash: 'de/',
     primary: false,
   },
   'fr': {
@@ -28,6 +31,7 @@ export const configSites:IConfigSites = {
     siteId: 5,
     language: 'fr',
     urlParameter: 'fr',
+    urlParameterTrailingSlash: 'fr/',
     primary: false,
   },
 }

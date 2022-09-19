@@ -16,6 +16,9 @@ export default defineNuxtConfig({
   },
   target: 'static',
   ssr: false,
+  router: {
+    trailingSlash: false,
+  },
   components: {
     "dirs": [
       {

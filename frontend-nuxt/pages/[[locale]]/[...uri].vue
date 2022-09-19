@@ -25,6 +25,7 @@ interface IGQLQueryResponse {
 
 // Imports
 import {useGetCurrentSiteData} from '~/composables/useGetCurrentSite';
+import {useGetUri} from '~/composables/useGetUri';
 import {useResolveEntryComponent} from "~/composables/useResolveEntryComponent";
 import {useSiteStore} from "~/stores/useSiteStore";
 
@@ -33,31 +34,19 @@ const route = useRoute()
 const router = useRouter()
 const {path, params: {locale, uri}} = route;
 
-let _uri: string
-
 const matchingSite = useGetCurrentSiteData({locale: locale as string})
 const currentSite = matchingSite || useGetCurrentSiteData({locale: 'en'})
-
-if (matchingSite && uri.length > 0) {
-  _uri = [...uri].join('/')
-} else if (!matchingSite && uri.length > 0) {
-  _uri = [locale as string, ...uri].join('/')
-} else {
-  _uri = matchingSite ? [''].join('/') : [locale as string].join('/')
-}
-
-_uri = path.endsWith('/') ? _uri.slice(0, -1) : _uri
-
-// Remove Trailing Slash siehe Dynatrace
-// if (path.endsWith('/')) {
-//   router.push()
-// }
 
 // Fetch Data
 const {
   data: {value: {entry}}
 }: IGQLQueryResponse = await useAsyncGql('entry', {
-  uri: _uri || '__home__',
+  uri: useGetUri({
+    matchingSite: matchingSite,
+    uri: uri,
+    locale: locale,
+    path: path
+  }),
   section: "*",
   site: currentSite.handle
 });

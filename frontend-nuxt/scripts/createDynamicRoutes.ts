@@ -23,7 +23,7 @@ export const dynamicRoutes = async () => {
     },
   })
 
-  console.log(entries)
+  // console.log(entries)
 
   // TODO: if you need more different mappings
   // const routesForPages = entries.map((entry) => {

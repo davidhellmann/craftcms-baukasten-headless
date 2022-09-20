@@ -34,7 +34,7 @@ if (props.entry?.id) {
     site: props.currentSiteHandle
   });
 
-  console.log(pagesContentBuilder)
+  // console.log(pagesContentBuilder)
 
 }
 </script>

@@ -28,6 +28,5 @@ export const useFormatDate = (params = {
     second: 'numeric',
   }
 } as IDate) => {
-  console.log(params)
   return new Date(params.date).toLocaleString(params.locale, params.options)
 }

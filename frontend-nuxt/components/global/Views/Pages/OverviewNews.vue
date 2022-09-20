@@ -52,7 +52,7 @@ if (props.entry?.id) {
 
   newsData.value = collectionNews
 
-  console.log(newsData.value)
+  // console.log(newsData.value)
 
 }
 </script>

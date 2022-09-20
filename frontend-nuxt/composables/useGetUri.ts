@@ -9,8 +9,8 @@ export const useGetUri = (params: IGetUri) => {
   const { matchingSite, uri, locale, path } = params;
   let _uri: string;
 
+
   if (matchingSite) {
-    console.log('Matching Site: Yes')
     if (uri.length > 0) {
       _uri = [...uri].join('/');
     } else {
@@ -19,9 +19,8 @@ export const useGetUri = (params: IGetUri) => {
   }
 
   if (!matchingSite) {
-    console.log('Matching Site: No')
     if (uri.length > 0) {
-      _uri = [...locale, ...uri].join('/');
+      _uri = [locale, ...uri].join('/');
     } else {
       _uri = [locale].join('/');
     }

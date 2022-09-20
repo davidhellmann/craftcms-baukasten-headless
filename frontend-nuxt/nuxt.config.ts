@@ -1,20 +1,19 @@
 import {dynamicRoutes} from "./scripts/createDynamicRoutes";
 
+
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  // nitro: {
-  //   prerender: {
-  //     crawlLinks: true,
-  //     routes: ['/', '/content-builder'],
-  //     // ignore: [
-  //     //   '/news/'
-  //     // ]
-  //   }
-  // },
   nitro: {
     prerender: {
-      crawlLinks: true,
-      routes: ['/content-builder', '/de/content-builder']
+      crawlLinks: false
+    }
+  },
+  hooks: {
+    async 'nitro:config' (nitroConfig) {
+      if (nitroConfig.dev) { return }
+
+      const routes = await dynamicRoutes()
+      nitroConfig.prerender.routes = [...routes]
     }
   },
   target: 'static',

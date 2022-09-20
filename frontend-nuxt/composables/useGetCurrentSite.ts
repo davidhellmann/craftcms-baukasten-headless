@@ -6,7 +6,7 @@ import { configSites } from "~/config/sites";
 
 export const useGetCurrentSiteData = (params: IGetCurrentSiteData) => {
   const { locale } = params;
-  return configSites[locale];
+  return configSites.find((site) => site.language === locale);
 };
 
 export const findAllExpectPrimary = (outputKeyAsArray: 'handle' | 'language') => {

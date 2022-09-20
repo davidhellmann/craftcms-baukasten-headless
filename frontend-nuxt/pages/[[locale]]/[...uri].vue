@@ -35,7 +35,8 @@ const router = useRouter()
 const {path, params: {locale, uri}} = route;
 
 const matchingSite = useGetCurrentSiteData({locale: locale as string})
-const currentSite = matchingSite || useGetCurrentSiteData({locale: 'en'})
+const currentSite = matchingSite ? matchingSite : useGetCurrentSiteData({locale: 'en'})
+
 
 // Fetch Data
 const {

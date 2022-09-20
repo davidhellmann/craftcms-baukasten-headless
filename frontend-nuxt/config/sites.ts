@@ -1,16 +1,14 @@
 interface IConfigSites {
-  [key: string]: {
     handle: string,
     siteId: number,
     language: string,
     urlParameter?: string,
     urlParameterTrailingSlash?: string,
     primary: boolean
-  }
 }
 
-export const configSites:IConfigSites = {
-  'en': {
+export const configSites:IConfigSites[] = [
+  {
     handle: 'default',
     siteId: 1,
     language: 'en',
@@ -18,7 +16,7 @@ export const configSites:IConfigSites = {
     urlParameterTrailingSlash: '',
     primary: true,
   },
-  'de': {
+  {
     handle: 'defaultDe',
     siteId: 4,
     language: 'de',
@@ -26,12 +24,12 @@ export const configSites:IConfigSites = {
     urlParameterTrailingSlash: 'de/',
     primary: false,
   },
-  'fr': {
+  {
     handle: 'defaultFr',
     siteId: 5,
     language: 'fr',
     urlParameter: 'fr',
     urlParameterTrailingSlash: 'fr/',
     primary: false,
-  },
-}
+  }
+]

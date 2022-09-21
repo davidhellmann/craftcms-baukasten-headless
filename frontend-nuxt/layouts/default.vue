@@ -10,7 +10,7 @@
       <slot/>
     </main>
 
-    <slot name="header">
+    <slot name="footer">
       <FooterDefault/>
     </slot>
   </div>

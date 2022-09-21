@@ -31,7 +31,6 @@ import {useSiteStore} from "~/stores/useSiteStore";
 
 // Data
 const route = useRoute()
-const router = useRouter()
 const {path, params: {locale, uri}} = route;
 
 const matchingSite = useGetCurrentSiteData({locale: locale as string})

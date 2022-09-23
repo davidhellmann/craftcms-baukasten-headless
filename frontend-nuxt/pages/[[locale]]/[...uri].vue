@@ -3,7 +3,8 @@
     <nav>
       <ul class="flex flex-row flex-wrap gap-4 mb-8">
         <li v-for="item in navigation" :key="item.id">
-          <nuxt-link :to="`/${currentSite.urlParameterTrailingSlash}${item.uri === '__home__' ? '' : item.uri}`" class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
+          <nuxt-link :to="`/${currentSite.urlParameterTrailingSlash}${item.uri === '__home__' ? '' : item.uri}`"
+                     class="bg-gray-100 rounded-lg px-4 py-2 inline-block">
             {{ item.title }}
           </nuxt-link>
         </li>
@@ -86,4 +87,13 @@ siteStore.$patch({
 })
 </script>
 
-
+<style lang="postcss" scoped>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .35s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+</style>

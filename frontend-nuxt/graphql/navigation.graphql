@@ -1,12 +1,15 @@
-query navigation($site: [String]!, $section: [String]!) {
-  navigation: entries(site: $site, section: $section) {
+query navigation($site: [String]!, $navHandle: String!, $level: Int = 1) {
+  navigationMain: navigationNodes(site: $site, navHandle: $navHandle, level: $level) {
     id
-    title
-    url
-    uri
-    typeHandle
-    sectionHandle
+    nodeUri
     siteId
-    slug
+    classes
+    title
+    customAttributes {
+      attribute
+      value
+    }
+    newWindow
+    urlSuffix
   }
 }

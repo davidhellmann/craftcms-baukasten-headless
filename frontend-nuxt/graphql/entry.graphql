@@ -5,6 +5,9 @@ query entry($uri: [String]!, $site: [String]!, $section: [String]!) {
     typeHandle
     sectionHandle
     siteId
-    slug
+    localized {
+      siteId
+      uri
+    }
   }
 }

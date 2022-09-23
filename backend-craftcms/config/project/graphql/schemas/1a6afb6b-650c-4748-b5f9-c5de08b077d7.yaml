@@ -26,5 +26,4 @@ scope:
   - 'formieSubmissions.all:read'
   - 'formieSubmissions.56e2dea4-d25e-496d-b053-48387e824b07:read'
   - 'navigationNavs.all:read'
-  - 'navigationNavs.7eb1a718-0679-4fda-b656-9bfdf55a2025:read' # Navigation Main
   - 'seomatic.all:read'

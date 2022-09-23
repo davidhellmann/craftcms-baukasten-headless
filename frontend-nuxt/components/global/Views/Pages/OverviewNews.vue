@@ -3,11 +3,14 @@
     <NuxtLink to="/">Back to home</NuxtLink>
     <h1>{{ entryData.title }}</h1>
 
-    <ul v-if="newsData" class="mt-8">
-      <li v-for="item in newsData" :key="item.id">
-
-        <NuxtLink to="/">Back to home</NuxtLink>
-        {{ item.title }}
+    <ul v-if="newsData" class="mt-8 grid grid-cols-3 gap-4">
+      <li v-for="item in newsData" :key="item.id" class="shadow-lg rounded-lg">
+        <NuxtLink :to="item.uri" class=" py-12 px-8 inline-flex flex-col">
+          <h2>{{item.title}}</h2>
+          <p>
+            {{item.entryShortDescription}}
+          </p>
+        </NuxtLink>
       </li>
     </ul>
   </template>

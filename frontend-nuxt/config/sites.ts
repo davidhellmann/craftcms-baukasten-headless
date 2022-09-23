@@ -1,4 +1,4 @@
-interface IConfigSites {
+export interface IConfigSites {
     handle: string,
     siteId: number,
     language: string,

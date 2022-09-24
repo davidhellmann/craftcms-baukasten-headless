@@ -88,6 +88,10 @@ export const useSiteStore = defineStore('site', {
           uri = `/${getMatchingEntry.uri}`
         }
 
+        if (!getMatchingEntry) {
+          uri = ''
+        }
+
         urls.push({
           url: urlParameter || uri ? `${urlParameter}${uri}` : '/',
           title: site.language,

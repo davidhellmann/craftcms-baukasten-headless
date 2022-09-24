@@ -1,5 +1,15 @@
 <template>
   <footer class="bg-gray-100">
+    <div class="container border-b py-8" v-if="siteStore.translations">
+      <h2>Static translations from CraftCMS Translation Plugin</h2>
+      <ul class="flex flex-col">
+        <li class="grid grid-cols-4" v-for="item in siteStore.translations" :key="item.key">
+          <div>{{ item.key }}</div>
+          <div>{{ item.message }}</div>
+          <div>{{ item.language }}</div>
+        </li>
+      </ul>
+    </div>
     <div class="container py-4 flex flex-row justify-between">
       Baukasten Headless ©2014 — {{ currentYear }}
 
@@ -23,6 +33,7 @@
 <script lang="ts" setup>
 import {configSites} from "~/config/sites";
 import {useSiteStore} from "~/stores/useSiteStore";
+
 const siteStore = useSiteStore()
 
 const route = useRoute()

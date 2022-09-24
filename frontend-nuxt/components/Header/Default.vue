@@ -2,11 +2,10 @@
   <header class="bg-gray-100 shadow-md">
     <div class="container flex justify-between items-center gap-4 py-4 items-center w-full">
       <h1 class="text-xl">
-        <NuxtLink v-if="siteStore?.currentSite" :to="`/${siteStore.currentSite.urlParameter}`">
+        <NuxtLink :to="`/${siteStore?.currentSite?.urlParameter || ''}`">
           BKSTN HDLSS
         </NuxtLink>
       </h1>
-      {{useSiteStore.currentSite}}
 
       <nav v-if="siteStore && siteStore.navigationMain" class="ml-auto">
         <ul class="flex flex-row flex-wrap gap-2">

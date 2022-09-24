@@ -67,15 +67,16 @@ if (!entry) {
   })
 }
 
-
 // Fill Site Store
-siteStore.$patch({
-  currentUri: finalUri || '',
-  currentSite: currentSite ? currentSite : null,
-  navigationMain: navigationMain || [],
-  localizations: entry?.localized || [],
-  translations: translations ? translations.filter(item => item.message !== null) : []
-})
+siteStore.addCurrentSite(currentSite || null)
+siteStore.addCurrentUri(finalUri || '')
+siteStore.addNavigationMain(navigationMain || [])
+siteStore.addTranslations(translations ? translations.filter(item => item.message !== null) : [])
+siteStore.addLocalizations(entry?.localized || [])
+
+// siteStore.$patch({
+//   translations: translations ? translations.filter(item => item.message !== null) : []
+// })
 
 // View Resolver
 const renderView = await resolveComponent(useResolveEntryComponent({entry}))

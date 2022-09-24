@@ -1,24 +1,28 @@
 import {defineStore} from 'pinia'
+import {useLocalStorage} from "@vueuse/core";
 import {configSites, IConfigSites} from '~/config/sites'
 
 interface IStateNavigationMain {
   id: string,
   nodeUri: string,
   siteId: number,
-  classes: string|null,
+  classes: string | null,
   customAttributes: string[],
   newWindow: string,
-  urlSuffix: string|null
+  urlSuffix: string | null
 }
+
 interface IStateLocalizations {
   siteId: number,
   uri: string,
 }
+
 interface IStateTranslations {
   key: string,
-  message: string|null,
+  message: string | null,
   language: number,
 }
+
 interface State {
   currentSite: IConfigSites | null
   currentUri: string
@@ -27,14 +31,44 @@ interface State {
   localizations: IStateLocalizations[]
 }
 
+
 export const useSiteStore = defineStore('site', {
-  state: (): State => ({
-    currentSite: null,
-    currentUri: '',
-    navigationMain: [],
-    translations: [],
-    localizations: [],
+  state: () => ({
+    currentSite: useLocalStorage('currentSite', null as IConfigSites | null),
+    currentUri: useLocalStorage('currentUri', '' as string),
+    navigationMain: useLocalStorage('navigationMain', [] as IStateNavigationMain[]),
+    translations: useLocalStorage('translations', [] as IStateTranslations[]),
+    localizations: useLocalStorage('localizations', [] as IStateLocalizations[]),
   }),
+  hydrate(state) {
+    // @ts-ignore
+    state.currentSite = useLocalStorage('currentSite', null as IConfigSites | null),
+      // @ts-ignore
+    state.currentUri = useLocalStorage('currentUri', '' as string),
+      // @ts-ignore
+    state.navigationMain = useLocalStorage('navigationMain', [] as IStateNavigationMain[]),
+      // @ts-ignore
+    state.translations = useLocalStorage('translations', [] as IStateTranslations[]),
+      // @ts-ignore
+    state.localizations = useLocalStorage('localizations', [] as IStateLocalizations[])
+  },
+  actions: {
+    addCurrentSite(currentSite) {
+      this.currentSite = currentSite;
+    },
+    addCurrentUri(currentUri) {
+      this.currentUri = currentUri;
+    },
+    addNavigationMain(navigationMain) {
+      this.navigationMain = [...navigationMain];
+    },
+    addTranslations(translations) {
+      this.translations = [...translations];
+    },
+    addLocalizations(localizations) {
+      this.localizations = [...localizations];
+    },
+  },
   getters: {
     getLangSwitcherUrls(state): object[] {
       const urls: {

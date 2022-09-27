@@ -1,5 +1,4 @@
 import {defineStore} from 'pinia'
-import {useStorage} from "@vueuse/core";
 import {configSites, IConfigSites} from '~/config/sites'
 
 interface IStateNavigationMain {
@@ -34,24 +33,12 @@ interface State {
 
 export const useSiteStore = defineStore('site', {
   state: () => ({
-    currentSite: useStorage('currentSite', null as IConfigSites | null),
-    currentUri: useStorage('currentUri', '' as string),
-    navigationMain: useStorage('navigationMain', [] as IStateNavigationMain[]),
-    translations: useStorage('translations', [] as IStateTranslations[]),
-    localizations: useStorage('localizations', [] as IStateLocalizations[]),
+    currentSite: null as IConfigSites | null,
+    currentUri: '' as string,
+    navigationMain: [] as IStateNavigationMain[],
+    translations: [] as IStateTranslations[],
+    localizations: [] as IStateLocalizations[],
   }),
-  hydrate(state) {
-    // @ts-ignore
-    state.currentSite = useStorage('currentSite', null as IConfigSites | null),
-      // @ts-ignore
-    state.currentUri = useStorage('currentUri', '' as string),
-      // @ts-ignore
-    state.navigationMain = useStorage('navigationMain', [] as IStateNavigationMain[]),
-      // @ts-ignore
-    state.translations = useStorage('translations', [] as IStateTranslations[]),
-      // @ts-ignore
-    state.localizations = useStorage('localizations', [] as IStateLocalizations[])
-  },
   actions: {
     addCurrentSite(currentSite) {
       this.currentSite = currentSite;
@@ -107,4 +94,5 @@ export const useSiteStore = defineStore('site', {
       return `/${state.currentSite.urlParameterTrailingSlash}`
     }
   },
+  persist: true,
 })

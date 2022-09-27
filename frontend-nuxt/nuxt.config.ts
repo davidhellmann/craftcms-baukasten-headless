@@ -34,7 +34,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    '@pinia/nuxt',
+    ['@pinia/nuxt', { autoImports: ['defineStore'] }],
   ],
   tailwindcss: {
     viewer: false,

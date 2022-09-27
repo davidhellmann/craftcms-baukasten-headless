@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       nitroConfig.prerender.routes = [...routes]
     }
   },
-  target: 'static',
+  // target: 'static',
   router: {
     trailingSlash: false,
   },

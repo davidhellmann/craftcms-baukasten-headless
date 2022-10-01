@@ -16,24 +16,24 @@
     "schemas": "npm run tailwind-schema && npm run graphql-schema"
   },
   "devDependencies": {
-    "@astrojs/cloudflare": "^1.0.2",
+    "@astrojs/cloudflare": "^2.1.0",
     "@rollup/plugin-graphql": "^1.1.0",
-    "astro": "^1.2.4",
+    "astro": "^1.4.2",
     "npm-check": "^6.0.1",
     "prettier": "^2.7.1",
-    "prettier-plugin-astro": "^0.5.4",
+    "prettier-plugin-astro": "^0.5.5",
     "prettier-plugin-tailwindcss": "^0.1.13",
-    "stylelint": "^14.9.1",
+    "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-recommended-vue": "^1.4.0",
-    "svelte-check": "^2.9.0",
+    "svelte-check": "^2.9.1",
     "tailwindcss-debug-screens": "^2.2.1",
-    "wrangler": "^2.1.4"
+    "wrangler": "^2.1.9"
   },
   "dependencies": {
-    "@astrojs/svelte": "^1.0.0",
-    "@astrojs/tailwind": "^2.0.0",
+    "@astrojs/svelte": "^1.0.1",
+    "@astrojs/tailwind": "^2.0.2",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "graphql": "^16.6.0",

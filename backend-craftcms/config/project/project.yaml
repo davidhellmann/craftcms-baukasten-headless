@@ -1,4 +1,4 @@
-dateModified: 1664554435
+dateModified: 1664784028
 elementSources:
   craft\elements\Asset:
     -
@@ -477,7 +477,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: $SITE_NAME
+  name: 'Baukasten Headless'
   retryDuration: null
   schemaVersion: 4.0.0.9
   timeZone: Europe/Berlin

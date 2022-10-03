@@ -3,7 +3,7 @@ enabled: '1'
 handle: defaultFr
 hasUrls: true
 language: fr
-name: 'Baukasten Headless FR'
+name: 'Baukasten (fr)'
 primary: false
 siteGroup: 2bc1feee-cfc8-48ee-bace-f101e7f41ac9 # Default
 sortOrder: 3

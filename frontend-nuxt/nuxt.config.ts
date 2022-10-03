@@ -16,7 +16,15 @@ export default defineNuxtConfig({
       nitroConfig.prerender.routes = [...routes]
     }
   },
-  target: 'static',
+  routes: {
+    '/': {
+      prerender: true
+    },
+    '/*': {
+      cors: true
+    }
+  },
+  // target: 'static',
   router: {
     trailingSlash: false,
   },
@@ -34,7 +42,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
-    '@pinia/nuxt',
+    ['@pinia/nuxt', { autoImports: ['defineStore'] }],
   ],
   tailwindcss: {
     viewer: false,

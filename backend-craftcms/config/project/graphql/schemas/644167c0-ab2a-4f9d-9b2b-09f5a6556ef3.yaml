@@ -1,9 +1,9 @@
 isPublic: true
 name: 'Public Schema'
 scope:
-  - 'sites.8153a2df-373f-4aac-9a92-d52292c9f1aa:read' # $SITE_NAME
-  - 'sites.b205e203-99d0-4ee4-b75c-90a868606c4b:read' # Baukasten Headless DE
-  - 'sites.f9ec1fe5-6806-433d-b5e2-6aef4d148b23:read' # Baukasten Headless FR
+  - 'sites.8153a2df-373f-4aac-9a92-d52292c9f1aa:read' # Baukasten (en)
+  - 'sites.b205e203-99d0-4ee4-b75c-90a868606c4b:read' # Baukasten (de)
+  - 'sites.f9ec1fe5-6806-433d-b5e2-6aef4d148b23:read' # Baukasten (fr)
   - 'elements.drafts:read'
   - 'elements.revisions:read'
   - 'elements.inactive:read'

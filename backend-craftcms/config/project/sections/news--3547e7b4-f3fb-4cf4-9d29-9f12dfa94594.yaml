@@ -45,17 +45,17 @@ previewTargets:
             - '1'
 propagationMethod: all
 siteSettings:
-  8153a2df-373f-4aac-9a92-d52292c9f1aa: # $SITE_NAME
+  8153a2df-373f-4aac-9a92-d52292c9f1aa: # Baukasten (en)
     enabledByDefault: true
     hasUrls: true
     template: null
     uriFormat: 'news/{slug}'
-  b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten Headless DE
+  b205e203-99d0-4ee4-b75c-90a868606c4b: # Baukasten (de)
     enabledByDefault: true
     hasUrls: true
     template: null
     uriFormat: 'news/{slug}'
-  f9ec1fe5-6806-433d-b5e2-6aef4d148b23: # Baukasten Headless FR
+  f9ec1fe5-6806-433d-b5e2-6aef4d148b23: # Baukasten (fr)
     enabledByDefault: true
     hasUrls: true
     template: null

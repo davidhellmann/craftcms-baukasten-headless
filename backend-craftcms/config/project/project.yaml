@@ -1,4 +1,4 @@
-dateModified: 1664784028
+dateModified: 1664833473
 elementSources:
   craft\elements\Asset:
     -
@@ -253,7 +253,7 @@ plugins:
   formie:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_FORMIE
+    licenseKey: C8A0QAI0PQ6371E6OMY1C3AP
     schemaVersion: 2.0.8
     settings:
       ajaxTimeout: 10
@@ -386,7 +386,7 @@ plugins:
   imager-x:
     edition: pro
     enabled: true
-    licenseKey: $PLUGIN_IMAGERX
+    licenseKey: TWRWYUF11FTYHPKQHHXJTO81
     schemaVersion: 4.0.0
   matrixmate:
     edition: standard

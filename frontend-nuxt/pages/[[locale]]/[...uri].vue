@@ -74,10 +74,6 @@ siteStore.addNavigationMain(navigationMain || [])
 siteStore.addTranslations(translations ? translations.filter(item => item.message !== null) : [])
 siteStore.addLocalizations(entry?.localized || [])
 
-// siteStore.$patch({
-//   translations: translations ? translations.filter(item => item.message !== null) : []
-// })
-
 // View Resolver
 const renderView = await resolveComponent(useResolveEntryComponent({entry}))
 </script>

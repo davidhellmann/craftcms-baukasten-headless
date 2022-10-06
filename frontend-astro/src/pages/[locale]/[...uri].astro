@@ -1,47 +1,81 @@
 ---
 // Imports
 import DefaultLayout from '@layouts/Default.astro';
-import entryQuery from '@graphql/entry.graphql'
+import entryQuery from '@graphql/entry.graphql';
 import { useGraphqlQuery } from '@composables/useGraphqlQuery';
 import { print } from 'graphql/language/printer';
-import { useGetCurrentSiteData, findAllExpectPrimary } from '@composables/useGetCurrentSite';
+import { useGetCurrentSiteData } from '@composables/useGetCurrentSite';
+
+// Interfaces
+interface IGQLQueryResponse {
+  data: any;
+  refresh: any;
+}
 
 // Create Static Routes
 export async function getStaticPaths() {
-    const { data: { entries, translations } } = await useGraphqlQuery({
-        query: print(entryQuery),
-        routeQuery: {},
-        variables: {
-            section: ['pages', 'news', 'home'],
-            site: findAllExpectPrimary('handle'),
-            language: findAllExpectPrimary('language')
-        }
-    })
+  const {
+    data: { entries, translations, navigationMain },
+  } = await useGraphqlQuery({
+    query: print(entryQuery),
+    routeQuery: {},
+    variables: {
+      section: ['pages', 'news', 'home'],
+      site: ['*'],
+      navHandle: 'navigationMain',
+      language: ['*'],
+    },
+  });
 
+  return entries.map((entry: any) => {
+    // Handle locale and uri
+    let uri: string | undefined = undefined;
+    let locale: string | undefined = undefined;
 
-    return entries.map((entry: any) => {
-        return {
-            params: {
-                uri: entry.uri === '__home__' ? 'index' : entry.uri,
-                locale: useGetCurrentSiteData({id: entry.siteId }).urlParameter
-            },
-            props: { 
-                uri: entry.uri,
-                lang: useGetCurrentSiteData({id: entry.siteId }).urlParameter,
-                siteId: Number(entry.siteId), 
-                sectionHandle: entry.sectionHandle, 
-                entryType: entry.typeHandle,
-                translations,
-                seo: {
-                    ...entry.seomatic
-                }
-             },
-        };
-    });
+    if (entry.siteId === 1) {
+      if (entry.uri.includes('/')) {
+        locale = entry.uri.split('/')[0];
+        uri = entry.uri.split('/').slice(1).join('/');
+      } else {
+        locale = entry.uri === '__home__' ? 'index' : entry.uri;
+      }
+    } else {
+      locale = useGetCurrentSiteData({ id: entry.siteId })?.urlParameter;
+      uri = entry.uri === '__home__' ? 'index' : entry.uri;
+    }
+
+    return {
+      params: {
+        uri: uri,
+        locale: locale,
+      },
+      props: {
+        uri: entry.uri,
+        lang: useGetCurrentSiteData({ id: entry.siteId })?.urlParameter,
+        siteId: Number(entry.siteId),
+        sectionHandle: entry.sectionHandle,
+        entryType: entry.typeHandle,
+        translations,
+        seo: {
+          ...entry.seomatic,
+        },
+      },
+    };
+  });
 }
 
 // Variables
-const { uri, siteId, sectionHandle, entryType, translations, seo, lang } = Astro.props;
+const { uri, siteId, sectionHandle, entryType, translations, seo, lang, navigationMain } =
+  Astro.props;
 ---
 
-<DefaultLayout {uri} {siteId} {sectionHandle} {entryType} {translations} {seo} {lang} />
+<DefaultLayout
+  {uri}
+  {siteId}
+  {sectionHandle}
+  {entryType}
+  {translations}
+  {navigationMain}
+  {seo}
+  {lang}
+/>

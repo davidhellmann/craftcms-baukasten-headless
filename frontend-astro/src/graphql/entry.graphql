@@ -1,4 +1,10 @@
-query entryQuery($section: [String]!, $site: [String]!, $language: [String]!) {
+query entryQuery(
+  $section: [String]!
+  $site: [String]!
+  $language: [String]!
+  $navHandle: String!
+  $level: Int = 1
+) {
   entries(section: $section, site: $site) {
     id
     title
@@ -23,5 +29,18 @@ query entryQuery($section: [String]!, $site: [String]!, $language: [String]!) {
     key
     message
     language
+  }
+  navigationMain: navigationNodes(site: $site, navHandle: $navHandle, level: $level) {
+    id
+    nodeUri
+    siteId
+    classes
+    title
+    customAttributes {
+      attribute
+      value
+    }
+    newWindow
+    urlSuffix
   }
 }

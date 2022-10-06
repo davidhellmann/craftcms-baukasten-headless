@@ -17,6 +17,18 @@ export interface Props {
       message: string;
     },
   ];
+  navigationMain: [
+    {
+      id: string;
+      nodeUri: string;
+      siteId: number;
+      classes: string;
+      title: string;
+      customAttributes: any[];
+      newWindow: string;
+      urlSuffix: string;
+    },
+  ];
   seo: {
     [key: string]: string;
   };

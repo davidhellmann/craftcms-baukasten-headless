@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2eb58431e8cbced85a404d869b6bc87e",
+    "content-hash": "4e15d7e5f00cda1c36dfa60f72bb9a94",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -205,11 +205,11 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/30897edbfb15e784fe55587b4f73ceefd3c4d98c",
-                "reference": "30897edbfb15e784fe55587b4f73ceefd3c4d98c",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/69098eca243998b53eed7a48d82dedd28b447cd5",
+                "reference": "69098eca243998b53eed7a48d82dedd28b447cd5",
                 "shasum": ""
             },
             "require": {
@@ -246,7 +246,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2022-07-20T07:14:26+00:00"
+            "time": "2022-10-12T12:08:29+00:00"
         },
         {
             "name": "composer/composer",
@@ -541,11 +541,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.2.5.2",
+            "version": "4.2.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/e9f821e26d74f76fb2bcf364e5bcb4d99ace4ab4",
-                "reference": "e9f821e26d74f76fb2bcf364e5bcb4d99ace4ab4",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/3db5c2376356d6baada51079de89c54a5073e24e",
+                "reference": "3db5c2376356d6baada51079de89c54a5073e24e",
                 "shasum": ""
             },
             "require": {
@@ -636,7 +636,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-10-03T23:04:10+00:00"
+            "time": "2022-10-18T18:28:05+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2139,11 +2139,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.33.0",
+            "version": "v9.36.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/collections.git",
+                "reference": "32e3cd051cf1d12c1e7d5f7bb5a52d0dae8b7a8b"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/a533ba3fce4e288a42f6287e1b9a685cdbc14f9f",
-                "reference": "a533ba3fce4e288a42f6287e1b9a685cdbc14f9f",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/32e3cd051cf1d12c1e7d5f7bb5a52d0dae8b7a8b",
+                "reference": "32e3cd051cf1d12c1e7d5f7bb5a52d0dae8b7a8b",
                 "shasum": ""
             },
             "require": {
@@ -2169,6 +2174,7 @@
                     "Illuminate\\Support\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2180,11 +2186,20 @@
             ],
             "description": "The Illuminate Collections package.",
             "homepage": "https://laravel.com",
-            "time": "2022-09-16T14:22:26+00:00"
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-10-06T14:13:23+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.33.0",
+            "version": "v9.36.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/conditionable.git",
+                "reference": "5b40f51ccb07e0e7b1ec5559d8db9e0e2dc51883"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/conditionable/zipball/5b40f51ccb07e0e7b1ec5559d8db9e0e2dc51883",
@@ -2205,6 +2220,7 @@
                     "Illuminate\\Support\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2216,11 +2232,20 @@
             ],
             "description": "The Illuminate Conditionable package.",
             "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
             "time": "2022-07-29T19:44:19+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.33.0",
+            "version": "v9.36.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/contracts.git",
+                "reference": "d57130115694b4f6a98d064bea31cdb09d7784f8"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/contracts/zipball/d57130115694b4f6a98d064bea31cdb09d7784f8",
@@ -2243,6 +2268,7 @@
                     "Illuminate\\Contracts\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2254,11 +2280,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
             "time": "2022-09-15T13:31:42+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.33.0",
+            "version": "v9.36.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/macroable.git",
+                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
@@ -2279,6 +2314,7 @@
                     "Illuminate\\Support\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2290,6 +2326,10 @@
             ],
             "description": "The Illuminate Macroable package.",
             "homepage": "https://laravel.com",
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
             "time": "2022-08-09T13:29:29+00:00"
         },
         {
@@ -3866,15 +3906,15 @@
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/77a32518733312af16a44300404e945338981de3",
-                "reference": "77a32518733312af16a44300404e945338981de3",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
+                "reference": "48f445a408c131e38cab1c235aa6d2bb7a0bb20d",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0",
+                "php": "^7.4 || ^8.0",
                 "phpdocumentor/reflection-common": "^2.0"
             },
             "type": "library",
@@ -3898,7 +3938,7 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "time": "2022-03-15T21:29:03+00:00"
+            "time": "2022-10-14T12:47:21+00:00"
         },
         {
             "name": "phpoffice/phpspreadsheet",
@@ -5398,11 +5438,11 @@
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.13",
+            "version": "v5.4.14",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/3f97f6c7b7e26848a90c0c0cfb91eeb2bb8618be",
-                "reference": "3f97f6c7b7e26848a90c0c0cfb91eeb2bb8618be",
+                "url": "https://api.github.com/repos/symfony/console/zipball/984ea2c0f45f42dfed01d2f3987b187467c4b16d",
+                "reference": "984ea2c0f45f42dfed01d2f3987b187467c4b16d",
                 "shasum": ""
             },
             "require": {
@@ -5461,7 +5501,7 @@
                 "console",
                 "terminal"
             ],
-            "time": "2022-08-26T13:50:20+00:00"
+            "time": "2022-10-07T08:01:20+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -5733,11 +5773,11 @@
         },
         {
             "name": "symfony/http-client",
-            "version": "v6.1.5",
+            "version": "v6.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-client/zipball/565b0f2ce2c5882e89b3ef5e255d7e0478b9c675",
-                "reference": "565b0f2ce2c5882e89b3ef5e255d7e0478b9c675",
+                "url": "https://api.github.com/repos/symfony/http-client/zipball/c8c887f4813370550147afd27d9eb8a8523e53b2",
+                "reference": "c8c887f4813370550147afd27d9eb8a8523e53b2",
                 "shasum": ""
             },
             "require": {
@@ -5776,7 +5816,7 @@
             ],
             "description": "Provides powerful methods to fetch HTTP resources synchronously or asynchronously",
             "homepage": "https://symfony.com",
-            "time": "2022-09-09T09:34:27+00:00"
+            "time": "2022-10-12T05:10:31+00:00"
         },
         {
             "name": "symfony/http-client-contracts",
@@ -5885,11 +5925,11 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v6.1.5",
+            "version": "v6.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/d521b2204f7dcebe81c1b5fb99ed70dfb6f34b4b",
-                "reference": "d521b2204f7dcebe81c1b5fb99ed70dfb6f34b4b",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/5ae192b9a39730435cfec025a499f79d05ac68a3",
+                "reference": "5ae192b9a39730435cfec025a499f79d05ac68a3",
                 "shasum": ""
             },
             "require": {
@@ -5901,7 +5941,8 @@
                 "egulias/email-validator": "~3.0.0",
                 "phpdocumentor/reflection-docblock": "<3.2.2",
                 "phpdocumentor/type-resolver": "<1.4.0",
-                "symfony/mailer": "<5.4"
+                "symfony/mailer": "<5.4",
+                "symfony/serializer": "<5.4.14|>=6.0,<6.0.14|>=6.1,<6.1.6"
             },
             "type": "library",
             "autoload": {
@@ -5931,7 +5972,7 @@
                 "mime",
                 "mime-type"
             ],
-            "time": "2022-09-02T08:05:20+00:00"
+            "time": "2022-10-07T08:04:03+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -6567,11 +6608,11 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.1.5",
+            "version": "v6.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/17c08b068176996a1d7db8d00ffae3c248267016",
-                "reference": "17c08b068176996a1d7db8d00ffae3c248267016",
+                "url": "https://api.github.com/repos/symfony/string/zipball/7e7e0ff180d4c5a6636eaad57b65092014b61864",
+                "reference": "7e7e0ff180d4c5a6636eaad57b65092014b61864",
                 "shasum": ""
             },
             "require": {
@@ -6619,15 +6660,15 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2022-09-02T08:05:20+00:00"
+            "time": "2022-10-10T09:34:31+00:00"
         },
         {
             "name": "symfony/var-dumper",
-            "version": "v5.4.13",
+            "version": "v5.4.14",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/2bf2ccab581bec363191672f0df40e0c85569e1c",
-                "reference": "2bf2ccab581bec363191672f0df40e0c85569e1c",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/6894d06145fefebd9a4c7272baa026a1c394a430",
+                "reference": "6894d06145fefebd9a4c7272baa026a1c394a430",
                 "shasum": ""
             },
             "require": {
@@ -6678,7 +6719,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2022-09-06T13:23:31+00:00"
+            "time": "2022-10-07T08:01:20+00:00"
         },
         {
             "name": "symfony/var-exporter",
@@ -6728,11 +6769,11 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.12",
+            "version": "v5.4.14",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/7a3aa21ac8ab1a96cc6de5bbcab4bc9fc943b18c",
-                "reference": "7a3aa21ac8ab1a96cc6de5bbcab4bc9fc943b18c",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/e83fe9a72011f07c662da46a05603d66deeeb487",
+                "reference": "e83fe9a72011f07c662da46a05603d66deeeb487",
                 "shasum": ""
             },
             "require": {
@@ -6773,7 +6814,7 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
-            "time": "2022-08-02T15:52:22+00:00"
+            "time": "2022-10-03T15:15:50+00:00"
         },
         {
             "name": "theiconic/name-parser",
@@ -6955,24 +6996,16 @@
         },
         {
             "name": "vaersaagod/matrixmate",
-            "version": "2.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/vaersaagod/matrixmate.git",
-                "reference": "c7b1a75a1a82723d12bc68d1db31343ab4731beb"
-            },
+            "version": "2.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vaersaagod/matrixmate/zipball/c7b1a75a1a82723d12bc68d1db31343ab4731beb",
-                "reference": "c7b1a75a1a82723d12bc68d1db31343ab4731beb",
+                "url": "https://api.github.com/repos/vaersaagod/matrixmate/zipball/cc865206b3e456089a6a85d06583faf50d73edc8",
+                "reference": "cc865206b3e456089a6a85d06583faf50d73edc8",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0.0",
                 "php": "^8.0.2"
-            },
-            "require-dev": {
-                "craftcms/rector": "dev-main"
             },
             "type": "craft-plugin",
             "extra": {
@@ -6989,7 +7022,6 @@
                     "vaersaagod\\matrixmate\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7001,27 +7033,21 @@
             ],
             "description": "Welding Matrix into shape, mate!",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "matrixmate"
             ],
             "support": {
                 "docs": "https://github.com/vaersaagod/matrixmate/blob/master/README.md",
-                "issues": "https://github.com/vaersaagod/matrixmate/issues",
-                "source": "https://github.com/vaersaagod/matrixmate/tree/v2.1.0"
+                "issues": "https://github.com/vaersaagod/matrixmate/issues"
             },
-            "time": "2022-08-05T15:47:19+00:00"
+            "time": "2022-10-05T12:32:12+00:00"
         },
         {
             "name": "verbb/base",
             "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/verbb/verbb-base.git",
-                "reference": "3a7c0b9c36d446d2765e467161c7d40aa41f1ae4"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/verbb/verbb-base/zipball/3a7c0b9c36d446d2765e467161c7d40aa41f1ae4",
@@ -7038,7 +7064,6 @@
                     "verbb\\base\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7049,13 +7074,6 @@
                 }
             ],
             "description": "Common utilities and building-blocks for Verbb plugins for Craft CMS.",
-            "support": {
-                "docs": "https://github.com/verbb/verbb-base",
-                "email": "support@verbb.io",
-                "issues": "https://github.com/verbb/verbb-base/issues?state=open",
-                "rss": "https://github.com/verbb/verbb-base/commits/v2.atom",
-                "source": "https://github.com/verbb/verbb-base"
-            },
             "time": "2022-09-30T11:02:57+00:00"
         },
         {
@@ -7183,11 +7201,11 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/c32644d28386af51176824c0c69a597a41640ce1",
-                "reference": "c32644d28386af51176824c0c69a597a41640ce1",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/e9772c86fef6267238ebe96500328a8fecdcd73f",
+                "reference": "e9772c86fef6267238ebe96500328a8fecdcd73f",
                 "shasum": ""
             },
             "require": {
@@ -7232,20 +7250,15 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2022-09-25T09:35:45+00:00"
+            "time": "2022-10-17T09:12:27+00:00"
         },
         {
             "name": "verbb/super-table",
-            "version": "3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/verbb/super-table.git",
-                "reference": "c011a17f123b16d63a9d580224d86aae5f7dc75a"
-            },
+            "version": "3.0.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/c011a17f123b16d63a9d580224d86aae5f7dc75a",
-                "reference": "c011a17f123b16d63a9d580224d86aae5f7dc75a",
+                "url": "https://api.github.com/repos/verbb/super-table/zipball/9493db347400bd98a14a29253c8c07a9d01472f7",
+                "reference": "9493db347400bd98a14a29253c8c07a9d01472f7",
                 "shasum": ""
             },
             "require": {
@@ -7267,7 +7280,6 @@
                     "verbb\\supertable\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -7279,26 +7291,20 @@
             ],
             "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
             "keywords": [
-                "Craft",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "super table"
             ],
             "support": {
-                "docs": "https://github.com/verbb/super-table",
                 "email": "support@verbb.io",
                 "issues": "https://github.com/verbb/super-table/issues?state=open",
-                "rss": "https://github.com/verbb/super-table/commits/v2.atom",
-                "source": "https://github.com/verbb/super-table"
+                "source": "https://github.com/verbb/super-table",
+                "docs": "https://github.com/verbb/super-table",
+                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/verbb",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-09-13T22:49:40+00:00"
+            "time": "2022-10-18T08:04:59+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -7430,11 +7436,11 @@
         },
         {
             "name": "voku/arrayy",
-            "version": "7.9.4",
+            "version": "7.9.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/Arrayy/zipball/4a995937b91f15b95d9a170f803951069b2f0fa0",
-                "reference": "4a995937b91f15b95d9a170f803951069b2f0fa0",
+                "url": "https://api.github.com/repos/voku/Arrayy/zipball/4635acfab7d1451124039a88fd5c700b28ee3906",
+                "reference": "4635acfab7d1451124039a88fd5c700b28ee3906",
                 "shasum": ""
             },
             "require": {
@@ -7473,7 +7479,7 @@
                 "utility",
                 "utils"
             ],
-            "time": "2022-09-06T20:07:10+00:00"
+            "time": "2022-10-13T00:27:25+00:00"
         },
         {
             "name": "voku/email-check",
@@ -7560,11 +7566,11 @@
         },
         {
             "name": "voku/portable-utf8",
-            "version": "6.0.9",
+            "version": "6.0.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/eb2861c34203a9c2a7c275cba7014d6816604e89",
-                "reference": "eb2861c34203a9c2a7c275cba7014d6816604e89",
+                "url": "https://api.github.com/repos/voku/portable-utf8/zipball/35b21539c309cbc4697266591f3a4ae9ce4e029c",
+                "reference": "35b21539c309cbc4697266591f3a4ae9ce4e029c",
                 "shasum": ""
             },
             "require": {
@@ -7620,7 +7626,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2022-09-01T09:54:03+00:00"
+            "time": "2022-10-05T23:42:43+00:00"
         },
         {
             "name": "voku/stop-words",

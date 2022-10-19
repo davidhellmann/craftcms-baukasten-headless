@@ -25,7 +25,7 @@ export default defineConfig({
   build: {
     format: 'file',
   },
-  output: 'server',
+  output: 'static',
 });
 
 // export default defineConfig((mode) => {

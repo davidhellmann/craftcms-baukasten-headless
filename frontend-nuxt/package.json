@@ -14,20 +14,20 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.1.6",
-    "@nuxtjs/tailwindcss": "^5.3.3",
+    "@nuxtjs/tailwindcss": "^6.0.0",
     "@pinia/nuxt": "^0.4.2",
     "@vueuse/nuxt": "^9.2.0",
     "npm-check": "^6.0.1",
-    "nuxt": "^3.0.0-rc.11",
+    "nuxt": "^3.0.0-rc.12",
     "pinia": "^2.0.22",
     "tailwindcss-debug-screens": "^2.2.1"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
-    "axios": "^0.27.2",
-    "nuxt-graphql-client": "^0.1.15",
-    "pinia-plugin-persistedstate": "^2.2.0",
+    "axios": "^1.1.3",
+    "nuxt-graphql-client": "^0.2.0",
+    "pinia-plugin-persistedstate": "^2.3.0",
     "tailwindcss-fluid-type": "^1.3.3",
     "tailwindcss-question-mark": "^0.1.1"
   }

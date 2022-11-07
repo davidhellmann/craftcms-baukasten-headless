@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2698e03773762f1db818ba2f487c07a1",
+    "content-hash": "ccdae69a86ab3a968cc43908273a9a07",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1523,17 +1523,31 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.12.57",
+            "version": "8.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/giggsey/libphonenumber-for-php.git",
+                "reference": "eb1cea72dc8d020e149062371a2c6717457cf561"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/033a7285fd1102c13c4415e300734b7ce7ca0ae0",
-                "reference": "033a7285fd1102c13c4415e300734b7ce7ca0ae0",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/eb1cea72dc8d020e149062371a2c6717457cf561",
+                "reference": "eb1cea72dc8d020e149062371a2c6717457cf561",
                 "shasum": ""
             },
             "require": {
                 "giggsey/locale": "^1.7|^2.0",
                 "php": ">=5.3.2",
                 "symfony/polyfill-mbstring": "^1.17"
+            },
+            "require-dev": {
+                "pear/pear-core-minimal": "^1.9",
+                "pear/pear_exception": "^1.0",
+                "pear/versioncontrol_git": "^0.5",
+                "phing/phing": "^2.7",
+                "php-coveralls/php-coveralls": "^1.0|^2.0",
+                "symfony/console": "^2.8|^3.0|^v4.4|^v5.2",
+                "symfony/phpunit-bridge": "^4.2 || ^5"
             },
             "type": "library",
             "extra": {
@@ -1552,6 +1566,7 @@
                     "/src/timezone/data/"
                 ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Apache-2.0"
             ],
@@ -1572,7 +1587,11 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2022-10-14T07:52:28+00:00"
+            "support": {
+                "issues": "https://github.com/giggsey/libphonenumber-for-php/issues",
+                "source": "https://github.com/giggsey/libphonenumber-for-php"
+            },
+            "time": "2022-11-07T12:16:34+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -3314,11 +3333,11 @@
         },
         {
             "name": "nystudio107/craft-code-editor",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/21f99d79dca956b931d884f8240b518e23cd64cc",
-                "reference": "21f99d79dca956b931d884f8240b518e23cd64cc",
+                "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/f4bc04b22a6d1b94b87e6076a53a87e52058b7a9",
+                "reference": "f4bc04b22a6d1b94b87e6076a53a87e52058b7a9",
                 "shasum": ""
             },
             "require": {
@@ -3355,7 +3374,7 @@
                 "markdown",
                 "twig"
             ],
-            "time": "2022-11-02T22:44:21+00:00"
+            "time": "2022-11-04T16:15:50+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-manifest",
@@ -6895,11 +6914,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "2.0.14",
+            "version": "2.0.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/59e9aac27653471da509905cfce3ad66fcc25697",
-                "reference": "59e9aac27653471da509905cfce3ad66fcc25697",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/d595e55c82ce49fa561102ed496f19d70da5f251",
+                "reference": "d595e55c82ce49fa561102ed496f19d70da5f251",
                 "shasum": ""
             },
             "require": {
@@ -6959,7 +6978,7 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2022-10-28T22:45:57+00:00"
+            "time": "2022-11-05T22:17:42+00:00"
         },
         {
             "name": "verbb/image-resizer",

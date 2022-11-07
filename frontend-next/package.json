@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "codegen": "graphql-codegen --watch -r dotenv/config",
     "upgrade-interactive": "npm-check --update",
     "ui": "npm run upgrade-interactive"
   },

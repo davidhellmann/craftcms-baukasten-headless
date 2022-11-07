@@ -1,7 +1,16 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 
-export default function Home() {
+async function getData() {
+  const res = await fetch('http://baukasten-headless.ddev.test/api');
+  // The return value is *not* serialized
+  // You can return Date, Map, Set, etc.
+  return res.json();
+}
+
+export default async function Home() {
+  const name = await getData();
+  console.log(name)
   return (
     <div className={styles.container}>
       <main className={styles.main}>

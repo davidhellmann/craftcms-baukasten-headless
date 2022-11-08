@@ -19,7 +19,7 @@ $config = GeneralConfig::create()
     ->headlessMode(App::env('HEADLESS_MODE'))
     ->allowedGraphqlOrigins([
         'http://localhost:3000',
-        'http://baukasten-headless.ddev.test',
+        'http://baukasten-headless.test',
         'https://craftcms-baukasten-headless.vercel.app'
     ])
     ->allowUpdates($isDev)

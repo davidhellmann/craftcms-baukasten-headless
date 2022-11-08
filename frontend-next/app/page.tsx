@@ -1,30 +1,17 @@
-const getData = async () => {
-  const query = {
-    query: `query MyQuery {
-      entry(section: "home") {
-        id
-        title
-        slug
-      }
-    }`
-  }
-  const res = await fetch('http://zahnarzt-wernitz.test/api', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      // Authorization: 'Bearer KOTwKkTfXNRzI_u2gQPBO7OfyxXoCihi'
-    },
-    body: JSON.stringify(query),
-  });
-  return res.json();
-}
+import { graphql} from "../gql";
+import { graphqlClient } from "../lib/graphql-client";
+import {HomepageQuery} from "../gql/home.gql";
+
+export const revalidate = 3600;
+
+const getHomepage = graphql(/* GraphQL */ HomepageQuery);
 
 const Page = async () => {
-  const {data: {entry} } = await getData();
-  console.log(entry)
+  const data = await graphqlClient.request(getHomepage, {});
+  console.log(data)
 
   return (
-    <h1>{entry.title}</h1>
+    <h1>Hold my beer</h1>
   )
 }
 

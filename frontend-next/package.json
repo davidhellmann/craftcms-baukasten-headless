@@ -9,6 +9,7 @@
     "lint": "next lint",
     "graphql-schema": "./../backend-craftcms/craft graphql/print-schema > schema.graphqls",
     "generate": "graphql-codegen --require dotenv/config --config codegen.ts dotenv_config_path=.env.local",
+    "codegen": "graphql-codegen --watch -r dotenv/config --config codegen.ts dotenv_config_path=.env.local",
     "upgrade-interactive": "npm-check --update",
     "ui": "npm run upgrade-interactive"
   },

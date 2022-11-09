@@ -2,7 +2,7 @@
 import * as types from './graphql';
 import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 
-const documents: never[] = [];
+const documents = [];
 export function graphql(source: string): unknown;
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

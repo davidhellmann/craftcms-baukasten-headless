@@ -1,4 +1,6 @@
-export const PageQuery = `
+import { graphql } from '../gql';
+
+export const queryEntryMeta = graphql(`
 	query Page($uri: [String]!) {
 		entry(uri: $uri) {
       title
@@ -7,4 +9,4 @@ export const PageQuery = `
       uri
 		}
 	}
-`
+`);

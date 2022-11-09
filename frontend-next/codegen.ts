@@ -2,6 +2,10 @@ import { CodegenConfig } from "@graphql-codegen/cli"
 import { CRAFT_CMS_GRAPHQL_URL, CRAFT_CMS_GRAPHQL_TOKEN} from "./lib/constants";
 
 const config: CodegenConfig = {
+  "overwrite": true,
+  "hooks": {
+    "afterOneFileWrite": ["prettier --write"]
+  },
   schema: [
     {
       [CRAFT_CMS_GRAPHQL_URL]: {
@@ -11,14 +15,12 @@ const config: CodegenConfig = {
       },
     },
   ],
-  documents: [
-    "gql/**/*.ts",
-    "app/**/*.tsx",
-    "app/**/*.ts"
-  ],
   ignoreNoDocuments: true,
+  documents: [
+    "./lib/graphql/queries/**/*.ts",
+  ],
   generates: {
-    "./gql/": {
+    "./lib/graphql/gql/": {
       preset: "client",
       plugins: [
       ],

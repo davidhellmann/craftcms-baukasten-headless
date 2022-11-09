@@ -1,13 +1,23 @@
-import {graphql} from "../gql";
-import {graphqlClient} from "../lib/graphql-client";
-import {HomepageQuery} from "../gql/home.gql";
+import {graphqlClient} from "../lib/graphql/client/graphql-client";
+import {queryHome} from "../lib/graphql/queries/home.graphql";
+import {notFound} from "next/navigation";
 
-const Page = async (cache: number = 3600) => {
-  const { entry } = await graphqlClient.request(HomepageQuery, {
+export const revalidate = false
+const getHome = async () => {
+  return await graphqlClient.request(queryHome, {
+    // @ts-ignore
     next: {
-      revalidate: cache
+      revalidate: 3600
     },
   })
+}
+
+const HomePage = async () => {
+  const { entry } = await getHome()
+
+  if (!entry) {
+    return notFound()
+  }
 
   return (
     <>
@@ -17,5 +27,6 @@ const Page = async (cache: number = 3600) => {
   )
 }
 
-export default Page
+export default HomePage
+
 

@@ -1,4 +1,6 @@
-export const NewsDetailPage = `
+import { graphql } from '../gql';
+
+export const queryNewsDetail = graphql(`
 	query NewsDetailPage($slug: [String]!) {
 		entry(section: "news", slug: $slug) {
       title
@@ -7,4 +9,4 @@ export const NewsDetailPage = `
       uri
 		}
 	}
-`
+`);

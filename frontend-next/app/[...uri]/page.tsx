@@ -1,28 +1,40 @@
-import {graphqlClient} from "../../lib/graphql-client";
-import {PageQuery} from "../../gql/page.gql";
+import {graphqlClient} from "../../lib/graphql/client/graphql-client";
+import {queryPage} from "../../lib/graphql/queries/page.graphql";
+import {queryEntriesAll} from "../../lib/graphql/queries/entries.all.graphql";
+import {notFound} from "next/navigation";
 
-const getPageByUri = async (uri: string, cache: number = 3600) => {
-  return await graphqlClient.request(PageQuery, {
+export const revalidate = 3600
+const getPage = async (uri: string) => {
+  return await graphqlClient.request(queryPage, {
     uri,
-    next: {
-      revalidate: cache
-    },
   })
 }
 
-const Page = async ({ params }: { params: { uri: string[] } }) => {
-  const { entry } = await getPageByUri(params.uri.join('/'))
+const PagesPage = async ({ params }: { params: { uri: string[] } }) => {
+  const { entry } = await getPage(params.uri.join('/'))
 
   if (!entry) {
-    return <h1>404</h1>;
+    return notFound()
   }
 
   return (
     <>
-      <h1>Pages</h1>
+      <h1>Page</h1>
       <h2>Title: {entry.title} | Slug: {entry.slug} | Id: {entry.id}</h2>
     </>
   )
 }
 
-export default Page
+export default PagesPage
+
+export const generateStaticParams = async () => {
+  const {entries} = await graphqlClient.request(queryEntriesAll, {
+    section: ['pages']
+  })
+
+  if (entries) {
+    return entries.map((entry) => ({
+      uri: entry?.uri?.split('/')
+    }))
+  }
+}

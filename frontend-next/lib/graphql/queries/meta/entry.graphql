@@ -1,0 +1,6 @@
+fragment metaEntry on EntryInterface {
+  id
+  slug
+  uri
+  title
+}

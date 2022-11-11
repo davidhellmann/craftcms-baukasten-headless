@@ -1,11 +1,10 @@
 import {graphqlClient} from "../../lib/graphql/client/graphql-client";
-import {queryPage} from "../../lib/graphql/queries/page.graphql";
-import {queryEntriesAll} from "../../lib/graphql/queries/entries.all.graphql";
+import {QueryEntriesAllDocument, QueryPageDocument, MetaEntryFragment} from "../../lib/graphql/gql/graphql";
 import {notFound} from "next/navigation";
 
 export const revalidate = 3600
 const getPage = async (uri: string) => {
-  return await graphqlClient.request(queryPage, {
+  return await graphqlClient.request(QueryPageDocument, {
     uri,
   })
 }
@@ -28,12 +27,12 @@ const PagesPage = async ({ params }: { params: { uri: string[] } }) => {
 export default PagesPage
 
 export const generateStaticParams = async () => {
-  const {entries} = await graphqlClient.request(queryEntriesAll, {
+  const {entries} = await graphqlClient.request(QueryEntriesAllDocument, {
     section: ['pages']
   })
 
   if (entries) {
-    return entries.map((entry) => ({
+    return entries.map((entry: MetaEntryFragment) => ({
       uri: entry?.uri?.split('/')
     }))
   }

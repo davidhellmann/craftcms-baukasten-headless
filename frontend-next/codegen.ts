@@ -14,20 +14,26 @@ const config: CodegenConfig = {
   ],
   documents: [
     "./lib/graphql/queries/**/*.ts",
+    "./lib/graphql/queries/**/*.graphql",
   ],
   generates: {
-    "./lib/graphql/gql/": {
-      preset: "client",
-      plugins: [],
+    "./lib/graphql/gql/graphql.ts": {
+      plugins: [
+        "typescript",
+        "typescript-operations",
+        "typescript-graphql-request"
+      ],
       config: {
-        withHooks: true,
+        skipTypename: true,
+        onlyOperationTypes: true,
         maybeValue: "T",
         avoidOptionals: {
           field: true,
           inputValue: true,
           object: true,
           defaultValue: true
-        }
+        },
+        mergeFragmentTypes: true
       }
     }
   }

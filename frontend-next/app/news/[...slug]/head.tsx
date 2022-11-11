@@ -1,5 +1,5 @@
-import {graphqlClient} from "../lib/graphql/client/graphql-client";
-import {QueryEntryMetaDocument} from "../lib/graphql/gql/graphql";
+import {graphqlClient} from "../../../lib/graphql/client/graphql-client";
+import {QueryEntryMetaDocument} from "../../../lib/graphql/gql/graphql";
 
 const getEntryMeta = async (uri: string) => {
   return await graphqlClient.request(QueryEntryMetaDocument, {

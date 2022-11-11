@@ -1,0 +1,13 @@
+#import "./meta/entry.graphql"
+
+fragment HomeEntry on home_home_Entry {
+  entryCustomTitle
+  entryShortDescription
+}
+
+query QueryHome {
+  entry(section: "home") {
+    ...metaEntry
+    ...HomeEntry
+  }
+}

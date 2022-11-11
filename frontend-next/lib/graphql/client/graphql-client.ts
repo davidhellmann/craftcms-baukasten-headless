@@ -5,9 +5,11 @@ interface ISearchParams {
   token?: string,
   'x-craft-preview'?: string,
   'x-craft-live-preview'?: string,
+  [k: string]: any
 }
 
-interface ICustomHeader {
+interface IHeaders {
+  authorization: string
   [key: string]: string
 }
 
@@ -18,14 +20,16 @@ export const cmsClient = (searchParams: ISearchParams) => {
     'x-craft-live-preview': xCraftLivePreview
   } = searchParams
 
-  const CUSTOM_HEADERS: ICustomHeader = {}
+  const headers: IHeaders = {
+    authorization: `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`,
+  }
 
   if (xCraftPreview) {
-    CUSTOM_HEADERS["x-craft-preview"] = xCraftPreview;
+    headers["x-craft-preview"] = xCraftPreview;
   }
 
   if (xCraftLivePreview) {
-    CUSTOM_HEADERS["x-craft-live-preview"] = xCraftLivePreview;
+    headers["x-craft-live-preview"] = xCraftLivePreview;
   }
 
   const API_URL = token
@@ -35,10 +39,7 @@ export const cmsClient = (searchParams: ISearchParams) => {
   return new GraphQLClient(
     API_URL,
     {
-      headers: {
-        'Authentication': `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`,
-        ...CUSTOM_HEADERS
-      },
+      headers
     }
   );
 }

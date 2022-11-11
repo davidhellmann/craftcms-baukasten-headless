@@ -1,0 +1,7 @@
+#import "./meta/entry.graphql"
+
+query QueryNewsDetail($slug: [String]!) {
+  entry(section: "news", slug: $slug) {
+    ...metaEntry
+  }
+}

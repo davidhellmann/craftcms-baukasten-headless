@@ -1,10 +1,10 @@
 import {graphqlClient} from "../../../lib/graphql/client/graphql-client";
-import {queryNewsDetail} from "../../../lib/graphql/queries/news.detail.graphql";
+import {QueryNewsDetailDocument} from "../../../lib/graphql/gql/graphql";
 import { notFound } from 'next/navigation';
 
 export const revalidate = false
 const getNewsDetail = async (slug: string) => {
-  return await graphqlClient.request(queryNewsDetail, {
+  return await graphqlClient.request(QueryNewsDetailDocument, {
     slug
   })
 }

@@ -1,7 +1,7 @@
 #import "./meta/entry.graphql"
 
-query QueryEntryMeta($uri: [String]!) {
-  entry(uri: $uri) {
+query QueryEntryMeta($uri: [String], $slug: [String], $section: [String]!) {
+  entry(uri: $uri, slug: $slug, section: $section) {
     ...metaEntry
   }
 }

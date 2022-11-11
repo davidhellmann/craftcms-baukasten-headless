@@ -1,14 +1,18 @@
 import {graphqlClient} from "../../../lib/graphql/client/graphql-client";
 import {QueryEntryMetaDocument} from "../../../lib/graphql/gql/graphql";
 
-const getEntryMeta = async (uri: string) => {
+
+const getEntryMeta = async (queryParameter: { section: string[], slug: string }) => {
   return await graphqlClient.request(QueryEntryMetaDocument, {
-    uri
+    ...queryParameter
   })
 }
 
-const Head = async ({ params }: { params: { uri: string[] } }) => {
-  const { entry } = await getEntryMeta(params.uri ? params.uri.join('/') : '__home__')
+const Head = async ({ params }: { params: { slug: string } }) => {
+  const { entry } = await getEntryMeta({
+    slug: params.slug,
+    section: ['news']
+  })
 
   if (entry) {
     return (

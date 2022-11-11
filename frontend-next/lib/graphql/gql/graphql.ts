@@ -509,7 +509,9 @@ export type QueryEntriesAllQueryVariables = Exact<{
 export type QueryEntriesAllQuery = { entries: Array<{ id: string, slug: string, uri: string, title: string }> };
 
 export type QueryEntryMetaQueryVariables = Exact<{
-  uri: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  uri: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
+  slug: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
+  section: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
 }>;
 
 
@@ -560,8 +562,8 @@ export const QueryEntriesAllDocument = gql`
 }
     ${MetaEntryFragmentDoc}`;
 export const QueryEntryMetaDocument = gql`
-    query QueryEntryMeta($uri: [String]!) {
-  entry(uri: $uri) {
+    query QueryEntryMeta($uri: [String], $slug: [String], $section: [String]!) {
+  entry(uri: $uri, slug: $slug, section: $section) {
     ...metaEntry
   }
 }

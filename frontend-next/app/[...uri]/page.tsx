@@ -1,6 +1,12 @@
 import {graphqlClient} from "../../lib/graphql/client/graphql-client";
-import {QueryEntriesAllDocument, QueryPageDocument, MetaEntryFragment} from "../../lib/graphql/gql/graphql";
+import {
+  QueryEntriesAllDocument,
+  QueryPageDocument,
+  MetaEntryFragment
+} from "../../lib/graphql/gql/graphql";
 import {notFound} from "next/navigation";
+import TitleUpdater from "../../components/Global/TitleUpdater";
+import React from "react";
 
 export const revalidate = 3600
 const getPage = async (uri: string) => {
@@ -18,6 +24,7 @@ const PagesPage = async ({ params }: { params: { uri: string[] } }) => {
 
   return (
     <>
+      <TitleUpdater title={entry.title} />
       <h1>Page</h1>
       <h2>Title: {entry.title} | Slug: {entry.slug} | Id: {entry.id}</h2>
     </>

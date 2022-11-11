@@ -1,11 +1,16 @@
 import { graphql } from '../gql';
 
 export const queryHome = graphql(`
-  query Home {
-    entry(section: "home") {
-      title
+  query Home($section: [String] = ["home"]) {
+    entry(section: $section) {
       id
+      title
+      siteId
       slug
+      ... on home_home_Entry {
+        entryCustomTitle
+        entryShortDescription
+      }
     }
   }
 `);

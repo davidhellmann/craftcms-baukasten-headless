@@ -2,30 +2,35 @@ import { CodegenConfig } from "@graphql-codegen/cli"
 import { CRAFT_CMS_GRAPHQL_URL, CRAFT_CMS_GRAPHQL_TOKEN} from "./lib/constants";
 
 const config: CodegenConfig = {
-  "overwrite": true,
-  "hooks": {
-    "afterOneFileWrite": ["prettier --write"]
-  },
+  overwrite: true,
   schema: [
     {
       [CRAFT_CMS_GRAPHQL_URL]: {
         headers: {
-          'Authentication': `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`
+          Authentication: `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`
         },
       },
     },
   ],
-  ignoreNoDocuments: true,
   documents: [
     "./lib/graphql/queries/**/*.ts",
   ],
   generates: {
     "./lib/graphql/gql/": {
       preset: "client",
-      plugins: [
-      ],
-    },
-  },
+      plugins: [],
+      config: {
+        withHooks: true,
+        maybeValue: "T",
+        avoidOptionals: {
+          field: true,
+          inputValue: true,
+          object: true,
+          defaultValue: true
+        }
+      }
+    }
+  }
 }
 
 export default config

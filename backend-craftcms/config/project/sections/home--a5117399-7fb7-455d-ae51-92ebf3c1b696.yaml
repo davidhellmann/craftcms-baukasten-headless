@@ -5,6 +5,19 @@ name: Home
 previewTargets:
   __assoc__:
     -
+      - 3
+      -
+        __assoc__:
+          -
+            - label
+            - 'NEXT 13'
+          -
+            - urlFormat
+            - 'http://localhost:3000/'
+          -
+            - refresh
+            - '1'
+    -
       - 2
       -
         __assoc__:

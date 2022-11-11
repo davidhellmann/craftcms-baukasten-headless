@@ -5,6 +5,19 @@ name: Pages
 previewTargets:
   __assoc__:
     -
+      - 5
+      -
+        __assoc__:
+          -
+            - label
+            - 'NEXT 13'
+          -
+            - urlFormat
+            - 'http://localhost:3000/{uri}'
+          -
+            - refresh
+            - '1'
+    -
       - 4
       -
         __assoc__:

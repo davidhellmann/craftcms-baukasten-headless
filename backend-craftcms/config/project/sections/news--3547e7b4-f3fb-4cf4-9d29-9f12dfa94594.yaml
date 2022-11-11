@@ -43,6 +43,19 @@ previewTargets:
           -
             - refresh
             - '1'
+    -
+      - 4
+      -
+        __assoc__:
+          -
+            - label
+            - 'NEXT 13'
+          -
+            - urlFormat
+            - 'http://localhost:3000/news/{slug}'
+          -
+            - refresh
+            - '1'
 propagationMethod: all
 siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # Baukasten (en)

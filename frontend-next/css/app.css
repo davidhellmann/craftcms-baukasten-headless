@@ -1,0 +1,16 @@
+/* TailwindCSS base */
+@import "tailwindcss/base";
+
+@import "./base/global.css";
+@import "./base/lazy.css";
+@import "./base/typography.css";
+
+
+/* TailwindCSS components */
+@import "tailwindcss/components";
+
+@import "./components/transitions.css";
+
+
+/* TailwindCSS utilities */
+@import "tailwindcss/utilities";

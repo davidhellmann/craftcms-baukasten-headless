@@ -1,7 +1,13 @@
 #import "./meta/entry.graphql"
 
+fragment PageContentBuilderEntry on pages_contentBuilder_Entry {
+  entryCustomTitle
+  entryShortDescription
+}
+
 query QueryPage($uri: [String]!) {
   entry(uri: $uri) {
     ...metaEntry
+    ...PageContentBuilderEntry
   }
 }

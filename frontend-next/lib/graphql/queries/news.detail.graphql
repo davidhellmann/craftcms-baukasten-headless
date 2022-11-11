@@ -1,7 +1,14 @@
 #import "./meta/entry.graphql"
 
+fragment NewsContentBuilderEntry on news_contentBuilder_Entry {
+  entryCustomTitle
+  entryShortDescription
+}
+
+
 query QueryNewsDetail($slug: [String]!) {
   entry(section: "news", slug: $slug) {
     ...metaEntry
+    ...NewsContentBuilderEntry
   }
 }

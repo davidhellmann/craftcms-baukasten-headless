@@ -24,8 +24,9 @@ const HomePage = async ({searchParams}: { searchParams?: ISearchParams}) => {
   return (
     <>
       <TitleUpdater title={entry.title} />
-      <h1>{entry?.entryCustomTitle || entry?.title}</h1>
+      <h1 className={'font-serif text-7xl'}>{entry?.entryCustomTitle || entry?.title}</h1>
       <ul>
+        <li>Template: Home</li>
         <li>Id: {entry.id}</li>
         <li>Slug: {entry.slug}</li>
         <li>Title: {entry?.title}</li>

@@ -1,4 +1,4 @@
-import {graphqlClient} from "../../lib/graphql/client/graphql-client";
+import {cmsClient} from "../../lib/graphql/client/graphql-client";
 import {
   QueryEntriesAllDocument,
   QueryPageDocument,
@@ -8,15 +8,20 @@ import {notFound} from "next/navigation";
 import TitleUpdater from "../../components/Global/TitleUpdater";
 import React from "react";
 
+interface ISearchParams {
+  [key: string]: string
+}
+
 export const revalidate = 3600
-const getPage = async (uri: string) => {
-  return await graphqlClient.request(QueryPageDocument, {
+const getPage = async (uri: string, searchParams: ISearchParams) => {
+  const client = cmsClient(searchParams)
+  return await client.request(QueryPageDocument, {
     uri,
   })
 }
 
-const PagesPage = async ({ params }: { params: { uri: string[] } }) => {
-  const { entry } = await getPage(params.uri.join('/'))
+const PagesPage = async ({ params, searchParams }: { params: { uri: string[] }, searchParams: ISearchParams }) => {
+  const { entry } = await getPage(params.uri.join('/'), searchParams)
 
   if (!entry) {
     return notFound()
@@ -25,8 +30,15 @@ const PagesPage = async ({ params }: { params: { uri: string[] } }) => {
   return (
     <>
       <TitleUpdater title={entry.title} />
-      <h1>Page</h1>
-      <h2>Title: {entry.title} | Slug: {entry.slug} | Id: {entry.id}</h2>
+      <h1 className={'font-serif text-7xl'}>{entry?.entryCustomTitle || entry?.title}</h1>
+      <ul>
+        <li>Template: Page</li>
+        <li>Id: {entry.id}</li>
+        <li>Slug: {entry.slug}</li>
+        <li>Title: {entry?.title}</li>
+        <li>Custom Title: {entry?.entryCustomTitle}</li>
+        <li>Short desc: {entry?.entryShortDescription}</li>
+      </ul>
     </>
   )
 }
@@ -34,7 +46,8 @@ const PagesPage = async ({ params }: { params: { uri: string[] } }) => {
 export default PagesPage
 
 export const generateStaticParams = async () => {
-  const {entries} = await graphqlClient.request(QueryEntriesAllDocument, {
+  const client = cmsClient({})
+  const {entries} = await client.request(QueryEntriesAllDocument, {
     section: ['pages']
   })
 

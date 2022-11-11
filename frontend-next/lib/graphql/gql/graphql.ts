@@ -526,19 +526,23 @@ export type QueryHomeQuery = { entry: { id: string, slug: string, uri: string, t
 
 export type MetaEntryFragment = { id: string, slug: string, uri: string, title: string };
 
+export type NewsContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
+
 export type QueryNewsDetailQueryVariables = Exact<{
   slug: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
 }>;
 
 
-export type QueryNewsDetailQuery = { entry: { id: string, slug: string, uri: string, title: string } };
+export type QueryNewsDetailQuery = { entry: { id: string, slug: string, uri: string, title: string } | { id: string, slug: string, uri: string, title: string, entryCustomTitle: string, entryShortDescription: string } };
+
+export type PageContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
 export type QueryPageQueryVariables = Exact<{
   uri: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
 }>;
 
 
-export type QueryPageQuery = { entry: { id: string, slug: string, uri: string, title: string } };
+export type QueryPageQuery = { entry: { id: string, slug: string, uri: string, title: string } | { id: string, slug: string, uri: string, title: string, entryCustomTitle: string, entryShortDescription: string } };
 
 export const HomeEntryFragmentDoc = gql`
     fragment HomeEntry on home_home_Entry {
@@ -552,6 +556,18 @@ export const MetaEntryFragmentDoc = gql`
   slug
   uri
   title
+}
+    `;
+export const NewsContentBuilderEntryFragmentDoc = gql`
+    fragment NewsContentBuilderEntry on news_contentBuilder_Entry {
+  entryCustomTitle
+  entryShortDescription
+}
+    `;
+export const PageContentBuilderEntryFragmentDoc = gql`
+    fragment PageContentBuilderEntry on pages_contentBuilder_Entry {
+  entryCustomTitle
+  entryShortDescription
 }
     `;
 export const QueryEntriesAllDocument = gql`
@@ -581,16 +597,20 @@ export const QueryNewsDetailDocument = gql`
     query QueryNewsDetail($slug: [String]!) {
   entry(section: "news", slug: $slug) {
     ...metaEntry
+    ...NewsContentBuilderEntry
   }
 }
-    ${MetaEntryFragmentDoc}`;
+    ${MetaEntryFragmentDoc}
+${NewsContentBuilderEntryFragmentDoc}`;
 export const QueryPageDocument = gql`
     query QueryPage($uri: [String]!) {
   entry(uri: $uri) {
     ...metaEntry
+    ...PageContentBuilderEntry
   }
 }
-    ${MetaEntryFragmentDoc}`;
+    ${MetaEntryFragmentDoc}
+${PageContentBuilderEntryFragmentDoc}`;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 

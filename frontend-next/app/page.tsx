@@ -21,13 +21,14 @@ const HomePage = async ({searchParams}: { searchParams: ISearchParams}) => {
 
   return (
     <>
-      <h1>{entry?.entryCustomTitle || entry?.title}</h1>
+
+      <h1>{'entryCustomTitle' in entry && entry?.entryCustomTitle || entry?.title}</h1>
       <ul>
         <li>Id: {entry.id}</li>
         <li>Slug: {entry.slug}</li>
         <li>Title: {entry?.title}</li>
-        <li>Custom Title: {entry?.entryCustomTitle}</li>
-        <li>Short desc: {entry?.entryShortDescription}</li>
+        <li>Custom Title: {'entryCustomTitle' in entry && entry?.entryCustomTitle}</li>
+        <li>Short desc: {'entryShortDescription' in entry && entry?.entryShortDescription}</li>
       </ul>
     </>
   )

@@ -1,23 +1,26 @@
 import {cmsClient} from "../../../lib/graphql/client/graphql-client";
-import {QueryNewsDetailDocument} from "../../../lib/graphql/gql/graphql";
+import {MetaEntryFragment, QueryEntriesAllDocument, QueryNewsDetailDocument} from "../../../lib/graphql/gql/graphql";
 import { notFound } from 'next/navigation';
 import TitleUpdater from "../../../components/Global/TitleUpdater";
 import React from "react";
+import {previewData} from "next/headers";
 
-interface ISearchParams {
+interface IPreviewParams {
   [key: string]: string
 }
 
 // export const revalidate = false
-const getNewsDetail = async (slug: string, searchParams: ISearchParams) => {
-  const client = cmsClient(searchParams)
+const getNewsDetail = async (slug: string, previewParams: IPreviewParams) => {
+  const client = cmsClient(previewParams)
   return await client.request(QueryNewsDetailDocument, {
     slug
   })
 }
 
-const NewsDetailPage = async ({ params, searchParams }: { params: { slug: string }, searchParams: ISearchParams }) => {
-  const { entry } = await getNewsDetail(params.slug, searchParams)
+const NewsDetailPage = async ({ params }: { params: { slug: string } }) => {
+  const preview = previewData();
+  const isPreviewMode = !!preview && preview.secret === process.env.CRAFT_CMS_PREVIEW_TOKEN;
+  const { entry } = await getNewsDetail(params.slug, preview && isPreviewMode ? preview : {})
 
   if (!entry) {
     notFound();
@@ -40,3 +43,17 @@ const NewsDetailPage = async ({ params, searchParams }: { params: { slug: string
 }
 
 export default NewsDetailPage
+
+export const generateStaticParams = async () => {
+  const client = cmsClient({})
+  const {entries} = await client.request(QueryEntriesAllDocument, {
+    section: ['news']
+  })
+
+  if (entries) {
+    return entries.map((entry: MetaEntryFragment) => ({
+      slug: [entry?.slug]
+    }))
+  }
+}
+

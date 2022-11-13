@@ -1,21 +1,25 @@
+import React from "react";
 import {cmsClient} from "../lib/graphql/client/graphql-client";
-import {QueryHomeDocument} from "../lib/graphql/gql/graphql";
+import {MetaEntryFragment, QueryEntriesAllDocument, QueryHomeDocument} from "../lib/graphql/gql/graphql";
 import {notFound} from "next/navigation";
 import TitleUpdater from "../components/Global/TitleUpdater";
-import React from "react";
+import { previewData } from 'next/headers';
 
-interface ISearchParams {
+interface IPreviewParams {
   [key: string]: string
 }
 
-export const revalidate = false
-const getHome = async (searchParams: ISearchParams) => {
-  const client = cmsClient(searchParams)
+// export const revalidate = false
+const getHome = async (previewParams: IPreviewParams) => {
+  const client = cmsClient(previewParams)
   return await client.request(QueryHomeDocument, {})
 }
 
-const HomePage = async ({searchParams}: { searchParams?: ISearchParams}) => {
-  const { entry } = await getHome(searchParams ? searchParams : {})
+const HomePage = async () => {
+  const preview = previewData();
+  const isPreviewMode = !!preview && preview.secret === process.env.CRAFT_CMS_PREVIEW_TOKEN;
+
+  const { entry } = await getHome(preview && isPreviewMode ? preview : {})
 
   if (!entry) {
     return notFound()
@@ -23,6 +27,7 @@ const HomePage = async ({searchParams}: { searchParams?: ISearchParams}) => {
 
   return (
     <>
+      {isPreviewMode && <div className={'fixed inline-flex items-center w-auto bottom-4 left-1/2 -translate-x-1/2 bg-primary-100 rounded-lg p-4 text-primary-500 text-center font-bold'}>Preview mode <a href="/api/preview/clear">Exit preview</a></div>}
       <TitleUpdater title={entry.title} />
       <h1 className={'font-serif text-7xl'}>{entry?.entryCustomTitle || entry?.title}</h1>
       <ul>
@@ -38,5 +43,3 @@ const HomePage = async ({searchParams}: { searchParams?: ISearchParams}) => {
 }
 
 export default HomePage
-
-

@@ -6,8 +6,8 @@ fragment NewsContentBuilderEntry on news_contentBuilder_Entry {
 }
 
 
-query QueryNewsDetail($slug: [String]!) {
-  entry(section: "news", slug: $slug) {
+query QueryNewsDetail($section: [String]! = ["news"], $slug: [String]!) {
+  entry(section: $section, slug: $slug) {
     ...metaEntry
     ...NewsContentBuilderEntry
   }

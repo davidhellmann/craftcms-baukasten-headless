@@ -529,6 +529,7 @@ export type MetaEntryFragment = { id: string, slug: string, uri: string, title: 
 export type NewsContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
 export type QueryNewsDetailQueryVariables = Exact<{
+  section?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   slug: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
 }>;
 
@@ -538,6 +539,7 @@ export type QueryNewsDetailQuery = { entry: { id: string, slug: string, uri: str
 export type PageContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
 export type QueryPageQueryVariables = Exact<{
+  section?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   uri: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
 }>;
 
@@ -586,7 +588,7 @@ export const QueryEntryMetaDocument = gql`
     ${MetaEntryFragmentDoc}`;
 export const QueryHomeDocument = gql`
     query QueryHome {
-  entry(section: "home") {
+  entry(section: ["home"]) {
     ...metaEntry
     ...HomeEntry
   }
@@ -594,8 +596,8 @@ export const QueryHomeDocument = gql`
     ${MetaEntryFragmentDoc}
 ${HomeEntryFragmentDoc}`;
 export const QueryNewsDetailDocument = gql`
-    query QueryNewsDetail($slug: [String]!) {
-  entry(section: "news", slug: $slug) {
+    query QueryNewsDetail($section: [String]! = ["news"], $slug: [String]!) {
+  entry(section: $section, slug: $slug) {
     ...metaEntry
     ...NewsContentBuilderEntry
   }
@@ -603,8 +605,8 @@ export const QueryNewsDetailDocument = gql`
     ${MetaEntryFragmentDoc}
 ${NewsContentBuilderEntryFragmentDoc}`;
 export const QueryPageDocument = gql`
-    query QueryPage($uri: [String]!) {
-  entry(uri: $uri) {
+    query QueryPage($section: [String]! = ["pages"], $uri: [String]!) {
+  entry(section: $section, uri: $uri) {
     ...metaEntry
     ...PageContentBuilderEntry
   }

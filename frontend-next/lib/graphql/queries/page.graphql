@@ -5,8 +5,8 @@ fragment PageContentBuilderEntry on pages_contentBuilder_Entry {
   entryShortDescription
 }
 
-query QueryPage($uri: [String]!) {
-  entry(uri: $uri) {
+query QueryPage($section: [String]! = ["pages"], $uri: [String]!) {
+  entry(section: $section, uri: $uri) {
     ...metaEntry
     ...PageContentBuilderEntry
   }

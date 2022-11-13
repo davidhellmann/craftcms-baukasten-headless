@@ -1,7 +1,7 @@
 import { GraphQLClient } from "graphql-request";
 import {CRAFT_CMS_GRAPHQL_URL, CRAFT_CMS_GRAPHQL_TOKEN} from "../../constants";
 
-interface ISearchParams {
+interface IPreviewParams {
   token?: string,
   'x-craft-preview'?: string,
   'x-craft-live-preview'?: string,
@@ -13,28 +13,32 @@ interface IHeaders {
   [key: string]: string
 }
 
-export const cmsClient = (searchParams: ISearchParams) => {
-  const {
-    token,
-    'x-craft-preview': xCraftPreview,
-    'x-craft-live-preview': xCraftLivePreview
-  } = searchParams
-
+export const cmsClient = (previewParams: IPreviewParams = {}) => {
   const headers: IHeaders = {
     authorization: `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`,
   }
 
-  if (xCraftPreview) {
-    headers["x-craft-preview"] = xCraftPreview;
-  }
+  let API_URL = CRAFT_CMS_GRAPHQL_URL
 
-  if (xCraftLivePreview) {
-    headers["x-craft-live-preview"] = xCraftLivePreview;
-  }
+  if (previewParams && previewParams?.token) {
+    const {
+      token,
+      'x-craft-preview': xCraftPreview,
+      'x-craft-live-preview': xCraftLivePreview
+    } = previewParams
 
-  const API_URL = token
-    ? `${CRAFT_CMS_GRAPHQL_URL}?token=${token}`
-    : CRAFT_CMS_GRAPHQL_URL
+    if (xCraftPreview) {
+      headers["x-craft-preview"] = xCraftPreview;
+    }
+
+    if (xCraftLivePreview) {
+      headers["x-craft-live-preview"] = xCraftLivePreview;
+    }
+
+    API_URL = token
+      ? `${CRAFT_CMS_GRAPHQL_URL}?token=${token}`
+      : API_URL
+  }
 
   return new GraphQLClient(
     API_URL,

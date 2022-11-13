@@ -19,8 +19,11 @@ module.exports = [
       black: colors.black,
       white: colors.white,
       'keyboard-focus': '#ff98de',
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       ...useMapDefaultColorPalette({ palette: colors.zinc, name: 'gray' }),
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       ...useMapDefaultColorPalette({ palette: colors.emerald, name: 'primary' }),
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       ...useMapDefaultColorPalette({ palette: colors.amber, name: 'secondary' }),
     },
   },

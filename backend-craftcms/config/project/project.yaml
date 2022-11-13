@@ -1,4 +1,4 @@
-dateModified: 1668210813
+dateModified: 1668293725
 elementSources:
   craft\elements\Asset:
     -
@@ -46,11 +46,15 @@ elementSources:
         - uri
       type: native
     -
+      defaultSort:
+        - title
+        - asc
       disabled: false
       key: singles
       tableAttributes:
         - link
         - uri
+        - slug
       type: native
     -
       heading: Channels

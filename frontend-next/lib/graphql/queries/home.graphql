@@ -6,7 +6,7 @@ fragment HomeEntry on home_home_Entry {
 }
 
 query QueryHome {
-  entry(section: "home") {
+  entry(section: ["home"]) {
     ...metaEntry
     ...HomeEntry
   }

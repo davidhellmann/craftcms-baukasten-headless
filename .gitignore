@@ -47,6 +47,7 @@
 # MISC FILES
 .cache
 .DS_Store
+.fleet
 .idea
 .project
 .settings

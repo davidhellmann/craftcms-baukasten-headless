@@ -5,7 +5,6 @@
 /** @type {import('tailwindcss').Config} */
 
 
-const fluidType = require('tailwindcss-fluid-type');
 const questionMark = require('tailwindcss-question-mark');
 const forms = require('@tailwindcss/forms')({
   strategy: 'class',
@@ -33,7 +32,6 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: settingsFontFamily,
-    fluidType: settingsfluidType,
     colors: settingsColors,
     screens: settingsScreens,
     extend: {
@@ -57,7 +55,9 @@ module.exports = {
   plugins: [
     debugScreens,
     questionMark,
-    fluidType,
+    require('tailwindcss-fluid-type')({
+      ...settingsfluidType,
+    }),
     forms,
     ({addComponents}) => {
       addComponents(pluginAddComponents);

@@ -1,33 +1,35 @@
 ---
-import homeQuery from '@graphql/home.graphql'
-import { useGraphqlQuery } from '@composables/useGraphqlQuery';
+import homeQuery from '@graphql/home.graphql';
+import { graphqlQuery } from '@utils/graphqlQuery';
 import { print } from 'graphql/language/printer';
 
 export interface Props {
-	uri: string,
-    siteId: number
+  uri: string;
+  siteId: number;
 }
 
 const { uri, siteId } = Astro.props as Props;
-const { searchParams } = Astro.url
+const { searchParams } = Astro.url;
 const routeQuery = Object.fromEntries(searchParams);
 
-const { data: { entry } } = await useGraphqlQuery({
-        query: print(homeQuery),
-        routeQuery: routeQuery,
-        variables: {
-            uri: String(uri),
-            siteId: Number(siteId),
-            language: ['*']
-        } 
-})
-
+const {
+  data: { entry },
+} = await graphqlQuery({
+  query: print(homeQuery),
+  routeQuery: routeQuery,
+  variables: {
+    uri: String(uri),
+    siteId: Number(siteId),
+    language: ['*'],
+  },
+});
 ---
+
 <h1>Views / Home</h1>
 <h2>
-    Title: {entry.title}<br>
-    Section: {entry.sectionHandle}<br>
-    Id: {entry.id}<br>
-    SiteId: {entry.siteId}<br>
-    Uri: {entry.uri}
+  Title: {entry.title}<br />
+  Section: {entry.sectionHandle}<br />
+  Id: {entry.id}<br />
+  SiteId: {entry.siteId}<br />
+  Uri: {entry.uri}
 </h2>

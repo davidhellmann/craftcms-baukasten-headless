@@ -1,33 +1,35 @@
 ---
-import pageOverviewNewsQuery from '@graphql/page.overviewNews.graphql'
-import { useGraphqlQuery } from '@composables/useGraphqlQuery';
+import pageOverviewNewsQuery from '@graphql/page.overviewNews.graphql';
+import { graphqlQuery } from '@utils/graphqlQuery';
 import { print } from 'graphql/language/printer';
 
 export interface Props {
-	uri: string,
-    siteId: number
+  uri: string;
+  siteId: number;
 }
 
 const { uri, siteId } = Astro.props as Props;
-const { searchParams } = Astro.url
+const { searchParams } = Astro.url;
 const routeQuery = Object.fromEntries(searchParams);
 
-const { data: { entry } } = await useGraphqlQuery({
-        query: print(pageOverviewNewsQuery),
-        routeQuery: routeQuery,
-        variables: {
-            uri: String(uri),
-            siteId: Number(siteId),
-            language: ['*']
-        } 
-})
-
+const {
+  data: { entry },
+} = await graphqlQuery({
+  query: print(pageOverviewNewsQuery),
+  routeQuery: routeQuery,
+  variables: {
+    uri: String(uri),
+    siteId: Number(siteId),
+    language: ['*'],
+  },
+});
 ---
+
 <h1>Views / Pages / OverviewNews</h1>
 <h2>
-    Title: {entry.title}<br>
-    Section: {entry.sectionHandle}<br>
-    Id: {entry.id}<br>
-    SiteId: {entry.siteId}<br>
-    Uri: {entry.uri}
+  Title: {entry.title}<br />
+  Section: {entry.sectionHandle}<br />
+  Id: {entry.id}<br />
+  SiteId: {entry.siteId}<br />
+  Uri: {entry.uri}
 </h2>

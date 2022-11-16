@@ -30,6 +30,9 @@
       "@composables/*": [
         "src/composables/*"
       ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
       "@layouts/*": [
         "src/layouts/*"
       ],

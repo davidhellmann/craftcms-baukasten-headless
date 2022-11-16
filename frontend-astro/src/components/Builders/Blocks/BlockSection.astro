@@ -1,5 +1,5 @@
 ---
-import { useSetCompVariants } from '@composables/useSetCompVariants';
+import { setCompVariants } from '@utils/setCompVariants';
 
 export interface Props {
   propTypeHandle?: string;
@@ -52,7 +52,7 @@ const compClasses = [
   cs.name,
   cc.root,
   cc.rootCustom,
-  ...useSetCompVariants({
+  ...setCompVariants({
     variants: cc.variants,
     props: cs,
     useVariants: ['propSectionPaddingVertical', 'propSectionBackgroundColor'],
@@ -64,7 +64,7 @@ const compClasses = [
   <div
     class={[
       cc.inner,
-      ...useSetCompVariants({
+      ...setCompVariants({
         variants: cc.variants,
         props: cs,
         useVariants: ['propSpaceBetweenBlocks'],

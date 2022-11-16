@@ -1,6 +1,6 @@
 ---
 import pageContentBuilderQuery from '@graphql/page.contentBuilder.graphql';
-import { useGraphqlQuery } from '@composables/useGraphqlQuery';
+import { graphqlQuery } from '@utils/graphqlQuery';
 import { print } from 'graphql/language/printer';
 import BuildersContent from '@components/Builders/Content.astro';
 
@@ -15,7 +15,7 @@ const routeQuery = Object.fromEntries(searchParams);
 
 const {
   data: { entry },
-} = await useGraphqlQuery({
+} = await graphqlQuery({
   query: print(pageContentBuilderQuery),
   routeQuery: routeQuery,
   variables: {

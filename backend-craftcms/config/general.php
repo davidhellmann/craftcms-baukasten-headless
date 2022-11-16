@@ -22,6 +22,8 @@ $config = GeneralConfig::create()
         'http://baukasten-headless.test',
         'https://craftcms-baukasten-headless.vercel.app'
     ])
+    ->baseCpUrl(App::env('BASE_CP_URL'))
+    ->cpTrigger(null)
     ->allowUpdates($isDev)
     ->allowAdminChanges($isDev)
     ->enableTemplateCaching(!$isDev)

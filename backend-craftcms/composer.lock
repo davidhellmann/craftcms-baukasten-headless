@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b37370de48e96d22dc2264df0a1cb72f",
+    "content-hash": "1c203206c5cd64b0355cf4e5ce4bfc9c",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -584,11 +584,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/1149dd385d9d38fbd1e0a6edf057ce8fe5347487",
-                "reference": "1149dd385d9d38fbd1e0a6edf057ce8fe5347487",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/088ab7476832a19c9cac08088a582ed6a170c21e",
+                "reference": "088ab7476832a19c9cac08088a582ed6a170c21e",
                 "shasum": ""
             },
             "require": {
@@ -679,7 +679,7 @@
                 "docs": "https://docs.craftcms.com/v3/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2022-10-27T19:59:08+00:00"
+            "time": "2022-11-16T20:35:14+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -994,11 +994,6 @@
         {
             "name": "davechild/textstatistics",
             "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/DaveChild/Text-Statistics.git",
-                "reference": "e83d5f82726db80e662ae305fce3b3c41299b4f5"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/DaveChild/Text-Statistics/zipball/e83d5f82726db80e662ae305fce3b3c41299b4f5",
@@ -1007,9 +1002,6 @@
             },
             "require": {
                 "php": ">=7.2.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^7"
             },
             "suggest": {
                 "ext-bcmath": "More accurate floating point calculations.",
@@ -1026,7 +1018,6 @@
                     "DaveChild\\TextStatistics": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-2-Clause"
             ],
@@ -1040,10 +1031,6 @@
             ],
             "description": "PHP package to measure the readability of text according to various algorithms.",
             "homepage": "https://github.com/DaveChild/Text-Statistics",
-            "support": {
-                "issues": "https://github.com/DaveChild/Text-Statistics/issues",
-                "source": "https://github.com/DaveChild/Text-Statistics/tree/master"
-            },
             "time": "2018-08-21T08:17:10+00:00"
         },
         {
@@ -2269,7 +2256,7 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.39.0",
+            "version": "v9.40.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/collections/zipball/1729899f8e37840738d1c37bb110da5b09509990",
@@ -2314,7 +2301,7 @@
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.39.0",
+            "version": "v9.40.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/conditionable/zipball/5b40f51ccb07e0e7b1ec5559d8db9e0e2dc51883",
@@ -2350,7 +2337,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.39.0",
+            "version": "v9.40.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/contracts/zipball/c7cc6e6198cac6dfdead111f9758de25413188b7",
@@ -2388,7 +2375,7 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.39.0",
+            "version": "v9.40.1",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
@@ -3505,11 +3492,6 @@
         {
             "name": "nystudio107/craft-code-editor",
             "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-code-editor.git",
-                "reference": "f4bc04b22a6d1b94b87e6076a53a87e52058b7a9"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/nystudio107/craft-code-editor/zipball/f4bc04b22a6d1b94b87e6076a53a87e52058b7a9",
@@ -3518,9 +3500,6 @@
             },
             "require": {
                 "phpdocumentor/reflection-docblock": "^5.0.0"
-            },
-            "require-dev": {
-                "craftcms/cms": "^3.0.0 || ^4.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -3531,7 +3510,6 @@
                     "nystudio107\\codeeditor\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3554,70 +3532,7 @@
                 "markdown",
                 "twig"
             ],
-            "support": {
-                "docs": "https://github.com/nystudio107/craft-code-editor/blob/v1/README.md",
-                "issues": "https://github.com/nystudio107/craft-code-editor/issues",
-                "source": "https://github.com/nystudio107/craft-code-editor"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
             "time": "2022-11-04T16:15:50+00:00"
-        },
-        {
-            "name": "nystudio107/craft-plugin-manifest",
-            "version": "4.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-plugin-manifest.git",
-                "reference": "4695716e0e7936da3e71e0ae5f435b8f0764973c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-plugin-manifest/zipball/4695716e0e7936da3e71e0ae5f435b8f0764973c",
-                "reference": "4695716e0e7936da3e71e0ae5f435b8f0764973c",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "nystudio107\\pluginmanifest\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "nystudio107",
-                    "homepage": "https://nystudio107.com"
-                }
-            ],
-            "description": "Plugin Manifest is the conduit between Craft CMS plugins and webpack, with manifest.json & webpack-dev-server HMR support",
-            "keywords": [
-                "craftcms",
-                "manifest",
-                "plugin"
-            ],
-            "support": {
-                "docs": "https://github.com/nystudio107/craft-plugin-manifest/blob/v4/README.md",
-                "issues": "https://github.com/nystudio107/craft-plugin-manifest/issues",
-                "source": "https://github.com/nystudio107/craft-plugin-manifest/tree/4.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-05-07T19:06:54+00:00"
         },
         {
             "name": "nystudio107/craft-plugin-vite",
@@ -3705,35 +3620,21 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "4.0.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nystudio107/craft-seomatic.git",
-                "reference": "9e95cf88f1908162bd7b6b0e568ef0f23e50e819"
-            },
+            "version": "4.0.13",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/9e95cf88f1908162bd7b6b0e568ef0f23e50e819",
-                "reference": "9e95cf88f1908162bd7b6b0e568ef0f23e50e819",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/137530b22c198c8800bc26d881471e78deccda1e",
+                "reference": "137530b22c198c8800bc26d881471e78deccda1e",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^4.0.0",
                 "davechild/textstatistics": "^1.0.3",
                 "nystudio107/craft-code-editor": "^1.0.0",
-                "nystudio107/craft-plugin-manifest": "^4.0.0",
+                "nystudio107/craft-plugin-vite": "^4.0.7",
                 "php": "^8.0.2",
                 "php-science/textrank": "^1.0.3",
                 "sunra/php-simple-html-dom-parser": "^1.5.2"
-            },
-            "require-dev": {
-                "codeception/codeception": "^4.1.29",
-                "codeception/module-asserts": "^1.3.1",
-                "codeception/module-datafactory": "^1.1.0",
-                "codeception/module-phpbrowser": "^1.0.2",
-                "codeception/module-rest": "^1.4.2",
-                "codeception/module-yii2": "^1.1.5",
-                "vlucas/phpdotenv": "^3.0"
             },
             "type": "craft-plugin",
             "extra": {
@@ -3746,7 +3647,6 @@
                     "nystudio107\\seomatic\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
@@ -3758,16 +3658,16 @@
             ],
             "description": "SEOmatic facilitates modern SEO best practices & implementation for Craft CMS 3. It is a turnkey SEO system that is comprehensive, powerful, and flexible.",
             "keywords": [
-                "Craft",
-                "JSON-LD",
-                "Sitemap",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms",
                 "facebook",
+                "json-ld",
                 "meta",
                 "seo",
                 "seomatic",
+                "sitemap",
                 "tags",
                 "twitter"
             ],
@@ -3776,13 +3676,7 @@
                 "issues": "https://nystudio107.com/plugins/seomatic/support",
                 "source": "https://github.com/nystudio107/craft-seomatic"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/khalwat",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-11-03T23:09:15+00:00"
+            "time": "2022-11-11T20:54:16+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3886,11 +3780,6 @@
         {
             "name": "php-science/textrank",
             "version": "1.2.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/PHP-Science/TextRank.git",
-                "reference": "c5ccfc998b3cee91bf5d01b9f107d382acfa0ca8"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/PHP-Science/TextRank/zipball/c5ccfc998b3cee91bf5d01b9f107d382acfa0ca8",
@@ -3902,9 +3791,6 @@
                 "ext-mbstring": "*",
                 "php": ">=7.2"
             },
-            "require-dev": {
-                "phpunit/phpunit": "9.*"
-            },
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3914,7 +3800,6 @@
                     ]
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3934,10 +3819,6 @@
                 "summarization",
                 "textrank"
             ],
-            "support": {
-                "issues": "https://github.com/PHP-Science/TextRank/issues",
-                "source": "https://github.com/PHP-Science/TextRank/tree/1.2.2"
-            },
             "time": "2022-08-12T13:02:17+00:00"
         },
         {
@@ -5397,11 +5278,6 @@
         {
             "name": "sunra/php-simple-html-dom-parser",
             "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
@@ -5418,7 +5294,6 @@
                     "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -5440,10 +5315,6 @@
                 "html",
                 "parser"
             ],
-            "support": {
-                "issues": "https://github.com/sunra/php-simple-html-dom-parser/issues",
-                "source": "https://github.com/sunra/php-simple-html-dom-parser/tree/master"
-            },
             "time": "2016-11-22T22:57:47+00:00"
         },
         {
@@ -6103,11 +5974,6 @@
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "5bbc823adecdae860bb64756d639ecfec17b050a"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/5bbc823adecdae860bb64756d639ecfec17b050a",
@@ -6141,7 +6007,6 @@
                     "Symfony\\Polyfill\\Ctype\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6163,33 +6028,11 @@
                 "polyfill",
                 "portable"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-iconv",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-iconv.git",
-                "reference": "927013f3aac555983a5059aada98e1907d842695"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-iconv/zipball/927013f3aac555983a5059aada98e1907d842695",
@@ -6223,7 +6066,6 @@
                     "Symfony\\Polyfill\\Iconv\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6246,33 +6088,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-iconv/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-intl-grapheme",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-intl-grapheme.git",
-                "reference": "511a08c03c1960e08a883f4cffcacd219b758354"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-grapheme/zipball/511a08c03c1960e08a883f4cffcacd219b758354",
@@ -6303,7 +6123,6 @@
                     "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6327,33 +6146,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-intl-idn",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-intl-idn.git",
-                "reference": "639084e360537a19f9ee352433b84ce831f3d2da"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-idn/zipball/639084e360537a19f9ee352433b84ce831f3d2da",
@@ -6386,7 +6183,6 @@
                     "Symfony\\Polyfill\\Intl\\Idn\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6414,33 +6210,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-intl-normalizer",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-intl-normalizer.git",
-                "reference": "19bd1e4fcd5b91116f14d8533c57831ed00571b6"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-intl-normalizer/zipball/19bd1e4fcd5b91116f14d8533c57831ed00571b6",
@@ -6474,7 +6248,6 @@
                     "Resources/stubs"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6498,33 +6271,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "8ad114f6b39e2c98a8b0e3bd907732c207c2b534"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/8ad114f6b39e2c98a8b0e3bd907732c207c2b534",
@@ -6558,7 +6309,6 @@
                     "Symfony\\Polyfill\\Mbstring\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6581,33 +6331,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php72.git",
-                "reference": "869329b1e9894268a8a61dabb69153029b7a8c97"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php72/zipball/869329b1e9894268a8a61dabb69153029b7a8c97",
@@ -6635,7 +6363,6 @@
                     "Symfony\\Polyfill\\Php72\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6657,33 +6384,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php72/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-php73",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php73.git",
-                "reference": "9e8ecb5f92152187c4799efd3c96b78ccab18ff9"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php73/zipball/9e8ecb5f92152187c4799efd3c96b78ccab18ff9",
@@ -6714,7 +6419,6 @@
                     "Resources/stubs"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6736,33 +6440,11 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-11-03T14:55:06+00:00"
         },
         {
             "name": "symfony/polyfill-php80",
             "version": "v1.27.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/polyfill-php80.git",
-                "reference": "7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/polyfill-php80/zipball/7a6ff3f1959bb01aefccb463a0f2cd3d3d2fd936",
@@ -6793,7 +6475,6 @@
                     "Resources/stubs"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6818,23 +6499,6 @@
                 "polyfill",
                 "portable",
                 "shim"
-            ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.27.0"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-11-03T14:55:06+00:00"
         },
@@ -7425,11 +7089,11 @@
         },
         {
             "name": "verbb/formie",
-            "version": "2.0.16",
+            "version": "2.0.17",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/995f6a483e3f8c3cfb76320c634af2c18951cb18",
-                "reference": "995f6a483e3f8c3cfb76320c634af2c18951cb18",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/8609bb0068a594cd3b05baecf76ef3a44a0abfe7",
+                "reference": "8609bb0068a594cd3b05baecf76ef3a44a0abfe7",
                 "shasum": ""
             },
             "require": {
@@ -7489,7 +7153,7 @@
                 "docs": "https://github.com/verbb/formie",
                 "rss": "https://github.com/verbb/formie/commits/v2.atom"
             },
-            "time": "2022-11-07T20:59:54+00:00"
+            "time": "2022-11-13T05:37:32+00:00"
         },
         {
             "name": "verbb/image-resizer",

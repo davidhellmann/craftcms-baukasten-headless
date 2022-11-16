@@ -2,6 +2,6 @@ interface ICapitalizeFirstLetter {
   string: string;
 }
 
-export const useCapitalizeFirstLetter = (params: ICapitalizeFirstLetter) => {
+export const capitalizeFirstLetter = (params: ICapitalizeFirstLetter) => {
   return params.string.charAt(0).toUpperCase() + params.string.slice(1);
-}
+};

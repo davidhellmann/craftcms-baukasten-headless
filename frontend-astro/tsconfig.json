@@ -28,7 +28,10 @@
         "src/css/*"
       ],
       "@composables/*": [
-        "src/composables/*"
+        "src/js/composables/*"
+      ],
+      "@utils/*": [
+        "src/js/utils/*"
       ],
       "@layouts/*": [
         "src/layouts/*"

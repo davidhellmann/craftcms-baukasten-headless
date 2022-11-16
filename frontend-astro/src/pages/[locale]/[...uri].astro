@@ -2,9 +2,9 @@
 // Imports
 import DefaultLayout from '@layouts/Default.astro';
 import entryQuery from '@graphql/entry.graphql';
-import { useGraphqlQuery } from '@composables/useGraphqlQuery';
+import { graphqlQuery } from '@utils/graphqlQuery';
 import { print } from 'graphql/language/printer';
-import { useGetCurrentSiteData } from '@composables/useGetCurrentSite';
+import { getCurrentSiteData } from '@utils/getCurrentSiteData';
 
 // Interfaces
 interface IGQLQueryResponse {
@@ -16,7 +16,7 @@ interface IGQLQueryResponse {
 export async function getStaticPaths() {
   const {
     data: { entries, translations, navigationMain },
-  } = await useGraphqlQuery({
+  } = await graphqlQuery({
     query: print(entryQuery),
     routeQuery: {},
     variables: {
@@ -40,7 +40,7 @@ export async function getStaticPaths() {
         locale = entry.uri === '__home__' ? 'index' : entry.uri;
       }
     } else {
-      locale = useGetCurrentSiteData({ id: entry.siteId })?.urlParameter;
+      locale = getCurrentSiteData({ id: entry.siteId })?.urlParameter;
       uri = entry.uri === '__home__' ? 'index' : entry.uri;
     }
 
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
       },
       props: {
         uri: entry.uri,
-        lang: useGetCurrentSiteData({ id: entry.siteId })?.urlParameter,
+        lang: getCurrentSiteData({ id: entry.siteId })?.urlParameter,
         siteId: Number(entry.siteId),
         sectionHandle: entry.sectionHandle,
         entryType: entry.typeHandle,

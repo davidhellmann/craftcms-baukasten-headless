@@ -8,7 +8,7 @@ interface IBlock {
   [k: string]: any;
 }
 
-export const useCreateBuilderData = (params: ICreateBuilderData) => {
+export const createBuilderData = (params: ICreateBuilderData) => {
   const cleanedBlocks = params.blocks.filter((x: IBlock) => Object.keys(x).length !== 0);
   const builderData: IBlock = {};
   let currentSectionId = '0';

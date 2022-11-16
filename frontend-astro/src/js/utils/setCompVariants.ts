@@ -8,7 +8,7 @@ interface ISetCompVariants {
   useVariants: string[];
 }
 
-export const useSetCompVariants = (params: ISetCompVariants) => {
+export const setCompVariants = (params: ISetCompVariants) => {
   const { variants, props, useVariants } = params;
   const classArray: string[] = [];
   const finalProps: {

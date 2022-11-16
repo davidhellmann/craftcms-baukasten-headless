@@ -1,5 +1,5 @@
 ---
-import { useCreateBuilderData } from '@composables/useCreateBuilderData';
+import { createBuilderData } from '@utils/createBuilderData';
 import BlockText from '@components/Builders/Blocks/BlockText.astro';
 import BlockQuote from '@components/Builders/Blocks/BlockQuote.astro';
 import BlockSection from '@components/Builders/Blocks/BlockSection.astro';
@@ -15,7 +15,7 @@ interface IBlock {
 }
 
 const { blocks } = Astro.props as Props;
-const builderData = useCreateBuilderData({ blocks });
+const builderData = createBuilderData({ blocks });
 ---
 
 {

@@ -4,7 +4,7 @@ interface IGetCurrentSiteData {
 
 import { configSites } from 'src/config/sites';
 
-export const useGetCurrentSiteData = (params: IGetCurrentSiteData) => {
+export const getCurrentSiteData = (params: IGetCurrentSiteData) => {
   const { id } = params;
   return configSites.find((site) => site.siteId === id);
 };

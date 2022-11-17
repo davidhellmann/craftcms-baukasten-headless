@@ -7,7 +7,7 @@ interface IGetUri {
 
 export const useGetUri = (params: IGetUri) => {
   const { matchingSite, uri, locale, path } = params;
-  let _uri: string;
+  let _uri: string = '';
 
 
   if (matchingSite) {

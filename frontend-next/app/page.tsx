@@ -18,7 +18,6 @@ const getHome = async (previewParams: IPreviewParams) => {
 const HomePage = async () => {
   const preview = previewData();
   const isPreviewMode = !!preview && preview.secret === process.env.CRAFT_CMS_PREVIEW_TOKEN;
-
   const { entry } = await getHome(preview && isPreviewMode ? preview : {})
 
   if (!entry) {

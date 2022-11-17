@@ -29,11 +29,15 @@ const siteStore = useSiteStore()
 const matchingSite = useGetCurrentSiteData({locale: locale as string})
 const currentSite = matchingSite ? matchingSite : useGetCurrentSiteData({locale: 'en'})
 const finalUri = useGetUri({
-  matchingSite: matchingSite,
+  matchingSite: matchingSite || null,
   uri: uri,
   locale: locale,
   path: path
 })
+
+if (!currentSite) {
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
+}
 
 // Fetch Entry Data
 const {
@@ -43,6 +47,7 @@ const {
   section: "*",
   site: currentSite.handle
 });
+
 
 // Fetch Navigation Data
 const {
@@ -61,10 +66,7 @@ const {
 
 // Render 404
 if (!entry) {
-  throw createError({
-    fatal: true,
-    statusCode: 404
-  })
+  throw createError({ statusCode: 404, statusMessage: 'Page Not Found' })
 }
 
 // Fill Site Store
@@ -73,6 +75,8 @@ siteStore.addCurrentUri(finalUri || '')
 siteStore.addNavigationMain(navigationMain || [])
 siteStore.addTranslations(translations ? translations.filter(item => item.message !== null) : [])
 siteStore.addLocalizations(entry?.localized || [])
+
+
 
 // View Resolver
 const renderView = await resolveComponent(useResolveEntryComponent({entry}))

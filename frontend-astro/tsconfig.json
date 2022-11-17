@@ -33,9 +33,6 @@
       "@utils/*": [
         "src/js/utils/*"
       ],
-      "@utils/*": [
-        "src/utils/*"
-      ],
       "@layouts/*": [
         "src/layouts/*"
       ],

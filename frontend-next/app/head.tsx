@@ -1,5 +1,6 @@
 import {graphqlClient} from "../lib/graphql/client/graphql-client";
 import {QueryEntryMetaDocument} from "../lib/graphql/gql/graphql";
+import React from "react";
 
 
 const getEntryMeta = async (queryParameter: { section: string[] }) => {
@@ -14,6 +15,10 @@ const Head = async () => {
   if (entry) {
     return (
       <>
+        <meta
+          property="og:image"
+          content={`https://nextjs.baukasten.dev/api/og?title=${entry.title}`}
+        />
         <title>{entry.title}</title>
       </>
     )

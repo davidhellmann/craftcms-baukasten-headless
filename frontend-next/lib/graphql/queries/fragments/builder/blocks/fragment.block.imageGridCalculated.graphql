@@ -1,0 +1,10 @@
+fragment BlockImageGridCalculated on MatrixBlockInterface {
+  ... on builderContent_blockImageGridCalculated_BlockType {
+    ... BlockMeta
+    images {
+      ... AssetMeta
+      ... AssetImagerAuto
+      ... AssetFocalpoint
+    }
+  }
+}

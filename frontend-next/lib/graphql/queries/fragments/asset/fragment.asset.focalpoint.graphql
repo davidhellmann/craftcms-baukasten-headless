@@ -1,0 +1,4 @@
+fragment AssetFocalpoint on AssetInterface {
+  hasFocalPoint
+  focalPoint
+}

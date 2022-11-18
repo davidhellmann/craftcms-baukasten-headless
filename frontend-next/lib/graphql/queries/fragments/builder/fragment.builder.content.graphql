@@ -1,0 +1,36 @@
+fragment BuilderContent on EntryInterface {
+  ... on pages_contentBuilder_Entry {
+    builderContent {
+      ... BlockSection
+      ... BlockCode
+      ... BlockSpacer
+      ... BlockDivider
+      ... BlockVideoYoutube
+      ... BlockImageSlider
+      ... BlockImageGallery
+      ... BlockImageGridCalculated
+      ... BlockImageGrid
+      ... BlockImage
+      ... BlockQuote
+      ... BlockTextFloatingImage
+      ... BlockText
+    }
+  }
+  ... on news_contentBuilder_Entry {
+    builderContent {
+      ... BlockSection
+      ... BlockCode
+      ... BlockSpacer
+      ... BlockDivider
+      ... BlockVideoYoutube
+      ... BlockImageSlider
+      ... BlockImageGallery
+      ... BlockImageGridCalculated
+      ... BlockImageGrid
+      ... BlockImage
+      ... BlockQuote
+      ... BlockTextFloatingImage
+      ... BlockText
+    }
+  }
+}

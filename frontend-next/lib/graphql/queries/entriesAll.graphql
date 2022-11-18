@@ -1,7 +1,0 @@
-#import "./meta/entry.graphql"
-
-query QueryEntriesAll($section: [String]!) {
-  entries(section: $section) {
-    ...metaEntry
-  }
-}

@@ -1,0 +1,10 @@
+fragment BlockImageGallery on MatrixBlockInterface {
+  ... on builderContent_blockImageGallery_BlockType {
+    ... BlockMeta
+    images {
+      ... AssetMeta
+      ... AssetImagerAuto
+      ... AssetFocalpoint
+    }
+  }
+}

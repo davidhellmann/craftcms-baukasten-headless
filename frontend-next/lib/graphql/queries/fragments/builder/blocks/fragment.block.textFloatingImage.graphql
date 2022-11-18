@@ -1,0 +1,14 @@
+fragment BlockTextFloatingImage on MatrixBlockInterface {
+  ... on builderContent_blockTextFloatingImage_BlockType {
+    ... BlockMeta
+    text
+    imageTransform
+    showImageCaption
+    imagePosition
+    image {
+      ... AssetMeta
+      ... AssetImagerAuto
+      ... AssetFocalpoint
+    }
+  }
+}

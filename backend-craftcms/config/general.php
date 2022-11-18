@@ -23,6 +23,7 @@ $config = GeneralConfig::create()
         'https://craftcms-baukasten-headless.vercel.app'
     ])
     ->baseCpUrl(App::env('BASE_CP_URL'))
+    ->cpTrigger(null)
     ->allowUpdates($isDev)
     ->allowAdminChanges($isDev)
     ->enableTemplateCaching(!$isDev)
@@ -52,7 +53,7 @@ $config = GeneralConfig::create()
     ->testToEmailAddress(App::env('TEST_MAIL') ?: null)
     ->aliases([
         '@assetsUrl' => App::env('ASSETS_URL'),
-        '@web' => App::env('SITE_URL'),
+        '@web' => App::env('BASE_CP_URL'),
         '@webroot' => App::env('WEB_ROOT_PATH'),
     ])
     ->allowedFileExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg', 'mp4', 'wov', 'mp3', 'wav', 'pdf', 'zip', 'csv', 'rar'])

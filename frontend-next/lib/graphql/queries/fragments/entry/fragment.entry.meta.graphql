@@ -1,0 +1,7 @@
+fragment EntryMeta on EntryInterface {
+  id
+  title
+  slug
+  uri
+  url
+}

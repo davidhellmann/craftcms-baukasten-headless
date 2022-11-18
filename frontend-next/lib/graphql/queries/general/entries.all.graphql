@@ -1,0 +1,11 @@
+query QueryEntriesAll(
+  $site: [String]! = "default",
+  $section: [String]!,
+  $formatTimezone: String = "Europe/Berlin",
+  $formatLocale: String = "de"
+) {
+  entries(site: $site, section: $section) {
+    ... EntryMeta
+    ... EntryDates
+  }
+}

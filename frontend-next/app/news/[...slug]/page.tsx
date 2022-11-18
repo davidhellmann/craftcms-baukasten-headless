@@ -1,8 +1,8 @@
 import {cmsClient} from "../../../lib/graphql/client/graphql-client";
 import {MetaEntryFragment, QueryEntriesAllDocument, QueryNewsDetailDocument} from "../../../lib/graphql/gql/graphql";
-import { notFound } from 'next/navigation';
-import TitleUpdater from "../../../components/Global/TitleUpdater";
+import {notFound} from 'next/navigation';
 import React from "react";
+import {PageTransition} from "../../../components/FramerMotion/PageTransition";
 import {previewData} from "next/headers";
 
 interface IPreviewParams {
@@ -17,10 +17,11 @@ const getNewsDetail = async (slug: string, previewParams: IPreviewParams) => {
   })
 }
 
-const NewsDetailPage = async ({ params }: { params: { slug: string } }) => {
-  const preview = previewData();
-  const isPreviewMode = !!preview && preview.secret === process.env.CRAFT_CMS_PREVIEW_TOKEN;
-  const { entry } = await getNewsDetail(params.slug, preview && isPreviewMode ? preview : {})
+const NewsDetailPage = async ({params}: { params: { slug: string } }) => {
+  // const preview = previewData();
+  // const isPreviewMode = !!preview && preview.secret === process.env.CRAFT_CMS_PREVIEW_TOKEN;
+  // const { entry } = await getNewsDetail(params.slug, preview && isPreviewMode ? preview : {})
+  const {entry} = await getNewsDetail(params.slug, {})
 
   if (!entry) {
     notFound();
@@ -28,16 +29,17 @@ const NewsDetailPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <TitleUpdater title={entry.title} />
-      <h1 className={'font-serif text-7xl'}>{entry?.entryCustomTitle || entry?.title}</h1>
-      <ul>
-        <li>Template: News</li>
-        <li>Id: {entry.id}</li>
-        <li>Slug: {entry.slug}</li>
-        <li>Title: {entry?.title}</li>
-        <li>Custom Title: {entry?.entryCustomTitle}</li>
-        <li>Short desc: {entry?.entryShortDescription}</li>
-      </ul>
+      <PageTransition className="">
+        <h1 className={'font-serif text-7xl'}>{entry?.entryCustomTitle || entry?.title}</h1>
+        <ul>
+          <li>Template: News</li>
+          <li>Id: {entry.id}</li>
+          <li>Slug: {entry.slug}</li>
+          <li>Title: {entry?.title}</li>
+          <li>Custom Title: {entry?.entryCustomTitle}</li>
+          <li>Short desc: {entry?.entryShortDescription}</li>
+        </ul>
+      </PageTransition>
     </>
   )
 }

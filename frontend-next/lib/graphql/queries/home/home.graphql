@@ -1,0 +1,17 @@
+fragment HomeEntry on home_home_Entry {
+  entryCustomTitle
+  entryShortDescription
+}
+
+query QueryHome(
+  $site: [String]! = "default",
+  $section: [String]! = ["home"],
+  $formatTimezone: String = "Europe/Berlin",
+  $formatLocale: String = "de"
+) {
+  entry(site: $site, section: $section) {
+    ... EntryMeta
+    ... EntryDates
+    ... HomeEntry
+  }
+}

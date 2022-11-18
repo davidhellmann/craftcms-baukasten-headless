@@ -1,0 +1,13 @@
+fragment BlockImage on MatrixBlockInterface {
+  ... on builderContent_blockImage_BlockType {
+    ... BlockMeta
+    imageTransform
+    showImageCaption
+    imageWidth
+    image {
+      ... AssetMeta
+      ... AssetImagerAuto
+      ... AssetFocalpoint
+    }
+  }
+}

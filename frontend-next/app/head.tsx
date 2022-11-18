@@ -17,7 +17,7 @@ const Head = async () => {
       <>
         <meta
           property="og:image"
-          content={`https://nextjs.baukasten.dev/api/og?title=${entry.title}`}
+          content={`http://localhost:3000/api/og?title=${entry.title} ${entry.title}`}
         />
         <title>{entry.title}</title>
       </>

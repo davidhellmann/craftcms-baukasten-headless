@@ -1,0 +1,6 @@
+fragment BlockDivider on MatrixBlockInterface {
+  ... on builderContent_blockDivider_BlockType {
+    ... BlockMeta
+    dividerVariant
+  }
+}

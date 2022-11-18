@@ -1,0 +1,9 @@
+fragment BlockVideoYoutube on MatrixBlockInterface {
+  ... on builderContent_blockVideoYoutube_BlockType {
+    ... BlockMeta
+    autoplay
+    loop
+    videoWidth
+    videoId
+  }
+}

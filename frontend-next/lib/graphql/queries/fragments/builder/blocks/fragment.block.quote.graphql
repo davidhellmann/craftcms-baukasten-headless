@@ -1,0 +1,9 @@
+fragment BlockQuote on MatrixBlockInterface {
+  ... on builderContent_blockQuote_BlockType {
+    ... BlockMeta
+    quote
+    source
+    sourceSubline
+    sourceUrl
+  }
+}

@@ -1,0 +1,7 @@
+query QueryTranslations($language: [String]! = "en", $category: [String]! = ["site"]) {
+  translations: staticMessages(language: $language, category: $category) {
+    key
+    message
+    language
+  }
+}

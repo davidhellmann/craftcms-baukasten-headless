@@ -501,63 +501,468 @@ export type UserCriteriaInput = {
   username: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type AssetFocalpointFragment = { hasFocalPoint: boolean, focalPoint: Array<number> };
+
+export type AssetImagerAutoFragment = { base64: string, srcsetLegacy: string, srcset: string };
+
+export type AssetMetaFragment = { id: string, url: string, title: string, alt: string, height: number, width: number, extension: string };
+
+type BlockCode_BuilderContent_BlockCode_BlockType_Fragment = { snippetName: string, snippetLanguage: string, snippetCollapsed: boolean, snippet: string, id: string, typeHandle: string };
+
+type BlockCode_Up70AitFfgsNpdFfYHfZd_0eUFtss09Stfq_0Leedu_Fragment = {};
+
+export type BlockCodeFragment = BlockCode_BuilderContent_BlockCode_BlockType_Fragment | BlockCode_Up70AitFfgsNpdFfYHfZd_0eUFtss09Stfq_0Leedu_Fragment;
+
+type BlockDivider_Lq1idn94kALvXWbGyHQiGe38Gbf402AQrsFbNm4XiBw_Fragment = {};
+
+type BlockDivider_BuilderContent_BlockDivider_BlockType_Fragment = { dividerVariant: string };
+
+export type BlockDividerFragment = BlockDivider_Lq1idn94kALvXWbGyHQiGe38Gbf402AQrsFbNm4XiBw_Fragment | BlockDivider_BuilderContent_BlockDivider_BlockType_Fragment;
+
+type BlockImage_UTKTiIanONptBiEgKtJTzYrdvBxAzi4zipGadTsMlY_Fragment = {};
+
+type BlockImage_BuilderContent_BlockImage_BlockType_Fragment = { imageTransform: string, showImageCaption: boolean, imageWidth: string, image: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> };
+
+export type BlockImageFragment = BlockImage_UTKTiIanONptBiEgKtJTzYrdvBxAzi4zipGadTsMlY_Fragment | BlockImage_BuilderContent_BlockImage_BlockType_Fragment;
+
+type BlockImageGallery_QEd0ghQbz4hsFDqsotP2lKgyPaMbNmNkOpmDa4xI_Fragment = {};
+
+type BlockImageGallery_BuilderContent_BlockImageGallery_BlockType_Fragment = { images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> };
+
+export type BlockImageGalleryFragment = BlockImageGallery_QEd0ghQbz4hsFDqsotP2lKgyPaMbNmNkOpmDa4xI_Fragment | BlockImageGallery_BuilderContent_BlockImageGallery_BlockType_Fragment;
+
+type BlockImageGrid_LXvsLUoSgostPvpzjdDyGaCsc4ugdUJy4TDc2FoOui_Fragment = {};
+
+type BlockImageGrid_BuilderContent_BlockImageGrid_BlockType_Fragment = { imageColumns: string, imageTransform: string, showImageCaption: boolean, images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> };
+
+export type BlockImageGridFragment = BlockImageGrid_LXvsLUoSgostPvpzjdDyGaCsc4ugdUJy4TDc2FoOui_Fragment | BlockImageGrid_BuilderContent_BlockImageGrid_BlockType_Fragment;
+
+type BlockImageGridCalculated_VcU2OzDFa5lYqqry4VVpGFnXLsoeVopK1nRpMt3NQg_Fragment = {};
+
+type BlockImageGridCalculated_BuilderContent_BlockImageGridCalculated_BlockType_Fragment = { images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> };
+
+export type BlockImageGridCalculatedFragment = BlockImageGridCalculated_VcU2OzDFa5lYqqry4VVpGFnXLsoeVopK1nRpMt3NQg_Fragment | BlockImageGridCalculated_BuilderContent_BlockImageGridCalculated_BlockType_Fragment;
+
+type BlockImageSlider_MHemJbLdXu3jdqam6Me9Eqnwg5MevzMElYHu2uClbu_Fragment = {};
+
+type BlockImageSlider_BuilderContent_BlockImageSlider_BlockType_Fragment = { imageTransform: string, images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> };
+
+export type BlockImageSliderFragment = BlockImageSlider_MHemJbLdXu3jdqam6Me9Eqnwg5MevzMElYHu2uClbu_Fragment | BlockImageSlider_BuilderContent_BlockImageSlider_BlockType_Fragment;
+
+type BlockQuote_Z7UvF04z4agwLhcNbF8blPe9DbW0sPIc26Vgt6jpJe_Fragment = {};
+
+type BlockQuote_BuilderContent_BlockQuote_BlockType_Fragment = { quote: string, source: string, sourceSubline: string, sourceUrl: string };
+
+export type BlockQuoteFragment = BlockQuote_Z7UvF04z4agwLhcNbF8blPe9DbW0sPIc26Vgt6jpJe_Fragment | BlockQuote_BuilderContent_BlockQuote_BlockType_Fragment;
+
+type BlockSection_Bez6a390Zzkav_8Anmw9JhSgGUobGbKLKHyEzbu04_Fragment = {};
+
+type BlockSection_BuilderContent_BlockSection_BlockType_Fragment = { sectionBackgroundColor: string, sectionPaddingVertical: string, spaceBetweenBlocks: string };
+
+export type BlockSectionFragment = BlockSection_Bez6a390Zzkav_8Anmw9JhSgGUobGbKLKHyEzbu04_Fragment | BlockSection_BuilderContent_BlockSection_BlockType_Fragment;
+
+type BlockSpacer_ZFbYWp2yU4ztyPwh4gE9oWcchh83VjarHp54AnC_9pI_Fragment = {};
+
+type BlockSpacer_BuilderContent_BlockSpacer_BlockType_Fragment = { spacerVariant: string };
+
+export type BlockSpacerFragment = BlockSpacer_ZFbYWp2yU4ztyPwh4gE9oWcchh83VjarHp54AnC_9pI_Fragment | BlockSpacer_BuilderContent_BlockSpacer_BlockType_Fragment;
+
+type BlockText_2T7CJxEqvWdPr2PtXi9NHBhd4FyfFmNdorQjj640_Fragment = {};
+
+type BlockText_BuilderContent_BlockText_BlockType_Fragment = { text: string };
+
+export type BlockTextFragment = BlockText_2T7CJxEqvWdPr2PtXi9NHBhd4FyfFmNdorQjj640_Fragment | BlockText_BuilderContent_BlockText_BlockType_Fragment;
+
+type BlockTextFloatingImage_QarYyILp1R7b1m6XzStIGlQ1dtCcCnDtUh5UmvAmdo_Fragment = {};
+
+type BlockTextFloatingImage_BuilderContent_BlockTextFloatingImage_BlockType_Fragment = { text: string, imageTransform: string, showImageCaption: boolean, imagePosition: boolean, image: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> };
+
+export type BlockTextFloatingImageFragment = BlockTextFloatingImage_QarYyILp1R7b1m6XzStIGlQ1dtCcCnDtUh5UmvAmdo_Fragment | BlockTextFloatingImage_BuilderContent_BlockTextFloatingImage_BlockType_Fragment;
+
+type BlockVideoYoutube_373yyQtktKx0WjyJkTff2eaFhx2y6F5N2J4B05fLk4A_Fragment = {};
+
+type BlockVideoYoutube_BuilderContent_BlockVideoYoutube_BlockType_Fragment = { autoplay: boolean, loop: boolean, videoWidth: string, videoId: string };
+
+export type BlockVideoYoutubeFragment = BlockVideoYoutube_373yyQtktKx0WjyJkTff2eaFhx2y6F5N2J4B05fLk4A_Fragment | BlockVideoYoutube_BuilderContent_BlockVideoYoutube_BlockType_Fragment;
+
+type BlockMeta_BuilderContent_BlockCode_BlockType_Fragment = { id: string, typeHandle: string };
+
+type BlockMeta_Up70AitFfgsNpdFfYHfZd_0eUFtss09Stfq_0Leedu_Fragment = {};
+
+export type BlockMetaFragment = BlockMeta_BuilderContent_BlockCode_BlockType_Fragment | BlockMeta_Up70AitFfgsNpdFfYHfZd_0eUFtss09Stfq_0Leedu_Fragment;
+
+type BuilderContent_ErrorPages_Error_Entry_Home_Home_Entry_Pages_OverviewNews_Entry_Fragment = {};
+
+type BuilderContent_News_ContentBuilder_Entry_Pages_ContentBuilder_Entry_Fragment = { builderContent: Array<{ snippetName: string, snippetLanguage: string, snippetCollapsed: boolean, snippet: string, id: string, typeHandle: string } | { dividerVariant: string } | { images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> } | { imageColumns: string, imageTransform: string, showImageCaption: boolean, images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> } | { imageTransform: string, images: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> } | { imageTransform: string, showImageCaption: boolean, imageWidth: string, image: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> } | { quote: string, source: string, sourceSubline: string, sourceUrl: string } | { sectionBackgroundColor: string, sectionPaddingVertical: string, spaceBetweenBlocks: string } | { spacerVariant: string } | { text: string, imageTransform: string, showImageCaption: boolean, imagePosition: boolean, image: Array<{ id: string, url: string, title: string, alt: string, height: number, width: number, extension: string, hasFocalPoint: boolean, focalPoint: Array<number>, base64: string, srcsetLegacy: string, srcset: string }> } | { text: string } | { autoplay: boolean, loop: boolean, videoWidth: string, videoId: string }> };
+
+export type BuilderContentFragment = BuilderContent_ErrorPages_Error_Entry_Home_Home_Entry_Pages_OverviewNews_Entry_Fragment | BuilderContent_News_ContentBuilder_Entry_Pages_ContentBuilder_Entry_Fragment;
+
+export type EntryDatesFragment = { dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any };
+
+export type EntryMetaFragment = { id: string, title: string, slug: string, uri: string, url: string };
+
 export type QueryEntriesAllQueryVariables = Exact<{
+  site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   section: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  formatTimezone?: InputMaybe<Scalars['String']>;
+  formatLocale?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type QueryEntriesAllQuery = { entries: Array<{ id: string, slug: string, uri: string, title: string }> };
+export type QueryEntriesAllQuery = { entries: Array<{ id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any }> };
 
 export type QueryEntryMetaQueryVariables = Exact<{
+  site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   uri: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
   slug: InputMaybe<Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>>;
   section: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  formatTimezone?: InputMaybe<Scalars['String']>;
+  formatLocale?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type QueryEntryMetaQuery = { entry: { id: string, slug: string, uri: string, title: string } };
+export type QueryEntryMetaQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
 
 export type HomeEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
-export type QueryHomeQueryVariables = Exact<{ [key: string]: never; }>;
+export type QueryHomeQueryVariables = Exact<{
+  site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  section?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  formatTimezone?: InputMaybe<Scalars['String']>;
+  formatLocale?: InputMaybe<Scalars['String']>;
+}>;
 
 
-export type QueryHomeQuery = { entry: { id: string, slug: string, uri: string, title: string } | { id: string, slug: string, uri: string, title: string, entryCustomTitle: string, entryShortDescription: string } };
+export type QueryHomeQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
 
-export type MetaEntryFragment = { id: string, slug: string, uri: string, title: string };
+export type QueryNavigationQueryVariables = Exact<{
+  site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  navHandle?: Scalars['String'];
+  level?: InputMaybe<Scalars['Int']>;
+}>;
+
+
+export type QueryNavigationQuery = { navigation: Array<{ id: string, url: string, classes: string, title: string, newWindow: string, urlSuffix: string, customAttributes: Array<{ attribute: string, value: string }> }> };
 
 export type NewsContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
 export type QueryNewsDetailQueryVariables = Exact<{
+  site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   section?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   slug: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  formatTimezone?: InputMaybe<Scalars['String']>;
+  formatLocale?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type QueryNewsDetailQuery = { entry: { id: string, slug: string, uri: string, title: string } | { id: string, slug: string, uri: string, title: string, entryCustomTitle: string, entryShortDescription: string } };
+export type QueryNewsDetailQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
 
 export type PageContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
 export type QueryPageQueryVariables = Exact<{
+  site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   section?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   uri: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  formatTimezone?: InputMaybe<Scalars['String']>;
+  formatLocale?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type QueryPageQuery = { entry: { id: string, slug: string, uri: string, title: string } | { id: string, slug: string, uri: string, title: string, entryCustomTitle: string, entryShortDescription: string } };
+export type QueryPageQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
 
+export type QueryTranslationsQueryVariables = Exact<{
+  language?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+  category?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
+}>;
+
+
+export type QueryTranslationsQuery = { translations: Array<{ key: string, message: string, language: string }> };
+
+export const BlockMetaFragmentDoc = gql`
+    fragment BlockMeta on MatrixBlockInterface {
+  ... on builderContent_blockCode_BlockType {
+    id
+    typeHandle
+  }
+}
+    `;
+export const BlockSectionFragmentDoc = gql`
+    fragment BlockSection on MatrixBlockInterface {
+  ... on builderContent_blockSection_BlockType {
+    ...BlockMeta
+    sectionBackgroundColor
+    sectionPaddingVertical
+    spaceBetweenBlocks
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const BlockCodeFragmentDoc = gql`
+    fragment BlockCode on MatrixBlockInterface {
+  ... on builderContent_blockCode_BlockType {
+    ...BlockMeta
+    snippetName
+    snippetLanguage
+    snippetCollapsed
+    snippet
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const BlockSpacerFragmentDoc = gql`
+    fragment BlockSpacer on MatrixBlockInterface {
+  ... on builderContent_blockSpacer_BlockType {
+    ...BlockMeta
+    spacerVariant
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const BlockDividerFragmentDoc = gql`
+    fragment BlockDivider on MatrixBlockInterface {
+  ... on builderContent_blockDivider_BlockType {
+    ...BlockMeta
+    dividerVariant
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const BlockVideoYoutubeFragmentDoc = gql`
+    fragment BlockVideoYoutube on MatrixBlockInterface {
+  ... on builderContent_blockVideoYoutube_BlockType {
+    ...BlockMeta
+    autoplay
+    loop
+    videoWidth
+    videoId
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const AssetMetaFragmentDoc = gql`
+    fragment AssetMeta on AssetInterface {
+  id
+  url
+  title
+  alt
+  height
+  width
+  extension
+}
+    `;
+export const AssetImagerAutoFragmentDoc = gql`
+    fragment AssetImagerAuto on AssetInterface {
+  base64: url @imagerTransform(width: 20, format: "gif", return: "dataUri")
+  srcsetLegacy: url @imagerSrcset(handle: "auto")
+  srcset: url @imagerSrcset(handle: "autoWebp")
+}
+    `;
+export const AssetFocalpointFragmentDoc = gql`
+    fragment AssetFocalpoint on AssetInterface {
+  hasFocalPoint
+  focalPoint
+}
+    `;
+export const BlockImageSliderFragmentDoc = gql`
+    fragment BlockImageSlider on MatrixBlockInterface {
+  ... on builderContent_blockImageSlider_BlockType {
+    ...BlockMeta
+    imageTransform
+    images {
+      ...AssetMeta
+      ...AssetImagerAuto
+      ...AssetFocalpoint
+    }
+  }
+}
+    ${BlockMetaFragmentDoc}
+${AssetMetaFragmentDoc}
+${AssetImagerAutoFragmentDoc}
+${AssetFocalpointFragmentDoc}`;
+export const BlockImageGalleryFragmentDoc = gql`
+    fragment BlockImageGallery on MatrixBlockInterface {
+  ... on builderContent_blockImageGallery_BlockType {
+    ...BlockMeta
+    images {
+      ...AssetMeta
+      ...AssetImagerAuto
+      ...AssetFocalpoint
+    }
+  }
+}
+    ${BlockMetaFragmentDoc}
+${AssetMetaFragmentDoc}
+${AssetImagerAutoFragmentDoc}
+${AssetFocalpointFragmentDoc}`;
+export const BlockImageGridCalculatedFragmentDoc = gql`
+    fragment BlockImageGridCalculated on MatrixBlockInterface {
+  ... on builderContent_blockImageGridCalculated_BlockType {
+    ...BlockMeta
+    images {
+      ...AssetMeta
+      ...AssetImagerAuto
+      ...AssetFocalpoint
+    }
+  }
+}
+    ${BlockMetaFragmentDoc}
+${AssetMetaFragmentDoc}
+${AssetImagerAutoFragmentDoc}
+${AssetFocalpointFragmentDoc}`;
+export const BlockImageGridFragmentDoc = gql`
+    fragment BlockImageGrid on MatrixBlockInterface {
+  ... on builderContent_blockImageGrid_BlockType {
+    ...BlockMeta
+    imageColumns
+    imageTransform
+    showImageCaption
+    imageTransform
+    images {
+      ...AssetMeta
+      ...AssetImagerAuto
+      ...AssetFocalpoint
+    }
+  }
+}
+    ${BlockMetaFragmentDoc}
+${AssetMetaFragmentDoc}
+${AssetImagerAutoFragmentDoc}
+${AssetFocalpointFragmentDoc}`;
+export const BlockImageFragmentDoc = gql`
+    fragment BlockImage on MatrixBlockInterface {
+  ... on builderContent_blockImage_BlockType {
+    ...BlockMeta
+    imageTransform
+    showImageCaption
+    imageWidth
+    image {
+      ...AssetMeta
+      ...AssetImagerAuto
+      ...AssetFocalpoint
+    }
+  }
+}
+    ${BlockMetaFragmentDoc}
+${AssetMetaFragmentDoc}
+${AssetImagerAutoFragmentDoc}
+${AssetFocalpointFragmentDoc}`;
+export const BlockQuoteFragmentDoc = gql`
+    fragment BlockQuote on MatrixBlockInterface {
+  ... on builderContent_blockQuote_BlockType {
+    ...BlockMeta
+    quote
+    source
+    sourceSubline
+    sourceUrl
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const BlockTextFloatingImageFragmentDoc = gql`
+    fragment BlockTextFloatingImage on MatrixBlockInterface {
+  ... on builderContent_blockTextFloatingImage_BlockType {
+    ...BlockMeta
+    text
+    imageTransform
+    showImageCaption
+    imagePosition
+    image {
+      ...AssetMeta
+      ...AssetImagerAuto
+      ...AssetFocalpoint
+    }
+  }
+}
+    ${BlockMetaFragmentDoc}
+${AssetMetaFragmentDoc}
+${AssetImagerAutoFragmentDoc}
+${AssetFocalpointFragmentDoc}`;
+export const BlockTextFragmentDoc = gql`
+    fragment BlockText on MatrixBlockInterface {
+  ... on builderContent_blockText_BlockType {
+    ...BlockMeta
+    text
+  }
+}
+    ${BlockMetaFragmentDoc}`;
+export const BuilderContentFragmentDoc = gql`
+    fragment BuilderContent on EntryInterface {
+  ... on pages_contentBuilder_Entry {
+    builderContent {
+      ...BlockSection
+      ...BlockCode
+      ...BlockSpacer
+      ...BlockDivider
+      ...BlockVideoYoutube
+      ...BlockImageSlider
+      ...BlockImageGallery
+      ...BlockImageGridCalculated
+      ...BlockImageGrid
+      ...BlockImage
+      ...BlockQuote
+      ...BlockTextFloatingImage
+      ...BlockText
+    }
+  }
+  ... on news_contentBuilder_Entry {
+    builderContent {
+      ...BlockSection
+      ...BlockCode
+      ...BlockSpacer
+      ...BlockDivider
+      ...BlockVideoYoutube
+      ...BlockImageSlider
+      ...BlockImageGallery
+      ...BlockImageGridCalculated
+      ...BlockImageGrid
+      ...BlockImage
+      ...BlockQuote
+      ...BlockTextFloatingImage
+      ...BlockText
+    }
+  }
+}
+    ${BlockSectionFragmentDoc}
+${BlockCodeFragmentDoc}
+${BlockSpacerFragmentDoc}
+${BlockDividerFragmentDoc}
+${BlockVideoYoutubeFragmentDoc}
+${BlockImageSliderFragmentDoc}
+${BlockImageGalleryFragmentDoc}
+${BlockImageGridCalculatedFragmentDoc}
+${BlockImageGridFragmentDoc}
+${BlockImageFragmentDoc}
+${BlockQuoteFragmentDoc}
+${BlockTextFloatingImageFragmentDoc}
+${BlockTextFragmentDoc}`;
+export const EntryDatesFragmentDoc = gql`
+    fragment EntryDates on EntryInterface {
+  dateShort: postDate @formatDateTime(timezone: $formatTimezone, format: "short", locale: $formatLocale)
+  dateTime: postDate @formatDateTime(timezone: $formatTimezone, format: "H:m:s", locale: $formatLocale)
+  dateDayNumeric: postDate @formatDateTime(timezone: $formatTimezone, format: "d", locale: $formatLocale)
+  dateDayNumericWithoutZeros: postDate @formatDateTime(timezone: $formatTimezone, format: "j", locale: $formatLocale)
+  dateDayText: postDate @formatDateTime(timezone: $formatTimezone, format: "D", locale: $formatLocale)
+  dateDayTextFull: postDate @formatDateTime(timezone: $formatTimezone, format: "l", locale: $formatLocale)
+  dateMonthNumeric: postDate @formatDateTime(timezone: $formatTimezone, format: "m", locale: $formatLocale)
+  dateMonthNumericWithoutZeros: postDate @formatDateTime(timezone: $formatTimezone, format: "j", locale: $formatLocale)
+  dateMonthText: postDate @formatDateTime(timezone: $formatTimezone, format: "M", locale: $formatLocale)
+  dateMonthTextFull: postDate @formatDateTime(timezone: $formatTimezone, format: "F", locale: $formatLocale)
+  dateYearNumeric: postDate @formatDateTime(timezone: $formatTimezone, format: "y", locale: $formatLocale)
+  dateYearNumericFull: postDate @formatDateTime(timezone: $formatTimezone, format: "Y", locale: $formatLocale)
+  dateAmPm: postDate @formatDateTime(timezone: $formatTimezone, format: "a", locale: $formatLocale)
+  dateHourNumeric: postDate @formatDateTime(timezone: $formatTimezone, format: "H", locale: $formatLocale)
+  dateMinuteNumeric: postDate @formatDateTime(timezone: $formatTimezone, format: "i", locale: $formatLocale)
+  dateSecondNumeric: postDate @formatDateTime(timezone: $formatTimezone, format: "s", locale: $formatLocale)
+  dateTimezone: postDate @formatDateTime(timezone: $formatTimezone, format: "T", locale: $formatLocale)
+}
+    `;
+export const EntryMetaFragmentDoc = gql`
+    fragment EntryMeta on EntryInterface {
+  id
+  title
+  slug
+  uri
+  url
+}
+    `;
 export const HomeEntryFragmentDoc = gql`
     fragment HomeEntry on home_home_Entry {
   entryCustomTitle
   entryShortDescription
-}
-    `;
-export const MetaEntryFragmentDoc = gql`
-    fragment metaEntry on EntryInterface {
-  id
-  slug
-  uri
-  title
 }
     `;
 export const NewsContentBuilderEntryFragmentDoc = gql`
@@ -573,46 +978,81 @@ export const PageContentBuilderEntryFragmentDoc = gql`
 }
     `;
 export const QueryEntriesAllDocument = gql`
-    query QueryEntriesAll($section: [String]!) {
-  entries(section: $section) {
-    ...metaEntry
+    query QueryEntriesAll($site: [String]! = "default", $section: [String]!, $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
+  entries(site: $site, section: $section) {
+    ...EntryMeta
+    ...EntryDates
   }
 }
-    ${MetaEntryFragmentDoc}`;
+    ${EntryMetaFragmentDoc}
+${EntryDatesFragmentDoc}`;
 export const QueryEntryMetaDocument = gql`
-    query QueryEntryMeta($uri: [String], $slug: [String], $section: [String]!) {
-  entry(uri: $uri, slug: $slug, section: $section) {
-    ...metaEntry
+    query QueryEntryMeta($site: [String]! = "default", $uri: [String], $slug: [String], $section: [String]!, $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
+  entry(site: $site, uri: $uri, slug: $slug, section: $section) {
+    ...EntryMeta
+    ...EntryDates
   }
 }
-    ${MetaEntryFragmentDoc}`;
+    ${EntryMetaFragmentDoc}
+${EntryDatesFragmentDoc}`;
 export const QueryHomeDocument = gql`
-    query QueryHome {
-  entry(section: ["home"]) {
-    ...metaEntry
+    query QueryHome($site: [String]! = "default", $section: [String]! = ["home"], $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
+  entry(site: $site, section: $section) {
+    ...EntryMeta
+    ...EntryDates
     ...HomeEntry
   }
 }
-    ${MetaEntryFragmentDoc}
+    ${EntryMetaFragmentDoc}
+${EntryDatesFragmentDoc}
 ${HomeEntryFragmentDoc}`;
+export const QueryNavigationDocument = gql`
+    query QueryNavigation($site: [String]! = "default", $navHandle: String! = "navigationMain", $level: Int = 1) {
+  navigation: navigationNodes(site: $site, navHandle: $navHandle, level: $level) {
+    id
+    url
+    classes
+    title
+    customAttributes {
+      attribute
+      value
+    }
+    newWindow
+    urlSuffix
+  }
+}
+    `;
 export const QueryNewsDetailDocument = gql`
-    query QueryNewsDetail($section: [String]! = ["news"], $slug: [String]!) {
-  entry(section: $section, slug: $slug) {
-    ...metaEntry
+    query QueryNewsDetail($site: [String]! = "default", $section: [String]! = ["news"], $slug: [String]!, $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
+  entry(site: $site, section: $section, slug: $slug) {
+    ...EntryMeta
+    ...EntryDates
     ...NewsContentBuilderEntry
   }
 }
-    ${MetaEntryFragmentDoc}
+    ${EntryMetaFragmentDoc}
+${EntryDatesFragmentDoc}
 ${NewsContentBuilderEntryFragmentDoc}`;
 export const QueryPageDocument = gql`
-    query QueryPage($section: [String]! = ["pages"], $uri: [String]!) {
-  entry(section: $section, uri: $uri) {
-    ...metaEntry
+    query QueryPage($site: [String]! = "default", $section: [String]! = ["pages"], $uri: [String]!, $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
+  entry(site: $site, section: $section, uri: $uri) {
+    ...EntryMeta
+    ...EntryDates
     ...PageContentBuilderEntry
   }
 }
-    ${MetaEntryFragmentDoc}
+    ${EntryMetaFragmentDoc}
+${EntryDatesFragmentDoc}
 ${PageContentBuilderEntryFragmentDoc}`;
+export const QueryTranslationsDocument = gql`
+    query QueryTranslations($language: [String]! = "en", $category: [String]! = ["site"]) {
+  translations: staticMessages(language: $language, category: $category) {
+    key
+    message
+    language
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -630,11 +1070,17 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     QueryHome(variables?: QueryHomeQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<QueryHomeQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<QueryHomeQuery>(QueryHomeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'QueryHome', 'query');
     },
+    QueryNavigation(variables?: QueryNavigationQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<QueryNavigationQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<QueryNavigationQuery>(QueryNavigationDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'QueryNavigation', 'query');
+    },
     QueryNewsDetail(variables: QueryNewsDetailQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<QueryNewsDetailQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<QueryNewsDetailQuery>(QueryNewsDetailDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'QueryNewsDetail', 'query');
     },
     QueryPage(variables: QueryPageQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<QueryPageQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<QueryPageQuery>(QueryPageDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'QueryPage', 'query');
+    },
+    QueryTranslations(variables?: QueryTranslationsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<QueryTranslationsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<QueryTranslationsQuery>(QueryTranslationsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'QueryTranslations', 'query');
     }
   };
 }

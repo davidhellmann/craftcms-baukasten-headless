@@ -2,7 +2,7 @@ import {cmsClient} from "../../lib/graphql/client/graphql-client";
 import {
   QueryEntriesAllDocument,
   QueryPageDocument,
-  MetaEntryFragment
+  EntryMetaFragment
 } from "../../lib/graphql/gql/graphql";
 import {notFound} from "next/navigation";
 import React from "react";
@@ -57,7 +57,7 @@ export const generateStaticParams = async () => {
   })
 
   if (entries) {
-    return entries.map((entry: MetaEntryFragment) => ({
+    return entries.map((entry: EntryMetaFragment) => ({
       uri: entry?.uri?.split('/')
     }))
   }

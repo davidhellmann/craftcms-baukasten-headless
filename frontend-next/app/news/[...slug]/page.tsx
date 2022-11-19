@@ -1,5 +1,5 @@
 import {cmsClient} from "../../../lib/graphql/client/graphql-client";
-import {MetaEntryFragment, QueryEntriesAllDocument, QueryNewsDetailDocument} from "../../../lib/graphql/gql/graphql";
+import {EntryMetaFragment, QueryEntriesAllDocument, QueryNewsDetailDocument} from "../../../lib/graphql/gql/graphql";
 import {notFound} from 'next/navigation';
 import React from "react";
 import {PageTransition} from "../../../components/FramerMotion/PageTransition";
@@ -53,7 +53,7 @@ export const generateStaticParams = async () => {
   })
 
   if (entries) {
-    return entries.map((entry: MetaEntryFragment) => ({
+    return entries.map((entry: EntryMetaFragment) => ({
       slug: [entry?.slug]
     }))
   }

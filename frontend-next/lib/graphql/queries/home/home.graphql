@@ -13,5 +13,8 @@ query QueryHome(
     ... EntryMeta
     ... EntryDates
     ... HomeEntry
+    jsonLd: seomatic(asArray: true) {
+      ...JsonLd
+    }
   }
 }

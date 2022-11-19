@@ -601,6 +601,10 @@ export type EntryDatesFragment = { dateShort: any, dateTime: any, dateDayNumeric
 
 export type EntryMetaFragment = { id: string, title: string, slug: string, uri: string, url: string };
 
+export type JsonLdFragment = { metaJsonLdContainer: string };
+
+export type SeomaticFragment = { metaTitleContainer: string, metaTagContainer: string, metaLinkContainer: string };
+
 export type QueryEntriesAllQueryVariables = Exact<{
   site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
   section: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
@@ -621,7 +625,7 @@ export type QueryEntryMetaQueryVariables = Exact<{
 }>;
 
 
-export type QueryEntryMetaQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
+export type QueryEntryMetaQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, seomatic: { metaTitleContainer: string, metaTagContainer: string, metaLinkContainer: string }, jsonLd: { metaJsonLdContainer: string } } };
 
 export type HomeEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
@@ -633,7 +637,7 @@ export type QueryHomeQueryVariables = Exact<{
 }>;
 
 
-export type QueryHomeQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
+export type QueryHomeQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, jsonLd: { metaJsonLdContainer: string } } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, jsonLd: { metaJsonLdContainer: string } } };
 
 export type QueryNavigationQueryVariables = Exact<{
   site?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
@@ -655,7 +659,7 @@ export type QueryNewsDetailQueryVariables = Exact<{
 }>;
 
 
-export type QueryNewsDetailQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
+export type QueryNewsDetailQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, jsonLd: { metaJsonLdContainer: string } } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, jsonLd: { metaJsonLdContainer: string } } };
 
 export type PageContentBuilderEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
@@ -668,7 +672,7 @@ export type QueryPageQueryVariables = Exact<{
 }>;
 
 
-export type QueryPageQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any } };
+export type QueryPageQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, jsonLd: { metaJsonLdContainer: string } } | { id: string, title: string, slug: string, uri: string, url: string, entryCustomTitle: string, entryShortDescription: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, jsonLd: { metaJsonLdContainer: string } } };
 
 export type QueryTranslationsQueryVariables = Exact<{
   language?: Array<InputMaybe<Scalars['String']>> | InputMaybe<Scalars['String']>;
@@ -959,6 +963,18 @@ export const EntryMetaFragmentDoc = gql`
   url
 }
     `;
+export const JsonLdFragmentDoc = gql`
+    fragment JsonLd on SeomaticInterface {
+  metaJsonLdContainer
+}
+    `;
+export const SeomaticFragmentDoc = gql`
+    fragment Seomatic on SeomaticInterface {
+  metaTitleContainer
+  metaTagContainer
+  metaLinkContainer
+}
+    `;
 export const HomeEntryFragmentDoc = gql`
     fragment HomeEntry on home_home_Entry {
   entryCustomTitle
@@ -991,21 +1007,33 @@ export const QueryEntryMetaDocument = gql`
   entry(site: $site, uri: $uri, slug: $slug, section: $section) {
     ...EntryMeta
     ...EntryDates
+    seomatic(asArray: true) {
+      ...Seomatic
+    }
+    jsonLd: seomatic(asArray: true) {
+      ...JsonLd
+    }
   }
 }
     ${EntryMetaFragmentDoc}
-${EntryDatesFragmentDoc}`;
+${EntryDatesFragmentDoc}
+${SeomaticFragmentDoc}
+${JsonLdFragmentDoc}`;
 export const QueryHomeDocument = gql`
     query QueryHome($site: [String]! = "default", $section: [String]! = ["home"], $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
   entry(site: $site, section: $section) {
     ...EntryMeta
     ...EntryDates
     ...HomeEntry
+    jsonLd: seomatic(asArray: true) {
+      ...JsonLd
+    }
   }
 }
     ${EntryMetaFragmentDoc}
 ${EntryDatesFragmentDoc}
-${HomeEntryFragmentDoc}`;
+${HomeEntryFragmentDoc}
+${JsonLdFragmentDoc}`;
 export const QueryNavigationDocument = gql`
     query QueryNavigation($site: [String]! = "default", $navHandle: String! = "navigationMain", $level: Int = 1) {
   navigation: navigationNodes(site: $site, navHandle: $navHandle, level: $level) {
@@ -1028,22 +1056,30 @@ export const QueryNewsDetailDocument = gql`
     ...EntryMeta
     ...EntryDates
     ...NewsContentBuilderEntry
+    jsonLd: seomatic(asArray: true) {
+      ...JsonLd
+    }
   }
 }
     ${EntryMetaFragmentDoc}
 ${EntryDatesFragmentDoc}
-${NewsContentBuilderEntryFragmentDoc}`;
+${NewsContentBuilderEntryFragmentDoc}
+${JsonLdFragmentDoc}`;
 export const QueryPageDocument = gql`
     query QueryPage($site: [String]! = "default", $section: [String]! = ["pages"], $uri: [String]!, $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
   entry(site: $site, section: $section, uri: $uri) {
     ...EntryMeta
     ...EntryDates
     ...PageContentBuilderEntry
+    jsonLd: seomatic(asArray: true) {
+      ...JsonLd
+    }
   }
 }
     ${EntryMetaFragmentDoc}
 ${EntryDatesFragmentDoc}
-${PageContentBuilderEntryFragmentDoc}`;
+${PageContentBuilderEntryFragmentDoc}
+${JsonLdFragmentDoc}`;
 export const QueryTranslationsDocument = gql`
     query QueryTranslations($language: [String]! = "en", $category: [String]! = ["site"]) {
   translations: staticMessages(language: $language, category: $category) {

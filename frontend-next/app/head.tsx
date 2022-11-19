@@ -1,7 +1,7 @@
 import {graphqlClient} from "../lib/graphql/client/graphql-client";
 import {QueryEntryMetaDocument} from "../lib/graphql/gql/graphql";
+import {Seomatic} from "../components/Global/Seomatic";
 import React from "react";
-
 
 const getEntryMeta = async (queryParameter: { section: string[] }) => {
   return await graphqlClient.request(QueryEntryMetaDocument, {
@@ -10,16 +10,12 @@ const getEntryMeta = async (queryParameter: { section: string[] }) => {
 }
 
 const Head = async () => {
-  const { entry } = await getEntryMeta({ section: ['home']})
+  const {entry} = await getEntryMeta({section: ['home']})
 
   if (entry) {
     return (
       <>
-        <meta
-          property="og:image"
-          content={`http://localhost:3000/api/og?title=${entry.title} ${entry.title}`}
-        />
-        <title>{entry.title}</title>
+        <Seomatic seo={entry.seomatic} />
       </>
     )
   }

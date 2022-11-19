@@ -2,7 +2,7 @@ interface IGetCurrentSiteData {
   id: number;
 }
 
-import { configSites } from 'src/config/sites';
+import { configSites } from '../lib/constants';
 
 export const getCurrentSiteData = (params: IGetCurrentSiteData) => {
   const { id } = params;

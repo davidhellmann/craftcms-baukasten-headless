@@ -14,5 +14,8 @@ query QueryPage(
     ... EntryMeta
     ... EntryDates
     ... PageContentBuilderEntry
+    jsonLd: seomatic(asArray: true) {
+      ...JsonLd
+    }
   }
 }

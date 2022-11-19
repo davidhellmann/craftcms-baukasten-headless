@@ -8,5 +8,8 @@ query QueryEntryMeta(
   entry(site: $site, uri: $uri, slug: $slug, section: $section) {
     ... EntryMeta
     ... EntryDates
+    seomatic(asArray: true) {
+      ...Seomatic
+    }
   }
 }

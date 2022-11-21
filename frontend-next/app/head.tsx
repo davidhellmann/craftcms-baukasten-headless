@@ -16,6 +16,10 @@ const Head = async () => {
     return (
       <>
         <Seomatic seo={entry.seomatic} />
+        <meta
+          property="og:image"
+          content={`https://nextjs.baukasten.dev/api/og?title=${encodeURIComponent(entry.title)}`}
+        />
       </>
     )
   }

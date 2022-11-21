@@ -20,6 +20,10 @@ const Head = async ({ params }: { params: { slug: string } }) => {
     return (
       <>
         <Seomatic seo={entry.seomatic} />
+        <meta
+          property="og:image"
+          content={`https://nextjs.baukasten.dev/api/og?title=${encodeURIComponent(entry.title)}`}
+        />
       </>
     )
   }

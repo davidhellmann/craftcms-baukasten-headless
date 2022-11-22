@@ -625,7 +625,7 @@ export type QueryEntryMetaQueryVariables = Exact<{
 }>;
 
 
-export type QueryEntryMetaQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, seomatic: { metaTitleContainer: string, metaTagContainer: string, metaLinkContainer: string }, jsonLd: { metaJsonLdContainer: string } } };
+export type QueryEntryMetaQuery = { entry: { id: string, title: string, slug: string, uri: string, url: string, dateShort: any, dateTime: any, dateDayNumeric: any, dateDayNumericWithoutZeros: any, dateDayText: any, dateDayTextFull: any, dateMonthNumeric: any, dateMonthNumericWithoutZeros: any, dateMonthText: any, dateMonthTextFull: any, dateYearNumeric: any, dateYearNumericFull: any, dateAmPm: any, dateHourNumeric: any, dateMinuteNumeric: any, dateSecondNumeric: any, dateTimezone: any, seomatic: { metaTitleContainer: string, metaTagContainer: string, metaLinkContainer: string } } };
 
 export type HomeEntryFragment = { entryCustomTitle: string, entryShortDescription: string };
 
@@ -1010,15 +1010,11 @@ export const QueryEntryMetaDocument = gql`
     seomatic(asArray: true) {
       ...Seomatic
     }
-    jsonLd: seomatic(asArray: true) {
-      ...JsonLd
-    }
   }
 }
     ${EntryMetaFragmentDoc}
 ${EntryDatesFragmentDoc}
-${SeomaticFragmentDoc}
-${JsonLdFragmentDoc}`;
+${SeomaticFragmentDoc}`;
 export const QueryHomeDocument = gql`
     query QueryHome($site: [String]! = "default", $section: [String]! = ["home"], $formatTimezone: String = "Europe/Berlin", $formatLocale: String = "de") {
   entry(site: $site, section: $section) {

@@ -26,7 +26,7 @@ export const NavigationMain = ({propRootClasses, navItems}: INavigationMain) => 
     button: 'relative z-50 rounded-full w-16 h-16 bg-primary-700 text-white flex lg:hidden items-center justify-center',
     list: 'flex flex-col mt-8 lg:mt-0 lg:flex-row gap-y-4 gap-x-8 absolute right-4 xs:right-8 md:right-8 top-16 lg:top-0 mt-10 lg:mt-0 w-80 lg:w-auto rounded-md lg:relative bg-primary-700 lg:bg-transparent text-white lg:text-primary-900 p-8 lg:p-0',
     link: 'relative',
-    motionSpan: 'absolute left-0 -bottom-1 h-1 bg-primary-500 w-full hidden lg:flex',
+    motionSpan: 'absolute left-0 -bottom-1 h-1 bg-primary-500 w-full hidden lg:flex rounded-full',
     variants: {
       propSampleVariant: {
         optionA: '',

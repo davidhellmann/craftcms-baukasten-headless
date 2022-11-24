@@ -13,7 +13,7 @@ interface IGQLQueryResponse {
 }
 
 // Create Static Routes
-export async function getStaticPaths() {
+
   const {
     data: { entries, translations, navigationMain },
   } = await graphqlQuery({

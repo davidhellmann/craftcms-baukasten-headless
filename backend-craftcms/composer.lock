@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4837192a94ddefd978376819e05c9aab",
+    "content-hash": "fb6355fd6a0c06037f5b9331803bea5f",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -2139,11 +2139,16 @@
         },
         {
             "name": "illuminate/collections",
-            "version": "v9.40.1",
+            "version": "v9.41.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/illuminate/collections.git",
+                "reference": "2a65181bd78d8d00df7459dbe7e8c3ca34f0c93b"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/1729899f8e37840738d1c37bb110da5b09509990",
-                "reference": "1729899f8e37840738d1c37bb110da5b09509990",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/2a65181bd78d8d00df7459dbe7e8c3ca34f0c93b",
+                "reference": "2a65181bd78d8d00df7459dbe7e8c3ca34f0c93b",
                 "shasum": ""
             },
             "require": {
@@ -2169,6 +2174,7 @@
                     "Illuminate\\Support\\": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2180,11 +2186,15 @@
             ],
             "description": "The Illuminate Collections package.",
             "homepage": "https://laravel.com",
-            "time": "2022-11-07T11:40:33+00:00"
+            "support": {
+                "issues": "https://github.com/laravel/framework/issues",
+                "source": "https://github.com/laravel/framework"
+            },
+            "time": "2022-11-16T19:49:10+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v9.40.1",
+            "version": "v9.41.0",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/conditionable/zipball/5b40f51ccb07e0e7b1ec5559d8db9e0e2dc51883",
@@ -2220,7 +2230,7 @@
         },
         {
             "name": "illuminate/contracts",
-            "version": "v9.40.1",
+            "version": "v9.41.0",
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/illuminate/contracts/zipball/c7cc6e6198cac6dfdead111f9758de25413188b7",
@@ -2258,11 +2268,11 @@
         },
         {
             "name": "illuminate/macroable",
-            "version": "v9.40.1",
+            "version": "v9.41.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
-                "reference": "e3bfaf6401742a9c6abca61b9b10e998e5b6449a",
+                "url": "https://api.github.com/repos/illuminate/macroable/zipball/25a2c6dac2b7541ecbadef952702e84ae15f5354",
+                "reference": "25a2c6dac2b7541ecbadef952702e84ae15f5354",
                 "shasum": ""
             },
             "require": {
@@ -2290,7 +2300,7 @@
             ],
             "description": "The Illuminate Macroable package.",
             "homepage": "https://laravel.com",
-            "time": "2022-08-09T13:29:29+00:00"
+            "time": "2022-02-01T14:44:21+00:00"
         },
         {
             "name": "imgix/imgix-php",
@@ -3433,11 +3443,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "4.0.14",
+            "version": "4.0.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/c50aa876818f60484820f196cc46ef84db259ab1",
-                "reference": "c50aa876818f60484820f196cc46ef84db259ab1",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/0e8f4356b2c475cc786467f2323e21f6575d2ceb",
+                "reference": "0e8f4356b2c475cc786467f2323e21f6575d2ceb",
                 "shasum": ""
             },
             "require": {
@@ -3489,7 +3499,7 @@
                 "issues": "https://nystudio107.com/plugins/seomatic/support",
                 "source": "https://github.com/nystudio107/craft-seomatic"
             },
-            "time": "2022-11-21T04:04:51+00:00"
+            "time": "2022-11-22T13:46:59+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -6958,11 +6968,11 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/a1391a74c862af4ee5bdadc8ee3247aa04a38178",
-                "reference": "a1391a74c862af4ee5bdadc8ee3247aa04a38178",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/b3227227d2450181b2cae26e44df5c572934f242",
+                "reference": "b3227227d2450181b2cae26e44df5c572934f242",
                 "shasum": ""
             },
             "require": {
@@ -7007,7 +7017,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2022-11-20T23:37:10+00:00"
+            "time": "2022-11-21T21:53:40+00:00"
         },
         {
             "name": "verbb/super-table",

@@ -1,7 +1,6 @@
 import React from "react";
 import {graphqlClient} from "../lib/graphql/client/graphql-client";
-import {QueryEntriesAllDocument, QueryNavigationDocument} from "../lib/graphql/gql/graphql";
-import Link from "next/link";
+import {QueryNavigationDocument} from "../lib/graphql/gql/graphql";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import { Container } from "../components/Container/Container";

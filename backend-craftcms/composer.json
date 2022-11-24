@@ -8,7 +8,7 @@
         "mmikkel/cp-field-inspect": "^1.4.4",
         "mutation/translate": "3.0.1",
         "nystudio107/craft-scripts": "^1.2.13",
-        "nystudio107/craft-seomatic": "4.0.14",
+        "nystudio107/craft-seomatic": "4.0.15",
         "putyourlightson/craft-elements-panel": "2.0.0",
         "putyourlightson/craft-sherlock": "4.2.0",
         "sebastianlenz/linkfield": "2.1.4",
@@ -17,7 +17,7 @@
         "vaersaagod/matrixmate": "2.1.2",
         "verbb/formie": "2.0.18",
         "verbb/image-resizer": "3.0.4",
-        "verbb/navigation": "2.0.12",
+        "verbb/navigation": "2.0.13",
         "verbb/super-table": "3.0.5",
         "vlucas/phpdotenv": "^5.4",
         "yiisoft/yii2-redis": "^2.0.13"

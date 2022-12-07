@@ -25,9 +25,9 @@
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
-    "axios": "^1.2.0",
-    "nuxt-graphql-client": "^0.2.14",
-    "pinia-plugin-persistedstate": "^2.4.0",
+    "axios": "^1.2.1",
+    "nuxt-graphql-client": "^0.2.20",
+    "pinia-plugin-persistedstate": "^3.0.1",
     "tailwindcss-fluid-type": "^2.0.3",
     "tailwindcss-question-mark": "^0.1.1"
   }

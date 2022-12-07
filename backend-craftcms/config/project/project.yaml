@@ -1,4 +1,4 @@
-dateModified: 1668869774
+dateModified: 1670448363
 elementSources:
   craft\elements\Asset:
     -
@@ -258,7 +258,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: C8A0QAI0PQ6371E6OMY1C3AP
-    schemaVersion: 2.0.8
+    schemaVersion: 2.0.10
     settings:
       ajaxTimeout: 10
       captchas:
@@ -400,7 +400,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_NAVIGATION
-    schemaVersion: 2.0.6
+    schemaVersion: 2.0.7
   redactor:
     edition: standard
     enabled: true

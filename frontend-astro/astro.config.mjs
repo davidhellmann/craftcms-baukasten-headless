@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import svelte from '@astrojs/svelte';
 import graphql from '@rollup/plugin-graphql';
+import cloudflare from '@astrojs/cloudflare';
 // import cloudflare from '@astrojs/cloudflare';
 import { loadEnv } from 'vite';
 
@@ -9,6 +10,8 @@ process.env = { ...process.env, ...loadEnv('production', process.cwd()) };
 
 // https://astro.build/config
 export default defineConfig({
+  site: process.env.PUBLIC_SITE,
+  adapter: cloudflare(),
   integrations: [
     tailwind({
       config: {
@@ -18,14 +21,14 @@ export default defineConfig({
     }),
     svelte(),
   ],
-  site: process.env.PUBLIC_SITE,
+  trailingSlash: 'never',
   vite: {
     plugins: [graphql()],
   },
   build: {
     format: 'file',
   },
-  output: 'static',
+  output: 'server',
 });
 
 // export default defineConfig((mode) => {

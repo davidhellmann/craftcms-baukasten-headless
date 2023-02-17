@@ -9,7 +9,6 @@
       }
     ],
     "function-no-unknown": null,
-    "block-no-empty": null,
-    "max-line-length": null
+    "block-no-empty": null
   }
 }

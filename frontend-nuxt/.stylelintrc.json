@@ -2,7 +2,6 @@
   "extends": [
     "stylelint-config-recommended",
     "stylelint-config-recommended-vue",
-    "stylelint-config-prettier"
   ],
   "ignoreFiles": ["./src/public/css/**/*.css"],
   "rules": {
@@ -16,7 +15,6 @@
         "tailwind"
       ]
     }],
-    "block-no-empty": null,
-    "max-line-length": null
+    "block-no-empty": null
   }
 }

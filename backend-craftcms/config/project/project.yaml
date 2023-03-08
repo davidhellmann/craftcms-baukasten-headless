@@ -1,4 +1,4 @@
-dateModified: 1670448363
+dateModified: 1678305627
 elementSources:
   craft\elements\Asset:
     -
@@ -483,7 +483,7 @@ system:
   live: true
   name: 'Baukasten Headless'
   retryDuration: null
-  schemaVersion: 4.0.0.9
+  schemaVersion: 4.4.0.4
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false

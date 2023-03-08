@@ -1,6 +1,6 @@
 {
     "require": {
-        "craftcms/cms": "4.3.10",
+        "craftcms/cms": "4.4.0",
         "craftcms/redactor": "3.0.3",
         "craftcms/webhooks": "3.0.4",
         "doublesecretagency/craft-cpcss": "2.6.0",
@@ -12,10 +12,10 @@
         "putyourlightson/craft-elements-panel": "2.0.0",
         "putyourlightson/craft-sherlock": "4.3.0",
         "sebastianlenz/linkfield": "2.1.5",
-        "spacecatninja/imager-x": "4.1.10",
+        "spacecatninja/imager-x": "4.1.11",
         "studioespresso/craft-dumper": "3.0.1",
         "vaersaagod/matrixmate": "2.1.2",
-        "verbb/formie": "2.0.22",
+        "verbb/formie": "2.0.24",
         "verbb/image-resizer": "3.0.4",
         "verbb/navigation": "2.0.16",
         "verbb/super-table": "3.0.7",

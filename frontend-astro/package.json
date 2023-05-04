@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro check --watch & astro dev",
     "start": "astro dev",
     "build": "astro check && svelte-check && tsc --noEmit && astro build",
     "build-old": "astro check && svelte-check && tsc --noEmit && astro build",

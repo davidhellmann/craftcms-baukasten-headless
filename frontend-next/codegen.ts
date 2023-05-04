@@ -7,7 +7,7 @@ const config: CodegenConfig = {
     {
       [CRAFT_CMS_GRAPHQL_URL]: {
         headers: {
-          Authorization: `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`
+          Authorization: `Bearer ${CRAFT_CMS_GRAPHQL_TOKEN}`
         },
       },
     },

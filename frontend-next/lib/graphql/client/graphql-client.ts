@@ -15,7 +15,7 @@ interface IHeaders {
 
 export const cmsClient = (previewParams: IPreviewParams = {}) => {
   const headers: IHeaders = {
-    authorization: `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`,
+    Authorization: `Bearer: ${CRAFT_CMS_GRAPHQL_TOKEN}`,
   }
 
   let API_URL = CRAFT_CMS_GRAPHQL_URL

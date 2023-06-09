@@ -1,5 +1,0 @@
-query pagesOverviewNews($id: [QueryArgument]!, $site: [String]!) {
-  pagesOverviewNews: entry(id: $id, site: $site) {
-    ...entryMetaData
-  }
-}

@@ -1,8 +1,0 @@
-fragment blockSection on MatrixBlockInterface {
-  ... on builderContent_blockSection_BlockType {
-    ... blockMetaData
-    sectionBackgroundColor
-    sectionPaddingVertical
-    spaceBetweenBlocks
-  }
-}

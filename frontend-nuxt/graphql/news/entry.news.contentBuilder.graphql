@@ -1,6 +1,0 @@
-query newsContentBuilder($id: [QueryArgument]!, $site: [String]!) {
-  newsContentBuilder: entry(id: $id, site: $site) {
-    ...entryMetaData
-    ...builderContent
-  }
-}

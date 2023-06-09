@@ -1,9 +1,0 @@
-fragment blockCode on MatrixBlockInterface {
-  ... on builderContent_blockCode_BlockType {
-    ... blockMetaData
-    snippetName
-    snippetLanguage
-    snippetCollapsed
-    snippet
-  }
-}

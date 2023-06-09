@@ -1,6 +1,0 @@
-query pagesContentBuilder($id: [QueryArgument]!, $site: [String]!) {
-  pagesContentBuilder: entry(id: $id, site: $site) {
-    ...entryMetaData
-    ...builderContent
-  }
-}

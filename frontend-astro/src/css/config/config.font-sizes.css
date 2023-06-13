@@ -1,0 +1,36 @@
+/* Use this tool for the font sizes: https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=320&minRatio=1.125&maxFontSize=22&maxWidth=1600&maxRatio=1.2&steps=xs,sm,base,md,lg,xl,2xl,3xl,4xl,5xl,6xl,7xl,8xl,9xl&baseStep=base&prefix=font-size-fluid&decimals=3&useRems=on&remValue=16&previewFont=Inter&previewText=Almost+before+we+knew+it,+we+had+left+the+ground&previewWidth=1280 */
+
+
+@layer config {
+  :root {
+    --font-size-fluid-xs: clamp(0.889rem, 0.082vw + 0.872rem, 0.955rem);
+    --font-size-fluid-sm: clamp(1rem, 0.182vw + 0.964rem, 1.146rem);
+    --font-size-fluid-base: clamp(1.125rem, 0.313vw + 1.063rem, 1.375rem);
+    --font-size-fluid-md: clamp(1.266rem, 0.48vw + 1.17rem, 1.65rem);
+    --font-size-fluid-lg: clamp(1.424rem, 0.695vw + 1.285rem, 1.98rem);
+    --font-size-fluid-xl: clamp(1.602rem, 0.968vw + 1.408rem, 2.376rem);
+    --font-size-fluid-2xl: clamp(1.802rem, 1.311vw + 1.54rem, 2.851rem);
+    --font-size-fluid-3xl: clamp(2.027rem, 1.743vw + 1.679rem, 3.421rem);
+    --font-size-fluid-4xl: clamp(2.281rem, 2.281vw + 1.824rem, 4.106rem);
+    --font-size-fluid-5xl: clamp(2.566rem, 2.951vw + 1.976rem, 4.927rem);
+    --font-size-fluid-6xl: clamp(2.887rem, 3.782vw + 2.13rem, 5.912rem);
+    --font-size-fluid-7xl: clamp(3.247rem, 4.809vw + 2.285rem, 7.095rem);
+    --font-size-fluid-8xl: clamp(3.653rem, 6.076vw + 2.438rem, 8.514rem);
+    --font-size-fluid-9xl: clamp(4.11rem, 7.633vw + 2.583rem, 10.216rem);
+
+    --text-fluid-xs: var(--font-size-fluid-xs);
+    --text-fluid-sm: var(--font-size-fluid-sm);
+    --text-fluid-base: var(--font-size-fluid-base);
+    --text-fluid-md: var(--font-size-fluid-md);
+    --text-fluid-lg: var(--font-size-fluid-lg);
+    --text-fluid-xl: var(--font-size-fluid-xl);
+    --text-fluid-2xl: var(--font-size-fluid-2xl);
+    --text-fluid-3xl: var(--font-size-fluid-3xl);
+    --text-fluid-4xl: var(--font-size-fluid-4xl);
+    --text-fluid-5xl: var(--font-size-fluid-5xl);
+    --text-fluid-6xl: var(--font-size-fluid-6xl);
+    --text-fluid-7xl: var(--font-size-fluid-7xl);
+    --text-fluid-8xl: var(--font-size-fluid-8xl);
+    --text-fluid-9xl: var(--font-size-fluid-9xl);
+  }
+}

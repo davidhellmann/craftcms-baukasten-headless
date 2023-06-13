@@ -1,0 +1,50 @@
+@layer base {
+  :where(
+    strong,
+    b,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    .h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6
+  ) {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: var(--text-fluid-4xl);
+    line-height: var(--leading-none);
+  }
+
+  h2 {
+    font-size: var(--text-fluid-3xl);
+    line-height: var(--leading-tight);
+  }
+
+  h3 {
+    font-size: var(--text-fluid-2xl);
+    line-height: var(--leading-snug);
+  }
+
+  h4 {
+    font-size: var(--text-fluid-xl);
+    line-height: var(--leading-normal);
+  }
+
+  h5 {
+    font-size: var(--text-fluid-lg);
+    line-height: var(--leading-normal);
+  }
+
+  h6 {
+    font-size: var(--text-fluid-base);
+    line-height: var(--leading-normal);
+  }
+}

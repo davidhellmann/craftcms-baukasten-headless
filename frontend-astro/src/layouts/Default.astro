@@ -1,0 +1,65 @@
+---
+import { useTranslations } from "@i18n/utils";
+import type { ui } from "@i18n/ui";
+
+// Infos
+import EntryInfo from "@layouts/_partials/EntryInfo.astro";
+
+// dtePages
+import ViewDtePagesDtePage from "@views/dtePages/dtePage.astro";
+import ViewDtePagesDtePageAgenda from "@views/dtePages/dtePageAgenda.astro";
+import ViewDtePagesDtePageSponsors from "@views/dtePages/dtePageSponsors.astro";
+import ViewDtePagesDtePageSpeakers from "@views/dtePages/dtePageSpeakers.astro";
+import ViewDtePagesDtePagePreRegister from "@views/dtePages/dtePagePreRegister.astro";
+
+export interface Props {
+  title: string;
+  siteHandle: string;
+  siteId: string;
+  sectionHandle: string;
+  typeHandle: string;
+  uri: string;
+  id: string;
+  token: string;
+  xCraftPreview: string;
+  xCraftLivePreview: string;
+}
+
+const {
+  siteHandle,
+  sectionHandle,
+  typeHandle,
+  uri,
+  id,
+  siteId,
+  title,
+  token,
+  xCraftPreview,
+  xCraftLivePreview,
+} = Astro.props;
+
+const t = siteHandle
+  ? useTranslations(siteHandle as keyof typeof ui)
+  : useTranslations("default_en" as keyof typeof ui);
+
+// Get the right layout based on the site handle
+let View = ViewDtePagesDtePage;
+
+const views: IViews = {
+  dtePages: {
+    dtePage: ViewDtePagesDtePage,
+    dtePageAgenda: ViewDtePagesDtePageAgenda,
+    dtePageSponsors: ViewDtePagesDtePageSponsors,
+    dtePageSpeakers: ViewDtePagesDtePageSpeakers,
+    dtePagePreRegister: ViewDtePagesDtePagePreRegister,
+  },
+};
+
+if (sectionHandle in views && typeHandle in views[sectionHandle]) {
+  View = views[sectionHandle][typeHandle];
+}
+---
+
+<h1>Perform Layout</h1>
+<View />
+<EntryInfo {...Astro.props} />

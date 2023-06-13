@@ -1,0 +1,28 @@
+/* establish a layer order up-front, from lowest to highest priority */
+@layer reset, config, base, components, utilities, overrides;
+
+/* Reset Layer */
+@import url('the-new-css-reset/css/reset.css') layer(reset);
+
+/* Config Layer */
+@import 'config/config.settings.css';
+@import 'config/config.font-sizes.css';
+@import 'config/config.line-heights.css';
+@import 'config/config.colors.css';
+@import 'config/config.border-styles.css';
+
+/* Default Layer */
+@import 'base/base.global.css';
+@import 'base/base.typography.css';
+
+/* Components Layer */
+
+/* Utilities Layer */
+@import 'utilities/utilities.lazy.css';
+@import 'utilities/utilities.transitions.css';
+@import 'utilities/utilities.font-sizes.css';
+@import 'utilities/utilities.line-heights.css';
+
+/* Overrides Layer */
+
+@import 'overrides/overrides.reduce-motion.css';

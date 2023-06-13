@@ -1,0 +1,12 @@
+fragment dteLinkGroup on dteLinkGroup_MatrixField {
+  ... on dteLinkGroup_data_BlockType {
+    cta {
+      ariaLabel
+      customText
+      target
+      text
+      type
+      url
+    }
+  }
+}

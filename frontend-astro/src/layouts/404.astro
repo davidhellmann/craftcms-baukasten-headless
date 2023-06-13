@@ -1,0 +1,30 @@
+---
+import { useTranslations } from "@i18n/utils";
+import { ui } from "@i18n/ui";
+
+export interface Props {
+  siteHandle: string;
+  lang: string;
+}
+
+const { siteHandle, lang = "en" } = Astro.props;
+const t = useTranslations(siteHandle as keyof typeof ui);
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{t("error.error404.title")}</title>
+  </head>
+  <body>
+    <div class="bg-primary-400 text-white">
+      <h1>{t("error.error404.title")}</h1>
+      <p>{t("error.error404.description")}</p>
+    </div>
+  </body>
+</html>

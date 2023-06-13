@@ -1,0 +1,16 @@
+query QueryDtePagesDtePageAmplify(
+  $siteId: [QueryArgument]!,
+  $id: [QueryArgument]!,
+) {
+  entry(siteId: $siteId, id: $id) {
+    ... entryMeta
+    ... entryDates
+
+    # DTE Link Group Field
+    ... on dtePages_dtePageAmplify_Entry {
+      dteLinkGroup {
+        ... dteLinkGroup
+      }
+    }
+  }
+}

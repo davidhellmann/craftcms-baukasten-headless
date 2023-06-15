@@ -29,6 +29,7 @@ export const getEntryData = async (SITE_HANDLE: string) => {
     {
       site: SITE?.handle ?? [],
       section: SITE?.sections ?? [],
+      language: SITE?.language ?? 'en',
     },
     {}
   )) as QueryEntriesBySectionQuery;

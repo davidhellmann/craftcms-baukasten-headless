@@ -1,0 +1,13 @@
+fragment entryMeta on EntryInterface {
+  id
+  title
+  slug
+  uri
+  url
+  canonicalId
+  language
+  sectionHandle
+  typeHandle
+  siteHandle
+  siteId
+}

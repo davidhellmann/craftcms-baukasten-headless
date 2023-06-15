@@ -1,8 +1,5 @@
 ---
-import DynatraceDefaultLayout from "@layouts/dynatrace/Default.astro";
-import PerformDefaultLayout from "@layouts/perform/Default.astro";
-import AmplifyDefaultLayout from "@layouts/amplify/Default.astro";
-import InnovateDefaultLayout from "@layouts/innovate/Default.astro";
+import DefaultLayout from "@layouts/Default.astro";
 import { ISEO } from "@utils/parseSEO";
 import { useTranslations } from "@i18n/utils";
 import { ui } from "@i18n/ui";
@@ -39,21 +36,20 @@ const {
 
 const t = siteHandle
   ? useTranslations(siteHandle as keyof typeof ui)
-  : useTranslations("marketing_en" as keyof typeof ui);
+  : useTranslations("default" as keyof typeof ui);
 
 // Get the right layout based on the site handle
-let Layout = DynatraceDefaultLayout;
-const Layouts = {
-  dynatrace: DynatraceDefaultLayout,
-  events_perform: PerformDefaultLayout,
-  events_amplify: AmplifyDefaultLayout,
-  events_innovate: InnovateDefaultLayout,
-  events_innovate_pt_br: InnovateDefaultLayout,
-};
+let Layout = DefaultLayout;
 
-if (siteHandle && Layouts && siteHandle in Layouts) {
-  Layout = Layouts[siteHandle];
-}
+// Use this when you have different Site Layouts
+// const Layouts = {
+//   default: DefaultLayout,
+//   defaultDe: DefaultLayout,
+// };
+//
+// if (siteHandle && Layouts && siteHandle in Layouts) {
+//   Layout = Layouts[siteHandle];
+// }
 ---
 
 <!DOCTYPE html>

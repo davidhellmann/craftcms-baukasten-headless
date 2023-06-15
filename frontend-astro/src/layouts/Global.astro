@@ -35,7 +35,7 @@ if (!id) {
 
 const t = siteHandle
   ? useTranslations(siteHandle as keyof typeof ui)
-  : useTranslations("default_en" as keyof typeof ui);
+  : useTranslations("default" as keyof typeof ui);
 
 // Get the right layout based on the site handle
 let Layout = DefaultLayout;

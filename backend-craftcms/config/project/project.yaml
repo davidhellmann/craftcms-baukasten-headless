@@ -1,4 +1,4 @@
-dateModified: 1685818698
+dateModified: 1686718427
 elementSources:
   craft\elements\Asset:
     -
@@ -137,7 +137,7 @@ meta:
     0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: Text # Text
     0a686d89-8754-4f00-a79e-fed75548909d: Images # Images
     0dc851b0-a289-4c50-be8d-0c055b270ee8: 'Entry: Image' # Entry: Image
-    1a6afb6b-650c-4748-b5f9-c5de08b077d7: 'Frontend Nuxt' # Frontend Nuxt
+    1a6afb6b-650c-4748-b5f9-c5de08b077d7: Astro # Astro
     1a64748f-2870-4c18-a869-f2b050ede5ba: 'Image Transform' # Image Transform
     1b37c439-5a32-4e8f-8019-7f6a94593419: 'Spacer Variant' # Spacer Variant
     1be86da8-5273-40c6-ba88-718f5c32a6c3: 'Image Width' # Image Width
@@ -225,7 +225,6 @@ meta:
     f084e099-613d-4405-b600-f4be12d3509b: 'Divider Variant' # Divider Variant
     f1b38495-8096-48fa-9b78-0da345e3295c: Images # Images
     f3e1a215-a60f-4d6a-8897-e1a80a40c6cd: Code # Code
-    f9ec1fe5-6806-433d-b5e2-6aef4d148b23: 'Baukasten (fr)' # Baukasten (fr)
     f4959e03-fec0-4b1c-887e-5301a5f66742: 'Social Sharing Twitter' # Social Sharing Twitter
     fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
     fb701216-3e80-4e6d-99d4-2e5f70561e22: 'Content Builder' # Content Builder
@@ -481,7 +480,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: 'Baukasten Headless'
+  name: Astro
   retryDuration: null
   schemaVersion: 4.4.0.4
   timeZone: Europe/Berlin

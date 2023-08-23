@@ -1,4 +1,4 @@
-dateModified: 1686718427
+dateModified: 1692820270
 elementSources:
   craft\elements\Asset:
     -
@@ -482,7 +482,7 @@ system:
   live: true
   name: Astro
   retryDuration: null
-  schemaVersion: 4.4.0.4
+  schemaVersion: 4.5.0.3
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false

@@ -1,6 +1,6 @@
 {
     "require": {
-        "craftcms/cms": "4.5.1",
+        "craftcms/cms": "4.5.2",
         "craftcms/redactor": "3.0.4",
         "craftcms/webhooks": "3.0.4",
         "doublesecretagency/craft-cpcss": "2.6.0",
@@ -73,5 +73,12 @@
         "pre-install-cmd": "@pre-craft-update",
         "post-update-cmd": "@post-craft-update",
         "post-install-cmd": "@post-craft-update"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.craftcms.com",
+            "canonical": false
+        }
+    ]
 }

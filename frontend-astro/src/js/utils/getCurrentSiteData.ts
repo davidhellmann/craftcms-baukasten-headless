@@ -1,10 +1,10 @@
 interface IGetCurrentSiteData {
-  id: number;
+  handle: string;
 }
 
-import { configSites } from 'src/config/sites';
+import { CONFIG_SITES } from "@configs/sites";
 
 export const getCurrentSiteData = (params: IGetCurrentSiteData) => {
-  const { id } = params;
-  return configSites.find((site) => site.siteId === id);
+  const { handle } = params;
+  return CONFIG_SITES.find((site) => site.handle === handle);
 };

@@ -1,64 +1,37 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import svelte from '@astrojs/svelte';
-import graphql from '@rollup/plugin-graphql';
-import cloudflare from '@astrojs/cloudflare';
-// import cloudflare from '@astrojs/cloudflare';
-import { loadEnv } from 'vite';
+import { defineConfig } from "astro/config";
 
-process.env = { ...process.env, ...loadEnv('production', process.cwd()) };
+import vue from "@astrojs/vue";
+
+// https://astro.build/config
+// import tailwind from "@astrojs/tailwind";
+import graphql from "@rollup/plugin-graphql";
+import { loadEnv } from "vite";
+import node from "@astrojs/node";
+process.env = {
+  ...process.env,
+  ...loadEnv("production", process.cwd())
+};
 
 // https://astro.build/config
 export default defineConfig({
   site: process.env.PUBLIC_SITE,
-  adapter: cloudflare(),
   integrations: [
-    tailwind({
-      config: {
-        path: './tailwind.config.js',
-        applyBaseStyles: false,
-      },
-    }),
-    svelte(),
+    vue(),
+    // tailwind({
+    //   config: {
+    //     applyBaseStyles: false
+    //   }
+    // })
   ],
-  trailingSlash: 'never',
+  trailingSlash: "never",
   vite: {
     plugins: [graphql()],
   },
   build: {
-    format: 'file',
+    format: "file"
   },
-  output: 'server',
+  output: "server",
+  adapter: node({
+    mode: "standalone"
+  })
 });
-
-// export default defineConfig((mode) => {
-//   const { PUBLIC_SITE, PUBLIC_LIVE_PREVIEW } = loadEnv(mode, process.cwd(), '');
-//   const settings = {
-//     integrations: [
-//       tailwind({
-//         config: {
-//           path: './tailwind.config.js',
-//           applyBaseStyles: false,
-//         },
-//       }),
-//       svelte(),
-//     ],
-//     site: PUBLIC_SITE,
-//     vite: {
-//       plugins: [graphql()],
-//     },
-//     build: {
-//       format: 'file',
-//     },
-//   };
-
-//   // If Live Preview true do SSR
-//   if (PUBLIC_LIVE_PREVIEW === 'true') {
-//     settings['adapter'] = cloudflare();
-//     settings['output'] = 'server';
-//   } else {
-//     settings['output'] = 'static';
-//   }
-
-//   return settings;
-// });

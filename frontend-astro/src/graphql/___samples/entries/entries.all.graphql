@@ -1,0 +1,16 @@
+query QueryEntriesBySection(
+  $site: [String]!,
+  $section: [String]!,
+  $language: [String]!
+  $limit: Int = null,
+) {
+  entries(site: $site, section: $section, limit: $limit) {
+    ... entryMeta
+    ... entrySEO
+  }
+  translations: staticMessages(language: $language) {
+    key
+    message
+    language
+  }
+}

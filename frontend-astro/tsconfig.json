@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "preserve",
     // Enable top-level await, and other modern ESM features.
     "target": "ESNext",
     "module": "ESNext",
@@ -15,8 +16,11 @@
     "strict": true,
     // Error when a value import is only used as a type.
     "types": [
-      "svelte",
+      "vue",
       "vite/client"
+    ],
+    "typeRoots": [
+      "./src/@types/*"
     ],
     "importsNotUsedAsValues": "error",
     "baseUrl": ".",
@@ -24,24 +28,36 @@
       "@components/*": [
         "src/components/*"
       ],
+      "@configs/*": [
+        "src/configs/*"
+      ],
       "@css/*": [
         "src/css/*"
       ],
-      "@composables/*": [
-        "src/js/composables/*"
+      "@graphql/*": [
+        "src/graphql/*"
       ],
-      "@utils/*": [
-        "src/js/utils/*"
+      "@js/*": [
+        "src/js/*"
+      ],
+      "@i18n/*": [
+        "src/i18n/*"
       ],
       "@layouts/*": [
         "src/layouts/*"
       ],
+      "@tailwind/*": [
+        "src/config/tailwind/*"
+      ],
+      "@types/*": [
+        "src/@types/*"
+      ],
+      "@utils/*": [
+        "src/js/utils/*"
+      ],
       "@views/*": [
         "src/views/*"
       ],
-      "@graphql/*": [
-        "src/graphql/*"
-      ]
     }
   }
 }

@@ -81,9 +81,4 @@ siteSettings:
     hasUrls: true
     template: null
     uriFormat: __home__
-  f9ec1fe5-6806-433d-b5e2-6aef4d148b23: # Baukasten (fr)
-    enabledByDefault: true
-    hasUrls: true
-    template: null
-    uriFormat: __home__
 type: single

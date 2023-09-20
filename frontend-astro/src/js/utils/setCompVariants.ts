@@ -1,38 +1,25 @@
-interface ISetCompVariants {
-  variants: {
-    [k: string]: string;
-  };
-  props: {
-    [k: string]: string;
-  };
-  useVariants: string[];
-}
+export const setCompVariants = (
+  variants: { [k: string]: string },
+  props: { [k: string]: string }
+) => {
+  const finalClassesArray: string[] = [];
 
-export const setCompVariants = (params: ISetCompVariants) => {
-  const { variants, props, useVariants } = params;
-  const classArray: string[] = [];
-  const finalProps: {
-    [k: string]: string;
-  } = {};
-
-  useVariants.forEach((useVariants) => {
-    finalProps[useVariants] = props[useVariants];
-  });
-
-  for (let prop in finalProps) {
-    if (prop in finalProps) {
-      const variant: Object = variants[prop];
-      const setting = finalProps[prop];
-
-      if (setting) {
+  // TODO: Add default fallback variant
+  Object.entries(props).forEach(([key, value]) => {
+    const variant: {} = variants[key];
+    if (variant && value in variant) {
+      const variantValue: string = (variant as any)[value];
+      if (!finalClassesArray.includes(variantValue)) {
         if ((variant as any).default) {
-          classArray.push((variant as any)[setting] || (variant as any).default);
+          finalClassesArray.push(
+            (variant as any)[value] || (variant as any).default
+          );
         } else {
-          classArray.push((variant as any)[setting]);
+          finalClassesArray.push((variant as any)[value]);
         }
       }
     }
-  }
+  });
 
-  return classArray.filter((item) => item !== undefined);
+  return finalClassesArray.join(" ");
 };

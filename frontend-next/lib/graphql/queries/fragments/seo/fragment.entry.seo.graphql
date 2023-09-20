@@ -1,5 +1,0 @@
-fragment Seomatic on SeomaticInterface {
-  metaTitleContainer
-  metaTagContainer
-  metaLinkContainer
-}

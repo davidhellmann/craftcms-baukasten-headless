@@ -1,0 +1,9 @@
+query QueryEntryPreview(
+  $siteId: [QueryArgument]!,
+  $id: [QueryArgument]!,
+) {
+  entry(siteId: $siteId, id: $id) {
+    ... entryMeta
+    ... entrySEO
+  }
+}

@@ -1,0 +1,52 @@
+---
+import "@css/amplify/app.css";
+import PreviewLayout from "@layouts/Preview.astro";
+import Layout404 from "@layouts/404.astro";
+import { parseSEO } from "@utils/parseSEO";
+import { getEntryPreviewData } from "@utils/getEntryPreviewData";
+
+const { searchParams } = Astro.url;
+const routeQuery = Object.fromEntries(searchParams);
+
+const {
+  id,
+  siteId,
+  token,
+  "x-craft-preview": xCraftPreview,
+  "x-craft-live-preview": xCraftLivePreview,
+} = routeQuery;
+
+const entry = await getEntryPreviewData(
+  parseInt(id),
+  parseInt(siteId),
+  token,
+  xCraftPreview,
+  xCraftLivePreview
+);
+
+if (!entry) {
+  Astro.response.status = 404;
+  Astro.response.statusText = "Not found";
+}
+---
+
+{
+  entry ? (
+    <PreviewLayout
+      title={entry?.title}
+      uri={entry?.uri}
+      seo={parseSEO(entry?.seo)}
+      lang={entry?.language}
+      siteHandle={entry?.siteHandle}
+      typeHandle={entry?.typeHandle}
+      sectionHandle={entry?.sectionHandle}
+      id={entry?.canonicalId}
+      siteId={entry?.siteId}
+      token={token}
+      xCraftPreview={xCraftPreview}
+      xCraftLivePreview={xCraftLivePreview}
+    />
+  ) : (
+    <Layout404 siteHandle={"default"} />
+  )
+}

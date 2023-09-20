@@ -1,0 +1,25 @@
+@layer config {
+  :root {
+    --color-hue: 146;
+    --color-chroma: 0.362;
+    --color-alpha: 1;
+
+    /* Base colors */
+    --color-white: oklch(1 0 89.876 / var(--color-alpha));
+    --color-black: oklch(0 0 0 / var(--color-alpha));
+
+    /* Gray */
+    --color-gray-200: oklch(95% 0.010 240 / var(--color-alpha));
+
+    /* Green */
+    --color-neon-green-500: oklch(85% 0.362 146 / var(--color-alpha));
+
+    /* Orange */
+    --color-neon-orange-500: oklch(67% 0.27 34 / var(--color-alpha));
+  }
+
+  [data-theme="theme-red"] {
+    --color-chroma: 0.27;
+    --color-hue: 34
+  }
+}

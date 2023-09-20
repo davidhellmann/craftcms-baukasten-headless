@@ -1,0 +1,6 @@
+fragment entryDates on EntryInterface {
+  dateShort: postDate @formatDateTime (format: "short")
+  dateMedium: postDate @formatDateTime (format: "medium")
+  dateLong: postDate @formatDateTime (format: "long")
+  dateTimezone: postDate @formatDateTime (format: "T")
+}

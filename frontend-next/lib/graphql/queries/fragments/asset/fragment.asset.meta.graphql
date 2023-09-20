@@ -1,9 +1,0 @@
-fragment AssetMeta on AssetInterface {
-  id
-  url
-  title
-  alt
-  height
-  width
-  extension
-}

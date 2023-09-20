@@ -1,7 +1,0 @@
-query translations($language: [String]!, $category: [String]! = ["site"]) {
-  translations: staticMessages(language: $language, category: $category) {
-    key
-    message
-    language
-  }
-}

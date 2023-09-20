@@ -1,6 +1,0 @@
-fragment blockSpacer on MatrixBlockInterface {
-  ... on builderContent_blockSpacer_BlockType {
-    ... blockMetaData
-    spacerVariant
-  }
-}

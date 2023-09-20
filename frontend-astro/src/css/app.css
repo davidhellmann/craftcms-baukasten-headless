@@ -1,56 +1,28 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- */
-@import "tailwindcss/base";
+/* establish a layer order up-front, from lowest to highest priority */
+@layer reset, config, base, components, utilities, overrides;
 
-/**
- * Here we add custom base styles, applied after the tailwind-base
- * classes
- *
- */
-@import "./base/global.css";
-@import "./base/lazy.css";
-@import "./base/typography.css";
+/* Reset Layer */
+@import url('the-new-css-reset/css/reset.css') layer(reset);
 
-/**
- * This injects any component classes registered by plugins.
- *
- */
-@import "tailwindcss/components";
+/* Config Layer */
+@import 'config/config.settings.css';
+@import 'config/config.font-sizes.css';
+@import 'config/config.line-heights.css';
+@import 'config/config.colors.css';
+@import 'config/config.border-styles.css';
 
-/**
- * Here we add custom component classes; stuff we want loaded
- * *before* the utilities so that the utilities can still
- * override them.
- *
- */
-@import "./components/transitions.css";
-/* @import "../../templates/_components/icon/icon.css"; */
-/* @import "../../templates/_components/text/text.css"; */
-/* @import "../../templates/_components/grid/imagesCalculated.css"; */
-/* @import "../../templates/_components/accordion/accordion.css"; */
+/* Default Layer */
+@import 'base/base.global.css';
+@import 'base/base.typography.css';
 
-/**
- * Include styles for individual pages
- *
- */
-@import "./pages/homepage.css";
+/* Components Layer */
 
-/**
- * This injects all of Tailwind's utility classes, generated based on your
- * config file.
- *
- */
-@import "tailwindcss/utilities";
+/* Utilities Layer */
+@import 'utilities/utilities.lazy.css';
+@import 'utilities/utilities.transitions.css';
+@import 'utilities/utilities.font-sizes.css';
+@import 'utilities/utilities.line-heights.css';
 
-/**
- * Here we add custom utility classes, applied after the tailwind-utilitie
- * classes
- *
- */
+/* Overrides Layer */
 
-/**
- * Include vendor css.
- *
- */
+@import 'overrides/overrides.reduce-motion.css';

@@ -65,9 +65,8 @@ const views: IViews = {
 if (sectionHandle in views && typeHandle in views[sectionHandle]) {
   View = views[sectionHandle][typeHandle];
 }
-
-import {Headline} from '@/components/Text/Headline.tsx'
 ---
+
 {siteId && id &&
 <View {...Astro.props}/>}
 <EntryInfo {...Astro.props}/>

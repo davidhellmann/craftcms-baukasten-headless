@@ -1,0 +1,38 @@
+# Entry Type: [home][home]
+fragment entryType_home_home on home_home_Entry {
+  entryCustomTitle
+  entryShortDescription
+  entryImage {
+    ...asset_data
+    ...asset_transforms
+    ...asset_custom_fields
+  }
+#  customTitle
+#  description: dtmDescription
+#  entryImage: dtmEntryImage {
+#    ...asset_data
+#    ...asset_transforms
+#    ...asset_custom_fields
+#  }
+#  heroHeadline: dtmHeadline
+#  heroRichText: dtmRichText
+#  formBuilder: dtmResourcesMarketoForm {
+#    ...neo_dtmResourcesMarketoForm
+#  }
+#  customBackground: dtmContentBuilderSectionBackgroundImage {
+#    ...asset_data
+#    ...asset_transforms
+#    ...asset_custom_fields
+#  }
+#  customBackgroundWave: dtmContentBuilderSectionBackgroundWave
+#  customTheme: dtmContentBuilderSectionTheme
+#  tags: dtmRelationTags {
+#    ...entry_data
+#  }
+#  industries: dtmRelationIndustries {
+#    ...entry_data
+#  }
+#  contentBuilder: dtmResourcesContentBuilder {
+#    ...neo_dtmResourcesContentBuilder
+#  }
+}

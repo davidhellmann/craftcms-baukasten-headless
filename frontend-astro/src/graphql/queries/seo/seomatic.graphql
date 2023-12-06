@@ -1,4 +1,4 @@
-query QueryEntrySEO($siteId: Int!, $uri: String!) {
+query GetSeomatic($siteId: Int!, $uri: String!) {
   seomatic(siteId: $siteId, uri: $uri, asArray: true) {
     metaTagContainer
     metaLinkContainer

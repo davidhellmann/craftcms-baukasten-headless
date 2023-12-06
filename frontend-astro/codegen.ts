@@ -26,6 +26,11 @@ const config: CodegenConfig = {
         "typescript-graphql-request",
       ],
       config: {
+        /**
+         * Fix issue about multiple same named fragments
+         * @ee https://github.com/dotansimha/graphql-code-generator/issues/3063
+         */
+        dedupeFragments: true,
         withHooks: true,
         skipTypename: true,
         onlyOperationTypes: true,

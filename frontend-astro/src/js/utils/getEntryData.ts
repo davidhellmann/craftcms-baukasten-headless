@@ -1,22 +1,18 @@
 import {
-  QueryEntriesBySectionDocument,
-  type QueryEntriesBySectionQuery,
-  type QueryEntriesBySectionQueryVariables,
+  GetAllEntriesDocument,
+  type GetAllEntriesQuery,
+  type GetAllEntriesQueryVariables,
 } from "@/graphql/gql/graphql";
 import {cmsClient} from "@/graphql/client/graphql-client";
 import {CONFIG_SITES} from "@/configs/sites";
 import {getCurrentSiteData} from "@/utils/getCurrentSiteData";
 
-interface IPreviewParams {
-  [key: string]: string;
-}
-
 const getAllEntriesBySection = async (
-  queryParameter: QueryEntriesBySectionQueryVariables,
+  queryParameter: GetAllEntriesQueryVariables,
   previewParams: IPreviewParams,
 ) => {
   const client = cmsClient(previewParams);
-  return await client.request(QueryEntriesBySectionDocument, {
+  return await client.request(GetAllEntriesDocument, {
     ...queryParameter,
   });
 };
@@ -32,7 +28,7 @@ export const getEntryData = async (SITE_HANDLE: string, SECTIONS: string[] | nul
       section: SECTIONS ?? SITE?.sections ?? [],
     },
     {},
-  )) as QueryEntriesBySectionQuery;
+  )) as GetAllEntriesQuery;
 
   return entries.map(
     ({

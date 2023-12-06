@@ -1,0 +1,36 @@
+fragment entry_data on EntryInterface {
+  id
+  uid
+  title
+  slug
+  uri
+  url
+  canonicalId
+  language
+  sectionHandle
+  typeHandle
+  siteHandle
+  siteId
+}
+
+fragment entry_dates_posted on EntryInterface {
+  postDateShort: postDate @formatDateTime(format: "short")
+  postDateMedium: postDate @formatDateTime(format: "medium")
+  postDateLong: postDate @formatDateTime(format: "long")
+}
+
+fragment entry_dates_expired on EntryInterface {
+  expireDateShort: expiryDate @formatDateTime(format: "short")
+  expireDateMedium: expiryDate @formatDateTime(format: "medium")
+  expireDateLong: expiryDate @formatDateTime(format: "long")
+}
+
+fragment entry_dates_updated on EntryInterface {
+  postUpdateDateShort: dateUpdated @formatDateTime(format: "short")
+  postUpdateDateMedium: dateUpdated @formatDateTime(format: "medium")
+  postUpdateDateLong: dateUpdated @formatDateTime(format: "long")
+}
+
+fragment entry_dates_timezone on EntryInterface {
+  timezone: postDate @formatDateTime(format: "T")
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e984caadc42181a7da73e1c7bca762f",
+    "content-hash": "e056ec6cf83c748deeecc985a1335e35",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -1235,6 +1235,64 @@
                 "php"
             ],
             "time": "2022-12-15T16:57:16+00:00"
+        },
+        {
+            "name": "dodecastudio/craft-blurhash",
+            "version": "2.0.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dodecastudio/craft-blurhash/zipball/506afd777156d115f2b3f4db28aafa31febc2a8d",
+                "reference": "506afd777156d115f2b3f4db28aafa31febc2a8d",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0|^4.0",
+                "kornrunner/blurhash": "^1.2",
+                "php": ">=7.4",
+                "treeware/plant": "^0.1.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "treeware": [],
+                "name": "BlurHash",
+                "handle": "blur-hash",
+                "developer": "Dodeca Studio",
+                "developerUrl": "https://dodeca.studio",
+                "documentationUrl": "https://github.com/dodecastudio/craft-blurhash/blob/main/README.md",
+                "changelogUrl": "https://github.com/dodecastudio/craft-blurhash/blob/main/CHANGELOG.md",
+                "class": "dodecastudio\\blurhash\\BlurHash",
+                "components": {
+                    "services": "dodecastudio\\blurhash\\services\\BlurHashService"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dodecastudio\\blurhash\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Dodeca Studio",
+                    "homepage": "https://dodeca.studio"
+                }
+            ],
+            "description": "Render a BlurHash from a given image.",
+            "keywords": [
+                "blurhash",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "source": "https://github.com/dodecastudio/craft-blurhash",
+                "docs": "https://github.com/dodecastudio/craft-blurhash/blob/main/README.md",
+                "issues": "https://github.com/dodecastudio/craft-blurhash/issues"
+            },
+            "time": "2023-08-04T13:40:22+00:00"
         },
         {
             "name": "dompdf/dompdf",
@@ -6909,6 +6967,29 @@
                 "tinypng"
             ],
             "time": "2023-02-21T14:51:21+00:00"
+        },
+        {
+            "name": "treeware/plant",
+            "version": "0.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TreewareEarth/plant/zipball/bc1ff8eb350ce74b3fe0bd7ab80bc332d1096599",
+                "reference": "bc1ff8eb350ce74b3fe0bd7ab80bc332d1096599",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0|^2.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Treeware\\Plant\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Treeware\\Plant\\": "src/"
+                }
+            },
+            "time": "2021-05-04T17:17:46+00:00"
         },
         {
             "name": "twig/twig",

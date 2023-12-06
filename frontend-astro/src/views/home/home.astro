@@ -1,20 +1,88 @@
 ---
-import {Headline} from "../../components/Text/Headline";
+import {
+  GetHomeEntryDocument,
+  GetHomeEntryQuery,
+  GetHomeEntryQueryVariables,
+} from "@/graphql/gql/graphql";
+
+import {cmsClient} from "@/graphql/client/graphql-client";
+import {Headline} from "@/components/Text/Headline";
+
+export interface Props {
+  title: string;
+  lang: string;
+  siteHandle: string;
+  siteId: string;
+  typeHandle: string;
+  sectionHandle: string;
+  uri: string;
+  id: number;
+  token: string;
+  xCraftPreview: string;
+  xCraftLivePreview: string;
+}
 
 const {
+  title,
+  lang,
   siteHandle,
-  sectionHandle,
+  siteId,
   typeHandle,
+  sectionHandle,
   uri,
   id,
-  siteId,
-  title,
   token,
   xCraftPreview,
   xCraftLivePreview,
 } = Astro.props;
+
+if (!id) {
+  Astro.response.status = 404;
+  Astro.response.statusText = "Not found";
+}
+
+// TODO: in funktion auslagern
+// auch in den beiden andern getPreviewData und GetEntryData
+const getData = async (
+  queryParameter: GetHomeEntryQueryVariables,
+  previewParams: IPreviewParams
+) => {
+  const client = cmsClient(previewParams);
+  return await client.request(GetHomeEntryDocument, {
+    ...queryParameter,
+  });
+};
+
+const {entry} = (await getData(
+  {
+    site: siteHandle,
+    section: sectionHandle,
+    type: typeHandle,
+    id: id
+  },
+  {
+    token,
+    xCraftPreview,
+    xCraftLivePreview,
+  }
+)) as GetHomeEntryQuery;
+
+console.log(entry)
 ---
 
-<Headline
-  text={`${sectionHandle} / ${typeHandle} / ${uri}`}
-/>
+{entry?.title && (
+  <Headline
+    text={entry.title}
+  />
+)}
+
+{entry?.entryCustomTitle && (
+  <Headline
+    text={entry?.entryCustomTitle}
+  />
+)}
+
+{entry?.entryShortDescription && (
+  <p>{entry.entryShortDescription}</p>
+)}
+

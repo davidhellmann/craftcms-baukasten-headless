@@ -1,4 +1,4 @@
-dateModified: 1701818958
+dateModified: 1701893511
 elementSources:
   craft\elements\Asset:
     -
@@ -229,6 +229,10 @@ meta:
     fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
     fb701216-3e80-4e6d-99d4-2e5f70561e22: 'Content Builder' # Content Builder
 plugins:
+  blur-hash:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   cp-clearcache:
     edition: standard
     enabled: true

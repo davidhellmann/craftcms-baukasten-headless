@@ -1,0 +1,28 @@
+# Asset basic data
+fragment asset_data on AssetInterface {
+  id
+  url
+  width
+  height
+  title
+  alt
+  filename
+  focalPoint
+}
+
+# Asset transforms
+fragment asset_transforms on AssetInterface {
+  base64BlurHash: url @assetToBlurHash
+  srcsetLegacy: url @imagerSrcset (handle: "auto")
+  srcset: url @imagerSrcset (handle: "autoWebp")
+}
+
+# Asset custom fields
+fragment asset_custom_fields on AssetInterface {
+  ... on images_Asset {
+    assetTitle
+    assetCaption
+    assetSource
+    assetSourceUrl
+  }
+}

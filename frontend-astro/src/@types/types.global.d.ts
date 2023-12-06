@@ -15,3 +15,7 @@ interface IComponentClasses extends IBaseObject {
 interface IComponentSettings extends IBaseObject {}
 interface ITranslations extends IBaseObject {}
 interface IViews extends IBaseObject {}
+interface IPreviewParams extends IBaseObject {
+  [key: string]: string;
+}
+

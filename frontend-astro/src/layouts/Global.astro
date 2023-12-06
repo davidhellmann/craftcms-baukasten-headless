@@ -1,21 +1,17 @@
 ---
 import DefaultLayout from "@/layouts/Default.astro";
-import { ISEO } from "@/utils/parseSEO";
-import { useTranslations } from "@/i18n/utils";
-import { ui } from "@/i18n/ui";
+import {ISEO} from "@/utils/parseSEO";
+import {useTranslations} from "@/i18n/utils";
+import {ui} from "@/i18n/ui";
 import {parseSEO} from "../js/utils/parseSEO";
 
 import {
-  QueryEntrySeoDocument,
-  QueryEntrySeoQuery,
-  QueryEntrySeoQueryVariables,
+  GetSeomaticDocument,
+  GetSeomaticQuery,
+  GetSeomaticQueryVariables,
 } from "@/graphql/gql/graphql";
 
-import { cmsClient } from "@/graphql/client/graphql-client";
-
-interface IPreviewParams {
-  [key: string]: string;
-}
+import {cmsClient} from "@/graphql/client/graphql-client";
 
 export interface Props {
   title: string;
@@ -54,16 +50,16 @@ if (!id) {
 // TODO: in funktion auslagern
 // auch in den beiden andern getPreviewData und GetEntryData
 const getData = async (
-  queryParameter: QueryEntrySeoQueryVariables,
+  queryParameter: GetSeomaticQueryVariables,
   previewParams: IPreviewParams
 ) => {
   const client = cmsClient(previewParams);
-  return await client.request(QueryEntrySeoDocument, {
+  return await client.request(GetSeomaticDocument, {
     ...queryParameter,
   });
 };
 
-const { seomatic } = (await getData(
+const {seomatic} = (await getData(
   {
     siteId: parseInt(siteId),
     uri: uri,
@@ -73,7 +69,7 @@ const { seomatic } = (await getData(
     xCraftPreview,
     xCraftLivePreview,
   }
-)) as QueryEntrySeoQuery;
+)) as GetSeomaticQuery;
 
 const seo = parseSEO(seomatic)
 
@@ -83,7 +79,7 @@ const t = siteHandle
 
 // Get the right layout based on the site handle
 let Layout: {} = DefaultLayout;
-const Layouts: {[k: string]: {}} = {
+const Layouts: { [k: string]: {} } = {
   default_en: DefaultLayout,
   default_de: DefaultLayout,
 };
@@ -96,23 +92,23 @@ if (siteHandle && Layouts && siteHandle in Layouts) {
 <!DOCTYPE html>
 <html lang={lang}>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="generator" content={Astro.generator} />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+  <meta name="generator" content={Astro.generator}/>
 
-  <title>{seo?.seoTitle ?? t("preview.title")}</title>
+  <title>{seo?.seoTitle}</title>
 
-  {seo?.meta?.map((item) => <meta {...item} />)}
-    {seo?.links?.map((item) => <link {...item} />)}
-    {
-      seo?.jsonLd?.map((item) => (
-        <script type="application/ld+json" set:html={JSON.stringify(item)} />
-      ))
-    }
+  {seo?.meta?.map((item) =>
+    <meta {...item}/>)}
+  {seo?.links?.map((item) =>
+    <link {...item}/>)}
+  {seo?.jsonLd?.map((item) => (
+    <script type="application/ld+json" set:html={JSON.stringify(item)} />
+  ))}
 </head>
 <body>
-<Layout {...Astro.props} />
+<Layout {...Astro.props}/>
 </body>
 </html>
 

@@ -1,0 +1,13 @@
+query GetAssetsByFilename (
+  $filename: [String]!,
+  $site: [String]!,
+) {
+  assets(
+    filename: $filename,
+    site: $site,
+  ) {
+    ...asset_data
+    ...asset_transforms
+    ...asset_custom_fields
+  }
+}

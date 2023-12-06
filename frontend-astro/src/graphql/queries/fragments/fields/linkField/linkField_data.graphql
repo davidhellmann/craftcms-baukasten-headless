@@ -1,0 +1,9 @@
+#fragment linkField_data on linkField_Link {
+#  ariaLabel
+#  customText
+#  target
+#  text
+#  title
+#  type
+#  url
+#}

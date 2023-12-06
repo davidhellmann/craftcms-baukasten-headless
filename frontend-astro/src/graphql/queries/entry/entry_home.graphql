@@ -1,0 +1,25 @@
+query GetHomeEntry(
+  $site: [String]!,
+  $section: [String]!,
+  $type: [String] = ["*"],
+  $id: [QueryArgument]
+) {
+  entry(
+    site: $site,
+    section: $section,
+    type: $type,
+    id: $id
+  ) {
+    # Entry Data
+    ...entry_data
+
+    # Entry Dates
+    ...entry_dates_posted
+    ...entry_dates_expired
+    ...entry_dates_updated
+    ...entry_dates_timezone
+
+    # Entry Type [home]
+    ...entryType_home_home
+  }
+}

@@ -1,8 +1,8 @@
-query QueryEntriesBySection(
+query GetAllEntries(
   $site: [String]!,
   $section: [String]!,
 ) {
   entries(site: $site, section: $section) {
-    ... entryMeta
+    ... entry_data
   }
 }

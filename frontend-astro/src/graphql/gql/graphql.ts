@@ -14,7 +14,7 @@ export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
 };
 export type MakeEmpty<
   T extends { [key: string]: unknown },
-  K extends keyof T
+  K extends keyof T,
 > = { [_ in K]?: never };
 export type Incremental<T> =
   | T
@@ -23,7 +23,7 @@ export type Incremental<T> =
     };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: { input: string | number; output: string };
+  ID: { input: string; output: string };
   String: { input: string; output: string };
   Boolean: { input: boolean; output: boolean };
   Int: { input: number; output: number };
@@ -553,10 +553,6 @@ export type QueryEntriesBySectionQueryVariables = Exact<{
   section:
     | Array<InputMaybe<Scalars["String"]["input"]>>
     | InputMaybe<Scalars["String"]["input"]>;
-  language:
-    | Array<InputMaybe<Scalars["String"]["input"]>>
-    | InputMaybe<Scalars["String"]["input"]>;
-  limit?: InputMaybe<Scalars["Int"]["input"]>;
 }>;
 
 export type QueryEntriesBySectionQuery = {
@@ -573,14 +569,6 @@ export type QueryEntriesBySectionQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -594,14 +582,6 @@ export type QueryEntriesBySectionQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -615,14 +595,6 @@ export type QueryEntriesBySectionQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -636,14 +608,6 @@ export type QueryEntriesBySectionQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -657,17 +621,8 @@ export type QueryEntriesBySectionQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
   >;
-  translations: Array<{ key: string; message: string; language: string }>;
 };
 
 export type QueryEntryPreviewQueryVariables = Exact<{
@@ -693,14 +648,6 @@ export type QueryEntryPreviewQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -714,14 +661,6 @@ export type QueryEntryPreviewQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -735,14 +674,6 @@ export type QueryEntryPreviewQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -756,14 +687,6 @@ export type QueryEntryPreviewQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       }
     | {
         id: string;
@@ -777,14 +700,6 @@ export type QueryEntryPreviewQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        seo: {
-          metaTagContainer: string;
-          metaLinkContainer: string;
-          metaTitleContainer: string;
-          metaScriptContainer: string;
-          metaJsonLdContainer: string;
-          metaSiteVarsContainer: string;
-        };
       };
 };
 
@@ -907,8 +822,13 @@ export type EntryMetaFragment =
   | EntryMeta_Pages_ContentBuilder_Entry_Fragment
   | EntryMeta_Pages_OverviewNews_Entry_Fragment;
 
-type EntrySeo_ErrorPages_Error_Entry_Fragment = {
-  seo: {
+export type QueryEntrySeoQueryVariables = Exact<{
+  siteId: Scalars["Int"]["input"];
+  uri: Scalars["String"]["input"];
+}>;
+
+export type QueryEntrySeoQuery = {
+  seomatic: {
     metaTagContainer: string;
     metaLinkContainer: string;
     metaTitleContainer: string;
@@ -917,57 +837,6 @@ type EntrySeo_ErrorPages_Error_Entry_Fragment = {
     metaSiteVarsContainer: string;
   };
 };
-
-type EntrySeo_Home_Home_Entry_Fragment = {
-  seo: {
-    metaTagContainer: string;
-    metaLinkContainer: string;
-    metaTitleContainer: string;
-    metaScriptContainer: string;
-    metaJsonLdContainer: string;
-    metaSiteVarsContainer: string;
-  };
-};
-
-type EntrySeo_News_ContentBuilder_Entry_Fragment = {
-  seo: {
-    metaTagContainer: string;
-    metaLinkContainer: string;
-    metaTitleContainer: string;
-    metaScriptContainer: string;
-    metaJsonLdContainer: string;
-    metaSiteVarsContainer: string;
-  };
-};
-
-type EntrySeo_Pages_ContentBuilder_Entry_Fragment = {
-  seo: {
-    metaTagContainer: string;
-    metaLinkContainer: string;
-    metaTitleContainer: string;
-    metaScriptContainer: string;
-    metaJsonLdContainer: string;
-    metaSiteVarsContainer: string;
-  };
-};
-
-type EntrySeo_Pages_OverviewNews_Entry_Fragment = {
-  seo: {
-    metaTagContainer: string;
-    metaLinkContainer: string;
-    metaTitleContainer: string;
-    metaScriptContainer: string;
-    metaJsonLdContainer: string;
-    metaSiteVarsContainer: string;
-  };
-};
-
-export type EntrySeoFragment =
-  | EntrySeo_ErrorPages_Error_Entry_Fragment
-  | EntrySeo_Home_Home_Entry_Fragment
-  | EntrySeo_News_ContentBuilder_Entry_Fragment
-  | EntrySeo_Pages_ContentBuilder_Entry_Fragment
-  | EntrySeo_Pages_OverviewNews_Entry_Fragment;
 
 export const EntryDatesFragmentDoc = gql`
   fragment entryDates on EntryInterface {
@@ -992,9 +861,25 @@ export const EntryMetaFragmentDoc = gql`
     siteId
   }
 `;
-export const EntrySeoFragmentDoc = gql`
-  fragment entrySEO on EntryInterface {
-    seo: seomatic(asArray: true) {
+export const QueryEntriesBySectionDocument = gql`
+  query QueryEntriesBySection($site: [String]!, $section: [String]!) {
+    entries(site: $site, section: $section) {
+      ...entryMeta
+    }
+  }
+  ${EntryMetaFragmentDoc}
+`;
+export const QueryEntryPreviewDocument = gql`
+  query QueryEntryPreview($siteId: [QueryArgument]!, $id: [QueryArgument]!) {
+    entry(siteId: $siteId, id: $id) {
+      ...entryMeta
+    }
+  }
+  ${EntryMetaFragmentDoc}
+`;
+export const QueryEntrySeoDocument = gql`
+  query QueryEntrySEO($siteId: Int!, $uri: String!) {
+    seomatic(siteId: $siteId, uri: $uri, asArray: true) {
       metaTagContainer
       metaLinkContainer
       metaTitleContainer
@@ -1004,82 +889,66 @@ export const EntrySeoFragmentDoc = gql`
     }
   }
 `;
-export const QueryEntriesBySectionDocument = gql`
-  query QueryEntriesBySection(
-    $site: [String]!
-    $section: [String]!
-    $language: [String]!
-    $limit: Int = null
-  ) {
-    entries(site: $site, section: $section, limit: $limit) {
-      ...entryMeta
-      ...entrySEO
-    }
-    translations: staticMessages(language: $language) {
-      key
-      message
-      language
-    }
-  }
-  ${EntryMetaFragmentDoc}
-  ${EntrySeoFragmentDoc}
-`;
-export const QueryEntryPreviewDocument = gql`
-  query QueryEntryPreview($siteId: [QueryArgument]!, $id: [QueryArgument]!) {
-    entry(siteId: $siteId, id: $id) {
-      ...entryMeta
-      ...entrySEO
-    }
-  }
-  ${EntryMetaFragmentDoc}
-  ${EntrySeoFragmentDoc}
-`;
 
 export type SdkFunctionWrapper = <T>(
   action: (requestHeaders?: Record<string, string>) => Promise<T>,
   operationName: string,
-  operationType?: string
+  operationType?: string,
 ) => Promise<T>;
 
 const defaultWrapper: SdkFunctionWrapper = (
   action,
   _operationName,
-  _operationType
+  _operationType,
 ) => action();
 
 export function getSdk(
   client: GraphQLClient,
-  withWrapper: SdkFunctionWrapper = defaultWrapper
+  withWrapper: SdkFunctionWrapper = defaultWrapper,
 ) {
   return {
     QueryEntriesBySection(
       variables: QueryEntriesBySectionQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders
+      requestHeaders?: GraphQLClientRequestHeaders,
     ): Promise<QueryEntriesBySectionQuery> {
       return withWrapper(
         (wrappedRequestHeaders) =>
           client.request<QueryEntriesBySectionQuery>(
             QueryEntriesBySectionDocument,
             variables,
-            { ...requestHeaders, ...wrappedRequestHeaders }
+            { ...requestHeaders, ...wrappedRequestHeaders },
           ),
         "QueryEntriesBySection",
-        "query"
+        "query",
       );
     },
     QueryEntryPreview(
       variables: QueryEntryPreviewQueryVariables,
-      requestHeaders?: GraphQLClientRequestHeaders
+      requestHeaders?: GraphQLClientRequestHeaders,
     ): Promise<QueryEntryPreviewQuery> {
       return withWrapper(
         (wrappedRequestHeaders) =>
           client.request<QueryEntryPreviewQuery>(
             QueryEntryPreviewDocument,
             variables,
-            { ...requestHeaders, ...wrappedRequestHeaders }
+            { ...requestHeaders, ...wrappedRequestHeaders },
           ),
         "QueryEntryPreview",
-        "query"
+        "query",
+      );
+    },
+    QueryEntrySEO(
+      variables: QueryEntrySeoQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<QueryEntrySeoQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<QueryEntrySeoQuery>(QueryEntrySeoDocument, variables, {
+            ...requestHeaders,
+            ...wrappedRequestHeaders,
+          }),
+        "QueryEntrySEO",
+        "query",
       );
     },
   };

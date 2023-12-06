@@ -1,16 +1,20 @@
 ---
-import { useTranslations } from "@i18n/utils";
-import type { ui } from "@i18n/ui";
+import {useTranslations} from "@/i18n/utils";
+import type {ui} from "@/i18n/ui";
 
 // Infos
-import EntryInfo from "@layouts/_partials/EntryInfo.astro";
+import EntryInfo from "@/layouts/_partials/EntryInfo.astro";
 
-// dtePages
-import ViewDtePagesDtePage from "@views/dtePages/dtePage.astro";
-import ViewDtePagesDtePageAgenda from "@views/dtePages/dtePageAgenda.astro";
-import ViewDtePagesDtePageSponsors from "@views/dtePages/dtePageSponsors.astro";
-import ViewDtePagesDtePageSpeakers from "@views/dtePages/dtePageSpeakers.astro";
-import ViewDtePagesDtePagePreRegister from "@views/dtePages/dtePagePreRegister.astro";
+// Singles
+
+import ViewHome from "@/views/home/home.astro";
+
+// Pages
+import ViewPagesContentBuilder from "@/views/pages/contentBuilder.astro";
+import ViewPagesOverviewNews from "@/views/pages/overviewNews.astro";
+
+// News
+import ViewNewsContentBuilder from "@/views/news/contentBuilder.astro";
 
 export interface Props {
   title: string;
@@ -43,23 +47,27 @@ const t = siteHandle
   : useTranslations("default" as keyof typeof ui);
 
 // Get the right layout based on the site handle
-let View = ViewDtePagesDtePage;
+let View = ViewHome;
 
 const views: IViews = {
-  dtePages: {
-    dtePage: ViewDtePagesDtePage,
-    dtePageAgenda: ViewDtePagesDtePageAgenda,
-    dtePageSponsors: ViewDtePagesDtePageSponsors,
-    dtePageSpeakers: ViewDtePagesDtePageSpeakers,
-    dtePagePreRegister: ViewDtePagesDtePagePreRegister,
+  home: {
+    home: ViewHome,
+  },
+  pages: {
+    contentBuilder: ViewPagesContentBuilder,
+    overviewNews: ViewPagesOverviewNews,
+  },
+  news: {
+    contentBuilder: ViewNewsContentBuilder,
   },
 };
 
 if (sectionHandle in views && typeHandle in views[sectionHandle]) {
   View = views[sectionHandle][typeHandle];
 }
----
 
-<h1>Perform Layout</h1>
-<View />
-<EntryInfo {...Astro.props} />
+import {Headline} from '@/components/Text/Headline.tsx'
+---
+{siteId && id &&
+<View {...Astro.props}/>}
+<EntryInfo {...Astro.props}/>

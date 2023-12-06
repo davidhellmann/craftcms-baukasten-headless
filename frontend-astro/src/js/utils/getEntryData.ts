@@ -1,12 +1,11 @@
-import { parseSEO } from "@utils/parseSEO";
 import {
   QueryEntriesBySectionDocument,
-  QueryEntriesBySectionQuery,
-  QueryEntriesBySectionQueryVariables,
-} from "@graphql/gql/graphql";
-import { cmsClient } from "@graphql/client/graphql-client";
-import { CONFIG_SITES } from "@configs/sites";
-import { getCurrentSiteData } from "@utils/getCurrentSiteData";
+  type QueryEntriesBySectionQuery,
+  type QueryEntriesBySectionQueryVariables,
+} from "@/graphql/gql/graphql";
+import {cmsClient} from "@/graphql/client/graphql-client";
+import {CONFIG_SITES} from "@/configs/sites";
+import {getCurrentSiteData} from "@/utils/getCurrentSiteData";
 
 interface IPreviewParams {
   [key: string]: string;
@@ -14,7 +13,7 @@ interface IPreviewParams {
 
 const getAllEntriesBySection = async (
   queryParameter: QueryEntriesBySectionQueryVariables,
-  previewParams: IPreviewParams
+  previewParams: IPreviewParams,
 ) => {
   const client = cmsClient(previewParams);
   return await client.request(QueryEntriesBySectionDocument, {
@@ -22,34 +21,36 @@ const getAllEntriesBySection = async (
   });
 };
 
-export const getEntryData = async (SITE_HANDLE: string) => {
+export const getEntryData = async (SITE_HANDLE: string, SECTIONS: string[] | null = null) => {
   const SITE = CONFIG_SITES.find((site) => site.handle === SITE_HANDLE);
 
-  const { entries } = (await getAllEntriesBySection(
+  if (!SITE) return
+
+  const {entries} = (await getAllEntriesBySection(
     {
-      site: SITE?.handle ?? [],
-      section: SITE?.sections ?? [],
-      language: SITE?.language ?? 'en',
+      site: SITE?.handle ?? "",
+      section: SECTIONS ?? SITE?.sections ?? [],
     },
-    {}
+    {},
   )) as QueryEntriesBySectionQuery;
 
   return entries.map(
     ({
-      uri,
-      id,
-      url,
-      title,
-      siteHandle,
-      siteId,
-      sectionHandle,
-      typeHandle,
-      seo,
-    }) => {
-      // const locale =
-      //   getCurrentSiteData({
+       uri,
+       id,
+       url,
+       title,
+       siteHandle,
+       siteId,
+       sectionHandle,
+       typeHandle,
+     }) => {
+      // This was for one page catching all routes
+      // const locale = getCurrentSiteData(
+      //   {
       //     handle: siteHandle,
-      //   })?.urlParameterTrailingSlash ?? "";
+      //   }
+      // )?.urlParameterTrailingSlash ?? "";
       const locale = "";
       const finalUri = `${locale}${uri === "__home__" ? "index" : uri ?? ""}`;
 
@@ -65,10 +66,9 @@ export const getEntryData = async (SITE_HANDLE: string) => {
           sectionHandle,
           typeHandle,
           url,
-          lang: getCurrentSiteData({ handle: siteHandle })?.language ?? "en",
-          seo: parseSEO(seo),
+          lang: getCurrentSiteData({handle: siteHandle})?.language ?? "en",
         },
       };
-    }
+    },
   );
 };

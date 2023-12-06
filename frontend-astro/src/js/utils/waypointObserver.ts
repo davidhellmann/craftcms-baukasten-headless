@@ -25,7 +25,7 @@ interface ICompWaypointObserver extends ICompSettings {
 const getAttributeAsNumber = (
   element: Element,
   attributeName: string,
-  defaultValue: number
+  defaultValue: number,
 ): number => {
   const value = element.getAttribute(attributeName);
   return value ? parseInt(value, 10) : defaultValue;
@@ -97,13 +97,13 @@ const waypointObserver: ICompWaypointObserver = {
     this.settings.delay = getAttributeAsNumber(
       waypoint,
       "waypoint-delay",
-      this.settings.delay
+      this.settings.delay,
     );
 
     this.settings.staggeringDelay = getAttributeAsNumber(
       waypoint,
       "waypoint-staggering-delay",
-      this.settings.staggeringDelay
+      this.settings.staggeringDelay,
     );
 
     this.settings.endless =

@@ -3,59 +3,17 @@ enableVersioning: true
 handle: news
 name: News
 previewTargets:
-  __assoc__:
-    -
-      - 4
+  4:
+    __assoc__:
       -
-        __assoc__:
-          -
-            - label
-            - 'NEXT 13'
-          -
-            - urlFormat
-            - 'http://localhost:3000/news/{slug}'
-          -
-            - refresh
-            - '1'
-    -
-      - 3
+        - label
+        - Astro
       -
-        __assoc__:
-          -
-            - label
-            - 'NEXT JS'
-          -
-            - urlFormat
-            - '{{ getenv(''PREVIEW_URL'') }}/api/preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&entryUid={canonicalUid}&siteId={siteId}'
-          -
-            - refresh
-            - '1'
-    -
-      - 1
+        - urlFormat
+        - '{getenv(''PREVIEW_URL'')}preview_{site.group|lower}?id={canonicalId}&siteId={siteId}'
       -
-        __assoc__:
-          -
-            - label
-            - Local
-          -
-            - urlFormat
-            - 'http://localhost:3000/live-preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&uri={uri}&siteId={siteId}'
-          -
-            - refresh
-            - '1'
-    -
-      - 2
-      -
-        __assoc__:
-          -
-            - label
-            - Live
-          -
-            - urlFormat
-            - 'https://preview.craftcms-baukasten-headless.pages.dev/live-preview?secret={{ getenv(''CMS_PREVIEW_TOKEN'') }}&uri={uri}&siteId={siteId}'
-          -
-            - refresh
-            - '1'
+        - refresh
+        - '1'
 propagationMethod: all
 siteSettings:
   8153a2df-373f-4aac-9a92-d52292c9f1aa: # Baukasten (en)

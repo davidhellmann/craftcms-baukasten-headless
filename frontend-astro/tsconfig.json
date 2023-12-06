@@ -1,6 +1,9 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "jsx": "preserve",
+    "verbatimModuleSyntax": false,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     // Enable top-level await, and other modern ESM features.
     "target": "ESNext",
     "module": "ESNext",
@@ -15,49 +18,21 @@
     // Enable strict type checking.
     "strict": true,
     // Error when a value import is only used as a type.
-    "types": [
-      "vue",
-      "vite/client"
-    ],
-    "typeRoots": [
-      "./src/@types/*"
-    ],
-    "importsNotUsedAsValues": "error",
+    "types": [],
+    "typeRoots": ["./src/@types/*"],
     "baseUrl": ".",
     "paths": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@configs/*": [
-        "src/configs/*"
-      ],
-      "@css/*": [
-        "src/css/*"
-      ],
-      "@graphql/*": [
-        "src/graphql/*"
-      ],
-      "@js/*": [
-        "src/js/*"
-      ],
-      "@i18n/*": [
-        "src/i18n/*"
-      ],
-      "@layouts/*": [
-        "src/layouts/*"
-      ],
-      "@tailwind/*": [
-        "src/config/tailwind/*"
-      ],
-      "@types/*": [
-        "src/@types/*"
-      ],
-      "@utils/*": [
-        "src/js/utils/*"
-      ],
-      "@views/*": [
-        "src/views/*"
-      ],
+      "@/components/*": ["src/components/*"],
+      "@/configs/*": ["src/configs/*"],
+      "@/css/*": ["src/css/*"],
+      "@/graphql/*": ["src/graphql/*"],
+      "@/js/*": ["src/js/*"],
+      "@/i18n/*": ["src/i18n/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/tailwind/*": ["src/config/tailwind/*"],
+      "@/types/*": ["src/@/types/*"],
+      "@/utils/*": ["src/js/utils/*"],
+      "@/views/*": ["src/views/*"]
     }
   }
 }

@@ -2,7 +2,7 @@ import { GraphQLClient } from "graphql-request";
 import {
   CRAFT_CMS_GRAPHQL_URL,
   CRAFT_CMS_GRAPHQL_TOKEN,
-} from "@configs/constants";
+} from "@/configs/constants";
 
 interface IPreviewParams {
   token?: string;

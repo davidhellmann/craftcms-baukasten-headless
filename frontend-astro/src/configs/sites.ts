@@ -29,7 +29,7 @@ const SITES: IConfigSites[] = [
     primary: false,
     baseUrl: "https://astro.baukasten.io",
     sections: ["home", "news", "pages"],
-  }
+  },
 ];
 
 export const CONFIG_SITES: IConfigSites[] = SITES;

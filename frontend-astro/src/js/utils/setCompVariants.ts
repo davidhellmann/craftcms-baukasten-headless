@@ -1,6 +1,9 @@
 export const setCompVariants = (
-  variants: { [k: string]: string },
-  props: { [k: string]: string }
+  variants: {
+    [key: string]: {
+      [key: string]: string
+    } },
+  props: { [k: string]: string },
 ) => {
   const finalClassesArray: string[] = [];
 
@@ -12,7 +15,7 @@ export const setCompVariants = (
       if (!finalClassesArray.includes(variantValue)) {
         if ((variant as any).default) {
           finalClassesArray.push(
-            (variant as any)[value] || (variant as any).default
+            (variant as any)[value] || (variant as any).default,
           );
         } else {
           finalClassesArray.push((variant as any)[value]);

@@ -4,6 +4,5 @@ query QueryEntryPreview(
 ) {
   entry(siteId: $siteId, id: $id) {
     ... entryMeta
-    ... entrySEO
   }
 }

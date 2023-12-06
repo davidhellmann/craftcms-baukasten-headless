@@ -1,3 +1,5 @@
 export const TRANSLATIONS: ITranslations = {
-  "global.welcome": "Hallo",
+  global: {
+    welcome: "Hallo",
+  },
 };

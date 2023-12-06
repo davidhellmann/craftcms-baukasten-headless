@@ -1,16 +1,16 @@
 ---
-export const prerender = true;
-import "@css/app.css";
-import GlobalLayout from "@layouts/Global.astro";
-import Layout404 from "@layouts/404.astro";
-import { getEntryData } from "@utils/getEntryData";
+// export const prerender = true;
+import "@/css/app.css";
+import GlobalLayout from "@/layouts/Global.astro";
+import Layout404 from "@/layouts/404.astro";
+import { getEntryData } from "@/utils/getEntryData";
 import { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export async function getStaticPaths() {
-  return await getEntryData("default_de");
+  return await getEntryData("defaultDe");
 }
 
 const { uri } = Astro.params as Params;
@@ -23,14 +23,18 @@ const {
   typeHandle,
   lang,
   url,
-  seo,
 } = Astro.props as Props;
+
+if (!title) {
+  Astro.response.status = 404;
+  Astro.response.statusText = "Not found";
+}
 ---
 
 {
   title ? (
-    <GlobalLayout uri={uri} {...Astro.props} />
-  ) : (
-    <Layout404 siteHandle={"default_de"} />
-  )
-}
+  <GlobalLayout uri={uri} {...Astro.props} />
+    ) : (
+  <Layout404 siteHandle={"defaultDe"} />
+    )
+  }

@@ -1,37 +1,33 @@
-import { defineConfig } from "astro/config";
-
-import vue from "@astrojs/vue";
-
 // https://astro.build/config
-// import tailwind from "@astrojs/tailwind";
-import graphql from "@rollup/plugin-graphql";
+import { defineConfig } from "astro/config";
 import { loadEnv } from "vite";
+import tailwind from "@astrojs/tailwind";
+import graphql from "@rollup/plugin-graphql";
 import node from "@astrojs/node";
+import react from "@astrojs/react";
+
 process.env = {
   ...process.env,
-  ...loadEnv("production", process.cwd())
+  ...loadEnv("production", process.cwd()),
 };
 
-// https://astro.build/config
 export default defineConfig({
   site: process.env.PUBLIC_SITE,
   integrations: [
-    vue(),
-    // tailwind({
-    //   config: {
-    //     applyBaseStyles: false
-    //   }
-    // })
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
   ],
   trailingSlash: "never",
   vite: {
     plugins: [graphql()],
   },
   build: {
-    format: "file"
+    format: "file",
   },
-  output: "server",
+  output: "hybrid",
   adapter: node({
-    mode: "standalone"
-  })
+    mode: "standalone",
+  }),
 });

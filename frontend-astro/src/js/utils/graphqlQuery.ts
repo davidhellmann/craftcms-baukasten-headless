@@ -3,8 +3,8 @@ interface IGraphqlQuery {
   routeQuery: {
     secret?: string;
     token?: string;
-    'x-craft-preview'?: string;
-    'x-craft-live-preview'?: string;
+    "x-craft-preview"?: string;
+    "x-craft-live-preview"?: string;
   };
   variables?: {
     [key: string]: string | string[] | number;
@@ -21,31 +21,32 @@ export const graphqlQuery = (params: IGraphqlQuery) => {
   const {
     secret,
     token,
-    'x-craft-preview': xCraftPreview,
-    'x-craft-live-preview': xCraftLivePreview,
+    "x-craft-preview": xCraftPreview,
+    "x-craft-live-preview": xCraftLivePreview,
   } = params?.routeQuery;
 
-  const apiUrl = secret && token ? `${PUBLIC_API_URL}?token=${token}` : PUBLIC_API_URL;
+  const apiUrl =
+    secret && token ? `${PUBLIC_API_URL}?token=${token}` : PUBLIC_API_URL;
   const customHeaders: ICustomHeaders = {};
 
   // If Live Preview
   if (secret && xCraftLivePreview) {
-    customHeaders['x-craft-live-preview'] = xCraftLivePreview;
+    customHeaders["x-craft-live-preview"] = xCraftLivePreview;
   }
 
   // If Preview
   if (secret && xCraftPreview) {
-    customHeaders['x-craft-preview'] = xCraftPreview;
+    customHeaders["x-craft-preview"] = xCraftPreview;
   }
 
   return fetch(apiUrl, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({
       query: params.query,
       variables: params.variables || null,
     }),
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: PUBLIC_API_TOKEN,
       ...customHeaders,
     },

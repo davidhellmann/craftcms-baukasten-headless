@@ -2,8 +2,8 @@ import {
   QueryEntryPreviewDocument,
   QueryEntryPreviewQuery,
   QueryEntryPreviewQueryVariables,
-} from "@graphql/gql/graphql";
-import { cmsClient } from "@graphql/client/graphql-client";
+} from "@/graphql/gql/graphql";
+import { cmsClient } from "@/graphql/client/graphql-client";
 
 interface IPreviewParams {
   [key: string]: string;
@@ -11,7 +11,7 @@ interface IPreviewParams {
 
 const getEntryPreview = async (
   queryParameter: QueryEntryPreviewQueryVariables,
-  previewParams: IPreviewParams
+  previewParams: IPreviewParams,
 ) => {
   const client = cmsClient(previewParams);
   return await client.request(QueryEntryPreviewDocument, {
@@ -24,7 +24,7 @@ export const getEntryPreviewData = async (
   siteId: number,
   token: string,
   xCraftPreview: string,
-  xCraftLivePreview: string
+  xCraftLivePreview: string,
 ) => {
   const { entry } = (await getEntryPreview(
     {
@@ -35,7 +35,7 @@ export const getEntryPreviewData = async (
       token: token ?? "",
       "x-craft-preview": xCraftPreview ?? "",
       "x-craft-live-preview": xCraftLivePreview ?? "",
-    }
+    },
   )) as QueryEntryPreviewQuery;
 
   return entry;

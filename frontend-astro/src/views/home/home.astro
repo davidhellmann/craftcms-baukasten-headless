@@ -1,0 +1,20 @@
+---
+import {Headline} from "../../components/Text/Headline";
+
+const {
+  siteHandle,
+  sectionHandle,
+  typeHandle,
+  uri,
+  id,
+  siteId,
+  title,
+  token,
+  xCraftPreview,
+  xCraftLivePreview,
+} = Astro.props;
+---
+
+<Headline
+  text={`${sectionHandle} / ${typeHandle} / ${uri}`}
+/>

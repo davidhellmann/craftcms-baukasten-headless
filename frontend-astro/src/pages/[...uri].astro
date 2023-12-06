@@ -1,9 +1,9 @@
 ---
-export const prerender = true;
-import "@css/app.css";
-import GlobalLayout from "@layouts/Global.astro";
-import Layout404 from "@layouts/404.astro";
-import { getEntryData } from "@utils/getEntryData";
+// export const prerender = true;
+import "@/css/app.css";
+import GlobalLayout from "@/layouts/Global.astro";
+import Layout404 from "@/layouts/404.astro";
+import { getEntryData } from "@/utils/getEntryData";
 import { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 
 type Params = InferGetStaticParamsType<typeof getStaticPaths>;
@@ -23,10 +23,7 @@ const {
   typeHandle,
   lang,
   url,
-  seo,
 } = Astro.props as Props;
-
-console.log(uri)
 
 if (!title) {
   Astro.response.status = 404;

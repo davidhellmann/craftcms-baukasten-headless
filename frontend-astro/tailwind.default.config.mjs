@@ -8,20 +8,19 @@
 import containerQuerries from "@tailwindcss/container-queries";
 import themeIt from "tailwindcss-theme-it";
 import fluidType from "tailwindcss-fluid-type";
-import components from "./src/configs/tailwind/tailwind.plugins.addComponents";
+import components from "./src/configs/tailwind/tailwind.plugins.addComponents.mjs";
 
 // Settings
-import settingsGrid from "./src/configs/tailwind/tailwind.settings.grid.js";
-import settingsfluidType from "./src/configs/tailwind/tailwind.settings.fluidType.js";
-import settingsThemeIt from "./src/configs/tailwind/tailwind.settings.themeIt.js";
+import settingsGrid from "./src/configs/tailwind/tailwind.settings.grid.mjs";
+import settingsfluidType from "./src/configs/tailwind/tailwind.settings.fluidType.mjs";
+import settingsThemeIt from "./src/configs/tailwind/tailwind.settings.themeIt.mjs";
 
 export default {
   content: [
-    "./src/pages/perform/*.{astro,vue}",
-    "./src/pages/preview_perform.astro",
-    "./src/layouts/perform/*.{astro,vue}",
-    "./src/views/perform/**/*.{astro,vue}",
-    "./src/components/perform/**/*.{astro,vue}",
+    "./src/pages/*.{astro,tsx,jsx}",
+    "./src/layouts/*.{astro,tsx,jsx}",
+    "./src/views/**/*.{astro,tsx,jsx}",
+    "./src/components/**/*.{astro,tsx,jsx}",
   ],
   safelist: [],
   darkMode: "class", // or 'media' or 'class'
@@ -36,7 +35,7 @@ export default {
       md: "768px",
       lg: "1024px",
       xl: "1280px",
-      "2xl": "1536px",
+      "2xl": "1600px",
       nthover: { raw: "(hover: hover)" },
     },
     extend: {
@@ -71,7 +70,6 @@ export default {
     fluidType({
       ...settingsfluidType,
     }),
-    debugScreens,
     ({ addComponents }) => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       addComponents(components);

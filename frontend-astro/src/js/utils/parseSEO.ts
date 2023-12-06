@@ -43,7 +43,7 @@ export const parseSEO = (seo: IParseSEO): ISEO => {
       ...acc,
       [key]: JSON.parse(value as string),
     }),
-    {} as TSEO
+    {} as TSEO,
   );
 
   const {

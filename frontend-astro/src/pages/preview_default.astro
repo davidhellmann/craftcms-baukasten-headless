@@ -1,9 +1,10 @@
 ---
-import "@css/amplify/app.css";
-import PreviewLayout from "@layouts/Preview.astro";
-import Layout404 from "@layouts/404.astro";
-import { parseSEO } from "@utils/parseSEO";
-import { getEntryPreviewData } from "@utils/getEntryPreviewData";
+export const prerender = false;
+import "@/css/app.css";
+import PreviewLayout from "@/layouts/Preview.astro";
+import Layout404 from "@/layouts/404.astro";
+import { parseSEO } from "@/utils/parseSEO";
+import { getEntryPreviewData } from "@/utils/getEntryPreviewData";
 
 const { searchParams } = Astro.url;
 const routeQuery = Object.fromEntries(searchParams);
@@ -32,21 +33,20 @@ if (!entry) {
 
 {
   entry ? (
-    <PreviewLayout
-      title={entry?.title}
-      uri={entry?.uri}
-      seo={parseSEO(entry?.seo)}
-      lang={entry?.language}
-      siteHandle={entry?.siteHandle}
-      typeHandle={entry?.typeHandle}
-      sectionHandle={entry?.sectionHandle}
-      id={entry?.canonicalId}
-      siteId={entry?.siteId}
-      token={token}
-      xCraftPreview={xCraftPreview}
-      xCraftLivePreview={xCraftLivePreview}
-    />
-  ) : (
-    <Layout404 siteHandle={"default"} />
-  )
-}
+  <PreviewLayout
+    title={entry?.title}
+    uri={entry?.uri}
+    seo={parseSEO(entry?.seo)}
+    lang={entry?.language}
+    siteHandle={entry?.siteHandle}
+    typeHandle={entry?.typeHandle}
+    sectionHandle={entry?.sectionHandle}
+    id={entry?.canonicalId}
+    token={token}
+    xCraftPreview={xCraftPreview}
+    xCraftLivePreview={xCraftLivePreview}
+  />
+    ) : (
+  <Layout404 siteHandle={"marketing_en"} />
+    )
+  }

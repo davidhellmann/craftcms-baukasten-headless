@@ -1,4 +1,4 @@
-dateModified: 1701893511
+dateModified: 1702031925
 elementSources:
   craft\elements\Asset:
     -
@@ -148,6 +148,7 @@ meta:
     3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: Autoplay # Autoplay
     4a25e574-679a-4d01-8e8b-d5927129ce33: Loop # Loop
     5c9f2ce6-f780-4ea6-a50c-539a252aec94: 'Image Grid' # Image Grid
+    5c2979bd-44d4-4997-b4af-132d1fbfc0f9: Simple # Simple
     6a90dae3-938c-47e6-8e36-6b1d6be92d63: 'Show Image Caption' # Show Image Caption
     6b6fa06a-49a5-4d76-86c2-73025061e123: 'Image Columns' # Image Columns
     6c5fc0dd-cf56-48d8-8af8-88abe763b970: Files # Files
@@ -233,6 +234,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
   cp-clearcache:
     edition: standard
     enabled: true
@@ -404,10 +409,6 @@ plugins:
     enabled: true
     licenseKey: $PLUGIN_NAVIGATION
     schemaVersion: 2.0.7
-  redactor:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.3.0
   seomatic:
     edition: standard
     enabled: true

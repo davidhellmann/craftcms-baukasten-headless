@@ -1,12 +1,8 @@
-headingLevels:
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-listPlugin: List
-name: Simple
+css: '@import ''/ckeditor/simple/styles.css'';'
+headingLevels: false
+js: "return {\r\n  style: {\r\n    definitions: [\r\n      { name: 'Mark (red) <mark>', element: 'mark', classes: ['red'] },\r\n      { name: 'Mark (green) <mark>', element: 'mark', classes: ['green'] },\r\n      { name: 'Mark (yellow) <mark>', element: 'mark', classes: ['yellow'] },\r\n      { name: 'Keyboard Shortcut <kbd>', element: 'kbd', classes: ['light'] },\r\n      { name: 'Keyboard Shortcut (dark) <kbd>', element: 'kbd', classes: ['dark'] },\r\n    ],\r\n  }\r\n};"
+listPlugin: DocumentList
+name: 'Rich Text Simple'
 toolbar:
   - heading
   - '|'

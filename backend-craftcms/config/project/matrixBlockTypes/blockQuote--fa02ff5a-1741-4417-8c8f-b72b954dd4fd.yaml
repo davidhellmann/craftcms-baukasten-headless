@@ -75,7 +75,7 @@ fields:
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
-    translationMethod: none
+    translationMethod: site
     type: craft\fields\PlainText
   75b6f580-613f-42ae-aa23-2d5fb22ff3da: # Source Subline
     columnSuffix: null
@@ -95,7 +95,7 @@ fields:
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
-    translationMethod: none
+    translationMethod: site
     type: craft\fields\PlainText
   c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: # Source
     columnSuffix: null
@@ -115,7 +115,7 @@ fields:
       placeholder: null
       uiMode: normal
     translationKeyFormat: null
-    translationMethod: none
+    translationMethod: site
     type: craft\fields\PlainText
   e11e03f7-19c1-45c3-935e-1994a7ce7d26: # Source Url
     columnSuffix: null

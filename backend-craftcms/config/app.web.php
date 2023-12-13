@@ -17,8 +17,7 @@
 
 use craft\helpers\App;
 
-return [
-    'components' => [
+$redisSession = [
         'session' => static function () {
             // Get the default component config
             $config = App::sessionConfig();
@@ -33,5 +32,11 @@ return [
             // Instantiate and return it
             return Craft::createObject($config);
         },
-    ],
+];
+
+$redisIsUsed = App::env('REDIS_HOSTNAME') && App::env('REDIS_PORT');
+
+return [
+    'components' => [
+    ] + ($redisIsUsed ? $redisSession : []),
 ];

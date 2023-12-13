@@ -17,7 +17,7 @@ $groupTextMedia = [
 
 $groupMedia = [
     'label' => 'Media',
-    'types' => ['blockImage', 'blockImageGrid', 'blockImageGridCalculated', 'blockImageGallery', 'blockImageSlider', 'blockVideoYoutube'],
+    'types' => ['blockImage', 'blockImages', 'blockVideoYoutube'],
 ];
 
 $groupMisc = [
@@ -29,12 +29,8 @@ $blockTabSettings = [
     'blockSection' => [
         'tabs' => [
             [
-                'label' => 'Background',
-                'fields' => ['sectionBackgroundColor'],
-            ],
-            [
                 'label' => 'Settings',
-                'fields' => ['spaceBetweenBlocks', 'sectionPaddingVertical'],
+                'fields' => ['sectionBackgroundColor', 'spaceBetweenBlocks', 'sectionPaddingVertical'],
             ]
         ]
     ],
@@ -42,11 +38,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['quote'],
-            ],
-            [
-                'label' => 'Quote Details',
-                'fields' => ['source', 'sourceSubline', 'sourceUrl'],
+                'fields' => ['quote', 'source', 'sourceSubline', 'sourceUrl'],
             ]
         ]
     ],
@@ -54,63 +46,23 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['image'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform', 'showImageCaption', 'imageWidth'],
+                'fields' => ['image', 'imageRatio', 'showImageCaption', 'imageWidth'],
             ]
         ]
     ],
-    'blockImageGrid' => [
+    'blockImages' => [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['images'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform', 'imageColumns', 'showImageCaption'],
-            ]
-        ]
-    ],
-    'blockImageGridCalculated' => [
-        'tabs' => [
-            [
-                'label' => 'Content',
-                'fields' => ['images'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['showImageCaption'],
-            ]
-        ]
-    ],
-    'blockImageSlider' => [
-        'tabs' => [
-            [
-                'label' => 'Content',
-                'fields' => ['images'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform'],
+                'fields' => ['images', 'imageRatio', 'showImageCaption', 'variant'],
             ]
         ]
     ],
     'blockTextFloatingImage' => [
         'tabs' => [
             [
-                'label' => 'Text',
-                'fields' => ['text'],
-            ],
-            [
-                'label' => 'Image',
-                'fields' => ['image'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['imageTransform', 'showImageCaption', 'imagePosition'],
+                'label' => 'Text : Image',
+                'fields' => ['text', 'image', 'imageRatio', 'showImageCaption', 'imagePosition'],
             ]
         ]
     ],
@@ -118,11 +70,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['videoId'],
-            ],
-            [
-                'label' => 'Settings',
-                'fields' => ['autoplay', 'loop', 'videoWidth'],
+                'fields' => ['videoId','autoplay', 'loop', 'videoWidth'],
             ]
         ]
     ],
@@ -130,10 +78,7 @@ $blockTabSettings = [
         'tabs' => [
             [
                 'label' => 'Content',
-                'fields' => ['snippetName', 'snippet'],
-            ], [
-                'label' => 'Settings',
-                'fields' => ['snippetLanguage', 'snippetCollapsed'],
+                'fields' => ['snippetName', 'snippet', 'snippetCollapsed'],
             ]
         ]
     ]

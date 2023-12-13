@@ -29,7 +29,19 @@ fieldLayouts:
             uid: 5564ba9c-342c-4e49-9683-d969feeeb42a
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 55a8f195-17f6-41b9-983f-06bb0d4b973e # Text: Title Overwrite
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 94114dda-d0c2-4e16-8210-457baccdd17a
+            userCondition: null
+            warning: null
+            width: 50
           -
             attribute: alt
             class: null
@@ -55,19 +67,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Asset: Title
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d0bd6183-760a-4b3a-a0dc-890d9372af0c
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Asset: Caption
+            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Text: Caption
             instructions: null
             label: null
             required: false
@@ -79,28 +79,28 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 419ebfbb-8723-48db-ae89-10adf52cdf11 # Asset: Source
+            fieldUid: 86a0304b-60f0-4f7a-9b45-de3c05eec04b # Text: Source
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 8a8109f1-1145-4234-bf4d-4506458a7b50
+            uid: 6916b715-9612-4744-bc4b-ccc42ac3c627
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            fieldUid: 8780cb03-c9ea-4482-ab85-3e541453b50f # Asset: Source Url
+            fieldUid: bc1e40b3-bac6-4bad-b516-29bdf719f8a3 # Text: Source Url
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: dfa095c2-b25d-4775-b3c6-cd2b72777b21
+            uid: 21480a14-55f2-43bd-b467-bc6e2c1e343d
             userCondition: null
             warning: null
-            width: 100
+            width: 50
         name: Content
         uid: a335ade1-e2fd-4066-8c0c-764bb223afa4
         userCondition: null

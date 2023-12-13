@@ -1,0 +1,19 @@
+columnSuffix: tfqyxyzy
+contentColumnType: string(560)
+fieldGroup: 0a568f7c-6f94-4167-b21f-a50a4292ea1d # Text
+handle: textDescription
+instructions: null
+name: 'Text: Description'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: 140
+  code: false
+  columnType: null
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\PlainText

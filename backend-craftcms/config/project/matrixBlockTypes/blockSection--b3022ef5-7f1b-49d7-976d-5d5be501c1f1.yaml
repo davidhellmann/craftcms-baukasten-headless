@@ -54,6 +54,7 @@ fields:
     name: 'Section Background Color'
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:
@@ -100,6 +101,7 @@ fields:
     name: 'Space Between Blocks'
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:
@@ -179,6 +181,7 @@ fields:
     name: 'Section Padding Vertical'
     searchable: false
     settings:
+      columnType: string
       options:
         -
           __assoc__:

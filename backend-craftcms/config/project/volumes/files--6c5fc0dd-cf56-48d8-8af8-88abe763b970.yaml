@@ -29,22 +29,22 @@ fieldLayouts:
             uid: a638da57-27af-4485-ae76-ba87b3eeea1f
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Asset: Title
+            fieldUid: 55a8f195-17f6-41b9-983f-06bb0d4b973e # Text: Title Overwrite
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b4d2577f-6732-42fd-ac37-ac7b1c8dd18a
+            uid: c940efd1-6f32-429c-9afd-4b517b021aef
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Asset: Caption
+            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Text: Caption
             instructions: null
             label: null
             required: false
@@ -63,5 +63,5 @@ name: Files
 sortOrder: 1
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
-transformFs: null
+transformFs: ''
 transformSubpath: ''

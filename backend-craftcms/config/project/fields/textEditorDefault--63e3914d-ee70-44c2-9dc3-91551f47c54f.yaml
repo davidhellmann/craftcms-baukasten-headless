@@ -1,0 +1,23 @@
+columnSuffix: qhlkmili
+contentColumnType: text
+fieldGroup: 0a568f7c-6f94-4167-b21f-a50a4292ea1d # Text
+handle: textEditorDefault
+instructions: null
+name: 'Text: Editor Default'
+searchable: true
+settings:
+  availableTransforms: ''
+  availableVolumes: ''
+  ckeConfig: 9576c20c-3c74-4f97-a5a6-683f176df53e # Rich Text Default
+  columnType: text
+  defaultTransform: null
+  enableSourceEditingForNonAdmins: false
+  purifierConfig: null
+  purifyHtml: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  showWordCount: true
+  wordLimit: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\ckeditor\Field

@@ -1,99 +1,99 @@
 field: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
 fieldLayouts:
-  58ddc97d-9694-4104-a136-b6344987e1b6:
+  7b6ace88-ae82-4caf-afe4-1650ce6e7ce3:
     tabs:
       -
         elementCondition: null
         elements:
           -
             elementCondition: null
-            fieldUid: 35b67fb3-4bdb-470f-a686-3d46c5cd5f96 # Image
+            fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Text
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 0cd02812-349c-46d5-a4b7-57700a221566
+            uid: 51b01a52-b32f-4ffa-910d-ef9fe863f1ef
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Show Image Caption
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 089ab2ac-9335-40c2-9827-f4dd1baca5dc
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Ratio
+            fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Image
             instructions: null
             label: null
             required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: b0fb63ad-8f84-4caf-a7b6-c0e44deeae12
+            uid: ab6dd79a-0d9c-4799-860a-01a7c242ba68
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Image Transform
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 04337482-6861-47b4-8a21-cd4447d746ab
             userCondition: null
             warning: null
             width: 50
           -
             elementCondition: null
-            fieldUid: 1be86da8-5273-40c6-ba88-718f5c32a6c3 # Image Width
+            fieldUid: 6a90dae3-938c-47e6-8e36-6b1d6be92d63 # Show Image Caption
             instructions: null
             label: null
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 744a7c6f-6d25-4c12-8d70-9a8752b5f5f6
+            uid: 50f248bd-1435-4f9e-8225-ce71ceadbd90
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Image Position
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ce2335a-ddf7-4a2f-a788-0c629ecec74b
             userCondition: null
             warning: null
             width: 50
         name: Content
-        uid: 5e8a312e-45d0-491c-924d-84d96af3b270
+        uid: a7ac4d85-057b-421c-a16b-b382da491a30
         userCondition: null
 fields:
-  1be86da8-5273-40c6-ba88-718f5c32a6c3: # Image Width
+  0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: # Text
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: text
     fieldGroup: null
-    handle: imageWidth
+    handle: text
     instructions: null
-    name: 'Image Width'
-    searchable: false
+    name: Text
+    searchable: true
     settings:
-      columnType: string
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Wide
-            -
-              - value
-              - wide
-            -
-              - default
-              - '1'
-        -
-          __assoc__:
-            -
-              - label
-              - Narrow
-            -
-              - value
-              - narrow
-            -
-              - default
-              - ''
+      availableTransforms: ''
+      availableVolumes: ''
+      ckeConfig: 9576c20c-3c74-4f97-a5a6-683f176df53e # Rich Text Default
+      columnType: text
+      defaultTransform: null
+      enableSourceEditingForNonAdmins: false
+      purifierConfig: null
+      purifyHtml: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: true
+      wordLimit: null
     translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
-  9b73b533-898f-4f77-a500-37ea0be0afc7: # Show Image Caption
+    translationMethod: site
+    type: craft\ckeditor\Field
+  6a90dae3-938c-47e6-8e36-6b1d6be92d63: # Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
@@ -108,7 +108,80 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  35b67fb3-4bdb-470f-a686-3d46c5cd5f96: # Image
+  98f7a455-6764-4b7d-8d19-405bdcc42228: # Image Transform
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageTransform
+    instructions: null
+    name: 'Image Transform'
+    searchable: false
+    settings:
+      columnType: string
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Landscape
+            -
+              - value
+              - aspect-landscape
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Square
+            -
+              - value
+              - aspect-square
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Portrait
+            -
+              - value
+              - aspect-portrait
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Auto
+            -
+              - value
+              - aspect-auto
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: # Image Position
+    columnSuffix: null
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: imagePosition
+    instructions: null
+    name: 'Image Position'
+    searchable: false
+    settings:
+      default: false
+      offLabel: Left
+      onLabel: Right
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  b81cb731-dd6f-4055-9c6d-2f076a727a27: # Image
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -158,64 +231,6 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  70bc887b-faf2-45c7-b4bc-4299acd343da: # Image Ratio
-    columnSuffix: null
-    contentColumnType: string
-    fieldGroup: null
-    handle: imageRatio
-    instructions: null
-    name: 'Image Ratio'
-    searchable: false
-    settings:
-      columnType: string
-      options:
-        -
-          __assoc__:
-            -
-              - label
-              - Landscape
-            -
-              - value
-              - aspect-landscape
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Square
-            -
-              - value
-              - aspect-square
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Portrait
-            -
-              - value
-              - aspect-portrait
-            -
-              - default
-              - ''
-        -
-          __assoc__:
-            -
-              - label
-              - Auto
-            -
-              - value
-              - aspect-auto
-            -
-              - default
-              - '1'
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\Dropdown
-handle: blockImage
-name: Image
-sortOrder: 5
+handle: blockTextImage
+name: 'Text : Image'
+sortOrder: 3

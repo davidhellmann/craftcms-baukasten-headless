@@ -30,25 +30,21 @@ fields:
     name: Text
     searchable: true
     settings:
-      availableTransforms: '*'
-      availableVolumes: '*'
+      availableTransforms: ''
+      availableVolumes: ''
+      ckeConfig: 9576c20c-3c74-4f97-a5a6-683f176df53e # Rich Text Default
       columnType: text
-      configSelectionMode: choose
-      defaultTransform: ''
-      manualConfig: ''
+      defaultTransform: null
+      enableSourceEditingForNonAdmins: false
       purifierConfig: null
       purifyHtml: true
-      redactorConfig: Advanced.json
-      removeEmptyTags: true
-      removeInlineStyles: true
-      removeNbsp: true
-      showHtmlButtonForNonAdmins: true
-      showUnpermittedFiles: true
-      showUnpermittedVolumes: true
-      uiMode: enlarged
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      showWordCount: true
+      wordLimit: null
     translationKeyFormat: null
-    translationMethod: none
-    type: craft\redactor\Field
+    translationMethod: site
+    type: craft\ckeditor\Field
 handle: blockText
 name: Text
 sortOrder: 2

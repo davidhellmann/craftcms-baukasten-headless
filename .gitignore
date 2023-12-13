@@ -30,6 +30,7 @@
 /backend-craftcms/web/cpresources/*
 /backend-craftcms/web/dist/*
 /backend-craftcms/web/cache/*
+/backend-craftcms/web/social-share-images/*
 
 # TAILWIND
 /_tailwind/*

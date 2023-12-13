@@ -18,30 +18,9 @@
  */
 
 use craft\helpers\App;
+use modules\socialshareimage\Module;
 
-return [
-    '*' => [
-        'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
-        'modules' => [
-            'site-module' => [
-                'class' => \modules\sitemodule\SiteModule::class,
-            ],
-        ],
-        'bootstrap' => ['site-module'],
-        'components' => [
-            'db' => function () {
-                $config = craft\helpers\App::dbConfig();
-                $config['enableSchemaCache'] = true;
-                $config['schemaCacheDuration'] = 60 * 60 * 24; // 1 day
-                return Craft::createObject($config);
-            },
-            'deprecator' => [
-                'throwExceptions' => App::env('HARD_MODE') ?: false,
-            ],
-            'queue' => [
-                'class' => craft\queue\Queue::class,
-                'ttr' => 10 * 60,
-            ],
+$redisConfig = [
             'redis' => [
                 'class' => yii\redis\Connection::class,
                 'hostname' => App::env('REDIS_HOSTNAME'),
@@ -73,9 +52,39 @@ return [
                 // Return the initialized component:
                 return Craft::createObject($config);
             },
+];
+
+$redisIsUsed = App::env('REDIS_HOSTNAME') && App::env('REDIS_PORT');
+
+
+return [
+    '*' => [
+        'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
+        'modules' => [
+            'social-share-image' => [
+                'class' => \modules\socialshareimage\Module::class,
         ],
+    ],
+        'bootstrap' => ['social-share-image'],
+        'components' => [
+            'db' => static function () {
+                $config = craft\helpers\App::dbConfig();
+                $config['enableSchemaCache'] = true;
+                $config['schemaCacheDuration'] = 60 * 60 * 24; // 1 day
+                return Craft::createObject($config);
+            },
+            'deprecator' => [
+                'throwExceptions' => App::env('HARD_MODE') ?: false,
+            ],
+            'queue' => [
+                'class' => craft\queue\Queue::class,
+                'ttr' => 10 * 60,
+            ],
+        ] + ($redisIsUsed ? $redisConfig : []),
     ],
     'production' => [],
     'staging' => [],
     'dev' => [],
+    'modules' => ['social-share-image' => Module::class],
+    'bootstrap' => ['social-share-image'],
 ];

@@ -35,14 +35,6 @@ export type Scalars = {
 export type AssetCriteriaInput = {
   /** Narrows the query results to only elements that have been archived. */
   archived: InputMaybe<Scalars["Boolean"]["input"]>;
-  assetCaption: InputMaybe<
-    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
-  >;
-  assetSource: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
-  assetSourceUrl: InputMaybe<
-    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
-  >;
-  assetTitle: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
   /** Narrows the query results based on the elements’ creation dates. */
   dateCreated: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Narrows the query results based on the assets’ files’ last-modified dates. */
@@ -109,6 +101,14 @@ export type AssetCriteriaInput = {
   slug: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Narrows the query results based on the elements’ statuses. */
   status: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  textCaption: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
+  textSource: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
+  textSourceUrl: InputMaybe<
+    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
+  >;
+  textTitleOverwrite: InputMaybe<
+    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
+  >;
   /** Narrows the query results based on the elements’ titles. */
   title: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Narrows the query results to only elements that have been soft-deleted. */
@@ -237,6 +237,9 @@ export type EntryCriteriaInput = {
   ancestorOf: InputMaybe<Scalars["Int"]["input"]>;
   /** Narrows the query results to only elements that have been archived. */
   archived: InputMaybe<Scalars["Boolean"]["input"]>;
+  assetEntryImage: InputMaybe<
+    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
+  >;
   /** Narrows the query results based on the user group the entries’ authors belong to. */
   authorGroup: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Narrows the query results based on the user group the entries’ authors belong to, per the groups’ IDs. */
@@ -265,14 +268,6 @@ export type EntryCriteriaInput = {
   drafts: InputMaybe<Scalars["Boolean"]["input"]>;
   /** Whether to only return entries that the user has permission to edit. */
   editable: InputMaybe<Scalars["Boolean"]["input"]>;
-  entryCustomTitle: InputMaybe<
-    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
-  >;
-  entryImage: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
-  entrySeo: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
-  entryShortDescription: InputMaybe<
-    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
-  >;
   /** Narrows the query results based on the entries’ expiry dates. */
   expiryDate: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Causes the query results to be returned in the order specified by the `id` argument. */
@@ -339,6 +334,7 @@ export type EntryCriteriaInput = {
   section: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Narrows the query results based on the sections the entries belong to, per the sections’ IDs. */
   sectionId: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
+  seoSEOmatic: InputMaybe<Array<InputMaybe<Scalars["QueryArgument"]["input"]>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
   site: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Determines which site(s) the elements should be queried in. Defaults to the current (requested) site. */
@@ -353,6 +349,12 @@ export type EntryCriteriaInput = {
   status: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Determines which structure data should be joined into the query. */
   structureId: InputMaybe<Scalars["Int"]["input"]>;
+  textDescription: InputMaybe<
+    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
+  >;
+  textTitleOverwrite: InputMaybe<
+    Array<InputMaybe<Scalars["QueryArgument"]["input"]>>
+  >;
   /** Narrows the query results based on the elements’ titles. */
   title: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
   /** Narrows the query results to only elements that have been soft-deleted. */
@@ -579,10 +581,10 @@ export type GetAssetsByFilenameQuery = {
         alt: string;
         filename: string;
         focalPoint: Array<number>;
-        assetTitle: string;
-        assetCaption: string;
-        assetSource: string;
-        assetSourceUrl: string;
+        textTitleOverwrite: string;
+        textCaption: string;
+        textSource: string;
+        textSourceUrl: string;
         base64BlurHash: string;
         srcsetLegacy: string;
         srcset: string;
@@ -756,8 +758,8 @@ export type GetHomeEntryQuery = {
         typeHandle: string;
         siteHandle: string;
         siteId: number;
-        entryCustomTitle: string;
-        entryShortDescription: string;
+        textTitleOverwrite: string;
+        textDescription: string;
         postDateShort: any;
         postDateMedium: any;
         postDateLong: any;
@@ -768,7 +770,7 @@ export type GetHomeEntryQuery = {
         postUpdateDateMedium: any;
         postUpdateDateLong: any;
         timezone: any;
-        entryImage: Array<
+        assetEntryImage: Array<
           | {
               id: string;
               url: string;
@@ -791,10 +793,10 @@ export type GetHomeEntryQuery = {
               alt: string;
               filename: string;
               focalPoint: Array<number>;
-              assetTitle: string;
-              assetCaption: string;
-              assetSource: string;
-              assetSourceUrl: string;
+              textTitleOverwrite: string;
+              textCaption: string;
+              textSource: string;
+              textSourceUrl: string;
               base64BlurHash: string;
               srcsetLegacy: string;
               srcset: string;
@@ -1067,10 +1069,10 @@ export type Asset_TransformsFragment =
 type Asset_Custom_Fields_Files_Asset_Fragment = {};
 
 type Asset_Custom_Fields_Images_Asset_Fragment = {
-  assetTitle: string;
-  assetCaption: string;
-  assetSource: string;
-  assetSourceUrl: string;
+  textTitleOverwrite: string;
+  textCaption: string;
+  textSource: string;
+  textSourceUrl: string;
 };
 
 type Asset_Custom_Fields_TemplateImages_Asset_Fragment = {};
@@ -1113,7 +1115,7 @@ type Entry_Data_Home_Home_Entry_Fragment = {
   siteId: number;
 };
 
-type Entry_Data_News_ContentBuilder_Entry_Fragment = {
+type Entry_Data_News_NewsDefault_Entry_Fragment = {
   id: string;
   uid: string;
   title: string;
@@ -1128,7 +1130,7 @@ type Entry_Data_News_ContentBuilder_Entry_Fragment = {
   siteId: number;
 };
 
-type Entry_Data_Pages_ContentBuilder_Entry_Fragment = {
+type Entry_Data_Pages_PageContentBuilder_Entry_Fragment = {
   id: string;
   uid: string;
   title: string;
@@ -1143,7 +1145,7 @@ type Entry_Data_Pages_ContentBuilder_Entry_Fragment = {
   siteId: number;
 };
 
-type Entry_Data_Pages_OverviewNews_Entry_Fragment = {
+type Entry_Data_Pages_PageNews_Entry_Fragment = {
   id: string;
   uid: string;
   title: string;
@@ -1161,9 +1163,9 @@ type Entry_Data_Pages_OverviewNews_Entry_Fragment = {
 export type Entry_DataFragment =
   | Entry_Data_ErrorPages_Error_Entry_Fragment
   | Entry_Data_Home_Home_Entry_Fragment
-  | Entry_Data_News_ContentBuilder_Entry_Fragment
-  | Entry_Data_Pages_ContentBuilder_Entry_Fragment
-  | Entry_Data_Pages_OverviewNews_Entry_Fragment;
+  | Entry_Data_News_NewsDefault_Entry_Fragment
+  | Entry_Data_Pages_PageContentBuilder_Entry_Fragment
+  | Entry_Data_Pages_PageNews_Entry_Fragment;
 
 type Entry_Dates_Posted_ErrorPages_Error_Entry_Fragment = {
   postDateShort: any;
@@ -1177,19 +1179,19 @@ type Entry_Dates_Posted_Home_Home_Entry_Fragment = {
   postDateLong: any;
 };
 
-type Entry_Dates_Posted_News_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Posted_News_NewsDefault_Entry_Fragment = {
   postDateShort: any;
   postDateMedium: any;
   postDateLong: any;
 };
 
-type Entry_Dates_Posted_Pages_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Posted_Pages_PageContentBuilder_Entry_Fragment = {
   postDateShort: any;
   postDateMedium: any;
   postDateLong: any;
 };
 
-type Entry_Dates_Posted_Pages_OverviewNews_Entry_Fragment = {
+type Entry_Dates_Posted_Pages_PageNews_Entry_Fragment = {
   postDateShort: any;
   postDateMedium: any;
   postDateLong: any;
@@ -1198,9 +1200,9 @@ type Entry_Dates_Posted_Pages_OverviewNews_Entry_Fragment = {
 export type Entry_Dates_PostedFragment =
   | Entry_Dates_Posted_ErrorPages_Error_Entry_Fragment
   | Entry_Dates_Posted_Home_Home_Entry_Fragment
-  | Entry_Dates_Posted_News_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Posted_Pages_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Posted_Pages_OverviewNews_Entry_Fragment;
+  | Entry_Dates_Posted_News_NewsDefault_Entry_Fragment
+  | Entry_Dates_Posted_Pages_PageContentBuilder_Entry_Fragment
+  | Entry_Dates_Posted_Pages_PageNews_Entry_Fragment;
 
 type Entry_Dates_Expired_ErrorPages_Error_Entry_Fragment = {
   expireDateShort: any;
@@ -1214,19 +1216,19 @@ type Entry_Dates_Expired_Home_Home_Entry_Fragment = {
   expireDateLong: any;
 };
 
-type Entry_Dates_Expired_News_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Expired_News_NewsDefault_Entry_Fragment = {
   expireDateShort: any;
   expireDateMedium: any;
   expireDateLong: any;
 };
 
-type Entry_Dates_Expired_Pages_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Expired_Pages_PageContentBuilder_Entry_Fragment = {
   expireDateShort: any;
   expireDateMedium: any;
   expireDateLong: any;
 };
 
-type Entry_Dates_Expired_Pages_OverviewNews_Entry_Fragment = {
+type Entry_Dates_Expired_Pages_PageNews_Entry_Fragment = {
   expireDateShort: any;
   expireDateMedium: any;
   expireDateLong: any;
@@ -1235,9 +1237,9 @@ type Entry_Dates_Expired_Pages_OverviewNews_Entry_Fragment = {
 export type Entry_Dates_ExpiredFragment =
   | Entry_Dates_Expired_ErrorPages_Error_Entry_Fragment
   | Entry_Dates_Expired_Home_Home_Entry_Fragment
-  | Entry_Dates_Expired_News_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Expired_Pages_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Expired_Pages_OverviewNews_Entry_Fragment;
+  | Entry_Dates_Expired_News_NewsDefault_Entry_Fragment
+  | Entry_Dates_Expired_Pages_PageContentBuilder_Entry_Fragment
+  | Entry_Dates_Expired_Pages_PageNews_Entry_Fragment;
 
 type Entry_Dates_Updated_ErrorPages_Error_Entry_Fragment = {
   postUpdateDateShort: any;
@@ -1251,19 +1253,19 @@ type Entry_Dates_Updated_Home_Home_Entry_Fragment = {
   postUpdateDateLong: any;
 };
 
-type Entry_Dates_Updated_News_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Updated_News_NewsDefault_Entry_Fragment = {
   postUpdateDateShort: any;
   postUpdateDateMedium: any;
   postUpdateDateLong: any;
 };
 
-type Entry_Dates_Updated_Pages_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Updated_Pages_PageContentBuilder_Entry_Fragment = {
   postUpdateDateShort: any;
   postUpdateDateMedium: any;
   postUpdateDateLong: any;
 };
 
-type Entry_Dates_Updated_Pages_OverviewNews_Entry_Fragment = {
+type Entry_Dates_Updated_Pages_PageNews_Entry_Fragment = {
   postUpdateDateShort: any;
   postUpdateDateMedium: any;
   postUpdateDateLong: any;
@@ -1272,35 +1274,33 @@ type Entry_Dates_Updated_Pages_OverviewNews_Entry_Fragment = {
 export type Entry_Dates_UpdatedFragment =
   | Entry_Dates_Updated_ErrorPages_Error_Entry_Fragment
   | Entry_Dates_Updated_Home_Home_Entry_Fragment
-  | Entry_Dates_Updated_News_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Updated_Pages_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Updated_Pages_OverviewNews_Entry_Fragment;
+  | Entry_Dates_Updated_News_NewsDefault_Entry_Fragment
+  | Entry_Dates_Updated_Pages_PageContentBuilder_Entry_Fragment
+  | Entry_Dates_Updated_Pages_PageNews_Entry_Fragment;
 
 type Entry_Dates_Timezone_ErrorPages_Error_Entry_Fragment = { timezone: any };
 
 type Entry_Dates_Timezone_Home_Home_Entry_Fragment = { timezone: any };
 
-type Entry_Dates_Timezone_News_ContentBuilder_Entry_Fragment = {
+type Entry_Dates_Timezone_News_NewsDefault_Entry_Fragment = { timezone: any };
+
+type Entry_Dates_Timezone_Pages_PageContentBuilder_Entry_Fragment = {
   timezone: any;
 };
 
-type Entry_Dates_Timezone_Pages_ContentBuilder_Entry_Fragment = {
-  timezone: any;
-};
-
-type Entry_Dates_Timezone_Pages_OverviewNews_Entry_Fragment = { timezone: any };
+type Entry_Dates_Timezone_Pages_PageNews_Entry_Fragment = { timezone: any };
 
 export type Entry_Dates_TimezoneFragment =
   | Entry_Dates_Timezone_ErrorPages_Error_Entry_Fragment
   | Entry_Dates_Timezone_Home_Home_Entry_Fragment
-  | Entry_Dates_Timezone_News_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Timezone_Pages_ContentBuilder_Entry_Fragment
-  | Entry_Dates_Timezone_Pages_OverviewNews_Entry_Fragment;
+  | Entry_Dates_Timezone_News_NewsDefault_Entry_Fragment
+  | Entry_Dates_Timezone_Pages_PageContentBuilder_Entry_Fragment
+  | Entry_Dates_Timezone_Pages_PageNews_Entry_Fragment;
 
 export type EntryType_Home_HomeFragment = {
-  entryCustomTitle: string;
-  entryShortDescription: string;
-  entryImage: Array<
+  textTitleOverwrite: string;
+  textDescription: string;
+  assetEntryImage: Array<
     | {
         id: string;
         url: string;
@@ -1323,10 +1323,10 @@ export type EntryType_Home_HomeFragment = {
         alt: string;
         filename: string;
         focalPoint: Array<number>;
-        assetTitle: string;
-        assetCaption: string;
-        assetSource: string;
-        assetSourceUrl: string;
+        textTitleOverwrite: string;
+        textCaption: string;
+        textSource: string;
+        textSourceUrl: string;
         base64BlurHash: string;
         srcsetLegacy: string;
         srcset: string;
@@ -1440,18 +1440,18 @@ export const Asset_TransformsFragmentDoc = gql`
 export const Asset_Custom_FieldsFragmentDoc = gql`
   fragment asset_custom_fields on AssetInterface {
     ... on images_Asset {
-      assetTitle
-      assetCaption
-      assetSource
-      assetSourceUrl
+      textTitleOverwrite
+      textCaption
+      textSource
+      textSourceUrl
     }
   }
 `;
 export const EntryType_Home_HomeFragmentDoc = gql`
   fragment entryType_home_home on home_home_Entry {
-    entryCustomTitle
-    entryShortDescription
-    entryImage {
+    textTitleOverwrite
+    textDescription
+    assetEntryImage {
       ...asset_data
       ...asset_transforms
       ...asset_custom_fields

@@ -3,7 +3,8 @@ interface IBaseObject {
 }
 
 interface IComponent extends IBaseObject {}
-interface IComponentClasses extends IBaseObject {
+interface IComponentClasses extends IBaseObject {}
+interface IComponentSettings extends IBaseObject {
   root: string,
   rootClasses: string,
   variants: {
@@ -12,7 +13,6 @@ interface IComponentClasses extends IBaseObject {
     }
   }
 }
-interface IComponentSettings extends IBaseObject {}
 interface ITranslations extends IBaseObject {}
 interface IViews extends IBaseObject {}
 interface IPreviewParams extends IBaseObject {

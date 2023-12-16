@@ -5,29 +5,27 @@ import tailwind from "@astrojs/tailwind";
 import graphql from "@rollup/plugin-graphql";
 import node from "@astrojs/node";
 import react from "@astrojs/react";
-
+import svelte from "@astrojs/svelte";
 process.env = {
   ...process.env,
-  ...loadEnv("production", process.cwd()),
+  ...loadEnv("production", process.cwd())
 };
 
+// https://astro.build/config
 export default defineConfig({
   site: process.env.PUBLIC_SITE,
-  integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    react(),
-  ],
+  integrations: [tailwind({
+    applyBaseStyles: false
+  }), react(), svelte()],
   trailingSlash: "never",
   vite: {
-    plugins: [graphql()],
+    plugins: [graphql()]
   },
   build: {
-    format: "file",
+    format: "file"
   },
   output: "hybrid",
   adapter: node({
-    mode: "standalone",
-  }),
+    mode: "standalone"
+  })
 });

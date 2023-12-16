@@ -27,6 +27,8 @@ class GenerateSocialCard extends BaseJob
         Browsershot::url(getenv('SITE_URL') . '/ssig/' . $this->elementId)
             ->setNodeBinary(App::env('NODE_BINARY'))
             ->setNpmBinary(App::env('NPM_BINARY'))
+            ->setChromePath('/home/forge/.cache/puppeteer/chrome/linux-119.0.6045.105/chrome-linux64/chrome')
+            ->newHeadless()
             ->windowSize(1200, 675)
             ->waitUntilNetworkIdle()
             ->save(getcwd() . '/social-share-images/' . $this->elementSite . '_' . $this->elementSection . '_' . $this->elementSlug . '_' . $this->elementId . '.png');

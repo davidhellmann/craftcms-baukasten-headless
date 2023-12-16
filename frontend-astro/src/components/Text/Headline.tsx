@@ -24,7 +24,7 @@ interface IHeadline extends IComponent {
 }
 
 export const Headline = ({
-                           rootClasses,
+                           rootClasses = '',
                            text,
                            tag = 'h2',
                            size = 'default',
@@ -34,16 +34,11 @@ export const Headline = ({
   // Comp Settings
   const cs: IComponentSettings = {
     name: 'Headline',
-    rootClasses,
-  };
-
-  // Comp Classes
-  const cc: IComponentClasses = {
     root: 'relativ',
-    rootClasses: cs.rootClasses || '',
+    rootClasses,
     variants: {
       size: {
-        default: 'text-3xl',
+        DEFAULT: 'text-3xl',
         '9xl': 'text-9xl tracking-tighter',
         '8xl': 'text-8xl',
         '7xl': 'text-7xl',
@@ -59,7 +54,7 @@ export const Headline = ({
         xs: 'text-xs',
       },
       weight: {
-        default: 'font-bold',
+        DEFAULT: 'font-bold',
         extrabold: 'font-extrabold',
         bold: 'font-bold',
         semibold: 'font-semibold',
@@ -69,6 +64,11 @@ export const Headline = ({
     },
   };
 
+  // Comp Classes
+  const cc: IComponentClasses = {
+    root: `${cs.root} ${cs.rootClasses} ${setCompVariants(cs.variants, {size, weight})} ${center ? 'text-center' : ''}`,
+  };
+
   // Set Tag Name
   const TagName = tag;
 
@@ -76,16 +76,7 @@ export const Headline = ({
   return (
     <>
       {text && TagName && (
-        <TagName
-          className={classNames(
-            cc.root,
-            cc.rootClasses,
-            setCompVariants(cc.variants, {size, weight}),
-            {
-              'text-center': center,
-            }
-          )}
-        >
+        <TagName className={cc.root}>
           {text}
         </TagName>
       )}

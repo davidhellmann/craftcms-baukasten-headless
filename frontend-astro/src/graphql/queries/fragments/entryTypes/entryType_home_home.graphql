@@ -1,8 +1,8 @@
 # Entry Type: [home][home]
 fragment entryType_home_home on home_home_Entry {
-  entryCustomTitle
-  entryShortDescription
-  entryImage {
+  textTitleOverwrite
+  textDescription
+  assetEntryImage {
     ...asset_data
     ...asset_transforms
     ...asset_custom_fields

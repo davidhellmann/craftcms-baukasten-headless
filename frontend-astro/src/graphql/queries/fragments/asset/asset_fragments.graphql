@@ -20,9 +20,9 @@ fragment asset_transforms on AssetInterface {
 # Asset custom fields
 fragment asset_custom_fields on AssetInterface {
   ... on images_Asset {
-    assetTitle
-    assetCaption
-    assetSource
-    assetSourceUrl
+    textTitleOverwrite
+    textCaption
+    textSource
+    textSourceUrl
   }
 }

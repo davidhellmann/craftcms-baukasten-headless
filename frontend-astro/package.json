@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/node": "^7.0.1",
     "@astrojs/react": "^3.0.7",
+    "@astrojs/svelte": "^5.0.1",
     "@astrojs/tailwind": "^5.0.3",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
@@ -22,14 +23,15 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.17",
-    "astro": "^4.0.4",
+    "@types/react-dom": "^18.2.18",
+    "astro": "^4.0.6",
     "classnames": "^2.3.2",
     "graphql-request": "^6.1.0",
     "lodash-es": "^4.17.21",
     "puppeteer": "^21.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "svelte": "^4.2.8",
     "tailwindcss-fluid-type": "^2.0.3",
     "tailwindcss-theme-it": "^1.0.1",
     "typeface-jetbrains-mono": "^2.0.1",
@@ -53,6 +55,6 @@
     "prettier-plugin-astro": "^0.12.2",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.3.5",
-    "vite": "^5.0.8"
+    "vite": "^5.0.10"
   }
 }

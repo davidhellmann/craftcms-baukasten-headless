@@ -17,10 +17,10 @@ import settingsThemeIt from "./src/configs/tailwind/tailwind.settings.themeIt.mj
 
 export default {
   content: [
-    "./src/pages/*.{astro,tsx,jsx}",
-    "./src/layouts/*.{astro,tsx,jsx}",
-    "./src/views/**/*.{astro,tsx,jsx}",
-    "./src/components/**/*.{astro,tsx,jsx}",
+    "./src/pages/*.{astro,tsx,jsx,vue,svelte}",
+    "./src/layouts/*.{astro,tsx,jsx,vue,svelte}",
+    "./src/views/**/*.{astro,tsx,jsx,vue,svelte}",
+    "./src/components/**/*.{astro,tsx,jsx,vue,svelte}",
   ],
   safelist: [],
   darkMode: "class", // or 'media' or 'class'

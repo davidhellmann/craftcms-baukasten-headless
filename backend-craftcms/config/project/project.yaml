@@ -1,4 +1,4 @@
-dateModified: 1702147835
+dateModified: 1702894844
 elementSources:
   craft\elements\Asset:
     -
@@ -254,7 +254,7 @@ plugins:
   hyper:
     edition: standard
     enabled: true
-    licenseKey: TWJZOXQ49C3PZ7ZDXZNN7I99
+    licenseKey: $PLUGIN_HYPER
     schemaVersion: 1.0.0
   image-resizer:
     edition: standard
@@ -263,7 +263,7 @@ plugins:
   imager-x:
     edition: pro
     enabled: true
-    licenseKey: TWRWYUF11FTYHPKQHHXJTO81
+    licenseKey: $PLUGIN_IMAGERX
     schemaVersion: 4.0.0
   matrixmate:
     edition: standard

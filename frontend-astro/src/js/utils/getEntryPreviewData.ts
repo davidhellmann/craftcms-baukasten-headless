@@ -16,7 +16,7 @@ const getEntryPreview = async (
 };
 
 export const getEntryPreviewData = async (
-  id: number,
+  entryId: number,
   siteId: number,
   token: string,
   xCraftPreview: string,
@@ -25,12 +25,12 @@ export const getEntryPreviewData = async (
   const { entry } = (await getEntryPreview(
     {
       siteId: siteId ?? "",
-      id: id ?? "",
+      id: entryId ?? "",
     },
     {
       token: token ?? "",
-      "x-craft-preview": xCraftPreview ?? "",
-      "x-craft-live-preview": xCraftLivePreview ?? "",
+      xCraftPreview: xCraftPreview ?? "",
+      xCraftLivePreview: xCraftLivePreview ?? "",
     },
   )) as GetPreviewEntryQuery;
 

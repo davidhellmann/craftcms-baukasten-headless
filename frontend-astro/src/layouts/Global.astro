@@ -1,9 +1,8 @@
 ---
 import DefaultLayout from "@/layouts/Default.astro";
-import {ISEO} from "@/utils/parseSEO";
-import {useTranslations} from "@/i18n/utils";
-import {ui} from "@/i18n/ui";
-import {parseSEO} from "../js/utils/parseSEO";
+import type { ISEO } from "@/utils/parseSEO";
+import { parseSEO } from "@/js/utils/parseSEO";
+import { getTranslations } from "@/utils/i18n";
 
 import {
   GetSeomaticDocument,
@@ -11,47 +10,48 @@ import {
   GetSeomaticQueryVariables,
 } from "@/graphql/gql/graphql";
 
-import {cmsClient} from "@/graphql/client/graphql-client";
+import { cmsClient } from "@/graphql/client/graphql-client";
 
 export interface Props {
-  title: string;
-  seo: ISEO;
   lang: string;
   siteHandle: string;
-  siteId: string;
-  typeHandle: string;
+  siteId: number;
   sectionHandle: string;
+  typeHandle: string;
   uri: string;
-  id: number;
-  token: string;
-  xCraftPreview: string;
-  xCraftLivePreview: string;
+  entryId: string | number;
+  token?: string;
+  xCraftPreview?: string;
+  xCraftLivePreview?: string;
 }
 
 const {
-  title,
   lang,
   siteHandle,
   siteId,
-  typeHandle,
   sectionHandle,
+  typeHandle,
   uri,
-  id,
+  entryId,
   token,
   xCraftPreview,
   xCraftLivePreview,
 } = Astro.props;
 
-if (!id) {
+// Translations
+const translations = lang ? await getTranslations(lang) : [];
+
+if (!entryId) {
   Astro.response.status = 404;
   Astro.response.statusText = "Not found";
 }
 
-// TODO: in funktion auslagern
+// SEOmatic
+// In funktion auslagern
 // auch in den beiden andern getPreviewData und GetEntryData
-const getData = async (
+const getSeoData = async (
   queryParameter: GetSeomaticQueryVariables,
-  previewParams: IPreviewParams
+  previewParams: IPreviewParams,
 ) => {
   const client = cmsClient(previewParams);
   return await client.request(GetSeomaticDocument, {
@@ -59,27 +59,23 @@ const getData = async (
   });
 };
 
-const {seomatic} = (await getData(
+const { seomatic } = (await getSeoData(
   {
-    siteId: parseInt(siteId),
+    siteId: siteId,
     uri: uri,
   },
   {
     token,
     xCraftPreview,
     xCraftLivePreview,
-  }
+  },
 )) as GetSeomaticQuery;
 
-const seo = parseSEO(seomatic)
-
-const t = siteHandle
-  ? useTranslations(siteHandle as keyof typeof ui)
-  : useTranslations("default" as keyof typeof ui);
+const seo: ISEO = parseSEO(seomatic);
 
 // Get the right layout based on the site handle
-let Layout: {} = DefaultLayout;
-const Layouts: { [k: string]: {} } = {
+let Layout: object = DefaultLayout;
+const Layouts: { [k: string]: object } = {
   default_en: DefaultLayout,
   default_de: DefaultLayout,
 };
@@ -89,32 +85,44 @@ if (siteHandle && Layouts && siteHandle in Layouts) {
 }
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={lang}>
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width"/>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-  <meta name="generator" content={Astro.generator}/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
 
-  <title>{seo?.seoTitle}</title>
+    <title>{seo?.seoTitle}</title>
 
-  {seo?.meta?.map((item) =>
-    <meta {...item}/>)}
-  {seo?.links?.map((item) =>
-    <link {...item}/>)}
-  {seo?.jsonLd?.map((item) => (
-    <script type="application/ld+json" set:html={JSON.stringify(item)} />
-  ))}
-</head>
-<body>
-<Layout {...Astro.props}/>
-</body>
+    {seo?.meta?.map((item) => <meta {...item} />)}
+    {seo?.links?.map((item) => <link {...item} />)}
+    {
+      seo?.jsonLd?.map((item) => (
+        <script type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    }
+  </head>
+  <body>
+    <Layout
+      uri={uri}
+      lang={lang}
+      siteHandle={siteHandle}
+      siteId={siteId}
+      typeHandle={typeHandle}
+      sectionHandle={sectionHandle}
+      entryId={entryId}
+      translations={translations}
+      token={token}
+      xCraftPreview={xCraftPreview}
+      xCraftLivePreview={xCraftLivePreview}
+    />
+  </body>
 </html>
 
 <script is:inline>
   document.documentElement.setAttribute(
     "data-theme",
-    localStorage.getItem("theme") || "default"
+    localStorage.getItem("theme") || "default",
   );
 </script>

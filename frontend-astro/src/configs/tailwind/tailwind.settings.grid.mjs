@@ -4,7 +4,7 @@
 
 const cols = 24;
 const createItems = (count, keyPrefix, output) => {
-  return Array.from(new Array(count + 1), (entry, index) => index).reduce(
+  return Array.from(new Array(count + 1), (index) => index).reduce(
     (a, b) => ({
       ...a,
       [`${keyPrefix}${b}`]: output.split("$$$").join(`${b}`),

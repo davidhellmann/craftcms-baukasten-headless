@@ -1,21 +1,28 @@
-interface IBaseObject {
-  [key: string]: any;
+type NestedObject<T> = {
+  [K: string]: T | NestedObject<T>;
+};
+
+interface IComponent extends NestedObject {}
+
+interface IComponentConfig<T> extends NestedObject {
+  name: T;
+  root: T;
+  rootClasses: T;
+  variants: NestedObject<T>;
 }
 
-interface IComponent extends IBaseObject {}
-interface IComponentClasses extends IBaseObject {}
-interface IComponentSettings extends IBaseObject {
-  root: string,
-  rootClasses: string,
-  variants: {
-    [key: string]: {
-      [key: string]: string
-    }
-  }
-}
-interface ITranslations extends IBaseObject {}
-interface IViews extends IBaseObject {}
-interface IPreviewParams extends IBaseObject {
-  [key: string]: string;
+interface IComponentClasses<T> extends NestedObject {
+  [k: string]: T;
 }
 
+interface IViews<T> {
+  [key: string]: {
+    [key: string]: T;
+  };
+}
+
+interface IPreviewParams {
+  token?: string;
+  xCraftPreview?: string;
+  xCraftLivePreview?: string;
+}

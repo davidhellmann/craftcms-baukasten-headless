@@ -1,25 +1,25 @@
 const pushVariantValue = (
-  variant: any,
+  variant: NestedObject<string>,
   variantValue: string,
-  finalClassesArray: string[]
+  finalClassesArray: string[],
 ) => {
   if (finalClassesArray.includes(variantValue)) return;
 
   const valueToPush = variantValue || variant.DEFAULT;
-  finalClassesArray.push(valueToPush);
-}
+  finalClassesArray.push(valueToPush as string);
+};
 
 export const setCompVariants = (
-  variants: { [key: string]: { [key: string]: string } },
+  variants: NestedObject<string>,
   props: { [k: string]: string },
 ) => {
   const finalClassesArray: string[] = [];
 
   Object.entries(props).forEach(([key, value]) => {
-    const variant = variants[key];
+    const variant = variants[key] as NestedObject<string>;
 
     if (variant && value in variant) {
-      const variantValue = variant[value];
+      const variantValue = variant[value] as string;
       pushVariantValue(variant, variantValue, finalClassesArray);
     }
   });

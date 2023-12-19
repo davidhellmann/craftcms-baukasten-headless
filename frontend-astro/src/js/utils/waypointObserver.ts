@@ -4,10 +4,14 @@ interface Settings {
   endless: boolean;
 }
 
-interface ICompWaypointObserver extends ICompSettings {
+interface ICompWaypointObserver extends NestedObject<string | object> {
   observerConfig: {
     threshold: Array<number>;
     rootMargin: string;
+  };
+
+  selectors: {
+    waypointTarget: string;
   };
 
   settings: {
@@ -16,10 +20,16 @@ interface ICompWaypointObserver extends ICompSettings {
     endless: boolean;
   };
 
+  classes: {
+    isInViewport: string;
+    isAnimated: string;
+  };
+
   startObserving(el: NodeListOf<HTMLElement>): void;
   setSettings(el: Element): void;
   getWaypointTargets(el: Element): Array<HTMLElement>;
   handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
+  init(el: NodeListOf<HTMLElement>): void;
 }
 
 const getAttributeAsNumber = (

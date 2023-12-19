@@ -5,47 +5,47 @@ import {
   GetHomeEntryQueryVariables,
 } from "@/graphql/gql/graphql";
 
-import {cmsClient} from "@/graphql/client/graphql-client";
-import {Headline} from "@/components/Text/Headline";
+import { cmsClient } from "@/graphql/client/graphql-client";
+import { Headline } from "@/components/Text/Headline";
+import type { MessageType } from "@/utils/i18n";
+import { t } from "@/utils/i18n";
 
 export interface Props {
   title: string;
   lang: string;
   siteHandle: string;
-  siteId: string;
+  siteId: number;
   typeHandle: string;
   sectionHandle: string;
   uri: string;
-  id: number;
+  entryId: string;
   token: string;
+  translations: MessageType[];
   xCraftPreview: string;
   xCraftLivePreview: string;
 }
 
 const {
-  title,
-  lang,
   siteHandle,
-  siteId,
   typeHandle,
   sectionHandle,
-  uri,
-  id,
+  entryId,
   token,
+  translations,
   xCraftPreview,
   xCraftLivePreview,
 } = Astro.props;
 
-if (!id) {
+if (!entryId) {
   Astro.response.status = 404;
   Astro.response.statusText = "Not found";
 }
 
-// TODO: in funktion auslagern
+// In funktion auslagern
 // auch in den beiden andern getPreviewData und GetEntryData
 const getData = async (
   queryParameter: GetHomeEntryQueryVariables,
-  previewParams: IPreviewParams
+  previewParams: IPreviewParams,
 ) => {
   const client = cmsClient(previewParams);
   return await client.request(GetHomeEntryDocument, {
@@ -53,36 +53,27 @@ const getData = async (
   });
 };
 
-const {entry} = (await getData(
+const { entry } = (await getData(
   {
     site: siteHandle,
     section: sectionHandle,
     type: typeHandle,
-    id: id
+    id: entryId,
   },
   {
     token,
     xCraftPreview,
     xCraftLivePreview,
-  }
+  },
 )) as GetHomeEntryQuery;
 
-console.log(entry)
+// console.log(entry);
 ---
 
-{entry?.title && (
-  <Headline
-    text={entry.title}
-  />
-)}
-
-{entry?.entryCustomTitle && (
-  <Headline
-    text={entry?.entryCustomTitle}
-  />
-)}
-
-{entry?.entryShortDescription && (
-  <p>{entry.entryShortDescription}</p>
-)}
-
+<Headline text={entry?.title} />
+{"textTitleOverwrite" in entry && <Headline text={entry?.textTitleOverwrite} />}
+{"textDescription" in entry && <Headline text={entry?.textDescription} />}
+<Headline text={t("global.welcome", translations)} />
+<!-- {entry?.title && <Headline text={entry.title} />}-->
+<!--  {entry?.entryCustomTitle && <Headline text={entry?.entryCustomTitle} />}-->
+<!--  {entry?.entryShortDescription && <p>{entry.entryShortDescription}</p>}-->

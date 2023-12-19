@@ -32,7 +32,10 @@
       "@/tailwind/*": ["src/config/tailwind/*"],
       "@/types/*": ["src/@/types/*"],
       "@/utils/*": ["src/js/utils/*"],
-      "@/views/*": ["src/views/*"]
-    }
-  }
+      "@/views/*": ["src/views/*"],
+      "@/stores/*": ["src/stores/*"]
+    },
+  },
+  "exclude": ["node_modules", "dist", "src/graphql/gql/*.ts"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

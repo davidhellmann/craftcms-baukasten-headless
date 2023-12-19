@@ -1376,6 +1376,16 @@ export type GetSeomaticQuery = {
   };
 };
 
+export type GetStaticMessagesQueryVariables = Exact<{
+  language:
+    | Array<InputMaybe<Scalars["String"]["input"]>>
+    | InputMaybe<Scalars["String"]["input"]>;
+}>;
+
+export type GetStaticMessagesQuery = {
+  currentLanguage: Array<{ key: string; language: string; message: string }>;
+};
+
 export const Entry_DataFragmentDoc = gql`
   fragment entry_data on EntryInterface {
     id
@@ -1524,17 +1534,28 @@ export const GetSeomaticDocument = gql`
     }
   }
 `;
+export const GetStaticMessagesDocument = gql`
+  query GetStaticMessages($language: [String]!) {
+    currentLanguage: staticMessages(language: $language) {
+      key
+      language
+      message
+    }
+  }
+`;
 
 export type SdkFunctionWrapper = <T>(
   action: (requestHeaders?: Record<string, string>) => Promise<T>,
   operationName: string,
   operationType?: string,
+  variables?: any,
 ) => Promise<T>;
 
 const defaultWrapper: SdkFunctionWrapper = (
   action,
   _operationName,
   _operationType,
+  variables,
 ) => action();
 
 export function getSdk(
@@ -1555,6 +1576,7 @@ export function getSdk(
           ),
         "GetAssetsByFilename",
         "query",
+        variables,
       );
     },
     GetAllEntries(
@@ -1569,6 +1591,7 @@ export function getSdk(
           }),
         "GetAllEntries",
         "query",
+        variables,
       );
     },
     GetHomeEntry(
@@ -1583,6 +1606,7 @@ export function getSdk(
           }),
         "GetHomeEntry",
         "query",
+        variables,
       );
     },
     GetPreviewEntry(
@@ -1598,6 +1622,7 @@ export function getSdk(
           ),
         "GetPreviewEntry",
         "query",
+        variables,
       );
     },
     GetSeomatic(
@@ -1612,6 +1637,23 @@ export function getSdk(
           }),
         "GetSeomatic",
         "query",
+        variables,
+      );
+    },
+    GetStaticMessages(
+      variables: GetStaticMessagesQueryVariables,
+      requestHeaders?: GraphQLClientRequestHeaders,
+    ): Promise<GetStaticMessagesQuery> {
+      return withWrapper(
+        (wrappedRequestHeaders) =>
+          client.request<GetStaticMessagesQuery>(
+            GetStaticMessagesDocument,
+            variables,
+            { ...requestHeaders, ...wrappedRequestHeaders },
+          ),
+        "GetStaticMessages",
+        "query",
+        variables,
       );
     },
   };

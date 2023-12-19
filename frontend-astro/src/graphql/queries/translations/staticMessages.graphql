@@ -1,0 +1,7 @@
+query GetStaticMessages($language: [String]!) {
+  currentLanguage: staticMessages(language: $language) {
+    key
+    language
+    message
+  }
+}

@@ -1,7 +1,5 @@
 ---
-import {useTranslations} from "@/i18n/utils";
-import type {ui} from "@/i18n/ui";
-
+import type { MessageType } from "@/utils/i18n";
 // Infos
 import EntryInfo from "@/layouts/_partials/EntryInfo.astro";
 
@@ -17,13 +15,13 @@ import ViewPagesOverviewNews from "@/views/pages/overviewNews.astro";
 import ViewNewsContentBuilder from "@/views/news/contentBuilder.astro";
 
 export interface Props {
-  title: string;
   siteHandle: string;
-  siteId: string;
+  siteId: number;
   sectionHandle: string;
   typeHandle: string;
   uri: string;
-  id: string;
+  entryId: string;
+  translations: MessageType[];
   token: string;
   xCraftPreview: string;
   xCraftLivePreview: string;
@@ -34,22 +32,18 @@ const {
   sectionHandle,
   typeHandle,
   uri,
-  id,
+  entryId,
   siteId,
-  title,
   token,
   xCraftPreview,
   xCraftLivePreview,
+  translations,
 } = Astro.props;
 
-const t = siteHandle
-  ? useTranslations(siteHandle as keyof typeof ui)
-  : useTranslations("default" as keyof typeof ui);
-
 // Get the right layout based on the site handle
-let View = ViewHome;
+let View: object = ViewHome;
 
-const views: IViews = {
+const views: IViews<object> = {
   home: {
     home: ViewHome,
   },
@@ -62,11 +56,39 @@ const views: IViews = {
   },
 };
 
-if (sectionHandle in views && typeHandle in views[sectionHandle]) {
-  View = views[sectionHandle][typeHandle];
+if (sectionHandle in views) {
+  const section = views[sectionHandle] ?? null;
+  if (section && typeHandle in section) {
+    View = section[typeHandle];
+  }
 }
 ---
 
-{siteId && id &&
-<View {...Astro.props}/>}
-<EntryInfo {...Astro.props}/>
+math
+{
+  siteId && entryId && (
+    <View
+      uri={uri}
+      siteHandle={siteHandle}
+      siteId={siteId}
+      typeHandle={typeHandle}
+      sectionHandle={sectionHandle}
+      entryId={entryId}
+      translations={translations}
+      token={token}
+      xCraftPreview={xCraftPreview}
+      xCraftLivePreview={xCraftLivePreview}
+    />
+  )
+}
+<EntryInfo
+  uri={uri}
+  siteHandle={siteHandle}
+  siteId={siteId}
+  typeHandle={typeHandle}
+  sectionHandle={sectionHandle}
+  entryId={entryId}
+  token={token}
+  xCraftPreview={xCraftPreview}
+  xCraftLivePreview={xCraftLivePreview}
+/>

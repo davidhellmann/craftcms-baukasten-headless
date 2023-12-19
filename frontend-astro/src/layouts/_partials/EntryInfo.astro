@@ -1,5 +1,6 @@
 ---
-const { siteHandle, sectionHandle, typeHandle, uri, id, title } = Astro.props;
+const { siteHandle, sectionHandle, typeHandle, uri, entryId, title } =
+  Astro.props;
 ---
 
 <div class="wrapper">
@@ -7,8 +8,9 @@ const { siteHandle, sectionHandle, typeHandle, uri, id, title } = Astro.props;
     <li>Site: <span>{siteHandle}</span></li>
     <li>Section: <span>{sectionHandle}</span></li>
     <li>EntryType: <span>{typeHandle}</span></li>
+    <li>Title: <span>{title}</span></li>
     <li>URI: <span>{uri}</span></li>
-    <li>ID: <span>{id}</span></li>
+    <li>ID: <span>{entryId}</span></li>
   </ul>
 </div>
 

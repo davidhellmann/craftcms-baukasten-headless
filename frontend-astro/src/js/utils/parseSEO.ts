@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error // ¯\_(ツ)_/¯
 import { isEmpty, values, toPairs, reduce } from "lodash-es";
 
 interface IParseSEO {
@@ -8,7 +8,7 @@ interface IParseSEO {
   metaJsonLdContainer: string;
 }
 
-type Meta = { [k: string]: any };
+type Meta = object;
 
 type TSEO = {
   metaTitleContainer: {
@@ -28,7 +28,7 @@ export interface ISEO {
   jsonLd: Meta[];
 }
 
-const filterEmptyValues = (item: any): boolean => !isEmpty(item);
+const filterEmptyValues = (item: object): boolean => !isEmpty(item);
 
 const flattenValues = (obj: Meta) =>
   values(obj).filter(filterEmptyValues).flat();
@@ -39,7 +39,7 @@ export const parseSEO = (seo: IParseSEO): ISEO => {
   }
   const parsed = reduce(
     toPairs(seo),
-    (acc: any, [key, value]: any) => ({
+    (acc: object, [key, value]: string[]) => ({
       ...acc,
       [key]: JSON.parse(value as string),
     }),

@@ -4,13 +4,6 @@ import {
   CRAFT_CMS_GRAPHQL_TOKEN,
 } from "@/configs/constants";
 
-interface IPreviewParams {
-  token?: string;
-  "x-craft-preview"?: string;
-  "x-craft-live-preview"?: string;
-  [k: string]: any;
-}
-
 interface IHeaders {
   Authorization: string;
   [key: string]: string;
@@ -26,8 +19,8 @@ export const cmsClient = (previewParams: IPreviewParams = {}) => {
   if (previewParams && previewParams?.token) {
     const {
       token,
-      "x-craft-preview": xCraftPreview,
-      "x-craft-live-preview": xCraftLivePreview,
+      xCraftPreview: xCraftPreview,
+      xCraftLivePreview: xCraftLivePreview,
     } = previewParams;
 
     if (xCraftPreview) {
@@ -45,9 +38,3 @@ export const cmsClient = (previewParams: IPreviewParams = {}) => {
     headers,
   });
 };
-
-export const graphqlClient = new GraphQLClient(CRAFT_CMS_GRAPHQL_URL, {
-  headers: {
-    Authorization: `Bearer ${CRAFT_CMS_GRAPHQL_TOKEN}`,
-  },
-});

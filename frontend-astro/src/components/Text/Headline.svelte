@@ -15,7 +15,7 @@
   export let center: boolean = false;
 
   // Settings
-  const cs: IComponentSettings = {
+  const cs: IComponentConfig = {
     name: 'Headline',
     root: 'relativ',
     rootClasses,

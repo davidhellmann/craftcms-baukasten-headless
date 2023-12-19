@@ -3,9 +3,9 @@ import {
   type GetAllEntriesQuery,
   type GetAllEntriesQueryVariables,
 } from "@/graphql/gql/graphql";
-import {cmsClient} from "@/graphql/client/graphql-client";
-import {CONFIG_SITES} from "@/configs/sites";
-import {getCurrentSiteData} from "@/utils/getCurrentSiteData";
+import { cmsClient } from "@/graphql/client/graphql-client";
+import { CONFIG_SITES } from "@/configs/sites";
+import { getCurrentSiteData } from "@/utils/getCurrentSiteData";
 
 const getAllEntriesBySection = async (
   queryParameter: GetAllEntriesQueryVariables,
@@ -17,12 +17,15 @@ const getAllEntriesBySection = async (
   });
 };
 
-export const getEntryData = async (SITE_HANDLE: string, SECTIONS: string[] | null = null) => {
+export const getEntryData = async (
+  SITE_HANDLE: string,
+  SECTIONS: string[] | null = null,
+) => {
   const SITE = CONFIG_SITES.find((site) => site.handle === SITE_HANDLE);
 
-  if (!SITE) return
+  if (!SITE) return;
 
-  const {entries} = (await getAllEntriesBySection(
+  const { entries } = (await getAllEntriesBySection(
     {
       site: SITE?.handle ?? "",
       section: SECTIONS ?? SITE?.sections ?? [],
@@ -31,16 +34,7 @@ export const getEntryData = async (SITE_HANDLE: string, SECTIONS: string[] | nul
   )) as GetAllEntriesQuery;
 
   return entries.map(
-    ({
-       uri,
-       id,
-       url,
-       title,
-       siteHandle,
-       siteId,
-       sectionHandle,
-       typeHandle,
-     }) => {
+    ({ uri, id, url, siteHandle, siteId, sectionHandle, typeHandle }) => {
       // This was for one page catching all routes
       // const locale = getCurrentSiteData(
       //   {
@@ -55,14 +49,13 @@ export const getEntryData = async (SITE_HANDLE: string, SECTIONS: string[] | nul
           uri: finalUri,
         },
         props: {
-          title,
-          id,
+          entryId: id,
           siteId,
           siteHandle,
           sectionHandle,
           typeHandle,
           url,
-          lang: getCurrentSiteData({handle: siteHandle})?.language ?? "en",
+          lang: getCurrentSiteData({ handle: siteHandle })?.language ?? "en",
         },
       };
     },

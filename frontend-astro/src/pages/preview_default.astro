@@ -2,7 +2,6 @@
 export const prerender = false;
 import "@/css/app.css";
 import GlobalLayout from "@/layouts/Global.astro";
-import Layout404 from "@/layouts/404.astro";
 import { getEntryPreviewData } from "@/utils/getEntryPreviewData";
 
 const { searchParams } = Astro.url;
@@ -21,7 +20,7 @@ const entry = await getEntryPreviewData(
   parseInt(siteId),
   token,
   xCraftPreview,
-  xCraftLivePreview
+  xCraftLivePreview,
 );
 
 if (!entry) {
@@ -30,20 +29,15 @@ if (!entry) {
 }
 ---
 
-{
-  entry?.title ? (
-  <GlobalLayout title={entry?.title}
-                uri={entry?.uri}
-                lang={entry?.language}
-                siteHandle={entry?.siteHandle}
-                siteId={entry?.siteId}
-                typeHandle={entry?.typeHandle}
-                sectionHandle={entry?.sectionHandle}
-                id={entry?.canonicalId}
-                token={token}
-                xCraftPreview={xCraftPreview}
-                xCraftLivePreview={xCraftLivePreview} />
-    ) : (
-  <Layout404 siteHandle={"default"} />
-    )
-  }
+<GlobalLayout
+  uri={entry?.uri}
+  lang={entry?.language}
+  siteHandle={entry?.siteHandle}
+  siteId={entry?.siteId}
+  typeHandle={entry?.typeHandle}
+  sectionHandle={entry?.sectionHandle}
+  entryId={entry?.canonicalId}
+  token={token}
+  xCraftPreview={xCraftPreview}
+  xCraftLivePreview={xCraftLivePreview}
+/>

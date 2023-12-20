@@ -2,13 +2,14 @@ type NestedObject<T> = {
   [K: string]: T | NestedObject<T>;
 };
 
-interface IComponent extends NestedObject {}
+interface IComponent extends NestedObject {
+  configName?: string;
+}
 
 interface IComponentConfig<T> extends NestedObject {
-  name: T;
-  root: T;
-  rootClasses: T;
-  variants: NestedObject<T>;
+  name?: T;
+  root?: T;
+  variants?: NestedObject<T>;
 }
 
 interface IComponentClasses<T> extends NestedObject {

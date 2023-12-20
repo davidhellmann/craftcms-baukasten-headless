@@ -1,42 +1,48 @@
 import { setCompVariants } from "@/utils/setCompVariants";
-import { JSX } from "react";
+import { mergeObjects } from "@/utils/mergeObjects";
+import { customConfig } from "./config.Headline.ts";
+
+type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span";
+type Weight = "DEFAULT" | "extrabold" | "bold" | "semibold" | "normal";
+type Size =
+  | "DEFAULT"
+  | "9xl"
+  | "8xl"
+  | "7xl"
+  | "6xl"
+  | "5xl"
+  | "4xl"
+  | "3xl"
+  | "2xl"
+  | "xl"
+  | "lg"
+  | "base"
+  | "sm"
+  | "xs";
 
 interface IHeadline extends IComponent {
+  configName?: keyof typeof customConfig | "";
   text: string;
   rootClasses?: string;
-  tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span";
-  size?:
-    | "default"
-    | "9xl"
-    | "8xl"
-    | "7xl"
-    | "6xl"
-    | "5xl"
-    | "4xl"
-    | "3xl"
-    | "2xl"
-    | "xl"
-    | "lg"
-    | "base"
-    | "sm"
-    | "xs";
-  weight?: "default" | "extrabold" | "bold" | "semibold" | "normal";
+  tag?: Tag;
+  size?: Size;
+  weight?: Weight;
   center?: boolean;
 }
 
 export const Headline = ({
   rootClasses = "",
+  configName = "",
   text,
-  tag = "h2",
-  size = "default",
+  tag: TagName = "h2",
+  size = "DEFAULT",
   weight = "bold",
   center = false,
 }: IHeadline) => {
   // Comp Settings
-  const config: IComponentConfig<string> = {
+  let config: IComponentConfig<string> = {
     name: "Headline",
     root: "relativ",
-    rootClasses,
     variants: {
       size: {
         DEFAULT: "text-3xl",
@@ -65,19 +71,23 @@ export const Headline = ({
     },
   };
 
+  if (configName && customConfig && configName in customConfig) {
+    config = mergeObjects({
+      config: config,
+      customConfig: customConfig[configName] ?? {},
+    });
+  }
+
   // Comp Classes
   const cc: IComponentClasses<string> = {
-    root: `${config.root} ${config.rootClasses} ${setCompVariants(
-      config.variants,
+    root: `${config.root} ${rootClasses} ${setCompVariants(
+      config.variants ?? {},
       {
         size,
         weight,
       },
     )} ${center ? "text-center" : ""}`,
   };
-
-  // Set Tag Name
-  const TagName = tag as keyof JSX.IntrinsicElements;
 
   // Template
   return (

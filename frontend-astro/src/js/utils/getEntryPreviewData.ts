@@ -6,12 +6,12 @@ import {
 import { cmsClient } from "@/graphql/client/graphql-client";
 
 const getEntryPreview = async (
-  queryParameter: GetPreviewEntryQueryVariables,
-  previewParams: IPreviewParams,
+  variables: GetPreviewEntryQueryVariables,
+  tokens: IPreviewTokens,
 ) => {
-  const client = cmsClient(previewParams);
+  const client = cmsClient(tokens);
   return await client.request(GetPreviewEntryDocument, {
-    ...queryParameter,
+    ...variables,
   });
 };
 

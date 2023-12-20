@@ -6,7 +6,7 @@ import {
   GetStaticMessagesQueryVariables,
 } from "@/graphql/gql/graphql";
 
-import { cmsClient } from "@/graphql/client/graphql-client";
+import { getGqlData } from "@/graphql/client/graphql-client";
 
 // @ts-expect-error // Astro problem?
 export const GET: APIRoute = async ({ params }) => {
@@ -17,18 +17,13 @@ export const GET: APIRoute = async ({ params }) => {
     };
   }
 
-  const getStaticMessagesData = async (
-    queryParameter: GetStaticMessagesQueryVariables,
-  ) => {
-    const client = cmsClient();
-    return await client.request(GetStaticMessagesDocument, {
-      ...queryParameter,
-    });
-  };
-
-  const { currentLanguage } = (await getStaticMessagesData({
-    language: lang,
-  })) as GetStaticMessagesQuery;
+  const { currentLanguage } =
+    (await getGqlData<GetStaticMessagesQueryVariables>(
+      GetStaticMessagesDocument,
+      {
+        language: lang,
+      },
+    )) as GetStaticMessagesQuery;
 
   return new Response(
     JSON.stringify({

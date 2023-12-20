@@ -44,12 +44,12 @@ if (!entryId) {
 // In funktion auslagern
 // auch in den beiden andern getPreviewData und GetEntryData
 const getData = async (
-  queryParameter: GetHomeEntryQueryVariables,
-  previewParams: IPreviewParams,
+  variables: GetHomeEntryQueryVariables,
+  tokens: IPreviewTokens,
 ) => {
-  const client = cmsClient(previewParams);
+  const client = cmsClient(tokens);
   return await client.request(GetHomeEntryDocument, {
-    ...queryParameter,
+    ...variables,
   });
 };
 

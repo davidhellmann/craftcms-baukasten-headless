@@ -21,7 +21,7 @@ interface IViews<T> {
   };
 }
 
-interface IPreviewParams {
+interface IPreviewTokens {
   token?: string;
   xCraftPreview?: string;
   xCraftLivePreview?: string;

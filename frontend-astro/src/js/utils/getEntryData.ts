@@ -8,12 +8,12 @@ import { CONFIG_SITES } from "@/configs/sites";
 import { getCurrentSiteData } from "@/utils/getCurrentSiteData";
 
 const getAllEntriesBySection = async (
-  queryParameter: GetAllEntriesQueryVariables,
-  previewParams: IPreviewParams,
+  variables: GetAllEntriesQueryVariables,
+  tokens: IPreviewTokens,
 ) => {
-  const client = cmsClient(previewParams);
+  const client = cmsClient(tokens);
   return await client.request(GetAllEntriesDocument, {
-    ...queryParameter,
+    ...variables,
   });
 };
 

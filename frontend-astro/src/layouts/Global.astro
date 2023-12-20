@@ -10,7 +10,7 @@ import {
   GetSeomaticQueryVariables,
 } from "@/graphql/gql/graphql";
 
-import { cmsClient } from "@/graphql/client/graphql-client";
+import { getGqlData } from "@/graphql/client/graphql-client";
 
 export interface Props {
   lang: string;
@@ -46,20 +46,8 @@ if (!entryId) {
   Astro.response.statusText = "Not found";
 }
 
-// SEOmatic
-// In funktion auslagern
-// auch in den beiden andern getPreviewData und GetEntryData
-const getSeoData = async (
-  queryParameter: GetSeomaticQueryVariables,
-  previewParams: IPreviewParams,
-) => {
-  const client = cmsClient(previewParams);
-  return await client.request(GetSeomaticDocument, {
-    ...queryParameter,
-  });
-};
-
-const { seomatic } = (await getSeoData(
+const { seomatic } = (await getGqlData<GetSeomaticQueryVariables>(
+  GetSeomaticDocument,
   {
     siteId: siteId,
     uri: uri,

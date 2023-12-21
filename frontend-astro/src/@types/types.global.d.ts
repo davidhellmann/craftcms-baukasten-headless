@@ -8,7 +8,7 @@ interface IComponent extends NestedObject {
 
 interface IComponentConfig<T> extends NestedObject {
   name?: T;
-  root?: T;
+  rootEl?: T;
   variants?: NestedObject<T>;
 }
 

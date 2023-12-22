@@ -87,7 +87,7 @@ const computeComponentConfig = ({
       weight,
     })} ${center && "text-center"}`,
   };
-  return { cc };
+  return cc;
 };
 
 export const Headline = ({
@@ -99,7 +99,7 @@ export const Headline = ({
   weight = "bold",
   center = false,
 }: IHeadline) => {
-  const { cc } = computeComponentConfig({
+  const cc = computeComponentConfig({
     configName,
     size,
     weight,

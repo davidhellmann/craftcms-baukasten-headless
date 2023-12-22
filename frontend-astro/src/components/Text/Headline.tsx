@@ -91,6 +91,7 @@ export const Headline = ({
       {text && TagName && (
         <TagName
           data-comp={compName}
+          data-comp-config={configName}
           className={`${cc.rootClasses} ${customClasses}`}
         >
           {text}

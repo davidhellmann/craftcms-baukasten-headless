@@ -1,13 +1,17 @@
-import { setCompVariants as scv } from "@/utils/setCompVariants";
+import { getVariantClasses } from "@/utils/getVariantClasses";
 import { mergeObjects } from "@/utils/mergeObjects";
+
+// Optional. Just an example of how to use a custom config file
 import { customConfig } from "./Headline.config";
 
-// Types
-interface IHeadline extends IComponent {
+interface IHeadline {
+  compName?: string;
+
+  // Optional. Just an example of how to use a custom config file
   configName?: keyof typeof customConfig | "";
-  text: string;
-  rootClasses?: string;
   tag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span";
+  text: string;
+  customClasses?: string;
   size?:
     | "DEFAULT"
     | "9xl"
@@ -53,63 +57,44 @@ const VARIANTS_WEIGHT = {
   normal: "font-normal",
 };
 
-const computeComponentConfig = ({
-  configName,
-  size,
-  weight,
-  center,
-}: {
-  configName: keyof typeof customConfig | "";
-  size: string;
-  weight: string;
-  center: boolean;
-}) => {
-  // Comp Settings
-  let config: IComponentConfig<string> = {
-    name: "Headline",
-    rootEl: "relativ",
-    variants: {
-      size: VARIANTS_SIZE,
-      weight: VARIANTS_WEIGHT,
-    },
-  };
-
-  if (configName && customConfig && configName in customConfig) {
-    config = mergeObjects({
-      globalConfig: config,
-      customConfig: customConfig[configName] ?? {},
-    });
-  }
-
-  const cc: IComponentClasses<string> = {
-    rootEl: `${config.rootEl} ${scv(config?.variants ?? {}, {
-      size,
-      weight,
-    })} ${center && "text-center"}`,
-  };
-  return cc;
-};
-
 export const Headline = ({
-  text,
-  tag: TagName = "h2",
-  rootClasses = "",
+  compName = "Headline",
   configName = "",
+  tag: TagName = "h2",
+  text,
+  customClasses = "",
   size = "DEFAULT",
   weight = "bold",
   center = false,
 }: IHeadline) => {
-  const cc = computeComponentConfig({
-    configName,
-    size,
-    weight,
-    center,
-  });
+  let config: Config<string> = {
+    size: VARIANTS_SIZE,
+    weight: VARIANTS_WEIGHT,
+  };
+
+  // Optional. Just an example of how to use a custom config file
+  if (configName && customConfig && configName in customConfig) {
+    config = mergeObjects(config, customConfig[configName] ?? {});
+  }
+
+  const cc: Config<string> = {
+    rootClasses: `
+      relativ
+      ${getVariantClasses(config?.size as Config<string>, size)}
+      ${getVariantClasses(config?.weight as Config<string>, weight)}
+      ${center ? "text-center" : ""}
+    `,
+  };
 
   return (
     <>
       {text && TagName && (
-        <TagName className={`${cc.rootEl} ${rootClasses}`}>{text}</TagName>
+        <TagName
+          data-comp={compName}
+          className={`${cc.rootClasses} ${customClasses}`}
+        >
+          {text}
+        </TagName>
       )}
     </>
   );

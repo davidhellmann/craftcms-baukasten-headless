@@ -3,7 +3,3 @@ interface IPreviewTokens {
   xCraftPreview?: string;
   xCraftLivePreview?: string;
 }
-
-type Config<T> = {
-  [key: string]: Config<T> | T;
-};

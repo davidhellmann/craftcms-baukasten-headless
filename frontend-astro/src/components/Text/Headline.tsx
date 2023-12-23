@@ -4,6 +4,11 @@ import { mergeObjects } from "@/utils/mergeObjects";
 // Optional. Just an example of how to use a custom config file
 import { customConfig } from "./Headline.config";
 
+type TConfigKeys = "size" | "weight";
+type TConfigBlock = {
+  [key: string | "DEFAULT"]: string;
+};
+
 interface IHeadline {
   compName?: string;
 
@@ -31,7 +36,7 @@ interface IHeadline {
   center?: boolean;
 }
 
-const VARIANTS_SIZE = {
+const VARIANTS_SIZE: TConfigBlock = {
   DEFAULT: "text-3xl",
   "9xl": "text-9xl tracking-tighter",
   "8xl": "text-8xl",
@@ -48,7 +53,7 @@ const VARIANTS_SIZE = {
   xs: "text-xs",
 };
 
-const VARIANTS_WEIGHT = {
+const VARIANTS_WEIGHT: TConfigBlock = {
   DEFAULT: "font-bold",
   extrabold: "font-extrabold",
   bold: "font-bold",
@@ -67,21 +72,24 @@ export const Headline = ({
   weight = "bold",
   center = false,
 }: IHeadline) => {
-  let config: Config<string> = {
+  let config: Record<TConfigKeys, TConfigBlock> = {
     size: VARIANTS_SIZE,
     weight: VARIANTS_WEIGHT,
   };
 
   // Optional. Just an example of how to use a custom config file
   if (configName && customConfig && configName in customConfig) {
-    config = mergeObjects(config, customConfig[configName] ?? {});
+    config = mergeObjects(
+      config as Record<TConfigKeys, TConfigBlock>,
+      (customConfig[configName] as Partial<Record<string, TConfigBlock>>) ?? {},
+    ) as Record<TConfigKeys, TConfigBlock>;
   }
 
-  const cc: Config<string> = {
+  const cc: { [k: string]: string } = {
     rootClasses: `
       relativ
-      ${getVariantClasses(config?.size as Config<string>, size)}
-      ${getVariantClasses(config?.weight as Config<string>, weight)}
+      ${getVariantClasses(config?.size as TConfigBlock, size)}
+      ${getVariantClasses(config?.weight as TConfigBlock, weight)}
       ${center ? "text-center" : ""}
     `,
   };

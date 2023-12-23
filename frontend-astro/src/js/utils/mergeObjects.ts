@@ -1,8 +1,5 @@
 import { merge } from "lodash";
 
-export const mergeObjects = (
-  globalConfig: Config<string>,
-  customConfig: Config<string>,
-) => {
+export const mergeObjects = <T>(globalConfig: T, customConfig: T) => {
   return merge({}, globalConfig, customConfig);
 };

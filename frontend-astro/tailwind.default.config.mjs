@@ -9,6 +9,7 @@ import containerQuerries from "@tailwindcss/container-queries";
 import themeIt from "tailwindcss-theme-it";
 import fluidType from "tailwindcss-fluid-type";
 import components from "./src/configs/tailwind/tailwind.plugins.addComponents.mjs";
+import animate from "tailwindcss-animate"
 
 // Settings
 import settingsGrid from "./src/configs/tailwind/tailwind.settings.grid.mjs";
@@ -64,6 +65,7 @@ export default {
   },
   plugins: [
     containerQuerries,
+    animate,
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     themeIt(settingsThemeIt),
     // eslint-disable-next-line @typescript-eslint/no-var-requires

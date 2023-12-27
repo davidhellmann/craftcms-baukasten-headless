@@ -7,6 +7,7 @@ import {
 
 import { cmsClient } from "@/graphql/client/graphql-client";
 import { Headline } from "@/components/Text/Headline";
+import { Button } from "@/components/Form/Button";
 import type { MessageType } from "@/utils/i18n";
 import { t } from "@/utils/i18n";
 
@@ -70,7 +71,8 @@ const { entry } = (await getData(
 // console.log(entry);
 ---
 
-<Headline text={entry?.title} />
+<Button client:only="react" onPress={() => alert("Hello!")} text="/" />
+<Headline text={entry?.title} client:only="react" />
 {"textTitleOverwrite" in entry && <Headline text={entry?.textTitleOverwrite} />}
 {"textDescription" in entry && <Headline text={entry?.textDescription} />}
 <Headline text={t("global.welcome", translations)} />

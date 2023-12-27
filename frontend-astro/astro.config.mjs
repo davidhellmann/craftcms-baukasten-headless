@@ -16,7 +16,9 @@ export default defineConfig({
   site: process.env.PUBLIC_SITE,
   integrations: [tailwind({
     applyBaseStyles: false
-  }), react(), svelte()],
+  }), react({
+    experimentalReactChildren: true,
+  }), svelte()],
   trailingSlash: "never",
   vite: {
     plugins: [graphql()]

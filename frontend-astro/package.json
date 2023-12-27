@@ -32,6 +32,7 @@
     "graphql-request": "^6.1.0",
     "lodash-es": "^4.17.21",
     "react": "^18.2.0",
+    "react-aria-components": "^1.0.0",
     "react-dom": "^18.2.0",
     "svelte": "^4.2.8",
     "tailwindcss-fluid-type": "^2.0.3",
@@ -64,6 +65,7 @@
     "prettier-plugin-astro": "^0.12.2",
     "prettier-plugin-tailwindcss": "^0.5.9",
     "tailwindcss": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.3.3",
     "vite": "^5.0.10"
   }

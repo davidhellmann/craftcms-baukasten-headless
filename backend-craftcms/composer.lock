@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d33c1ec8622b5bb8cd0add18d59d059e",
+    "content-hash": "5804b833101e942e9174b3c48531106d",
     "packages": [
         {
             "name": "aws/aws-crt-php",
@@ -682,11 +682,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.7.0",
+            "version": "4.7.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/17164e79c7b3e86534491ff7687129cc1db79386",
-                "reference": "17164e79c7b3e86534491ff7687129cc1db79386",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/887b4ca440dd554b0233ec077ef3b9a725df53e8",
+                "reference": "887b4ca440dd554b0233ec077ef3b9a725df53e8",
                 "shasum": ""
             },
             "require": {
@@ -774,7 +774,7 @@
                 "docs": "https://craftcms.com/docs/4.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2024-01-23T18:59:37+00:00"
+            "time": "2024-01-29T18:59:43+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -3076,57 +3076,6 @@
             "time": "2022-11-10T17:31:41+00:00"
         },
         {
-            "name": "mmikkel/cp-field-inspect",
-            "version": "1.4.4",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mmikkel/CpFieldInspect-Craft/zipball/cab2693eaad03f35192356d8971879e9b0a0e098",
-                "reference": "cab2693eaad03f35192356d8971879e9b0a0e098",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.7.0|^4.0.0",
-                "php": "^7.2.5|^8.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "CP Field Inspect",
-                "handle": "cp-field-inspect",
-                "schemaVersion": "1.0.0",
-                "hasCpSettings": false,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/mmikkel/CpFieldInspect-Craft/master/CHANGELOG.md",
-                "class": "mmikkel\\cpfieldinspect\\CpFieldInspect"
-            },
-            "autoload": {
-                "psr-4": {
-                    "mmikkel\\cpfieldinspect\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mats Mikkel Rummelhoff",
-                    "homepage": "http://mmikkel.no"
-                }
-            ],
-            "description": "Inspect field handles and easily edit field and element source settings",
-            "keywords": [
-                "cms",
-                "cp field inspect",
-                "craft",
-                "craft-plugin",
-                "craftcms"
-            ],
-            "support": {
-                "docs": "https://github.com/mmikkel/CpFieldInspect-Craft/blob/master/README.md",
-                "issues": "https://github.com/mmikkel/CpFieldInspect-Craft/issues"
-            },
-            "time": "2022-05-07T15:24:35+00:00"
-        },
-        {
             "name": "moneyphp/money",
             "version": "v4.4.0",
             "dist": {
@@ -3440,11 +3389,11 @@
         },
         {
             "name": "nystudio107/craft-plugin-vite",
-            "version": "4.0.8",
+            "version": "4.0.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/eb05b1cc7dc9eeecbdfe8cd3cd3d119e83c62619",
-                "reference": "eb05b1cc7dc9eeecbdfe8cd3cd3d119e83c62619",
+                "url": "https://api.github.com/repos/nystudio107/craft-plugin-vite/zipball/b6f727e6e54e2c312e02595beec0f8318399fc97",
+                "reference": "b6f727e6e54e2c312e02595beec0f8318399fc97",
                 "shasum": ""
             },
             "require": {
@@ -3472,10 +3421,10 @@
                 "vite"
             ],
             "support": {
-                "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v1/README.md",
+                "docs": "https://github.com/nystudio107/craft-plugin-vite/blob/v4/README.md",
                 "issues": "https://github.com/nystudio107/craft-plugin-vite/issues"
             },
-            "time": "2023-01-25T21:09:10+00:00"
+            "time": "2024-01-30T18:20:12+00:00"
         },
         {
             "name": "nystudio107/craft-scripts",
@@ -6720,57 +6669,6 @@
             "time": "2022-09-28T08:42:51+00:00"
         },
         {
-            "name": "vaersaagod/matrixmate",
-            "version": "2.1.4",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/vaersaagod/matrixmate/zipball/65651e7aee74207afa1818f9a7cea37cff71b262",
-                "reference": "65651e7aee74207afa1818f9a7cea37cff71b262",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0",
-                "php": "^8.0.2"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "MatrixMate",
-                "handle": "matrixmate",
-                "schemaVersion": "1.0.0",
-                "hasCpSettings": false,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/vaersaagod/matrixmate/master/CHANGELOG.md",
-                "class": "vaersaagod\\matrixmate\\MatrixMate"
-            },
-            "autoload": {
-                "psr-4": {
-                    "vaersaagod\\matrixmate\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Værsågod",
-                    "homepage": "https://vaersaagod.no"
-                }
-            ],
-            "description": "Welding Matrix into shape, mate!",
-            "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms",
-                "matrixmate"
-            ],
-            "support": {
-                "docs": "https://github.com/vaersaagod/matrixmate/blob/master/README.md",
-                "issues": "https://github.com/vaersaagod/matrixmate/issues"
-            },
-            "time": "2023-11-10T23:46:59+00:00"
-        },
-        {
             "name": "verbb/base",
             "version": "2.0.3",
             "dist": {
@@ -6803,11 +6701,11 @@
         },
         {
             "name": "verbb/hyper",
-            "version": "1.1.19",
+            "version": "1.1.20",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/hyper/zipball/8b27e1adef421a6a5aa5d21362ba1f675b34c0dc",
-                "reference": "8b27e1adef421a6a5aa5d21362ba1f675b34c0dc",
+                "url": "https://api.github.com/repos/verbb/hyper/zipball/b93325b20a3a276e679c1bcf1af82198e15775ef",
+                "reference": "b93325b20a3a276e679c1bcf1af82198e15775ef",
                 "shasum": ""
             },
             "require": {
@@ -6853,15 +6751,15 @@
                 "docs": "https://github.com/verbb/hyper",
                 "rss": "https://github.com/verbb/hyper/commits/v2.atom"
             },
-            "time": "2023-12-19T23:34:50+00:00"
+            "time": "2024-01-30T12:37:21+00:00"
         },
         {
             "name": "verbb/image-resizer",
-            "version": "3.0.10",
+            "version": "3.0.11",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/image-resizer/zipball/250ae563a4e104631a00b951a131be34bf447fa2",
-                "reference": "250ae563a4e104631a00b951a131be34bf447fa2",
+                "url": "https://api.github.com/repos/verbb/image-resizer/zipball/f1d4a22afdbc22af65aa851230b4eaae72694bc9",
+                "reference": "f1d4a22afdbc22af65aa851230b4eaae72694bc9",
                 "shasum": ""
             },
             "require": {
@@ -6908,15 +6806,15 @@
                 "docs": "https://github.com/verbb/image-resizer",
                 "rss": "https://github.com/verbb/image-resizer/commits/v2.atom"
             },
-            "time": "2024-01-23T12:31:37+00:00"
+            "time": "2024-01-30T12:35:34+00:00"
         },
         {
             "name": "verbb/navigation",
-            "version": "2.0.24",
+            "version": "2.0.25",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/d7c666ae8b9fb95bc0d4ea523c584af4c7a485cb",
-                "reference": "d7c666ae8b9fb95bc0d4ea523c584af4c7a485cb",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/92455c9f92b0e23b62b241721d4553cab259f532",
+                "reference": "92455c9f92b0e23b62b241721d4553cab259f532",
                 "shasum": ""
             },
             "require": {
@@ -6961,61 +6859,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2024-01-06T01:15:44+00:00"
-        },
-        {
-            "name": "verbb/super-table",
-            "version": "3.0.12",
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/verbb/super-table/zipball/ba5d7b0ddbd2597c156a0e9913890d391ba54040",
-                "reference": "ba5d7b0ddbd2597c156a0e9913890d391ba54040",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0",
-                "php": "^8.0.2",
-                "verbb/base": "^2.0.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Super Table",
-                "handle": "super-table",
-                "description": "Super-charge your Craft workflow with Super Table. Use it to group fields together or build complex Matrix-in-Matrix solutions.",
-                "documentationUrl": "https://github.com/verbb/super-table",
-                "changelogUrl": "https://raw.githubusercontent.com/verbb/super-table/craft-4/CHANGELOG.md",
-                "class": "verbb\\supertable\\SuperTable"
-            },
-            "autoload": {
-                "psr-4": {
-                    "verbb\\supertable\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Verbb",
-                    "homepage": "https://verbb.io"
-                }
-            ],
-            "description": "Super-charge your content builders and create nested Matrix fields.",
-            "keywords": [
-                "cms",
-                "craft",
-                "craft-plugin",
-                "craftcms",
-                "super table"
-            ],
-            "support": {
-                "email": "support@verbb.io",
-                "issues": "https://github.com/verbb/super-table/issues?state=open",
-                "source": "https://github.com/verbb/super-table",
-                "docs": "https://github.com/verbb/super-table",
-                "rss": "https://github.com/verbb/super-table/commits/v2.atom"
-            },
-            "time": "2023-10-05T04:08:28+00:00"
+            "time": "2024-01-30T12:34:03+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

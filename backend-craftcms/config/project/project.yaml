@@ -1,4 +1,4 @@
-dateModified: 1702894844
+dateModified: 1706641346
 elementSources:
   craft\elements\Asset:
     -
@@ -247,10 +247,6 @@ plugins:
       additionalCss: ''
       cacheBusting: true
       cssFile: /controlPanelCss.css
-  cp-field-inspect:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   hyper:
     edition: standard
     enabled: true
@@ -265,10 +261,6 @@ plugins:
     enabled: true
     licenseKey: $PLUGIN_IMAGERX
     schemaVersion: 4.0.0
-  matrixmate:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   navigation:
     edition: standard
     enabled: true
@@ -330,10 +322,6 @@ plugins:
       strictTransportSecurity:
         canFail: true
         threshold: 15552000
-  super-table:
-    edition: standard
-    enabled: true
-    schemaVersion: 3.0.0
   translations-admin:
     edition: standard
     enabled: true

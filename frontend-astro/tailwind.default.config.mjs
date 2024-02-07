@@ -17,6 +17,9 @@ import settingsfluidType from "./src/configs/tailwind/tailwind.settings.fluidTyp
 import settingsThemeIt from "./src/configs/tailwind/tailwind.settings.themeIt.mjs";
 
 export default {
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   content: [
     "./src/pages/*.{astro,tsx,jsx,vue,svelte}",
     "./src/layouts/*.{astro,tsx,jsx,vue,svelte}",
@@ -37,7 +40,6 @@ export default {
       lg: "1024px",
       xl: "1280px",
       "2xl": "1600px",
-      nthover: { raw: "(hover: hover)" },
     },
     extend: {
       gridTemplateColumns: { ...settingsGrid.gridTemplateColumns },
@@ -54,7 +56,6 @@ export default {
     },
     // Plugin Stuff
     debugScreens: {
-      ignore: ["nthover"],
       position: ["bottom", "right"],
     },
   },

@@ -7,7 +7,7 @@ import {
 
 import { cmsClient } from "@/graphql/client/graphql-client";
 import { Headline } from "@/components/Text/Headline";
-import { Button } from "@/components/Form/Button";
+import { Button } from "@/components/Forms/Button";
 import type { MessageType } from "@/utils/i18n";
 import { t } from "@/utils/i18n";
 
@@ -37,7 +37,7 @@ const {
   xCraftLivePreview,
 } = Astro.props;
 
-if (!entryId) {
+if (!uri) {
   Astro.response.status = 404;
   Astro.response.statusText = "Not found";
 }

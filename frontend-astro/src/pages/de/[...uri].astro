@@ -16,7 +16,7 @@ const { uri } = Astro.params as Params;
 const { entryId, siteHandle, siteId, sectionHandle, typeHandle, lang } =
   Astro.props as Props;
 
-if (!entryId) {
+if (!uri) {
   Astro.response.status = 404;
   Astro.response.statusText = "Not found";
 }

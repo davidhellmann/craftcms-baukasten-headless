@@ -41,7 +41,7 @@ const {
 // Translations
 const translations = lang ? await getTranslations(lang) : [];
 
-if (!entryId) {
+if (!uri) {
   Astro.response.status = 404;
   Astro.response.statusText = "Not found";
 }

@@ -1,0 +1,110 @@
+color: orange
+fieldLayouts:
+  58ddc97d-9694-4104-a136-b6344987e1b6:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 40b5d5b0-eabd-442e-b8b5-8cf792b6d7b2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 35b67fb3-4bdb-470f-a686-3d46c5cd5f96 # Builder: Content - Image - Image
+            handle: image
+            includeInCards: false
+            instructions: null
+            label: Image
+            providesThumbs: true
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0cd02812-349c-46d5-a4b7-57700a221566
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Builder: Content - Image - Show Image Caption
+            handle: showImageCaption
+            includeInCards: true
+            instructions: null
+            label: 'Show Image Caption'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 089ab2ac-9335-40c2-9827-f4dd1baca5dc
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Builder: Content - Image - Image Ratio
+            handle: imageRatio
+            includeInCards: false
+            instructions: null
+            label: 'Image Ratio'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b0fb63ad-8f84-4caf-a7b6-c0e44deeae12
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 1be86da8-5273-40c6-ba88-718f5c32a6c3 # Builder: Content - Image - Image Width
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Image Width'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 744a7c6f-6d25-4c12-8d70-9a8752b5f5f6
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: 5e8a312e-45d0-491c-924d-84d96af3b270
+        userCondition: null
+handle: blockImage
+hasTitleField: false
+icon: image
+name: Image
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: ''
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: ''
+titleTranslationMethod: site

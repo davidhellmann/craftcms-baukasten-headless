@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 1b37c439-5a32-4e8f-8019-7f6a94593419 # Spacer Variant
+            fieldUid: 1b37c439-5a32-4e8f-8019-7f6a94593419 # Builder: Content - Spacer - Spacer Variant
             instructions: null
             label: null
             required: true
@@ -21,7 +21,7 @@ fieldLayouts:
         uid: 1ce6448e-436d-4f3c-b18e-d4b338f00b99
         userCondition: null
 fields:
-  1b37c439-5a32-4e8f-8019-7f6a94593419: # Spacer Variant
+  1b37c439-5a32-4e8f-8019-7f6a94593419: # Builder: Content - Spacer - Spacer Variant
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null

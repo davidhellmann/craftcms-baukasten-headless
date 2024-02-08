@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 023e5cc9-a8b0-4377-ab34-aa6bbae891ce # Video Provider
+            fieldUid: 023e5cc9-a8b0-4377-ab34-aa6bbae891ce # Builder: Content - Video - Video Provider
             instructions: null
             label: null
             required: true
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: e9486b85-fd5e-40c8-851b-a6b0133e1f88 # Video Id
+            fieldUid: e9486b85-fd5e-40c8-851b-a6b0133e1f88 # Builder: Content - Video - Video Id
             instructions: null
             label: null
             required: true
@@ -31,7 +31,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0 # Autoplay
+            fieldUid: 3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0 # Builder: Content - Video - Autoplay
             instructions: null
             label: null
             required: false
@@ -43,7 +43,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 4a25e574-679a-4d01-8e8b-d5927129ce33 # Loop
+            fieldUid: 4a25e574-679a-4d01-8e8b-d5927129ce33 # Builder: Content - Video - Loop
             instructions: null
             label: null
             required: false
@@ -55,7 +55,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 68109da0-245f-4b21-b040-b7f4385e618e # Video Width
+            fieldUid: 68109da0-245f-4b21-b040-b7f4385e618e # Builder: Content - Video - Video Width
             instructions: null
             label: null
             required: false
@@ -69,7 +69,7 @@ fieldLayouts:
         uid: bb2df4f8-8532-459f-ae5f-12b9013d58c0
         userCondition: null
 fields:
-  3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: # Autoplay
+  3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: # Builder: Content - Video - Autoplay
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
@@ -84,7 +84,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  4a25e574-679a-4d01-8e8b-d5927129ce33: # Loop
+  4a25e574-679a-4d01-8e8b-d5927129ce33: # Builder: Content - Video - Loop
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
@@ -99,7 +99,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  023e5cc9-a8b0-4377-ab34-aa6bbae891ce: # Video Provider
+  023e5cc9-a8b0-4377-ab34-aa6bbae891ce: # Builder: Content - Video - Video Provider
     columnSuffix: lhzfwkrj
     contentColumnType: string(7)
     fieldGroup: null
@@ -135,7 +135,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Dropdown
-  68109da0-245f-4b21-b040-b7f4385e618e: # Video Width
+  68109da0-245f-4b21-b040-b7f4385e618e: # Builder: Content - Video - Video Width
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -171,7 +171,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  e9486b85-fd5e-40c8-851b-a6b0133e1f88: # Video Id
+  e9486b85-fd5e-40c8-851b-a6b0133e1f88: # Builder: Content - Video - Video Id
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null

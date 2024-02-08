@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 35b67fb3-4bdb-470f-a686-3d46c5cd5f96 # Image
+            fieldUid: 35b67fb3-4bdb-470f-a686-3d46c5cd5f96 # Builder: Content - Image - Image
             instructions: null
             label: null
             required: true
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Show Image Caption
+            fieldUid: 9b73b533-898f-4f77-a500-37ea0be0afc7 # Builder: Content - Image - Show Image Caption
             instructions: null
             label: null
             required: false
@@ -31,7 +31,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Image Ratio
+            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Builder: Content - Image - Image Ratio
             instructions: null
             label: null
             required: true
@@ -43,7 +43,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 1be86da8-5273-40c6-ba88-718f5c32a6c3 # Image Width
+            fieldUid: 1be86da8-5273-40c6-ba88-718f5c32a6c3 # Builder: Content - Image - Image Width
             instructions: null
             label: null
             required: false
@@ -57,7 +57,7 @@ fieldLayouts:
         uid: 5e8a312e-45d0-491c-924d-84d96af3b270
         userCondition: null
 fields:
-  1be86da8-5273-40c6-ba88-718f5c32a6c3: # Image Width
+  1be86da8-5273-40c6-ba88-718f5c32a6c3: # Builder: Content - Image - Image Width
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -93,7 +93,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  9b73b533-898f-4f77-a500-37ea0be0afc7: # Show Image Caption
+  9b73b533-898f-4f77-a500-37ea0be0afc7: # Builder: Content - Image - Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
@@ -108,7 +108,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  35b67fb3-4bdb-470f-a686-3d46c5cd5f96: # Image
+  35b67fb3-4bdb-470f-a686-3d46c5cd5f96: # Builder: Content - Image - Image
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -158,7 +158,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\Assets
-  70bc887b-faf2-45c7-b4bc-4299acd343da: # Image Ratio
+  70bc887b-faf2-45c7-b4bc-4299acd343da: # Builder: Content - Image - Image Ratio
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null

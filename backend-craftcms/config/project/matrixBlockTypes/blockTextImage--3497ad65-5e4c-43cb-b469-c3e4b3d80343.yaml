@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Text
+            fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Builder: Content - Text : Image - Text
             instructions: null
             label: null
             required: true
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Image
+            fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Builder: Content - Text : Image - Image
             instructions: null
             label: null
             required: true
@@ -31,7 +31,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Image Transform
+            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Builder: Content - Text : Image - Image Transform
             instructions: null
             label: null
             required: true
@@ -43,7 +43,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 6a90dae3-938c-47e6-8e36-6b1d6be92d63 # Show Image Caption
+            fieldUid: 6a90dae3-938c-47e6-8e36-6b1d6be92d63 # Builder: Content - Text : Image - Show Image Caption
             instructions: null
             label: null
             required: false
@@ -55,7 +55,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Image Position
+            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Builder: Content - Text : Image - Image Position
             instructions: null
             label: null
             required: false
@@ -69,7 +69,7 @@ fieldLayouts:
         uid: a7ac4d85-057b-421c-a16b-b382da491a30
         userCondition: null
 fields:
-  0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: # Text
+  0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: # Builder: Content - Text : Image - Text
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
@@ -93,7 +93,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\ckeditor\Field
-  6a90dae3-938c-47e6-8e36-6b1d6be92d63: # Show Image Caption
+  6a90dae3-938c-47e6-8e36-6b1d6be92d63: # Builder: Content - Text : Image - Show Image Caption
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
@@ -108,7 +108,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  98f7a455-6764-4b7d-8d19-405bdcc42228: # Image Transform
+  98f7a455-6764-4b7d-8d19-405bdcc42228: # Builder: Content - Text : Image - Image Transform
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -166,7 +166,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: # Image Position
+  210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: # Builder: Content - Text : Image - Image Position
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null
@@ -181,7 +181,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Lightswitch
-  b81cb731-dd6f-4055-9c6d-2f076a727a27: # Image
+  b81cb731-dd6f-4055-9c6d-2f076a727a27: # Builder: Content - Text : Image - Image
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null

@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 53f0660a-f06b-4b2d-b342-1869c5c65538 # Quote
+            fieldUid: 53f0660a-f06b-4b2d-b342-1869c5c65538 # Builder: Content - Quote - Quote
             instructions: null
             label: null
             required: true
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0 # Source
+            fieldUid: c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0 # Builder: Content - Quote - Source
             instructions: null
             label: null
             required: false
@@ -31,7 +31,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 75b6f580-613f-42ae-aa23-2d5fb22ff3da # Source Subline
+            fieldUid: 75b6f580-613f-42ae-aa23-2d5fb22ff3da # Builder: Content - Quote - Source Subline
             instructions: null
             label: null
             required: false
@@ -43,7 +43,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: e11e03f7-19c1-45c3-935e-1994a7ce7d26 # Source Url
+            fieldUid: e11e03f7-19c1-45c3-935e-1994a7ce7d26 # Builder: Content - Quote - Source Url
             instructions: null
             label: null
             required: false
@@ -57,7 +57,7 @@ fieldLayouts:
         uid: 8e061a5e-d78f-48e7-b026-09c9f9a49a67
         userCondition: null
 fields:
-  53f0660a-f06b-4b2d-b342-1869c5c65538: # Quote
+  53f0660a-f06b-4b2d-b342-1869c5c65538: # Builder: Content - Quote - Quote
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
@@ -77,7 +77,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
-  75b6f580-613f-42ae-aa23-2d5fb22ff3da: # Source Subline
+  75b6f580-613f-42ae-aa23-2d5fb22ff3da: # Builder: Content - Quote - Source Subline
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
@@ -97,7 +97,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
-  c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: # Source
+  c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: # Builder: Content - Quote - Source
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
@@ -117,7 +117,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
-  e11e03f7-19c1-45c3-935e-1994a7ce7d26: # Source Url
+  e11e03f7-19c1-45c3-935e-1994a7ce7d26: # Builder: Content - Quote - Source Url
     columnSuffix: null
     contentColumnType: string(255)
     fieldGroup: null

@@ -1,0 +1,65 @@
+color: blue
+fieldLayouts:
+  4423c5be-938a-4871-bd99-52e14a8de079:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 97a21da4-a1c6-4805-b8e0-c24d45dfae30
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f084e099-613d-4405-b600-f4be12d3509b # Builder: Content - Divider - Divider Variant
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Divider Variant'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b37c0cae-90a6-44b1-95f1-c0fbb5c25213
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ae8f94aa-5f01-405e-9c05-1294f1d44a6a
+        userCondition: null
+handle: blockDivider
+hasTitleField: false
+icon: horizontal-rule
+name: Divider
+showSlugField: true
+showStatusField: true
+slugTranslationKeyFormat: ''
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: ''
+titleTranslationMethod: site

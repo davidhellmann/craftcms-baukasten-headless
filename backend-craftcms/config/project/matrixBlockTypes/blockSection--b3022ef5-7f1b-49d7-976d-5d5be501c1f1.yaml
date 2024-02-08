@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 9a8fffce-3c28-4326-8f7a-e31d2f6cc04b # Section Background Color
+            fieldUid: 9a8fffce-3c28-4326-8f7a-e31d2f6cc04b # Builder: Content - Section - Section Background Color
             instructions: null
             label: null
             required: false
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 74b87138-1475-47c2-a9dd-63baa78dd5f5 # Space Between Blocks
+            fieldUid: 74b87138-1475-47c2-a9dd-63baa78dd5f5 # Builder: Content - Section - Space Between Blocks
             instructions: null
             label: null
             required: false
@@ -31,7 +31,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: aa7883a4-2cce-4316-85f3-ec6ea59402ec # Section Padding Vertical
+            fieldUid: aa7883a4-2cce-4316-85f3-ec6ea59402ec # Builder: Content - Section - Section Padding Vertical
             instructions: null
             label: null
             required: false
@@ -45,7 +45,7 @@ fieldLayouts:
         uid: 5cb029e3-a009-451e-8ab8-a2a2dec9a3f5
         userCondition: null
 fields:
-  9a8fffce-3c28-4326-8f7a-e31d2f6cc04b: # Section Background Color
+  9a8fffce-3c28-4326-8f7a-e31d2f6cc04b: # Builder: Content - Section - Section Background Color
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -92,7 +92,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  74b87138-1475-47c2-a9dd-63baa78dd5f5: # Space Between Blocks
+  74b87138-1475-47c2-a9dd-63baa78dd5f5: # Builder: Content - Section - Space Between Blocks
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null
@@ -172,7 +172,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\Dropdown
-  aa7883a4-2cce-4316-85f3-ec6ea59402ec: # Section Padding Vertical
+  aa7883a4-2cce-4316-85f3-ec6ea59402ec: # Builder: Content - Section - Section Padding Vertical
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null

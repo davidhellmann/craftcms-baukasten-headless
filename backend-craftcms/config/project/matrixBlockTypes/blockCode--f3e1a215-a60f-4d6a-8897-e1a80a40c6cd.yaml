@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba # Snippet Name
+            fieldUid: 9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba # Builder: Content - Code - Snippet Name
             instructions: null
             label: null
             required: false
@@ -19,7 +19,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: be45c3e2-5e9f-491e-a000-94d95c4fa20b # Snippet
+            fieldUid: be45c3e2-5e9f-491e-a000-94d95c4fa20b # Builder: Content - Code - Snippet
             instructions: null
             label: null
             required: true
@@ -31,7 +31,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f # Snippet collapsed
+            fieldUid: cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f # Builder: Content - Code - Snippet collapsed
             instructions: null
             label: null
             required: false
@@ -45,7 +45,7 @@ fieldLayouts:
         uid: c033e8a9-eab3-4bd0-bea5-4a8d2dcf5ad3
         userCondition: null
 fields:
-  9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba: # Snippet Name
+  9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba: # Builder: Content - Code - Snippet Name
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
@@ -65,7 +65,7 @@ fields:
     translationKeyFormat: null
     translationMethod: site
     type: craft\fields\PlainText
-  be45c3e2-5e9f-491e-a000-94d95c4fa20b: # Snippet
+  be45c3e2-5e9f-491e-a000-94d95c4fa20b: # Builder: Content - Code - Snippet
     columnSuffix: null
     contentColumnType: text
     fieldGroup: null
@@ -101,7 +101,7 @@ fields:
     translationKeyFormat: null
     translationMethod: none
     type: nystudio107\codefield\fields\Code
-  cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: # Snippet collapsed
+  cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: # Builder: Content - Code - Snippet collapsed
     columnSuffix: null
     contentColumnType: boolean
     fieldGroup: null

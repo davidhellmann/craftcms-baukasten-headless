@@ -7,7 +7,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: f084e099-613d-4405-b600-f4be12d3509b # Divider Variant
+            fieldUid: f084e099-613d-4405-b600-f4be12d3509b # Builder: Content - Divider - Divider Variant
             instructions: null
             label: null
             required: true
@@ -21,7 +21,7 @@ fieldLayouts:
         uid: ae8f94aa-5f01-405e-9c05-1294f1d44a6a
         userCondition: null
 fields:
-  f084e099-613d-4405-b600-f4be12d3509b: # Divider Variant
+  f084e099-613d-4405-b600-f4be12d3509b: # Builder: Content - Divider - Divider Variant
     columnSuffix: null
     contentColumnType: string
     fieldGroup: null

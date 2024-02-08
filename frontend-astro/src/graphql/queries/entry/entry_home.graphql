@@ -2,7 +2,11 @@ query GetHomeEntry(
   $site: [String]!,
   $section: [String]!,
   $type: [String] = ["*"],
-  $id: [QueryArgument]
+  $id: [QueryArgument],
+  $includeDatesPosted: Boolean = false,
+  $includeDatesExpired: Boolean = false,
+  $includeDatesUpdated: Boolean = false,
+  $includeDatesTimezone: Boolean = false,
 ) {
   entry(
     site: $site,
@@ -14,10 +18,10 @@ query GetHomeEntry(
     ...entry_data
 
     # Entry Dates
-    ...entry_dates_posted
-    ...entry_dates_expired
-    ...entry_dates_updated
-    ...entry_dates_timezone
+    ...entry_dates_posted @include(if: $includeDatesPosted)
+    ...entry_dates_expired @include(if: $includeDatesExpired)
+    ...entry_dates_updated @include(if: $includeDatesUpdated)
+    ...entry_dates_timezone @include(if: $includeDatesTimezone)
 
     # Entry Type [home]
     ...entryType_home_home

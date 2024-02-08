@@ -1,3 +1,4 @@
+color: null
 fieldLayouts:
   d9e47404-d530-49be-957f-79a2ee567d15:
     tabs:
@@ -12,6 +13,8 @@ fieldLayouts:
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
+            inputType: null
             instructions: null
             label: null
             max: null
@@ -19,6 +22,7 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -33,8 +37,11 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 55a8f195-17f6-41b9-983f-06bb0d4b973e # Text: Title Overwrite
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -45,8 +52,11 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 45510f13-91d2-479f-9ff2-68dd09ab6643 # Text: Description
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -57,8 +67,11 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 0dc851b0-a289-4c50-be8d-0c055b270ee8 # Asset: Entry Image
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -75,8 +88,11 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: 74eb36ae-7a26-4e7d-b454-990ec52617f0 # Builder: Content
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -93,8 +109,11 @@ fieldLayouts:
           -
             elementCondition: null
             fieldUid: d29e8520-ab62-4c8f-bda2-61868797c1ca # SEO: SEOmatic
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -107,12 +126,12 @@ fieldLayouts:
         userCondition: null
 handle: newsDefault
 hasTitleField: true
+icon: memo
 name: 'News Default'
-section: 3547e7b4-f3fb-4cf4-9d29-9f12dfa94594 # News
+showSlugField: true
 showStatusField: true
-slugTranslationKeyFormat: null
+slugTranslationKeyFormat: ''
 slugTranslationMethod: site
-sortOrder: 1
-titleFormat: null
-titleTranslationKeyFormat: null
+titleFormat: ''
+titleTranslationKeyFormat: ''
 titleTranslationMethod: site

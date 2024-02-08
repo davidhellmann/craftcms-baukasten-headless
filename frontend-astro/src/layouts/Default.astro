@@ -1,6 +1,5 @@
 ---
 import type { MessageType } from "@/utils/i18n";
-// Infos
 import EntryInfo from "@/layouts/_partials/EntryInfo.astro";
 
 // Singles
@@ -65,14 +64,13 @@ if (sectionHandle in views) {
 ---
 
 {
-  siteId && entryId && (
+  siteId && uri && (
     <View
       uri={uri}
       siteHandle={siteHandle}
       siteId={siteId}
       typeHandle={typeHandle}
       sectionHandle={sectionHandle}
-      entryId={entryId}
       translations={translations}
       token={token}
       xCraftPreview={xCraftPreview}

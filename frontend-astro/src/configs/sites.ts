@@ -1,3 +1,5 @@
+export type TSectionWithUrls = "home" | "news" | "pages";
+
 export interface IConfigSites {
   handle: string;
   siteId: number;
@@ -6,7 +8,7 @@ export interface IConfigSites {
   urlParameterTrailingSlash?: string;
   primary: boolean;
   baseUrl: string;
-  sections: string[];
+  sections: TSectionWithUrls[];
 }
 
 const SITES: IConfigSites[] = [

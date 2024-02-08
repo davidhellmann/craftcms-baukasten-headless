@@ -19,6 +19,7 @@ export interface Props {
   sectionHandle: string;
   typeHandle: string;
   uri: string;
+  title: string;
   entryId: string | number;
   token?: string;
   xCraftPreview?: string;
@@ -33,6 +34,7 @@ const {
   typeHandle,
   uri,
   entryId,
+  title,
   token,
   xCraftPreview,
   xCraftLivePreview,
@@ -100,6 +102,7 @@ if (siteHandle && Layouts && siteHandle in Layouts) {
       typeHandle={typeHandle}
       sectionHandle={sectionHandle}
       entryId={entryId}
+      title={title}
       translations={translations}
       token={token}
       xCraftPreview={xCraftPreview}

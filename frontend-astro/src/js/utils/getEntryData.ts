@@ -34,7 +34,16 @@ export const getEntryData = async (
   )) as GetAllEntriesQuery;
 
   return entries.map(
-    ({ uri, id, url, siteHandle, siteId, sectionHandle, typeHandle }) => {
+    ({
+      uri,
+      id,
+      url,
+      siteHandle,
+      siteId,
+      sectionHandle,
+      typeHandle,
+      title,
+    }) => {
       // This was for one page catching all routes
       // const locale = getCurrentSiteData(
       //   {
@@ -50,6 +59,7 @@ export const getEntryData = async (
         },
         props: {
           entryId: id,
+          title,
           siteId,
           siteHandle,
           sectionHandle,

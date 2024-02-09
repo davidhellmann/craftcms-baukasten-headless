@@ -19,6 +19,7 @@ export interface Props {
   sectionHandle: string;
   typeHandle: string;
   uri: string;
+  title: string;
   entryId: string;
   translations: MessageType[];
   token: string;
@@ -33,6 +34,7 @@ const {
   uri,
   entryId,
   siteId,
+  title,
   token,
   xCraftPreview,
   xCraftLivePreview,
@@ -69,6 +71,8 @@ if (sectionHandle in views) {
       uri={uri}
       siteHandle={siteHandle}
       siteId={siteId}
+      entryId={entryId}
+      title={title}
       typeHandle={typeHandle}
       sectionHandle={sectionHandle}
       translations={translations}

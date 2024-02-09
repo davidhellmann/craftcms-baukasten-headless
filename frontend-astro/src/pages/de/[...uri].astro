@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { uri } = Astro.params as Params;
-const { entryId, siteHandle, siteId, sectionHandle, typeHandle, lang } =
+const { entryId, siteHandle, siteId, title, sectionHandle, typeHandle, lang } =
   Astro.props as Props;
 
 if (!uri) {
@@ -27,6 +27,7 @@ if (!uri) {
   lang={lang}
   siteHandle={siteHandle}
   siteId={siteId}
+  title={title}
   typeHandle={typeHandle}
   sectionHandle={sectionHandle}
   entryId={entryId}

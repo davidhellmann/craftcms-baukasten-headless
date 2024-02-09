@@ -22,10 +22,6 @@ interface ICompWaypointObserver {
     endless: boolean;
   };
 
-  classes?: {
-    [key: string]: string;
-  };
-
   startObserving(el: NodeListOf<HTMLElement>): void;
 
   setSettings(el: Element): void;
@@ -34,7 +30,7 @@ interface ICompWaypointObserver {
 
   getWaypointTargets(el: Element): Array<HTMLElement>;
 
-  handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
+  handleAnimateAttributes(el: Array<HTMLElement>, settings: Settings): void;
 
   watchDomChanges(): void;
 
@@ -52,14 +48,14 @@ const getAttributeAsNumber = (
 
 const animateElement = (element: HTMLElement, delay: number): void => {
   setTimeout(() => {
-    element.classList.add("is-animated");
+    element.setAttribute("data-waypoint-animated", "true");
   }, delay);
 };
 
 const waypointObserver: ICompWaypointObserver = {
   name: "waypointObserver",
   selectors: {
-    waypointTarget: "[waypoint-target]:not([waypoint])",
+    waypointTarget: "[data-waypoint-target]:not([data-waypoint])",
   },
   settings: {
     delay: 50,
@@ -70,10 +66,6 @@ const waypointObserver: ICompWaypointObserver = {
   observerConfig: {
     threshold: [0],
     rootMargin: "0px 0px -10% 0px",
-  },
-  classes: {
-    isInViewport: "is-inViewport",
-    isAnimated: "is-animated",
   },
 
   startObserving(waypoints) {
@@ -89,19 +81,17 @@ const waypointObserver: ICompWaypointObserver = {
           }
 
           // Add in-view class for element
-          if (!this.classes) return;
-          entry.target.classList?.add(this.classes.isInViewport);
+          entry.target.setAttribute("data-waypoint-in-viewport", "true");
 
           // Animate Targets
           if (!targets) return;
-          this.handleAnimateClasses(targets, this.settings);
+          this.handleAnimateAttributes(targets, this.settings);
         } else {
           // Add in-view class for element
-          if (!this.classes) return;
-          entry.target.classList?.remove(this.classes.isInViewport);
+          entry.target.removeAttribute("data-waypoint-in-viewport");
           targets?.forEach((target) => {
-            if (target.classList?.contains("is-animated")) {
-              target.classList?.remove("is-animated");
+            if (target.hasAttribute("data-waypoint-animated")) {
+              target.removeAttribute("data-waypoint-animated");
             }
           });
         }
@@ -116,21 +106,21 @@ const waypointObserver: ICompWaypointObserver = {
   setSettings(waypoint) {
     this.settings.delay = getAttributeAsNumber(
       waypoint,
-      "waypoint-delay",
+      "data-waypoint-delay",
       this.settings.delay,
     );
 
     this.settings.staggeringDelay = getAttributeAsNumber(
       waypoint,
-      "waypoint-staggering-delay",
+      "data-waypoint-staggering-delay",
       this.settings.staggeringDelay,
     );
 
     this.settings.endless =
-      waypoint.getAttribute("waypoint-endless") === "true";
+      waypoint.getAttribute("data-waypoint-endless") === "true";
 
     this.settings.includeHolder =
-      waypoint.getAttribute("waypoint-include-holder") === "true";
+      waypoint.getAttribute("data-waypoint-include-holder") === "true";
   },
 
   findWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
@@ -140,14 +130,14 @@ const waypointObserver: ICompWaypointObserver = {
     );
 
     return Array.from(allTargets).filter((target) => {
-      return target.closest("[waypoint]") === holder;
+      return target.closest("[data-waypoint]") === holder;
     }) as Array<HTMLElement>;
   },
 
   getWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
     if (!this.selectors) return [];
     let targets = [...this.findWaypointTargets(holder)];
-    const holderIsTarget = holder.hasAttribute("waypoint-target");
+    const holderIsTarget = holder.hasAttribute("data-waypoint-target");
     if (holderIsTarget && !this.settings.includeHolder) {
       // Animate the waypoint itself if there is a waypoint-target attribute
       targets = [holder];
@@ -161,7 +151,10 @@ const waypointObserver: ICompWaypointObserver = {
     return targets;
   },
 
-  handleAnimateClasses(targets: Array<HTMLElement>, settings: Settings): void {
+  handleAnimateAttributes(
+    targets: Array<HTMLElement>,
+    settings: Settings,
+  ): void {
     targets.forEach((target, index) => {
       let delay = settings.delay + settings.staggeringDelay * index;
 
@@ -169,7 +162,7 @@ const waypointObserver: ICompWaypointObserver = {
         delay = settings.delay;
       }
 
-      if (!target.classList.contains("is-animated")) {
+      if (!target.hasAttribute("data-waypoint-animated")) {
         animateElement(target, delay);
       }
     });
@@ -186,7 +179,7 @@ const waypointObserver: ICompWaypointObserver = {
     const callback = (mutationList: MutationRecord[]) => {
       for (const mutation of mutationList) {
         if (mutation.type === "childList") {
-          const waypointEls = document.querySelectorAll("[waypoint]");
+          const waypointEls = document.querySelectorAll("[data-waypoint]");
           this.startObserving(waypointEls as NodeListOf<HTMLElement>);
         }
       }

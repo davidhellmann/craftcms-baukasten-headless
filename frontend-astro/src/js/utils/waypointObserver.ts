@@ -1,35 +1,44 @@
 interface Settings {
   delay: number;
   staggeringDelay: number;
+  includeHolder: boolean;
   endless: boolean;
 }
 
-interface ICompWaypointObserver extends NestedObject<string | object> {
+interface ICompWaypointObserver {
+  name: string;
+  selectors?: {
+    [key: string]: string;
+  };
   observerConfig: {
     threshold: Array<number>;
     rootMargin: string;
   };
 
-  selectors: {
-    waypointTarget: string;
-  };
-
   settings: {
     delay: number;
     staggeringDelay: number;
+    includeHolder: boolean;
     endless: boolean;
   };
 
-  classes: {
-    isInViewport: string;
-    isAnimated: string;
+  classes?: {
+    [key: string]: string;
   };
 
   startObserving(el: NodeListOf<HTMLElement>): void;
+
   setSettings(el: Element): void;
+
+  findWaypointTargets(el: Element): Array<HTMLElement>;
+
   getWaypointTargets(el: Element): Array<HTMLElement>;
+
   handleAnimateClasses(el: Array<HTMLElement>, settings: Settings): void;
-  init(el: NodeListOf<HTMLElement>): void;
+
+  watchDomChanges(): void;
+
+  init(el: HTMLElement | NodeListOf<HTMLElement>): void;
 }
 
 const getAttributeAsNumber = (
@@ -50,11 +59,12 @@ const animateElement = (element: HTMLElement, delay: number): void => {
 const waypointObserver: ICompWaypointObserver = {
   name: "waypointObserver",
   selectors: {
-    waypointTarget: "[waypoint-target]",
+    waypointTarget: "[waypoint-target]:not([waypoint])",
   },
   settings: {
     delay: 50,
-    staggeringDelay: 100,
+    staggeringDelay: 35,
+    includeHolder: false,
     endless: false,
   },
   observerConfig: {
@@ -118,20 +128,34 @@ const waypointObserver: ICompWaypointObserver = {
 
     this.settings.endless =
       waypoint.getAttribute("waypoint-endless") === "true";
+
+    this.settings.includeHolder =
+      waypoint.getAttribute("waypoint-include-holder") === "true";
   },
 
-  getWaypointTargets(holder): Array<HTMLElement> {
+  findWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
     if (!this.selectors) return [];
-    let targets = [
-      ...holder.querySelectorAll<HTMLElement>(this.selectors.waypointTarget),
-    ];
-    const holderHasTargets = holder.hasAttribute("waypoint-target");
-    if (
-      targets.length <= this.observerConfig.threshold[0] &&
-      holderHasTargets
-    ) {
-      // Animate the waypoint itself if no targets exists
-      targets = [holder as HTMLElement];
+    const allTargets = holder.querySelectorAll<HTMLElement>(
+      this.selectors.waypointTarget,
+    );
+
+    return Array.from(allTargets).filter((target) => {
+      return target.closest("[waypoint]") === holder;
+    }) as Array<HTMLElement>;
+  },
+
+  getWaypointTargets(holder: HTMLElement): Array<HTMLElement> {
+    if (!this.selectors) return [];
+    let targets = [...this.findWaypointTargets(holder)];
+    const holderIsTarget = holder.hasAttribute("waypoint-target");
+    if (holderIsTarget && !this.settings.includeHolder) {
+      // Animate the waypoint itself if there is a waypoint-target attribute
+      targets = [holder];
+    }
+
+    if (holderIsTarget && this.settings.includeHolder) {
+      // Animate also the holder element with the waypoint-targets
+      targets = [holder, ...targets];
     }
 
     return targets;
@@ -151,8 +175,30 @@ const waypointObserver: ICompWaypointObserver = {
     });
   },
 
+  watchDomChanges() {
+    const targetNode = document.body;
+    const config = {
+      childList: true,
+      attributes: true,
+      subtree: true,
+    };
+
+    const callback = (mutationList: MutationRecord[]) => {
+      for (const mutation of mutationList) {
+        if (mutation.type === "childList") {
+          const waypointEls = document.querySelectorAll("[waypoint]");
+          this.startObserving(waypointEls as NodeListOf<HTMLElement>);
+        }
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(targetNode, config);
+  },
+
   init(waypointEls: NodeListOf<HTMLElement>) {
     this.startObserving(waypointEls);
+    this.watchDomChanges();
   },
 };
 

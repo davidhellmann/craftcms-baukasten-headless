@@ -2,7 +2,7 @@
 import { t, getTranslations } from "@/utils/i18n";
 
 // Translations
-const translations = await getTranslations("en");
+const translations = await getTranslations("en", Astro.url as string);
 ---
 
 <!doctype html>

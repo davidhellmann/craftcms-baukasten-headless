@@ -4,10 +4,11 @@ export type MessageType = {
   message: string | null;
 };
 
-export const getTranslations = async (lang: string = "en") => {
-  const response = await fetch(
-    `http://localhost:4321/api/translations/${lang}.json`,
-  );
+export const getTranslations = async (
+  lang: string = "en",
+  url: string = "",
+) => {
+  const response = await fetch(`${url}/api/translations/${lang}.json`);
   const data = await response.json();
   return data?.currentLanguage ?? [];
 };

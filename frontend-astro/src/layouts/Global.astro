@@ -41,7 +41,9 @@ const {
 } = Astro.props;
 
 // Translations
-const translations = lang ? await getTranslations(lang) : [];
+const translations = lang
+  ? await getTranslations(lang, Astro.url as string)
+  : [];
 
 if (!uri) {
   Astro.response.status = 404;
